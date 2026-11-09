@@ -27,7 +27,7 @@ The daily job calls no outside service and needs no secret. It re-scores what is
 ## How to rerun
 - By hand: Actions > "Deploy site to GitHub Pages" > Run workflow (branch `main`).
 - On your machine (R 4.5): from the repo root, `RUN_PIPELINE=1 JOB_DRY_RUN=1 JOB_OUT=/tmp/payload.json Rscript app/job.R`, then `sh app/build_pages.sh /tmp/site /tmp/payload.json`, then `python3 -m http.server -d /tmp/site 8000` and open `http://127.0.0.1:8000/matchmaker/`.
-- Checks: from the repo root, `Rscript tests/run_tests.R` (expect "89 of 89 tests pass") and `Rscript R/check_facts.R` (expect "49 of 49 rows pass"). From the repo root, `python3 app/check_dupes.py`.
+- Checks: from the repo root, `Rscript tests/run_tests.R` (expect every test to pass, zero failures) and `Rscript R/check_facts.R` (expect "49 of 49 rows pass"). From the repo root, `python3 app/check_dupes.py`.
 
 ## Researcher tab data
 - Rebuild `data/processed/research.json` with `Rscript R/14_build_research_payload.R` from the repo root. It uses today's date as `AS_OF_DATE`, so the committed file is a dated snapshot; the browser drops rows whose close date has passed, using the visitor's date. The daily job does not rebuild `research.json` yet.

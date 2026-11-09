@@ -11,7 +11,7 @@ Written when the repository was reorganized into a clean top-level layout (2026-
 | `api_keys.env.example`, `.Renviron.example` | Templates for local keys. Real key files are git-ignored. |
 | `R/` | The numbered R pipeline (`00_config.R` holds every threshold and path), helpers, backtests, `check_facts.R`, `ocr_vision.swift`. |
 | `tool/` | The static web page `matchmaker.html` (published as `/matchmaker/`), plus `ranker.js`, `ui.js`, `styles.css`, `index.html`, `stub/`, `build_tool.R`. |
-| `tests/` | `run_tests.R` and its helpers (89 tests). |
+| `tests/` | `run_tests.R` and its helpers. |
 | `app/` | Daily job `job.R`, Pages build `build_pages.sh`, feeds `build_feeds.py`, `check_dupes.py`, `site_index.html` (landing page at `/`), Dockerfiles and the Azure-era container files that remain. |
 | `data/raw/` | Untouched inputs (agency plan PDFs, SAM listings, organizer files). |
 | `data/manual/` | Hand-authored tables, including the agency goal tables and plan text checks. |

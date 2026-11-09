@@ -44,7 +44,14 @@ TYPE_CODES <- c(state_governments = "00", county_governments = "01", city_or_tow
                 private_institutions_of_higher_education = "20", individuals = "21",
                 for_profit_organizations_other_than_small_businesses = "22", small_businesses = "23",
                 other = "25", unrestricted = "99")
-type_codes <- function(x) { v <- unname(TYPE_CODES[unlist(x)]); paste(v[!is.na(v)], collapse = "|") }
+# An unknown name becomes the token UNMAPPED so the row stays visible; the pool rule ignores that token.
+UNMAPPED_SEEN <- character()
+type_codes <- function(x) {
+  nm <- unlist(x); v <- unname(TYPE_CODES[nm])
+  bad <- is.na(v); UNMAPPED_SEEN <<- union(UNMAPPED_SEEN, nm[bad])
+  v[bad] <- "UNMAPPED"
+  paste(v, collapse = "|")
+}
 
 flat <- function(d) {
   s <- d$summary
@@ -56,5 +63,8 @@ flat <- function(d) {
          url = paste0("https://simpler.grants.gov/opportunity/", d$opportunity_id))
 }
 out <- map_dfr(pages, ~ flat(.x$data)) |> distinct(opp_id, .keep_all = TRUE)
+if (length(UNMAPPED_SEEN)) message("Unmapped applicant-type names (add to TYPE_CODES): ", paste(UNMAPPED_SEEN, collapse = ", "))
+only_unmapped <- out$applicant_types == "UNMAPPED"
+message("Rows whose only applicant type is UNMAPPED (excluded by the pool rule): ", sum(only_unmapped))
 write_csv(out, file.path(DIR_PROCESSED, "research_opportunities.csv"))
 message("Wrote research_opportunities.csv: ", nrow(out), " rows; status: ", paste(names(table(out$status)), table(out$status), collapse = ", "))

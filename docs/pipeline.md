@@ -35,7 +35,7 @@ Run everything from the repo root. Start with the ranking, then the two checks:
 
 ```bash
 Rscript R/10_run_ranking.R     # writes data/processed/items.csv and ranking.csv, and outs/top_results.csv
-Rscript tests/run_tests.R      # prints "89 of 89 tests pass"
+Rscript tests/run_tests.R      # expect every test to pass (zero failures)
 Rscript R/check_facts.R        # prints "49 of 49 rows pass"
 ```
 
@@ -133,7 +133,7 @@ Feeds: `app/build_feeds.py` (called by `build_pages.sh`) writes an Atom feed and
 
 Freshness: `.github/workflows/freshness.yml` loads the live `payload.json` daily and fails (GitHub emails the owners) if `data_as_of` is over 3 days old. The tool also shows a banner when its data is 3 or more days old. Set the repo variable `SITE_URL` if the Pages address differs.
 
-PR checks: `.github/workflows/checks.yml` runs `app/check_dupes.py` (duplicate function names), builds the site and validates the feeds on every pull request. R tests are not run in CI yet; run `Rscript tests/run_tests.R` locally (89 of 89).
+PR checks: `.github/workflows/checks.yml` runs `app/check_dupes.py` (duplicate function names), builds the site and validates the feeds on every pull request. R tests are not run in CI yet; run `Rscript tests/run_tests.R` locally (expect zero failures).
 
 ## Legacy: deploy on Azure (no longer used)
 

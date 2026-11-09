@@ -27,7 +27,7 @@ It started as an entry in the Solve-A-Thon 2026 challenge for the NC Office of S
 
 The "For researchers" tab lists open federal opportunities that a university or nonprofit applicant can apply to, with a search box, filters and a time warning. It is a screening aid: it helps you decide what to read, and the Grants.gov notice is the authority on dates, eligibility and fit. "Unknown" means unknown: when a mechanism, institute, trial status or date could not be read from the notice, the tab says so and does not guess.
 
-Ranking is keyword matching (BM25) with a synonym list. Each result shows the terms that matched, so you can see why it ranked where it did. In this version nothing you type is sent to any server; the search runs in your browser on one data file, `research.json`.
+Ranking is keyword matching (BM25) with a synonym list. Each result shows the terms that matched, so you can see why it ranked where it did. In this version nothing you type is sent to any server; the search runs in your browser on two data files from this site, `research.json` and `synonyms.json`.
 
 Run the checks from the repo root with `node tests/research/test_core.js` (unit tests) and `node tests/research/run_testset.js` (scores the award test set and writes `outs/research_testset_report.csv`).
 
@@ -47,7 +47,7 @@ A daily GitHub Actions job re-scores the opportunity data already stored in the 
 
 ## Privacy
 
-The tool is a static page. It loads one data file from its own site and nothing else; your agency choice, marks and notes are kept in your browser's local storage on your device and are never sent anywhere. There are no accounts. Links in the tool (Grants.gov, SAM.gov, the feedback link) open other sites only when you click them. Clear your browser's site data to erase your marks.
+The tool is a static page. It loads its data files (the grant payload and, for the researcher tab, research.json and synonyms.json) from its own site and nothing else; your agency choice, marks and notes are kept in your browser's local storage on your device and are never sent anywhere. There are no accounts. Links in the tool (Grants.gov, SAM.gov, the feedback link) open other sites only when you click them. Clear your browser's site data to erase your marks.
 
 ## Report a problem or give feedback
 
