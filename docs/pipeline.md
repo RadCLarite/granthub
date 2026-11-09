@@ -4,7 +4,7 @@ A tool that helps a North Carolina agency decide which open federal grants to lo
 
 Team: Kent Lee, Everett Foo, Marco Gullotto, Matthew Martin, Noah Goldblatt.
 
-Live copy on GitHub Pages: https://kapollol.github.io/granthub/matchmaker/ [uncertain: assumes Pages is enabled on KApolloL/granthub with Source: GitHub Actions]. It moved off Azure; the Azure files are kept as history (see "Legacy: deploy on Azure").
+Live copy on GitHub Pages: https://radclarite.github.io/granthub/matchmaker/ [Pages must be enabled with Source: GitHub Actions]. It moved off Azure; the Azure files are kept as history (see "Legacy: deploy on Azure").
 
 ## What it does and for whom
 
@@ -129,7 +129,7 @@ Not built: calibrated win odds (no outcome data to calibrate on; any number woul
 
 Saved work: Display menu has "Export my saved work" and "Import saved work". The file holds only `ffm_` browser keys and is the way to move work between browsers or people (no accounts, no shared workspace).
 
-Feeds: `app/build_feeds.py` (called by `build_pages.sh`) writes an Atom feed and an ICS calendar per agency to `/matchmaker/feeds/` (index page there). Set `SITE_URL` if the Pages address differs from the assumed `https://kapollol.github.io/granthub/matchmaker/`. Feed readers and calendar apps poll these files; there is no per-user email.
+Feeds: `app/build_feeds.py` (called by `build_pages.sh`) writes an Atom feed and an ICS calendar per agency to `/matchmaker/feeds/` (index page there). Set `SITE_URL` if the Pages address differs from the assumed `https://radclarite.github.io/granthub/matchmaker/`. Feed readers and calendar apps poll these files; there is no per-user email.
 
 Freshness: `.github/workflows/freshness.yml` loads the live `payload.json` daily and fails (GitHub emails the owners) if `data_as_of` is over 3 days old. The tool also shows a banner when its data is 3 or more days old. Set the repo variable `SITE_URL` if the Pages address differs.
 
