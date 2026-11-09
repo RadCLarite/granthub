@@ -17,6 +17,10 @@ local({
   check(s, "mechanism: Collaborative U24", identical(parse_mechanism("Resource (Collaborative U24 - Clinical Trials not allowed)"), "U24"))
   check(s, "mechanism: R43/R44 takes first", identical(parse_mechanism("SBIR Phase I (R43/R44 Clinical Trial Not Allowed)"), "R43"))
   check(s, "mechanism: none gives NA", is.na(parse_mechanism("Small Business Translator: MedTech and Digital Health Technologies")))
+  check(s, "mechanism: UG3/UH3 takes first", identical(parse_mechanism("Trials (UG3/UH3 - Clinical Trial Required)"), "UG3"))
+  check(s, "mechanism: DP2", identical(parse_mechanism("Pioneer Award (DP2)"), "DP2"))
+  check(s, "mechanism: RM1 standalone", identical(parse_mechanism("Center RM1 program"), "RM1"))
+  check(s, "mechanism: COVID-19 is not a code", is.na(parse_mechanism("COVID-19 vaccine research")))
   check(s, "mechanism: vectorised", identical(parse_mechanism(c("A (R21)", "B")), c("R21", NA_character_)))
 
   check(s, "trial: optional", identical(parse_trial_status("Foo (R01 Clinical Trial Optional)"), "optional"))
@@ -53,6 +57,9 @@ local({
   check(s, "as_of is ISO text", identical(p$as_of, "2026-11-07"))
   dup <- build_research_payload(rbind(toy[1, ], toy[1, ]), as.Date("2026-11-07"))
   check(s, "duplicate opp_id collapses", dup$n == 1)
+  late <- toy[1, ]; late$status <- "closed"; late2 <- toy[1, ]
+  dd <- build_research_payload(rbind(late, late2), as.Date("2026-11-07"))
+  check(s, "dedup after filters: later eligible duplicate is kept", dd$n == 1)
   check(s, "summary cut to 1200", nchar(p$rows[[1]]$sum) <= 1200)
   fc <- Filter(function(r) r$id == "6", p$rows)[[1]]
   check(s, "forecast with NA close stays, close is NA", is.na(fc$close))

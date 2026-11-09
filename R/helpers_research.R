@@ -8,11 +8,11 @@ RESEARCH_SUM_MAX <- 1200L
 parse_mechanism <- function(title) {
   title <- as.character(title)
   in_paren <- vapply(stringr::str_match_all(title, "[(]([^)]*)[)]"), function(m) {
-    hit <- stringr::str_match(m[, 2], "^(?:Parent |Collaborative )?([A-Z][0-9]{2}|SBIR|STTR)")[, 2]
+    hit <- stringr::str_match(m[, 2], "^(?:Parent |Collaborative )?([A-Z][0-9]{2}|[A-Z]{2}[0-9]{1,2}|SBIR|STTR)")[, 2]
     hit <- hit[!is.na(hit)]
     if (length(hit)) hit[1] else NA_character_
   }, character(1))
-  loose <- stringr::str_extract(title, "\\b[RKUPTFDS][0-9]{2}\\b")
+  loose <- stringr::str_extract(title, "\\b(?:[RKUPTFDS][0-9]{2}|U[GHMT][0-9]|RM1|DP[0-9])\\b")
   dplyr::coalesce(in_paren, loose)
 }
 
@@ -53,20 +53,23 @@ build_research_payload <- function(opps, as_of) {
   codes <- strsplit(ifelse(is.na(o$applicant_types), "", as.character(o$applicant_types)), "|", fixed = TRUE)
   elig <- vapply(codes, function(x) any(x %in% RESEARCH_ELIGIBLE_CODES), logical(1))
   close <- as.Date(as.character(o$close_date))
-  keep <- o$status %in% c("posted", "forecasted") & elig & (is.na(close) | close >= as_of) & !duplicated(o$opp_id)
+  keep <- o$status %in% c("posted", "forecasted") & elig & (is.na(close) | close >= as_of)
+  keep[keep] <- !duplicated(o$opp_id[keep])
   o <- o[keep, , drop = FALSE]
   close <- close[keep]
   if (nrow(o) == 0) return(list(as_of = format(as_of), n = 0L, rows = list()))
   num <- function(x) suppressWarnings(as.numeric(x))
   trial <- parse_trial_status(o$title)
+  mech <- parse_mechanism(o$title)
+  ic <- parse_ic(o$opp_number, rep(NA_character_, nrow(o)))
   txt <- paste(o$title, o$summary)
   rows <- lapply(seq_len(nrow(o)), function(i) list(
     id = as.character(o$opp_id[i]), num = as.character(o$opp_number[i]), title = as.character(o$title[i]),
     agency = as.character(o$agency[i]), status = as.character(o$status[i]),
     close = if (is.na(close[i])) NA_character_ else format(close[i]),
     floor = num(o$award_floor[i]), ceil = num(o$award_ceiling[i]),
-    mech = parse_mechanism(o$title[i]), trial = trial[i], hs = parse_hs_flag(txt[i], trial[i]),
-    ic = parse_ic(o$opp_number[i], NA_character_),
+    mech = mech[i], trial = trial[i], hs = parse_hs_flag(txt[i], trial[i]),
+    ic = ic[i],
     elig = as.character(o$applicant_types[i]), url = as.character(o$url[i]),
     sum = substr(as.character(o$summary[i]), 1, RESEARCH_SUM_MAX)))
   list(as_of = format(as_of), n = length(rows), rows = rows)
