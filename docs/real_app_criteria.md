@@ -48,6 +48,9 @@ This is for real use, not a competition. Each criterion is pass or fail. Who che
 | F1 | A named owner and a one-page runbook: what the daily job does, how to see a failure, how to rerun it | Human decides the owner; Me writes the runbook |
 | F2 | Pages source is GitHub Actions, repo URL and `SITE_URL` are set to the real address (not assumed) | Human, then GitHub |
 
+## Researcher tab (phase 1)
+Automated: Node unit tests (`tests/research/test_core.js`), R parser tests (`tests/test_research.R`), the test-set scorer (`tests/research/run_testset.js`, no pass bar yet) and the Checks workflow. Still needs people: a 20-grant spot check of the parsed fields against Grants.gov, a rating by 5 researchers of whether results are worth a look, and the owner's 10 extra test awards. No Human or GitHub row is marked passed.
+
 ## How the loop works
 1. Confirm the thresholds above (the numbers 7, 3, 20, 19, 5, 4, 2 minutes, 6 of 10 are my proposals).
 2. I run every **Me** row, fix failures, and rerun. Cap: 3 rounds.

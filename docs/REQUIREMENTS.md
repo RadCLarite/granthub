@@ -21,7 +21,7 @@ Priority is our reading of what the sponsors stressed most: must = pilot fails w
 | 4 | Must | Rank by payoff versus effort, not fit alone | Award ceiling and signature tier (writer, supervisor, leadership) shown per row; 26 Top 10 rows need leadership | Fact sheet rows 24 and 25; 887 open items have no award ceiling and say "not listed" (row 6) |
 | 5 | Must | Deadline and time to act on every match | Days-to-deadline and status badges; 71 Top 10 rows close within 14 days across 24 agencies | Fact sheet rows 17 and 18; decision 12 |
 | 6 | Must | Use public data only; privacy | Opportunities, plans and county measures are public; the LLM only labels text with a quote and never ranks or hides | Decision 9; README constraints |
-| 7 | Should | Cross-agency by design, easy to hand over | 32 agencies in one payload; README "How to extend" for adding an agency or rule; 89 tests, 49 fact checks | Fact sheet rows 2 and 9; `docs/HANDOVER.md` |
+| 7 | Should | Cross-agency by design, easy to hand over | 32 agencies in one payload; README "How to extend" for adding an agency or rule; a test suite with zero failures, 49 fact checks | Fact sheet rows 2 and 9; `docs/HANDOVER.md` |
 | 8 | Should | Know how many opportunities are missed (coverage) | Award-history backtest on 157 won programs: 61 reach the Top 10 (39%), 98 reach the Top 50 (62%) against 19.7% for soonest deadline and 14.1% for random | Fact sheet rows 26 to 29 |
 | 9 | Should | Go beyond Grants.gov | USAspending, Federal Register, SAM Assistance Listings used; SAM.gov postings and foundations not loaded | README Known limits |
 | 10 | Could | Draft the proposal | Out of scope, see below | Decision list |

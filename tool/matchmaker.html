@@ -1152,6 +1152,7 @@ body.proj .tour-card { font-size:1.2rem; }
     <button type="button" role="tab" id="tab-board" aria-selected="false" data-tab="board">Match an idea</button>
     <button type="button" role="tab" id="tab-marks" aria-selected="false" data-tab="marks">My grants</button>
     <button type="button" role="tab" id="tab-map" aria-selected="false" data-tab="map">County map</button>
+    <button type="button" role="tab" id="tab-research" aria-selected="false" data-tab="research">For researchers</button>
     <button type="button" id="tab-more" aria-expanded="false" aria-controls="more-tabs">More ▾</button>
     <span id="more-tabs" hidden>
     <button type="button" role="tab" id="tab-osbm" aria-selected="false" data-tab="osbm">All agencies (OSBM)</button>
@@ -1358,6 +1359,7 @@ body.proj .tour-card { font-size:1.2rem; }
   <section id="v-work" role="tabpanel" aria-labelledby="tab-work" hidden class="prose"></section>
   <section id="v-ready" role="tabpanel" aria-labelledby="tab-ready" hidden class="prose"></section>
   <section id="v-how" role="tabpanel" aria-labelledby="tab-how" hidden class="prose"></section>
+  <section id="v-research" role="tabpanel" aria-labelledby="tab-research" hidden></section>
 </main>
 <dialog id="plan-dlg" class="sheet" aria-labelledby="plan-title"><button type="button" class="x" id="plan-x" aria-label="Close plan">×</button><div id="plan-body"></div></dialog>
 <dialog id="cart-dlg" class="sheet side" aria-labelledby="cart-h"><button type="button" class="x" id="cart-x" aria-label="Close cart">×</button><h2 id="cart-h">My grants</h2><div id="cart-body"></div></dialog>
@@ -3921,11 +3923,22 @@ body.proj .tour-card { font-size:1.2rem; }
     var mail = el("a", "btn", "Email this checklist to a colleague"); mail.href = "#"; mail.addEventListener("click", function (e) { e.preventDefault(); var all = lsGet("ffm_ready_v1", {}), lines = READY.map(function (r) { var c = all[r.id] || { s: "todo" }; return "[" + (c.s === "done" ? "x" : c.s === "unsure" ? "?" : " ") + "] " + r.t + (c.d ? " (checked " + c.d + ")" : ""); }); window.location.href = "mailto:?subject=" + encodeURIComponent("Grant readiness checklist") + "&body=" + encodeURIComponent(lines.join("\n")); });
     v.appendChild(mail);
   }
+  // For researchers tab: the three research files load the first time the tab opens (same-origin, relative URLs)
+  var researchLoading = false, researchCss = null;
+  function loadResearchTab() {
+    if (researchLoading) return; researchLoading = true;
+    var box = $("v-research");
+    function fail() { researchLoading = false; box.textContent = "The researcher tab could not be loaded. Reload the page to try again."; }
+    function add(src, next) { var sc = document.createElement("script"); sc.src = src; sc.onload = next; sc.onerror = function () { sc.remove(); fail(); }; document.head.appendChild(sc); }
+    function scripts() { add("research/research_core.js", function () { add("research/research_tab.js", function () { window.ResearchTab.init(box); }); }); }
+    if (!researchCss) { researchCss = document.createElement("link"); researchCss.rel = "stylesheet"; document.head.appendChild(researchCss); }
+    researchCss.onload = scripts; researchCss.onerror = fail; researchCss.href = "research/research.css";
+  }
   function tab(name) {
-    ["opps", "board", "map", "osbm", "marks", "ready", "work", "how"].forEach(function (k) {
+    ["opps", "board", "map", "osbm", "marks", "ready", "work", "how", "research"].forEach(function (k) {
       $("v-" + k).hidden = k !== name; $("tab-" + k).setAttribute("aria-selected", k === name ? "true" : "false"); });
     if (["map", "how", "osbm", "ready", "work"].indexOf(name) >= 0) setMore(true);
-    if (name === "map") renderMap(); if (name === "osbm") { renderOsbm(); foldTogether(); } if (name === "how") renderHow(); if (name === "ready") renderReady(); if (name === "work") renderWork(); if (name === "board") { if (cur.id && $("b-agency").value === "ALL") { $("b-agency").value = cur.id; B.sel = null; } renderBoard(); } if (name === "marks") renderMarks();
+    if (name === "map") renderMap(); if (name === "osbm") { renderOsbm(); foldTogether(); } if (name === "how") renderHow(); if (name === "ready") renderReady(); if (name === "work") renderWork(); if (name === "board") { if (cur.id && $("b-agency").value === "ALL") { $("b-agency").value = cur.id; B.sel = null; } renderBoard(); } if (name === "marks") renderMarks(); if (name === "research") loadResearchTab();
     if (window.innerWidth <= 640) setMore(false);
   }
   Array.prototype.forEach.call(document.querySelectorAll(".tabs button[data-tab]"), function (b) { b.addEventListener("click", function () { tab(b.dataset.tab); }); });

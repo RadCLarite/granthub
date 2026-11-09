@@ -4,7 +4,7 @@ R 4.5 pipeline plus one static page (`tool/matchmaker.html`) that ranks open fed
 
 ## Commands (run from the repo root; `here::here()` resolves through `.here`)
 - Snapshot for tests (items.csv and ranking.csv are git-ignored): `AS_OF_DATE=2026-11-07 Rscript R/10_run_ranking.R && AS_OF_DATE=2026-11-07 Rscript R/11_build_payload.R`. `data/processed/payload.json` must stay byte-identical.
-- Checks: `Rscript tests/run_tests.R` (89 of 89 pass), `Rscript R/check_facts.R` (49 of 49 rows pass), `python app/check_dupes.py`.
+- Checks: `Rscript tests/run_tests.R` (expect zero failures), `Rscript R/check_facts.R` (49 of 49 rows pass), `python app/check_dupes.py`.
 - CI-style job: `RUN_PIPELINE=1 JOB_DRY_RUN=1 JOB_OUT=/tmp/p.json Rscript app/job.R` (it rewrites `data/processed/payload.json` for today; rebuild the snapshot afterwards).
 - Site: `sh app/build_pages.sh <outdir> data/processed/payload.json`, then `python -m http.server -d <outdir> 8000`.
 

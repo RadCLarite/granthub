@@ -4,7 +4,7 @@ Rubric target: Solve, level 4 ("a README a state developer could pick up"). This
 
 ## First hour
 1. Read `README.md` ("What it does", "Quick start", "How it works").
-2. From the repo root, run `Rscript R/check_facts.R`. It must print "49 of 49 rows pass". Run `Rscript tests/run_tests.R` from the repo root (89 of 89 pass at the last full run). Caches are committed, so no API key and no model is needed.
+2. From the repo root, run `Rscript R/check_facts.R`. It must print "49 of 49 rows pass". Run `Rscript tests/run_tests.R` from the repo root (expect every test to pass, zero failures). Caches are committed, so no API key and no model is needed.
 3. Open the tool locally with the command in README "Quick start".
 
 ## What you own after handover
