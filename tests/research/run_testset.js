@@ -3,7 +3,7 @@
    scoreTestset(rows, awards, groups) is pure; the CLI wrapper reads files and writes outs/research_testset_report.csv.
    It measures how well an award abstract finds CURRENTLY OPEN opportunities of the same funder (ic) and mechanism: a proxy.
    An award is "not testable" for a metric when no pool row has that ic (or mech); it leaves that metric's denominator.
-   "Both" = the first same-ic result AND the first same-mechanism result are each within the top 10 (not necessarily one row). */
+   "IC and mechanism each in top 10" = the first same-ic result AND the first same-mechanism result are each within the top 10 (not necessarily one row). */
 const fs = require('fs');
 const path = require('path');
 const RC = require(path.join(__dirname, '..', '..', 'tool', 'research', 'research_core.js'));
@@ -35,11 +35,11 @@ function scoreTestset(rows, awards, groups) {
     const mech_rank = mech_testable ? firstRank(res, byId, 'mech', mech) : null;
     const hit_ic = ic_testable ? ic_rank != null && ic_rank <= TOP : null;
     const hit_mech = mech_testable ? mech_rank != null && mech_rank <= TOP : null;
-    const hit_both = ic_testable && mech_testable ? !!(hit_ic && hit_mech) : null;
+    const hit_ic_and_mech = ic_testable && mech_testable ? !!(hit_ic && hit_mech) : null;
     if (ic_testable) baseIc.push(1 - Math.pow(1 - nIc / nPool, TOP));
     if (mech_testable) baseMech.push(1 - Math.pow(1 - nMech / nPool, TOP));
     perAward.push({ id: a.id, source: a.source || '', topic: a.topic || '', ic: ic || '', mechanism: mech || '',
-      ic_testable, mech_testable, ic_rank, mech_rank, hit_ic, hit_mech, hit_both, results: res.length });
+      ic_testable, mech_testable, ic_rank, mech_rank, hit_ic, hit_mech, hit_ic_and_mech, results: res.length });
   }
   const tally = (key, tk) => {
     const t = perAward.filter(p => p[tk]);
@@ -47,7 +47,7 @@ function scoreTestset(rows, awards, groups) {
   };
   const bothT = perAward.filter(p => p.ic_testable && p.mech_testable);
   const ic = tally('hit_ic', 'ic_testable'), mech = tally('hit_mech', 'mech_testable');
-  const both = { testable: bothT.length, hits: bothT.filter(p => p.hit_both).length, not_testable: perAward.length - bothT.length };
+  const both = { testable: bothT.length, hits: bothT.filter(p => p.hit_ic_and_mech).length, not_testable: perAward.length - bothT.length };
   const summary = {
     awards: awards.length, pool: nPool,
     ic_testable: ic.testable, ic_hits: ic.hits, ic_not_testable: ic.not_testable,
@@ -60,7 +60,7 @@ function scoreTestset(rows, awards, groups) {
   const b = x => x == null ? 'n/a' : (100 * x).toFixed(1) + '%';
   summary.text = [
     summary.awards + ' awards run against a pool of ' + nPool + ' opportunities (search limit ' + LIMIT + ')',
-    line('IC hit@10', ic), line('Mechanism hit@10', mech), line('Both hit@10', both),
+    line('IC hit@10', ic), line('Mechanism hit@10', mech), line('IC and mechanism each in top 10 (separate rows)', both),
     'Pool share with known IC (funder_known): ' + b(summary.funder_known) + '; known mechanism (mech_known): ' + b(summary.mech_known),
     'Random baseline (mean 1-(1-p)^10): IC ' + b(summary.baseline_ic) + ', mechanism ' + b(summary.baseline_mech),
   ].join('\n');
@@ -68,7 +68,7 @@ function scoreTestset(rows, awards, groups) {
 }
 
 function toCsv(perAward) {
-  const cols = ['id', 'source', 'topic', 'ic', 'mechanism', 'ic_testable', 'mech_testable', 'ic_rank', 'mech_rank', 'hit_ic', 'hit_mech', 'hit_both', 'results'];
+  const cols = ['id', 'source', 'topic', 'ic', 'mechanism', 'ic_testable', 'mech_testable', 'ic_rank', 'mech_rank', 'hit_ic', 'hit_mech', 'hit_ic_and_mech', 'results'];
   const esc = v => { const s = v == null ? '' : String(v); return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; };
   return [cols.join(',')].concat(perAward.map(p => cols.map(c => esc(p[c])).join(','))).join('\n') + '\n';
 }

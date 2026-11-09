@@ -176,7 +176,7 @@ t('scoreTestset one hit and one not-testable', () => {
   const r = scoreTestset(pool, aw, []);
   assert.strictEqual(r.summary.awards, 2);
   assert.strictEqual(r.perAward[0].ic_rank, 1); assert.strictEqual(r.perAward[0].mech_rank, 1);
-  assert.strictEqual(r.perAward[0].hit_both, true);
+  assert.strictEqual(r.perAward[0].hit_ic_and_mech, true);
   assert.strictEqual(r.perAward[1].ic_testable, false); assert.strictEqual(r.perAward[1].ic_rank, null);
   assert.strictEqual(r.perAward[1].mech_testable, true);
   assert.strictEqual(r.summary.ic_testable, 1); assert.strictEqual(r.summary.ic_hits, 1);
