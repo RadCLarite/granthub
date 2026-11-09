@@ -152,6 +152,8 @@ t('fix round 1', () => {
   assert.strictEqual(o.kept.length, 2); assert.deepStrictEqual(o.unknown, {}); assert.deepStrictEqual(o.removedBy, {});
   o = RC.applyFilters(R, { budgetMin: '500000' });
   assert.deepStrictEqual(o.kept.map(x => x.id), ['b']); assert.strictEqual(o.removedBy.budget, 1);
+  o = RC.applyFilters([{ id: 'f', floor: 600000, ceil: 900000 }], { budgetMin: '  ', budgetMax: '  ' });
+  assert.strictEqual(o.kept.length, 1); assert.deepStrictEqual(o.removedBy, {});
   o = RC.applyFilters(R, { budgetMin: 'abc', budgetMax: '' });
   assert.strictEqual(o.kept.length, 2);
 });

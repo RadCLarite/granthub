@@ -187,6 +187,7 @@
     return 'keep';
   }
   function finiteOrNull(v) {
+    if (typeof v === 'string') v = v.replace(/^\s+|\s+$/g, '');
     if (v == null || v === '') return null;
     var x = Number(v);
     return isFinite(x) ? x : null;
