@@ -8,7 +8,7 @@ RESEARCH_SUM_MAX <- 1200L
 parse_mechanism <- function(title) {
   title <- as.character(title)
   in_paren <- vapply(stringr::str_match_all(title, "[(]([^)]*)[)]"), function(m) {
-    hit <- stringr::str_match(m[, 2], "^(?:Parent |Collaborative )?([A-Z][0-9]{2}|[A-Z]{2}[0-9]{1,2}|SBIR|STTR)")[, 2]
+    hit <- stringr::str_match(m[, 2], "^(?:Parent |Collaborative )?((?!FY)[CDFGKLMNPRSTUXZ][0-9]{2}|(?!FY)[CDFGKLMNPRSTUXZ][A-Z][0-9]{1,2}|SBIR|STTR)\\b")[, 2]
     hit <- hit[!is.na(hit)]
     if (length(hit)) hit[1] else NA_character_
   }, character(1))
@@ -48,17 +48,23 @@ parse_ic <- function(opp_number, funding_activity) {
 }
 
 # Pool rule: open (posted or forecasted), not past as_of, reaches a higher-ed applicant type; one row per opp_id.
-build_research_payload <- function(opps, as_of) {
+# A row whose only applicant type is UNMAPPED stays in the pool with elig "" (eligibility unknown); the token is never kept.
+# source_date: max of the fetched_on column when present, else the source_date argument (default as_of).
+build_research_payload <- function(opps, as_of, source_date = as_of) {
   o <- opps
+  if ("fetched_on" %in% names(o) && any(!is.na(o$fetched_on))) source_date <- max(as.Date(as.character(o$fetched_on)), na.rm = TRUE)
   codes <- strsplit(ifelse(is.na(o$applicant_types), "", as.character(o$applicant_types)), "|", fixed = TRUE)
-  elig <- vapply(codes, function(x) any(x %in% RESEARCH_ELIGIBLE_CODES), logical(1))
+  elig <- vapply(codes, function(x) any(x %in% RESEARCH_ELIGIBLE_CODES) || (length(x) > 0 && all(x == "UNMAPPED")), logical(1))
+  elig_txt <- vapply(codes, function(x) paste(setdiff(x, "UNMAPPED"), collapse = "|"), character(1))
+  o$applicant_types <- elig_txt
   close <- as.Date(as.character(o$close_date))
   keep <- o$status %in% c("posted", "forecasted") & elig & (is.na(close) | close >= as_of)
   keep[keep] <- !duplicated(o$opp_id[keep])
   o <- o[keep, , drop = FALSE]
   close <- close[keep]
-  if (nrow(o) == 0) return(list(as_of = format(as_of), n = 0L, rows = list()))
+  if (nrow(o) == 0) return(list(as_of = format(as_of), source_date = format(source_date), n = 0L, rows = list()))
   num <- function(x) suppressWarnings(as.numeric(x))
+  amt <- function(x) { v <- num(x); ifelse(is.na(v) | v == 0, NA_real_, v) }  # 0 means "not given", as in the NC pipeline
   trial <- parse_trial_status(o$title)
   mech <- parse_mechanism(o$title)
   ic <- parse_ic(o$opp_number, rep(NA_character_, nrow(o)))
@@ -67,10 +73,10 @@ build_research_payload <- function(opps, as_of) {
     id = as.character(o$opp_id[i]), num = as.character(o$opp_number[i]), title = as.character(o$title[i]),
     agency = as.character(o$agency[i]), status = as.character(o$status[i]),
     close = if (is.na(close[i])) NA_character_ else format(close[i]),
-    floor = num(o$award_floor[i]), ceil = num(o$award_ceiling[i]),
+    floor = amt(o$award_floor[i]), ceil = amt(o$award_ceiling[i]),
     mech = mech[i], trial = trial[i], hs = parse_hs_flag(txt[i], trial[i]),
     ic = ic[i],
     elig = as.character(o$applicant_types[i]), url = as.character(o$url[i]),
     sum = substr(as.character(o$summary[i]), 1, RESEARCH_SUM_MAX)))
-  list(as_of = format(as_of), n = length(rows), rows = rows)
+  list(as_of = format(as_of), source_date = format(source_date), n = length(rows), rows = rows)
 }

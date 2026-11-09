@@ -21,6 +21,10 @@ local({
   check(s, "mechanism: DP2", identical(parse_mechanism("Pioneer Award (DP2)"), "DP2"))
   check(s, "mechanism: RM1 standalone", identical(parse_mechanism("Center RM1 program"), "RM1"))
   check(s, "mechanism: COVID-19 is not a code", is.na(parse_mechanism("COVID-19 vaccine research")))
+  check(s, "mechanism: (FY2026) is not a code", is.na(parse_mechanism("Annual report (FY2026)")))
+  check(s, "mechanism: (AI2 something) is not a code", is.na(parse_mechanism("Study (AI2 something)")))
+  check(s, "mechanism: (B12 deficiency) is not a code", is.na(parse_mechanism("Study (B12 deficiency)")))
+  check(s, "mechanism: K99, U24, UM1, SBIR, STTR", identical(parse_mechanism(c("A (K99/R00)", "B (U24)", "C (UM1 - Clinical Trial Optional)", "D (SBIR)", "E (STTR Phase I)")), c("K99", "U24", "UM1", "SBIR", "STTR")))
   check(s, "mechanism: vectorised", identical(parse_mechanism(c("A (R21)", "B")), c("R21", NA_character_)))
 
   check(s, "trial: optional", identical(parse_trial_status("Foo (R01 Clinical Trial Optional)"), "optional"))
@@ -69,6 +73,23 @@ local({
   check(s, "row has the contract fields", setequal(names(r1), c("id","num","title","agency","status","close","floor","ceil","mech","trial","hs","ic","elig","url","sum")))
   check(s, "row parses mechanism and trial", identical(r1$mech, "R01") && identical(r1$trial, "optional"))
   check(s, "numeric award fields", is.numeric(r1$ceil) && r1$ceil == 500000)
+
+  zero <- toy[1, ]; zero$award_ceiling <- "0"; zero$award_floor <- "0"
+  pz <- build_research_payload(zero, as.Date("2026-11-07"))
+  jz <- jsonlite::toJSON(pz$rows, auto_unbox = TRUE, na = "null")
+  check(s, "award ceiling 0 gives ceil null", grepl('"ceil":null', jz, fixed = TRUE), jz)
+  check(s, "award floor 0 gives floor null", grepl('"floor":null', jz, fixed = TRUE), jz)
+  check(s, "positive ceiling is kept", r1$ceil == 500000)
+  check(s, "source_date defaults to as_of", identical(p$source_date, "2026-11-07"))
+  ps <- build_research_payload(toy, as.Date("2026-11-09"), as.Date("2026-11-06"))
+  check(s, "source_date argument is used and is ISO text", identical(ps$source_date, "2026-11-06") && identical(ps$as_of, "2026-11-09"))
+  tf <- toy; tf$fetched_on <- c("2026-11-03", "2026-11-05", rep("2026-11-04", 5))
+  check(s, "fetched_on column max wins", identical(build_research_payload(tf, as.Date("2026-11-09"), as.Date("2026-11-06"))$source_date, "2026-11-05"))
+  um <- toy[c(1, 7), ]; um$opp_id <- c("u1", "u2"); um$applicant_types <- c("UNMAPPED", "UNMAPPED|00")
+  pu <- build_research_payload(um, as.Date("2026-11-07"))
+  check(s, "only-UNMAPPED row is in the pool with elig empty", pu$n == 1 && identical(pu$rows[[1]]$id, "u1") && identical(pu$rows[[1]]$elig, ""), pu$n)
+  um2 <- toy[1, ]; um2$applicant_types <- "UNMAPPED|20"
+  check(s, "UNMAPPED token stripped from elig", identical(build_research_payload(um2, as.Date("2026-11-07"))$rows[[1]]$elig, "20"))
 
   if (standalone) {
     rep <- dplyr::bind_rows(results)

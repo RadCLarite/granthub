@@ -131,6 +131,14 @@
     var a = isoToUtcMs(closeIso), b = isoToUtcMs(todayIso);
     return a === null || b === null ? null : Math.round((a - b) / DAY_MS);
   }
+  function daysSince(fromIso, toIso) { return daysUntil(toIso, fromIso); }
+  var STALE_DAYS = 3;
+  /* Banner text when the listings are STALE_DAYS or more days older than today; null otherwise (or if a date is unreadable). */
+  function staleNotice(sourceIso, todayIso) {
+    var n = daysSince(sourceIso, todayIso);
+    if (n === null || n < STALE_DAYS) return null;
+    return 'These listings are ' + n + ' days old. Newer postings are missing. Check Grants.gov for anything posted since.';
+  }
   function businessDaysBefore(isoDate, n) {
     var ms = isoToUtcMs(isoDate);
     if (ms === null) return isoDate;
@@ -178,6 +186,7 @@
     var have = elig.split('|');
     if (have.indexOf('99') >= 0) return 'keep';
     for (var i = 0; i < codes.length; i++) if (have.indexOf(codes[i]) >= 0) return 'keep';
+    if (kind === 'university' && have.indexOf('25') >= 0) return 'unknown';  // "Others, see text" may include universities
     return 'remove';
   }
   function checkTrial(row, want) {
@@ -240,5 +249,5 @@
   }
 
   return { tokenize: tokenize, expandTerms: expandTerms, buildIndex: buildIndex, search: search,
-    applyFilters: applyFilters, daysUntil: daysUntil, businessDaysBefore: businessDaysBefore, timeWarning: timeWarning };
+    applyFilters: applyFilters, daysUntil: daysUntil, daysSince: daysSince, staleNotice: staleNotice, businessDaysBefore: businessDaysBefore, timeWarning: timeWarning };
 });

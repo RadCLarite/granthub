@@ -44,7 +44,7 @@ TYPE_CODES <- c(state_governments = "00", county_governments = "01", city_or_tow
                 private_institutions_of_higher_education = "20", individuals = "21",
                 for_profit_organizations_other_than_small_businesses = "22", small_businesses = "23",
                 other = "25", unrestricted = "99")
-# An unknown name becomes the token UNMAPPED so the row stays visible; the pool rule ignores that token.
+# An unknown name becomes the token UNMAPPED so the row stays visible; helpers_research.R strips that token from elig and keeps a row whose only type is UNMAPPED (eligibility unknown).
 UNMAPPED_SEEN <- character()
 type_codes <- function(x) {
   nm <- unlist(x); v <- unname(TYPE_CODES[nm])
@@ -55,16 +55,17 @@ type_codes <- function(x) {
 
 flat <- function(d) {
   s <- d$summary
-  tibble(opp_id = as.character(d$legacy_opportunity_id), opp_number = d$opportunity_number,
+  tibble(opp_id = ifelse(is.na(d$legacy_opportunity_id), paste0("S", d$opportunity_id), as.character(d$legacy_opportunity_id)), opp_number = d$opportunity_number,
          title = d$opportunity_title, agency = d$agency_name, agency_code = d$agency_code, status = d$opportunity_status,
          close_date = as.Date(s$close_date), award_floor = s$award_floor, award_ceiling = s$award_ceiling,
          applicant_types = map_chr(s$applicant_types, type_codes),
          summary = str_squish(str_remove_all(s$summary_description, "<[^>]+>")),
-         url = paste0("https://simpler.grants.gov/opportunity/", d$opportunity_id))
+         url = paste0("https://simpler.grants.gov/opportunity/", d$opportunity_id),
+         fetched_on = as.character(AS_OF_DATE))
 }
 out <- map_dfr(pages, ~ flat(.x$data)) |> distinct(opp_id, .keep_all = TRUE)
 if (length(UNMAPPED_SEEN)) message("Unmapped applicant-type names (add to TYPE_CODES): ", paste(UNMAPPED_SEEN, collapse = ", "))
 only_unmapped <- out$applicant_types == "UNMAPPED"
-message("Rows whose only applicant type is UNMAPPED (excluded by the pool rule): ", sum(only_unmapped))
+message("Rows whose only applicant type is UNMAPPED (kept in the pool with eligibility unknown): ", sum(only_unmapped))
 write_csv(out, file.path(DIR_PROCESSED, "research_opportunities.csv"))
 message("Wrote research_opportunities.csv: ", nrow(out), " rows; status: ", paste(names(table(out$status)), table(out$status), collapse = ", "))

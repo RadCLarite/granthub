@@ -21,6 +21,8 @@
 #v-research legend { font-weight: 650; padding: 0 6px; color: var(--text-primary); }
 #v-research fieldset label { display: inline-flex; align-items: center; gap: 6px; font-weight: 500; margin: 6px 14px 0 0; }
 #v-research .rt-meta { color: var(--text-secondary); font-size: .92rem; margin: 10px 0; }
+#v-research .rt-stale { margin: 10px 0; padding: 10px 14px; border-radius: var(--radius-sm); background: var(--warn-soft); color: var(--on-warn-soft); font-weight: 600; }
+#v-research .rt-stale[hidden] { display: none; }
 #v-research .rt-empty { padding: 14px; background: var(--surface-3); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text-primary); }
 #v-research .rt-card { margin: 10px 0; padding: 14px; background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius); overflow-wrap: anywhere; }
 #v-research .rt-card h3 { margin: 0 0 6px; font-size: 1.02rem; line-height: 1.35; }

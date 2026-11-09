@@ -157,6 +157,29 @@ t('fix round 1', () => {
   o = RC.applyFilters(R, { budgetMin: 'abc', budgetMax: '' });
   assert.strictEqual(o.kept.length, 2);
 });
+t('ceil null survives a budget minimum (0 ceilings are emitted as null)', () => {
+  const o = RC.applyFilters([{ id: 'z', ceil: null, floor: null }, { id: 'y', ceil: 50000, floor: null }], { budgetMin: 100000 });
+  assert.deepStrictEqual(o.kept.map(x => x.id), ['z']);
+  assert.deepStrictEqual(o.unknown, { z: ['budget'] });
+  assert.strictEqual(o.removedBy.budget, 1);
+});
+t('university filter: code 25 alone is unknown, not removed', () => {
+  const R = [{ id: 'u', elig: '25' }, { id: 'v', elig: '25|12' }, { id: 'w', elig: '12' }, { id: 'x', elig: '20|25' }];
+  const o = RC.applyFilters(R, { institution: 'university' });
+  assert.deepStrictEqual(o.kept.map(x => x.id), ['u', 'v', 'x']);
+  assert.deepStrictEqual(o.unknown, { u: ['institution'], v: ['institution'] });
+  assert.deepStrictEqual(o.removedBy, { institution: 1 });
+});
+t('daysSince and staleNotice threshold', () => {
+  assert.strictEqual(RC.daysSince('2026-11-06', '2026-11-09'), 3);
+  assert.strictEqual(RC.daysSince('2026-11-06', '2026-11-06'), 0);
+  assert.strictEqual(RC.daysSince('bad', '2026-11-06'), null);
+  assert.strictEqual(RC.staleNotice('2026-11-06', '2026-11-08'), null);
+  assert.strictEqual(RC.staleNotice('2026-11-06', '2026-11-09'),
+    'These listings are 3 days old. Newer postings are missing. Check Grants.gov for anything posted since.');
+  assert.strictEqual(RC.staleNotice(undefined, '2026-11-09'), null);
+  assert(RC.staleNotice('2026-11-06', '2026-12-01').indexOf('25 days old') >= 0);
+});
 
 const { scoreTestset } = require(path.join(__dirname, 'run_testset.js'));
 t('scoreTestset empty sample', () => {

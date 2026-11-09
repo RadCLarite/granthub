@@ -5,7 +5,7 @@
   var MAX_SHOW = 50, FILTER_NAMES = { institution: 'institution type', trial: 'clinical trial', budget: 'budget', career: 'career stage', mechs: 'preferred mechanisms' };
   var EXAMPLES = ['stroke CT perfusion imaging AI', 'multimodal AI for radiology reports', 'physics-based MRI'];
   var LEVEL_TEXT = { ok: 'Time looks OK', tight: 'Tight for sign-off', late: 'Institutional deadline passed', unknown: 'Time check unavailable' };
-  var state = { rows: [], index: null, asOf: '', today: '', ui: {}, started: false };
+  var state = { rows: [], index: null, asOf: '', sourceDate: '', today: '', ui: {}, started: false };
 
   function el(tag, cls, text) {
     var e = document.createElement(tag);
@@ -56,6 +56,16 @@
     return (start > 0 ? '... ' : '') + s.replace(/\s+$/, '') + (end < sum.length ? ' ...' : '');
   }
 
+  function isLive(r) { return !(r.close && r.close < state.today); }
+  function searchedLine() {
+    var live = state.rows.filter(isLive), fc = live.filter(function (r) { return r.status === 'forecasted'; }).length;
+    return live.length + ' opportunities searched (' + fc + ' forecasted, not yet open). Listings fetched ' + state.sourceDate + '; page built ' + state.asOf + '.';
+  }
+  function updateMeta(prefix) {
+    state.ui.meta.textContent = (prefix ? prefix + ' ' : '') + searchedLine();
+    var note = window.ResearchCore.staleNotice(state.sourceDate, state.today), b = state.ui.stale;
+    b.textContent = note || ''; b.hidden = !note;
+  }
   function sortDate(row) { return row.status === 'forecasted' || !row.close ? '9999-99-99' : row.close; }
   function readProfile() {
     var u = state.ui, mechs = [];
@@ -65,7 +75,8 @@
   function readSettings() {
     var u = state.ui;
     function n(i, d) { var v = Number(i.value); return i.value !== '' && isFinite(v) && v >= 0 ? v : d; }
-    return { leadWeeks: { R01: n(u.wR01, 8), R21: n(u.wR21, 6), K: n(u.wK, 8) }, signoffBusinessDays: n(u.sign, 5) };
+    function whole(i, d) { var v = n(i, d); return Math.max(0, Math.round(v)); }
+    return { leadWeeks: { R01: n(u.wR01, 8), R21: n(u.wR21, 6), K: n(u.wK, 8) }, signoffBusinessDays: whole(u.sign, 5) };
   }
 
   function buildCard(row, hit, unk, settings) {
@@ -88,7 +99,7 @@
     card.appendChild(el('p', 'rt-line', row.ceil != null ? 'Award ceiling ' + money(row.ceil) + ' as listed' : 'Budget: unknown'));
     var line = el('p', 'rt-line'), level, label, days = RC.daysUntil(row.close, state.today);
     if (row.status === 'forecasted' || !row.close) { line.textContent = 'Date not announced'; level = 'unknown'; label = 'No deadline to check'; }
-    else if (days === 0) { line.textContent = 'Closes today (' + row.close + ')'; level = 'unknown'; label = 'Closes today'; }
+    else if (days === 0) { line.textContent = 'Closes today. Confirm the time on Grants.gov.'; level = 'unknown'; label = 'Closes today'; }
     else {
       var w = RC.timeWarning(row, state.today, settings);
       level = w.level; label = LEVEL_TEXT[level];
@@ -112,10 +123,12 @@
   function run() {
     var RC = window.ResearchCore, q = state.ui.box.value;
     state.today = localToday();
-    state.ui.meta.textContent = 'Searched ' + state.rows.length + ' open opportunities; data as of ' + state.asOf + '.';
+    updateMeta('');
     if (!state.index) { render('Still loading the opportunity list. Try again in a moment.'); return; }
     if (!RC.tokenize(q).length) { render('Type or paste a few topic words, for example the aims of your project. Common words alone cannot be searched.'); return; }
-    var hits = RC.search(state.index, q, { limit: state.rows.length || 1 });
+    var hits = RC.search(state.index, q, { limit: state.rows.length || 1 }), byId0 = {};
+    state.rows.forEach(function (r) { byId0[r.id] = r; });
+    hits = hits.filter(function (h) { return isLive(byId0[h.id]); });  /* a tab left open past midnight must not show a closed grant */
     if (!hits.length) { render('No open opportunity shares words with this text. Try fewer or more general words.'); return; }
     var byId = {}, hitById = {};
     state.rows.forEach(function (r) { byId[r.id] = r; });
@@ -138,7 +151,7 @@
     var cards = shown.map(function (k) { return buildCard(k.row, k.hit, f.unknown[k.row.id], settings); });
     var tail = kept.length > MAX_SHOW ? (kept.length - MAX_SHOW) + ' more not shown. Narrow your text or use Filters.' : '';
     render(null, cards, tail);
-    state.ui.meta.textContent = 'Showing ' + shown.length + ' of ' + kept.length + ' matches. Searched ' + state.rows.length + ' open opportunities; data as of ' + state.asOf + '.';
+    updateMeta('Showing ' + shown.length + ' of ' + kept.length + ' matches.');
   }
 
   function buildUi(root) {
@@ -196,9 +209,11 @@
     again.addEventListener('click', run); rb.appendChild(again); det.appendChild(rb);
     root.appendChild(det);
 
+    u.stale = el('p', 'rt-stale'); u.stale.setAttribute('role', 'status'); u.stale.hidden = true;
+    root.appendChild(u.stale);
     u.meta = el('p', 'rt-meta');
-    u.meta.textContent = 'Searching ' + state.rows.length + ' open opportunities; data as of ' + state.asOf + '.';
     root.appendChild(u.meta);
+    updateMeta('');
     u.out = el('div'); u.out.id = 'rt-results'; u.out.setAttribute('aria-live', 'polite');
     root.appendChild(u.out);
     root.appendChild(el('p', 'rt-aid', 'Screening aid. Confirm every date and rule on Grants.gov before you act.'));
@@ -221,6 +236,7 @@
       var data = res[0], rows = (data && data.rows) || [];
       state.rows = rows.filter(function (r) { return !(r.close && r.close < state.today); });
       state.asOf = data.as_of || 'unknown';
+      state.sourceDate = data.source_date || data.as_of || 'unknown';
       state.index = window.ResearchCore.buildIndex(state.rows, res[1]);
       while (container.firstChild) container.removeChild(container.firstChild);
       buildUi(container);

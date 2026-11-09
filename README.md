@@ -32,7 +32,8 @@ Ranking is keyword matching (BM25) with a synonym list. Each result shows the te
 Run the checks from the repo root with `node tests/research/test_core.js` (unit tests) and `node tests/research/run_testset.js` (scores the award test set and writes `outs/research_testset_report.csv`).
 
 Current limits:
-- About 60% of opportunities have no parsed mechanism (R01, U01 and so on), so the time warning is unavailable for them.
+- Only R01, R21 and K-family mechanisms have lead times, and forecasted or no-close rows get no deadline check. On the current data (checked for 2026-11-09) 143 of 1,225 rows (11.7%) get an ok, tight or late time warning; the rest show "unknown" (no parsed mechanism, or a mechanism with no lead time) or "date not announced".
+- The tab shows when the listings were fetched and warns when they are 3 or more days old; research.json is rebuilt by hand, not by the daily job.
 - Funder (institute) codes are known for only about 13% of the pool.
 - The test set has 10 of 20 awards. The owner adds 10 more of their own.
 - Lead times behind the time warning are estimates, not agency commitments.
