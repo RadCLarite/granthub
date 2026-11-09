@@ -119,7 +119,9 @@
 
   function isoToUtcMs(iso) {
     var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(iso || ''));
-    return m ? Date.UTC(+m[1], +m[2] - 1, +m[3]) : null;
+    if (!m) return null;
+    var ms = Date.UTC(+m[1], +m[2] - 1, +m[3]), d = new Date(ms);
+    return d.getUTCFullYear() === +m[1] && d.getUTCMonth() === +m[2] - 1 && d.getUTCDate() === +m[3] ? ms : null;
   }
   function utcMsToIso(ms) {
     var d = new Date(ms), mo = d.getUTCMonth() + 1, da = d.getUTCDate();
@@ -150,16 +152,18 @@
   }
   function timeWarning(row, todayIso, settings) {
     var st = settings || {};
-    var table = st.leadWeeks || DEFAULT_LEAD_WEEKS;
+    var table = {}, k;
+    for (k in DEFAULT_LEAD_WEEKS) table[k] = DEFAULT_LEAD_WEEKS[k];
+    if (st.leadWeeks) for (k in st.leadWeeks) table[k] = st.leadWeeks[k];
     var signoff = st.signoffBusinessDays != null ? st.signoffBusinessDays : DEFAULT_SIGNOFF_DAYS;
     var weeks = leadWeeksFor(row.mech, table);
     var needDays = weeks == null ? null : weeks * 7;
-    if (!row.close) return { level: 'unknown', daysToInstitution: null, needDays: needDays, reason: 'Closing date not announced; date not announced yet.' };
+    if (!row.close) return { level: 'unknown', daysToInstitution: null, needDays: needDays, reason: 'Closing date not announced yet.' };
     var daysToInst = daysUntil(businessDaysBefore(row.close, signoff), todayIso);
     if (daysToInst === null) return { level: 'unknown', daysToInstitution: null, needDays: needDays, reason: 'Date could not be read.' };
     if (needDays === null) return { level: 'unknown', daysToInstitution: daysToInst, needDays: null, reason: 'No lead time set for this mechanism.' };
     var level, reason;
-    if (daysToInst < 0) { level = 'late'; reason = 'The institutional deadline passed ' + (-daysToInst) + ' days ago.'; }
+    if (daysToInst < 0) { level = 'late'; reason = 'The institutional deadline passed ' + (-daysToInst) + (daysToInst === -1 ? ' day ago.' : ' days ago.'); }
     else if (daysToInst < needDays) { level = 'tight'; reason = daysToInst + ' days to the institutional deadline; ' + needDays + ' are usually needed.'; }
     else { level = 'ok'; reason = daysToInst + ' days to the institutional deadline; ' + needDays + ' are usually needed.'; }
     return { level: level, daysToInstitution: daysToInst, needDays: needDays, reason: reason };
@@ -182,8 +186,13 @@
     if (want === 'no') return row.trial === 'required' ? 'remove' : 'keep';
     return 'keep';
   }
+  function finiteOrNull(v) {
+    if (v == null || v === '') return null;
+    var x = Number(v);
+    return isFinite(x) ? x : null;
+  }
   function checkBudget(row, lo, hi) {
-    var hasLo = typeof lo === 'number', hasHi = typeof hi === 'number';
+    var hasLo = lo !== null, hasHi = hi !== null;
     if (hasLo && row.ceil != null && row.ceil < lo) return 'remove';
     if (hasHi && row.floor != null && row.floor > hi) return 'remove';
     if ((hasLo && row.ceil == null) || (hasHi && row.floor == null)) return 'unknown';
@@ -210,7 +219,8 @@
     var p = profile || {}, checks = [];
     if (p.institution) checks.push(['institution', function (r) { return checkInstitution(r, p.institution); }]);
     if (p.trial) checks.push(['trial', function (r) { return checkTrial(r, p.trial); }]);
-    if (typeof p.budgetMin === 'number' || typeof p.budgetMax === 'number') checks.push(['budget', function (r) { return checkBudget(r, p.budgetMin, p.budgetMax); }]);
+    var bMin = finiteOrNull(p.budgetMin), bMax = finiteOrNull(p.budgetMax);
+    if (bMin !== null || bMax !== null) checks.push(['budget', function (r) { return checkBudget(r, bMin, bMax); }]);
     if (p.career) checks.push(['career', function (r) { return checkCareer(r, p.career); }]);
     if (p.mechs && p.mechs.length) checks.push(['mechs', function (r) { return checkMechs(r, p.mechs); }]);
     var kept = [], unknown = {}, removedBy = {};

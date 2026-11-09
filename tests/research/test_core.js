@@ -131,4 +131,28 @@ t('filters', () => {
   r = RC.applyFilters(R, {});
   assert.strictEqual(r.kept.length, 4); assert.deepStrictEqual(r.unknown, {}); assert.deepStrictEqual(r.removedBy, {});
 });
+t('fix round 1', () => {
+  const w = (mech, close, st) => RC.timeWarning({ mech: mech, close: close }, TODAY, st);
+  const st = { leadWeeks: { R01: 1 } };
+  assert.strictEqual(w('R01', '2027-03-01', st).needDays, 7);
+  assert.strictEqual(w('R21', '2027-03-01', st).needDays, 42);
+  assert.strictEqual(w('K99', '2027-03-01', st).needDays, 56);
+  assert.strictEqual(RC.businessDaysBefore('2026-12-02', 5), '2026-11-25');
+  assert.strictEqual(RC.businessDaysBefore('2027-01-05', 5), '2026-12-29');
+  assert.strictEqual(RC.businessDaysBefore('2026-11-14', 1), '2026-11-13');
+  assert.strictEqual(RC.daysUntil('2026-13-45', TODAY), null);
+  assert.strictEqual(RC.daysUntil('2026-02-31', TODAY), null);
+  const r = w('R01', '2026-02-31');
+  assert.strictEqual(r.level, 'unknown'); assert.strictEqual(r.reason, 'Date could not be read.');
+  assert(w('R01', null).reason.indexOf('date not announced') >= 0);
+  assert(w('R01', '2026-11-08', { signoffBusinessDays: 0 }).reason.indexOf('1 day ago') >= 0);
+  assert(w('R01', '2026-11-07', { signoffBusinessDays: 0 }).reason.indexOf('2 days ago') >= 0);
+  const R = [{ id: 'a', mech: 'R01', ceil: 100000 }, { id: 'b', mech: null, ceil: null }];
+  let o = RC.applyFilters(R, { mechs: [], institution: null, trial: null, career: null, budgetMin: null, budgetMax: undefined });
+  assert.strictEqual(o.kept.length, 2); assert.deepStrictEqual(o.unknown, {}); assert.deepStrictEqual(o.removedBy, {});
+  o = RC.applyFilters(R, { budgetMin: '500000' });
+  assert.deepStrictEqual(o.kept.map(x => x.id), ['b']); assert.strictEqual(o.removedBy.budget, 1);
+  o = RC.applyFilters(R, { budgetMin: 'abc', budgetMax: '' });
+  assert.strictEqual(o.kept.length, 2);
+});
 console.log(n + ' tests pass');
