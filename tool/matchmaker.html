@@ -3924,12 +3924,15 @@ body.proj .tour-card { font-size:1.2rem; }
     v.appendChild(mail);
   }
   // For researchers tab: the three research files load the first time the tab opens (same-origin, relative URLs)
-  var researchLoading = false;
+  var researchLoading = false, researchCss = null;
   function loadResearchTab() {
     if (researchLoading) return; researchLoading = true;
-    var box = $("v-research"), css = document.createElement("link"); css.rel = "stylesheet"; css.href = "research/research.css"; document.head.appendChild(css);
-    function add(src, next) { var sc = document.createElement("script"); sc.src = src; sc.onload = next; sc.onerror = function () { researchLoading = false; box.textContent = "The researcher tab could not be loaded. Reload the page to try again."; }; document.head.appendChild(sc); }
-    add("research/research_core.js", function () { add("research/research_tab.js", function () { window.ResearchTab.init(box); }); });
+    var box = $("v-research");
+    function fail() { researchLoading = false; box.textContent = "The researcher tab could not be loaded. Reload the page to try again."; }
+    function add(src, next) { var sc = document.createElement("script"); sc.src = src; sc.onload = next; sc.onerror = function () { sc.remove(); fail(); }; document.head.appendChild(sc); }
+    function scripts() { add("research/research_core.js", function () { add("research/research_tab.js", function () { window.ResearchTab.init(box); }); }); }
+    if (!researchCss) { researchCss = document.createElement("link"); researchCss.rel = "stylesheet"; document.head.appendChild(researchCss); }
+    researchCss.onload = scripts; researchCss.onerror = fail; researchCss.href = "research/research.css";
   }
   function tab(name) {
     ["opps", "board", "map", "osbm", "marks", "ready", "work", "how", "research"].forEach(function (k) {

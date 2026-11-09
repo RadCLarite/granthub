@@ -49,10 +49,14 @@
       var t = window.ResearchCore.tokenize(m[0]);
       if (t.length && matched[t[0]]) { at = m.index; break; }
     }
-    var start = Math.max(0, (at < 0 ? 0 : at) - 60), s = sum.slice(start, start + 240);
-    return (start > 0 ? '... ' : '') + s + (start + 240 < sum.length ? ' ...' : '');
+    var start = Math.max(0, (at < 0 ? 0 : at) - 60), end = start + 240, s;
+    if (start > 0) { var sp = sum.indexOf(' ', start); start = sp < 0 || sp > at ? start : sp + 1; }
+    s = sum.slice(start, end);
+    if (end < sum.length) { var cut = s.lastIndexOf(' '); if (cut > 40) s = s.slice(0, cut); }
+    return (start > 0 ? '... ' : '') + s.replace(/\s+$/, '') + (end < sum.length ? ' ...' : '');
   }
 
+  function sortDate(row) { return row.status === 'forecasted' || !row.close ? '9999-99-99' : row.close; }
   function readProfile() {
     var u = state.ui, mechs = [];
     u.mechBoxes.forEach(function (b) { if (b.checked) mechs.push(b.value); });
@@ -68,9 +72,12 @@
     var RC = window.ResearchCore, matched = {}, card = el('article', 'rt-card');
     hit.matched.forEach(function (t) { matched[t] = 1; });
     var h = el('h3'), a = el('a');
-    a.href = row.url; a.target = '_blank'; a.rel = 'noopener noreferrer';
-    highlight(a, row.title || '(untitled)', matched);
-    h.appendChild(a); card.appendChild(h);
+    if (typeof row.url === 'string' && /^https?:\/\//i.test(row.url)) {
+      a.href = row.url; a.target = '_blank'; a.rel = 'noopener noreferrer';
+      highlight(a, row.title || '(untitled)', matched);
+      h.appendChild(a);
+    } else highlight(h, row.title || '(untitled)', matched);
+    card.appendChild(h);
     var who = [row.agency, row.ic].filter(Boolean).join(' / ');
     if (who) card.appendChild(el('p', 'rt-sub', who));
     var b = el('div', 'rt-badges');
@@ -100,11 +107,11 @@
     if (msg) out.appendChild(el('p', 'rt-empty', msg));
     (cards || []).forEach(function (c) { out.appendChild(c); });
     if (tail) out.appendChild(el('p', 'rt-meta', tail));
-    out.appendChild(el('p', 'rt-aid', 'Screening aid. Confirm every date and rule on Grants.gov before you act.'));
   }
 
   function run() {
     var RC = window.ResearchCore, q = state.ui.box.value;
+    state.today = localToday();
     state.ui.meta.textContent = 'Searched ' + state.rows.length + ' open opportunities; data as of ' + state.asOf + '.';
     if (!state.index) { render('Still loading the opportunity list. Try again in a moment.'); return; }
     if (!RC.tokenize(q).length) { render('Type or paste a few topic words, for example the aims of your project. Common words alone cannot be searched.'); return; }
@@ -124,7 +131,7 @@
     kept.sort(function (x, y) {
       var d = y.hit.score - x.hit.score;
       if (Math.abs(d) > 1e-9) return d;
-      var a = x.row.close || '9999-99-99', b = y.row.close || '9999-99-99';
+      var a = sortDate(x.row), b = sortDate(y.row);
       return a < b ? -1 : a > b ? 1 : 0;
     });
     var settings = readSettings(), shown = kept.slice(0, MAX_SHOW);
@@ -194,6 +201,7 @@
     root.appendChild(u.meta);
     u.out = el('div'); u.out.id = 'rt-results'; u.out.setAttribute('aria-live', 'polite');
     root.appendChild(u.out);
+    root.appendChild(el('p', 'rt-aid', 'Screening aid. Confirm every date and rule on Grants.gov before you act.'));
     render('Results appear here.');
   }
 
