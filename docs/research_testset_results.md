@@ -22,7 +22,7 @@ This matches an abstract to CURRENTLY OPEN opportunities of the same funder and 
 ### Reading the numbers
 
 - IC is only known for 13.4% of pool rows (the code comes from RFA-XX numbers; most PAR/PA rows have none). The IC metric therefore rests on few rows (EB 1, AA 2, CA 11, NS 18 in the pool), and "not found" often means the pool has few or no rows for that IC, not that ranking failed. GM has zero rows, so the GM award is not testable for IC.
-- Mechanism is known for 39.8% of rows, so the mechanism metric is the more meaningful one, but R01 alone is 79 rows, so R01 awards are easy to hit.
+- Mechanism is known for 39.7% of rows, so the mechanism metric is the more meaningful one, but R01 alone is 79 rows, so R01 awards are easy to hit.
 - Both metrics beat the random baseline (55.6% vs 7.3% for IC, 70.0% vs 21.2% for mechanism; the baseline is approximate and assumes 10 independent draws), but with 9 to 10 awards one award moves a rate by 10 points. No conclusion about quality should be drawn until the owner adds abstracts.
 
 Three worst-ranked awards (ranks within the top 50 results; none means no same-IC or same-mechanism row appeared):
