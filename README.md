@@ -6,7 +6,7 @@ It started as an entry in the Solve-A-Thon 2026 challenge for the NC Office of S
 
 ## Where to open it
 
-**Live link: not set yet.** The tool is a static web page built by GitHub Pages, and the public address has not been confirmed. Until it is, a maintainer can build the site locally; the steps are in the [runbook](Finalists/src/docs/runbook.md). When the address is set, it will be put here.
+**Live link: not set yet.** The tool is a static web page built by GitHub Pages, and the public address has not been confirmed. Until it is, a maintainer can build the site locally; the steps are in the [runbook](docs/runbook.md). When the address is set, it will be put here.
 
 ## How to use it
 
@@ -25,7 +25,7 @@ It started as an entry in the Solve-A-Thon 2026 challenge for the NC Office of S
 
 ## Who maintains it
 
-No maintainer or owner is named yet. The [runbook](Finalists/src/docs/runbook.md) is written for whoever takes it on and has an owner line still to fill in.
+No maintainer or owner is named yet. The [runbook](docs/runbook.md) is written for whoever takes it on and has an owner line still to fill in.
 
 ## How the data refreshes
 
@@ -43,14 +43,14 @@ Open the repository's **Issues** tab, choose **New issue**, and use the "Matchma
 
 | You want | Open |
 |---|---|
-| What the pipeline does, how to run it and extend it | [Finalists/README.md](Finalists/README.md) |
-| Running, rerunning and fixing the daily job and site | [Finalists/src/docs/runbook.md](Finalists/src/docs/runbook.md) |
+| What the pipeline does, how to run it and extend it | [docs/pipeline.md](docs/pipeline.md) |
+| Running, rerunning and fixing the daily job and site | [docs/runbook.md](docs/runbook.md) |
 | Setup, branches and rules for contributing | [CONTRIBUTING.md](CONTRIBUTING.md) |
-| Every number the tool quotes, with the script that reproduces it | [Finalists/src/docs/fact_sheet.md](Finalists/src/docs/fact_sheet.md) |
-| Where the data comes from | [NOTICE](NOTICE) and [Finalists/data/raw/README.md](Finalists/data/raw/README.md) |
-| Record of how AI tools were used in building this | [Finalists/AI_USAGE_LOG.md](Finalists/AI_USAGE_LOG.md) |
+| Every number the tool quotes, with the script that reproduces it | [docs/fact_sheet.md](docs/fact_sheet.md) |
+| Where the data comes from | [NOTICE](NOTICE) and [data/raw/README.md](data/raw/README.md) |
+| Record of how AI tools were used in building this | [AI_USAGE_LOG.md](AI_USAGE_LOG.md) |
 
-The repository has two folders of work: `Finalists/` (this tool) and `QualifierChallenge/` (round-one work on a different problem; the tool reuses two of its files, so it stays here). Folders will be reorganized in a later change.
+Folders: `R/` (pipeline), `tool/` (the web page), `tests/`, `app/` (daily job and site build), `data/`, `docs/`, and `archive/` (historical competition material, not used by the pipeline). The full map is in [docs/REPO_MAP.md](docs/REPO_MAP.md).
 
 ## License
 

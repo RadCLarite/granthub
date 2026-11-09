@@ -1,14 +1,17 @@
-**Layout change (Oct 2026):** the qualifier work now lives in `QualifierChallenge/` (README.md, GUIDE.md, handoff.md, `src/`, `data/`, `outs/`, `docs/`, the .Rproj and .Renviron). All paths below are relative to that folder; run commands from `QualifierChallenge/src/`. The repo's `.git` stays at this level. Round-two work goes in its own subfolder here.
+# grantHub: Federal Funds Matchmaker
 
-Apply when working anywhere in this folder (Solve-A-Thon 2026, NC's Hidden Treasure; team project, R-based). Read README.md first; GUIDE.md maps every file. Vault hub: ~/Documents/KALNotes/Projects/Competitions/Solveathon.
+R 4.5 pipeline plus one static page (`tool/matchmaker.html`) that ranks open federal grants against each NC agency's own strategic plan. Published on GitHub Pages by `.github/workflows/`. Read `README.md`, then `docs/pipeline.md` (how it works) and `docs/runbook.md` (daily job). `docs/REPO_MAP.md` lists every folder. `archive/` is history and is not used by the pipeline.
 
-- Goal: help an NC DHHS grant writer act on Grants.gov opportunities (1,662 in the file). Sorts them into Tier 1-3 by whose signature is needed (writer, supervisor, secretary/legislature) plus Tier 4 (university-led research), checked against the DHHS 2023-2025 plan (DMVA 2025-2029 also used).
-- Layout: `src/` = everything written by hand (`solveathon_project.qmd` notebook, `R/` numbered pipeline, `tool/` JS tool source, `docs/` briefs and AI-usage disclosure). `data/` = `raw/` (never modify), `manual/` (hand-authored tables), `cache/` (API and LLM responses), `processed/` (incl. `payload.json`). `outs/` = generated only, safe to delete. `docs/` = GitHub Pages site built by `src/build_site.py`.
-- Run: from `src/`, follow the "Rebuild from scratch" block in README.md. Start with `Rscript R/check_facts.R`; it must print "24 of 24 rows pass". Needs R 4.5 and Quarto; no Census key or Ollama needed because caches are committed.
-- Conventions: every threshold and default lives in `src/R/00_config.R`. Tier rules live only in `src/tool/tiering.js` (R runs it through V8); never duplicate them. Tool numbers come from `payload.json`, not hard-coded JS.
-- Constraints: the LLM only labels requirements with quoted evidence; it never assigns a tier. Presentation numbers must come from the verified facts in `src/docs/presentation_brief.md`. Do not invent figures.
-- Do not re-run outside-service scripts (`01a`, `03_llm_label.R`, ACS pull) casually; they call out only for uncached items.
-- Do not edit `.Renviron` or `.RData`; keep any API key out of files you write.
-- Judging criteria: Understanding (match criteria specific to this agency and user), Framing (problem and requirements), Solving (sensible, reproducible, wanted by an agency), Evaluating (name a real weakness and its tradeoff), Driving Impact (a non-technical budget director knows the next step).
-- Deliverables: top results list with rationale, notebook with AI disclosure, 5-minute recorded presentation for agency leadership.
-- Current status and open items change often: see `handoff.md`, not this file.
+## Commands (run from the repo root; `here::here()` resolves through `.here`)
+- Snapshot for tests (items.csv and ranking.csv are git-ignored): `AS_OF_DATE=2026-11-07 Rscript R/10_run_ranking.R && AS_OF_DATE=2026-11-07 Rscript R/11_build_payload.R`. `data/processed/payload.json` must stay byte-identical.
+- Checks: `Rscript tests/run_tests.R` (89 of 89 pass), `Rscript R/check_facts.R` (49 of 49 rows pass), `python app/check_dupes.py`.
+- CI-style job: `RUN_PIPELINE=1 JOB_DRY_RUN=1 JOB_OUT=/tmp/p.json Rscript app/job.R` (it rewrites `data/processed/payload.json` for today; rebuild the snapshot afterwards).
+- Site: `sh app/build_pages.sh <outdir> data/processed/payload.json`, then `python -m http.server -d <outdir> 8000`.
+
+## Constraints
+- Every threshold and default lives in `R/00_config.R`. Tier rules live only in `signature_tier()` in `R/helpers_rank.R`. Tool numbers come from `payload.json`, not hard-coded JS.
+- No invented figures: quoted numbers come from `docs/fact_sheet.md` and `data/manual/facts.csv`.
+- The language model only labels text with a quoted piece of evidence. It never sets rank, eligibility or tier.
+- Do not re-run outside-service scripts (`R/02*`, `R/03*` LLM labeling, ACS pull, `R/30`, `R/31`) casually; they call out for uncached items and some need keys.
+- Never modify `data/raw/`. Do not edit `.Renviron` or `.RData`. Keep API keys out of every file.
+- Log AI use in `AI_USAGE_LOG.md` and notable changes in `docs/improvement-log.md`.
