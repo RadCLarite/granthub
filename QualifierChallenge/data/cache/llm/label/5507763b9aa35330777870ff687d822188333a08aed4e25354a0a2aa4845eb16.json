@@ -1,0 +1,42 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "This opportunity supports public safety efforts to reduce deaths and injuries of individuals with forms of dementia, such as Alzheimer’s disease, or developmental disabilities, such as autism, who, due to their condition, wander from safe environments.",
+    "program_domain": "D06",
+    "owning_division": "DHHS: Mental Health, Developmental Disabilities and Substance Use Services",
+    "required_capabilities": [
+      "behavioral_health_delivery",
+      "public_health_surveillance",
+      "data_systems_interoperability",
+      "emergency_management"
+    ],
+    "requires_subrecipient_network": false,
+    "evaluation_required": false,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "none",
+    "target_population": "people_with_disability",
+    "alignment_dhhs": {
+      "level": "partial",
+      "plan_row": "G1.O4",
+      "rationale": "The program aims to support local capacity to overcome persistent health inequities by providing funding to agencies and organizations working with individuals with dementia and developmental disabilities."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The program does not directly align with any DMVA strategic plan objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v2",
+    "created": "2026-09-29T13:06:43-0400",
+    "prompt_tokens": 2734,
+    "output_tokens": 332,
+    "seconds": 32.2
+  }
+}

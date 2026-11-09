@@ -1,0 +1,35 @@
+.DS_Store
+.claude/settings.local.json
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+.Renviron
+.quarto/
+
+# --- Internal team material, kept out of the public tree (local copies stay on disk) ---
+# Untracked in claude/public-readiness-1; history still holds earlier versions.
+comms/
+Finalists/_team/
+Finalists/notes/
+Finalists/saturday/people/
+Finalists/testing/transcripts/
+# Finalists/drafts: ignore everything except what src/R/40_label_check.R reads (drafts/claude/eval, drafts/claude/docs/holdout)
+Finalists/drafts/*
+!Finalists/drafts/.gitkeep
+!Finalists/drafts/claude/
+Finalists/drafts/claude/*
+!Finalists/drafts/claude/eval/
+!Finalists/drafts/claude/docs/
+Finalists/drafts/claude/docs/*
+!Finalists/drafts/claude/docs/holdout/
+# Agent configs and team status notes
+Finalists/.opencode/
+Finalists/opencode.json
+Finalists/GEMINI.md
+Finalists/AGENTS.md
+Finalists/.claude/*
+!Finalists/.claude/improvement-log.md
+Finalists/handoff.md
+Finalists/HANDOFF_GitHub_Pages.md
+QualifierChallenge/handoff.md

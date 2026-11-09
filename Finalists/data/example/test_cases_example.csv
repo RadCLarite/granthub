@@ -1,0 +1,7 @@
+case_id,type,item_id,other_id,n,filter_id,criterion_id,expected,description
+c1,in_top_n,T12,,3,,,,Highest award with a long runway should be in the top 3
+c2,dropped_by,T04,,,eligible,,,A grant state governments cannot apply for is dropped by the eligibility filter
+c3,dropped_by,T16,,,open,,,A grant that already closed is dropped by the open filter
+c4,ranks_above,T01,T03,,,,,A rural health clinic grant outranks a non-health urban one
+c5,points_equal,T05,,,,time,0,A grant closing in under 30 days gets zero time points
+c6,not_in_ranking,T09,,,,,,A tribal-only grant is not ranked for the state

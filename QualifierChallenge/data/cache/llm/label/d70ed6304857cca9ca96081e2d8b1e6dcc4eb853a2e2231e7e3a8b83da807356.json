@@ -1,0 +1,39 @@
+{
+  "label": {
+    "administrable_by_state_agency": false,
+    "administrable_evidence": "Non-domestic (non-U.S.) Entities (Foreign Institutions) are not eligible to apply.",
+    "program_domain": "none",
+    "owning_division": "none",
+    "required_capabilities": [
+      "research_and_rigorous_evaluation"
+    ],
+    "requires_subrecipient_network": false,
+    "evaluation_required": false,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "none",
+    "target_population": "children",
+    "alignment_dhhs": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity focuses on occupational safety and health for children in agriculture, forestry, and fishing, which does not align with any specific DHHS strategic plan objectives."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity does not align with any DMVA strategic plan objectives as it focuses on occupational safety for children in agriculture, forestry, and fishing."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v3",
+    "created": "2026-09-29T14:08:16-0400",
+    "prompt_tokens": 3341,
+    "output_tokens": 286,
+    "seconds": 23.7
+  }
+}

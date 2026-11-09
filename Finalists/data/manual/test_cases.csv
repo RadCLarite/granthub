@@ -1,0 +1,6 @@
+case_id,type,item_id,other_id,n,filter_id,criterion_id,expected,description
+c1,points_equal,deq:326136,,,,award_size,0.666666666666667,A $1,000,000 ceiling scores two thirds on the 4 to 7 log scale
+c2,points_equal,deq:363532,,,,runway,0,A notice with 7 days left gets zero runway points
+c3,points_equal,deq:315723,,,,runway,NA,A forecast whose listed date has passed has unknown runway (dropped and rescaled; never zero)
+c4,dropped_by,deq:326136,,,eligible,,,A tribal-only grant (code 07) is dropped by the eligibility filter for every agency
+c5,dropped_by,deq:363549,,,eligible,,,A higher-education-only grant (code 06) is dropped for DEQ

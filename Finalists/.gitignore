@@ -1,0 +1,26 @@
+# Generated; rebuild with the commands in README.md. A teammate running "git add -A" must never
+# commit toy-data or stale outputs. To keep a final deliverable: git add -f outs/<file> (Kent only).
+outs/*
+!outs/figures/
+!outs/.gitkeep
+data/processed/ranking.csv
+data/processed/items.csv
+data/processed/profile/
+data/cache/llm/
+.quarto/
+*_files/
+
+# Large raw downloads (record source in data/raw/README.md)
+data/cache/api/grantsgov_extract/
+
+# compiled OCR helper (rebuild: swiftc -O -o data/cache/ocr_vision src/tools/ocr_vision.swift)
+data/cache/ocr_vision
+
+# graphify intermediates (keep graph.json and GRAPH_REPORT.md)
+_team/archive/graphify-out/.*
+_team/archive/graphify-out/cache/
+
+# Team API keys: never commit (loaded by src/R/00_config.R via readRenviron)
+api_keys.env
+*.env
+!*.env.example

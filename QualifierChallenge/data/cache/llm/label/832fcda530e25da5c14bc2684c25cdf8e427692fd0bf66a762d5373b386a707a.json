@@ -1,0 +1,39 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "ONLY STATE AND TRIBAL GOVERNMENTS MAY APPLY.",
+    "program_domain": "D06",
+    "owning_division": "DMVA: State Veterans Homes",
+    "required_capabilities": [
+      "capital_construction"
+    ],
+    "requires_subrecipient_network": false,
+    "evaluation_required": false,
+    "is_capital_project": true,
+    "needs_formal_designation": true,
+    "is_renewal": false,
+    "match_required": true,
+    "match_pct_stated": 35,
+    "match_evidence": "The Department of Veterans Affairs participation may not exceed 65% of the total project costs.",
+    "target_population": "veterans",
+    "alignment_dhhs": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The program is focused on constructing or renovating state-owned veterans homes, which does not align with any specific DHHS strategic plan objectives."
+    },
+    "alignment_dmva": {
+      "level": "strong",
+      "plan_row": "G2.O1",
+      "rationale": "The program directly funds the construction or renovation of state-owned veterans homes, which aligns with the DMVA's objective to modernize the State Veterans Homes infrastructure."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v3.1",
+    "created": "2026-09-29T14:53:03-0400",
+    "prompt_tokens": 5284,
+    "output_tokens": 297,
+    "seconds": 29.7
+  }
+}

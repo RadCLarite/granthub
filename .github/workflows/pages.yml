@@ -1,0 +1,74 @@
+name: Deploy site to GitHub Pages
+
+# One Pages site for the repo (Settings > Pages > Source: GitHub Actions).
+#   /             qualifier site (QualifierChallenge/docs, built by QualifierChallenge/src/build_site.py)
+#   /matchmaker/  Finals tool: Finalists/src/tool/matchmaker.html + a payload.json rebuilt from the saved cache
+# Replaces the Azure Container App and Blob job. The daily run only re-scores cached data (Finalists/app/job.R,
+# RUN_PIPELINE=1); it calls no outside service and needs no secret. If scoring or the contract check fails the
+# run fails and the previous deployment stays live.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "QualifierChallenge/docs/**"
+      - "Finalists/src/**"
+      - "Finalists/data/processed/**"
+      - "Finalists/data/manual/**"
+      - "Finalists/app/build_pages.sh"
+      - "Finalists/app/build_feeds.py"
+      - "Finalists/app/job.R"
+      - ".github/workflows/pages.yml"
+  schedule:
+    - cron: "0 11 * * *"   # 11:00 UTC, 6 or 7 am Eastern
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      TZ: America/New_York
+    steps:
+      - uses: actions/checkout@v4
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: "4.5"
+          use-public-rspm: true
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::dplyr
+            any::ggplot2
+            any::here
+            any::httr2
+            any::janitor
+            any::jsonlite
+            any::Matrix
+            any::digest
+            any::purrr
+            any::readr
+            any::stringr
+            any::tibble
+      - name: Re-score from cache and check the payload
+        run: |
+          mkdir -p "$RUNNER_TEMP/site-data"
+          RUN_PIPELINE=1 JOB_DRY_RUN=1 JOB_OUT="$RUNNER_TEMP/site-data/payload.json" Rscript Finalists/app/job.R
+      - name: Assemble site
+        run: sh Finalists/app/build_pages.sh "$RUNNER_TEMP/site" "$RUNNER_TEMP/site-data/payload.json"
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ runner.temp }}/site
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,41 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "state, territorial, tribal, and local child welfare agencies and courts to develop secure, accessible technology solutions",
+    "program_domain": "D04",
+    "owning_division": "DHHS: Child and Family Well-Being",
+    "required_capabilities": [
+      "data_systems_interoperability",
+      "research_and_rigorous_evaluation",
+      "subrecipient_network_management"
+    ],
+    "requires_subrecipient_network": true,
+    "evaluation_required": true,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "no cost-sharing requirement",
+    "target_population": "children",
+    "alignment_dhhs": {
+      "level": "partial",
+      "plan_row": "G2.O1",
+      "rationale": "The opportunity aims to improve child welfare systems, aligning with the goal to strengthen capacity for behavioral and mental health needs of children."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity does not align with DMVA's strategic plan objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v3",
+    "created": "2026-09-29T13:37:49-0400",
+    "prompt_tokens": 4428,
+    "output_tokens": 302,
+    "seconds": 43.4
+  }
+}

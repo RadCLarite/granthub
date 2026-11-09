@@ -1,0 +1,40 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "state_governments",
+    "program_domain": "D08",
+    "owning_division": "DHHS: Public Health",
+    "required_capabilities": [
+      "public_health_surveillance",
+      "data_systems_interoperability"
+    ],
+    "requires_subrecipient_network": false,
+    "evaluation_required": false,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "",
+    "target_population": "all_residents",
+    "alignment_dhhs": {
+      "level": "strong",
+      "plan_row": "G1.O3",
+      "rationale": "The opportunity supports improved surveillance and reporting of viral hepatitis, which aligns with the objective to mitigate barriers to access of health services."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity does not align with any DMVA strategic plan objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v3.1",
+    "created": "2026-09-29T16:00:37-0400",
+    "prompt_tokens": 3286,
+    "output_tokens": 265,
+    "seconds": 17.4
+  }
+}

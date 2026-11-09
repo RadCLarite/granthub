@@ -1,0 +1,37 @@
+{
+  "label": {
+    "administrable_by_state_agency": false,
+    "administrable_evidence": "work happens outside the United States",
+    "program_domain": "none",
+    "owning_division": "none",
+    "required_capabilities": [],
+    "requires_subrecipient_network": false,
+    "evaluation_required": false,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "cost sharing is not required, but ideas for possible cost sharing are welcomed and encouraged",
+    "target_population": "system_level",
+    "alignment_dhhs": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The program focuses on international activities in Tunisia and does not align with any specific North Carolina health or human services objectives."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The program focuses on international activities in Tunisia and does not align with any specific North Carolina veterans services objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v3.1",
+    "created": "2026-09-29T15:28:52-0400",
+    "prompt_tokens": 5181,
+    "output_tokens": 262,
+    "seconds": 58.8
+  }
+}

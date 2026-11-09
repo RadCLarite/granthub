@@ -1,0 +1,39 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "state_governments, nonprofits_non_higher_education_with_501c3",
+    "program_domain": "none",
+    "owning_division": "DMVA: State Veterans Cemeteries",
+    "required_capabilities": [
+      "public_health_surveillance"
+    ],
+    "requires_subrecipient_network": false,
+    "evaluation_required": false,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "",
+    "target_population": "veterans",
+    "alignment_dhhs": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The program focuses on cemetery research and education, which does not align with any specific DHHS plan objectives."
+    },
+    "alignment_dmva": {
+      "level": "strong",
+      "plan_row": "G2.O2",
+      "rationale": "The program aims to enhance the appearance, accessibility, and long-term maintenance of state veterans cemeteries, aligning with DMVA's objective to maintain high standards at state veterans cemeteries."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v3.1",
+    "created": "2026-09-29T16:00:38-0400",
+    "prompt_tokens": 3133,
+    "output_tokens": 294,
+    "seconds": 31.3
+  }
+}

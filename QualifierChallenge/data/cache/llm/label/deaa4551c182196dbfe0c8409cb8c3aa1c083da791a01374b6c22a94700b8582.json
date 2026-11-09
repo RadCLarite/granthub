@@ -1,0 +1,40 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "nonprofits_non_higher_education_with_501c3, state_governments, nonprofits_non_higher_education_without_501c3, county_governments, city_or_township_governments, public_and_indian_housing_authorities, federally_recognized_native_american_tribal_governments, other_native_american_tribal_organizations, special_district_governments",
+    "program_domain": "D07",
+    "owning_division": "DHHS: Health Service Regulation",
+    "required_capabilities": [
+      "clinical_service_delivery",
+      "public_health_surveillance"
+    ],
+    "requires_subrecipient_network": false,
+    "evaluation_required": false,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "",
+    "target_population": "all_residents",
+    "alignment_dhhs": {
+      "level": "partial",
+      "plan_row": "G1.O3",
+      "rationale": "The opportunity aims to improve health access for medically underserved communities, aligning with the goal to mitigate barriers to health services."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity does not specifically address veteran-focused services or infrastructure improvements."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v3",
+    "created": "2026-09-29T14:15:01-0400",
+    "prompt_tokens": 2939,
+    "output_tokens": 342,
+    "seconds": 49.9
+  }
+}

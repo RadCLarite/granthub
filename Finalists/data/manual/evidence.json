@@ -1,0 +1,62 @@
+{
+  "open_ranked": {
+    "value": 1576,
+    "fact": 3
+  },
+  "backtest": {
+    "fact": "26, 29, 31",
+    "won_programs": 157,
+    "question": "NC agencies later won 157 federal programs. Four weeks before each closed, how many were already in that agency's top 10?",
+    "rows": [
+      {
+        "label": "This tool",
+        "count": 61,
+        "pct": 38.85,
+        "ours": true
+      },
+      {
+        "label": "Newest-posted alert",
+        "count": 35,
+        "pct": 22.29,
+        "note": "Stands in for the usual new-postings email; not measured with coordinators."
+      },
+      {
+        "label": "Soonest deadline first",
+        "count": null,
+        "pct": 19.7
+      },
+      {
+        "label": "Ten picked at random",
+        "count": null,
+        "pct": 14.1,
+        "note": "Exact expected value."
+      }
+    ],
+    "fails": "Where it fails: 96 of the 157 won programs were not in the top 10. Reading the top 50 reaches 98 of 157 (62%). Keyword matching misses grants worded differently from the plan, and only 4 of 12 agencies clear our 50% bar.",
+    "source": "Award-history backtest, 12 agencies with 3 or more won programs, 4-week windows, Nov 2024 to Nov 2026. Exploratory."
+  },
+  "intime": {
+    "fact": 32,
+    "won": 157,
+    "days": 21,
+    "points": [
+      {
+        "weeks": 2,
+        "all": 61,
+        "intime": 53
+      },
+      {
+        "weeks": 4,
+        "all": 61,
+        "intime": 41
+      },
+      {
+        "weeks": 6,
+        "all": 55,
+        "intime": 34
+      }
+    ],
+    "say": "Checking every 2 weeks, 53 of the 157 still had 21 or more days left to apply. Checking every 6 weeks, only 34 did. That gap is why the tool shows the data date and is set up to refresh every day."
+  },
+  "_note": "Hand-authored from src/docs/fact_sheet.md (row numbers in each fact). Copied into payload.json by R/11_build_payload.R; the tool reads payload.evidence."
+}

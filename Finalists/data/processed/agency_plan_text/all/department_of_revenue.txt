@@ -1,0 +1,262 @@
+===== PAGE 1 =====
+
+NC DEPARTMENT OF REVENUE
+Strategic Plan
+2025 – 2029
+
+
+
+
+August 28, 2025
+
+North Carolina Department of Revenue
+ncdor.gov
+
+
+===== PAGE 2 =====
+
+Table of Contents
+
+A. Introduction                                         3
+
+B. Mission, Vision, & Values                            3
+     1.   Mission                                       3
+
+     2.   Vision                                        4
+
+     3.   Values                                        4
+
+
+C. Goals, Objectives, & Performance Measures            4
+     1.   Goal: Tax System Modernization                4
+
+     2.   Goal: Workforce Development and Planning      5
+
+     3.   Goal: Operational Excellence and Efficiency   6
+
+
+D. Additional Notes                                     6
+
+E. Priority Questions                                   7
+     1.   Priority Question 1                           7
+
+     2.   Priority Question 2                           7
+
+     3.   Priority Question 3                           7
+
+
+
+
+NCDOR Strategic Plan 2025 – 2029                        2
+
+
+===== PAGE 3 =====
+
+A. Introduction
+The North Carolina Department of Revenue (NCDOR) is a cabinet-level executive agency
+which administers tax laws and collects taxes on behalf of the North Carolina people. The
+governor of North Carolina appoints the leader of the Agency as part of his cabinet, which
+is the Secretary of Revenue.
+
+The Agency will go through a major transformation as it strives to modernize its tax
+systems, optimize its resources, and achieve customer service excellence. To accomplish
+this transformation, NCDOR has written this Agency Strategic Plan for years 2025-2029.
+This plan encompasses all areas of the business operations and supporting information
+technology services and is written with the NC Office of State Budget and Management
+(OSBM) as the primary audience. The Information Technology Strategic Plan and the
+Organizational Change Management (OCM) Strategic Plan have been developed separately
+to support and align with the Agency Strategic Plan.
+
+NCDOR will focus primarily on the following areas of business as its foundation for this
+2025-2029 Agency Strategic Plan:
+
+       1. Tax System Modernization
+       2. Workforce Development and Planning
+       3. Operational Excellence and Efficiency
+
+This strategic plan lays out the optimal path towards achieving the three components of
+business mentioned above, while demonstrating progress towards key performance
+metrics established by subject matter experts.
+
+
+B. Mission, Vision, & Values
+This section presents the Agency’s reason for existence, its vision for the future, and key
+values the Agency will hold true to create an environment equipped with tools needed to
+meet the Agency’s goals. Together, these organizational elements provide a common
+understanding about what NCDOR does, how it does it, and why it matters for the future of
+North Carolina.
+
+1. Mission
+To fund public services beneﬁting the people of North Carolina, we administer the tax laws
+and collect the taxes due in an impartial, consistent, secure, and efficient manner.
+
+
+
+
+NCDOR Strategic Plan 2025 – 2029                                                             3
+
+
+===== PAGE 4 =====
+
+2. Vision
+With a dedicated workforce and enhanced technology, North Carolina taxpayers will
+receive quality customer service and interact with a tax system that is easy-to-use,
+transparent, and trusted.
+
+3. Values
+The Agency has core values expected among all who work here:
+
+   •   Accountability – accepts full responsibility for oneself and for one’s contribution as
+       a team member, which includes honesty, truthfulness, and a willingness to confront
+       problems quickly.
+   •   Teamwork and Collaboration – cooperates with others to accomplish common
+       goals. Is an advocate for working together, to include articulating expectations for
+       teamwork and creating commitments through the practice of collaboration. Works
+       with others to achieve shared goals and treats them with dignity and respect.
+   •   Continuous Improvement and Development – views workplace challenges as
+       opportunities for improvement, development, and personal growth. Demonstrates a
+       commitment to continuous improvement and professional development. Improves
+       work processes through innovation and creativity and is ﬂexible in working through
+       new challenges.
+   •   Professionalism – exhibits courteous, conscientious, and businesslike manner in
+       work-related activities and when communicating with others at work. Is
+       knowledgeable about aspects of one’s job and acts for the public good without
+       regard to convenience or self- interest. Is considered trustworthy and dependable.
+
+
+C. Goals, Objectives, & Performance Measures
+1. Goal: Tax System Modernization
+NCDOR will improve processing capabilities and constituent services through improved
+technological capabilities, enhanced security, and expanded electronic services by
+replacing the legacy-based Integrated Tax Administration System (ITAS) and related tax
+systems with a new, modern, integrated system.
+
+The following objectives derive from the Tax Modernization project charter and most recent
+status report, and the approved NCVIP (North Carolina Valuing Individual Performance)
+values for 2025-2026.
+
+
+
+
+NCDOR Strategic Plan 2025 – 2029                                                              4
+
+
+===== PAGE 5 =====
+
+ OBJECTIVES                                                  PERFORMANCE MEASURES
+ Reduce risk of technological obsolescence to support        o Execution of a
+ compliant state tax revenue processing by replacing           contract for a new tax
+ the 30+ year legacy tax system.                               system.
+ Increase processing efficiencies through enhanced           o Additional electronic
+ electronic services and additional automation for             service offerings.
+ recurring manual processes.                                 o Implementation of a
+ Enhance customer service by improving and expanding           taxpayer portal.
+ internal and external self service offerings.               o Timely system
+ Increase the capacity to deliver timely system changes        changes by legislative
+ critical to evolving statutory requirements and               effective dates.
+ administrative enhancements.                                o Implementation of
+ Implement Releases per agreed upon vendor schedule.           releases by scheduled
+                                                               dates.
+ Establish and staff leadership for Transformation
+                                                             o Announcement of the
+ Management Office.
+                                                               Transformation
+                                                               Management Office
+                                                               and leaders.
+
+
+2. Goal: Workforce Development and Planning
+ OBJECTIVES                                                  PERFORMANCE MEASURES
+ Attract and retain a skilled workforce to support all       o Attrition rates.
+ agency operations.                                          o Resource
+ Evaluate and optimize resources to support agency             optimization model.
+ goals and objectives through resource capacity              o Employee
+ planning.                                                     satisfaction.
+ Provide training and development for all staff; including   o Internal promotions.
+ management and leadership training.
+ Develop and publicize career paths for most common
+ jobs.
+ Establish education and experience equivalents for
+ most common jobs.
+ Identify single points of failure and develop plans to
+ minimize risks.
+ Develop a succession plan for leadership and critical
+ positions to ensure continuity.
+
+
+
+
+NCDOR Strategic Plan 2025 – 2029                                                        5
+
+
+===== PAGE 6 =====
+
+3. Goal: Operational Excellence and Efficiency
+ OBJECTIVES                                                PERFORMANCE MEASURES
+ Develop and adhere to customer service level              o Compliance with
+ agreements.                                                 service level
+ Involuntary compliance (operational):                       agreement targets.
+    o Reduce accounts receivable balance.                  o Effectiveness of
+    o Maintain and enhance programs to identify and          compliance
+        address areas of non-compliance.                     programs.
+ Develop standard metrics reporting.                       o Publication of internal
+ Evaluate scanning services and recommendation.              and external metrics.
+ Outsource printing of checks and notices.
+ Align resources within the agency for efficiency and
+ effectiveness.
+ Identify Business Continuity Lead and enhance
+ business continuity management plans.
+
+
+D. Additional Notes
+The NCDOR Information Technology strategic plan supports the Agency plan and describes
+in detail NCDOR’s plans for implementing solutions to:
+
+   •   Address high risk technology capabilities (i.e. revenue collections and analysis /
+       online ﬁling and payment).
+   •   Stabilize and maintain legacy systems through full implementation of the new tax
+       system.
+   •   Ensure all systems meet legislative requirements and effective dates for processing.
+
+The NCDOR Organizational Change Management strategic plan supports the Agency plan,
+and focuses on the structured, cyclical processes designed to guide individuals, teams,
+and organization from the current state to the desired future state. Achieving
+transformation requires execution of ﬁve distinct, people focused activities:
+
+   •   Ensuring the right leadership and program sponsors are in place.
+   •   Determining the appropriate implementation approach.
+   •   Investing in training and support for staff in use of the new system and new ways of
+       working.
+   •   Prioritizing transparent and effective communication to build trust and alignment.
+   •   Continuously soliciting feedback through iterative user engagement.
+
+
+
+
+NCDOR Strategic Plan 2025 – 2029                                                              6
+
+
+===== PAGE 7 =====
+
+E. Priority Questions
+The following are areas of uncertainty where additional evidence would be meaningful and
+needed to design and implement solutions in the future.
+
+1. Priority Question 1
+In which areas of the business could the Agency use automation and artiﬁcial intelligence,
+where appropriate, to complete the most important labor-intensive tasks with positive
+outcomes?
+
+2. Priority Question 2
+How can NCDOR use tax analytics to identify and reduce and/or prevent tax and refund
+fraud?
+
+3. Priority Question 3
+How do we achieve an organizational transformation in an environment with budgetary
+unknowns and resource constraints?
+
+
+
+
+NCDOR Strategic Plan 2025 – 2029                                                         7
+

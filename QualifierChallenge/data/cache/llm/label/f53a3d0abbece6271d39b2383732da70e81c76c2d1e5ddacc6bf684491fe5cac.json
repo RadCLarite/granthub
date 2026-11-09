@@ -1,0 +1,39 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "state_governments",
+    "program_domain": "D04",
+    "owning_division": "DHHS: Child and Family Well-Being",
+    "required_capabilities": [
+      "research_and_rigorous_evaluation"
+    ],
+    "requires_subrecipient_network": false,
+    "evaluation_required": true,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "none",
+    "target_population": "children",
+    "alignment_dhhs": {
+      "level": "strong",
+      "plan_row": "G2.O2",
+      "rationale": "The opportunity aims to improve child outcomes in safety, permanency, and well-being, aligning with the goal to reform North Carolina's child welfare and social services systems."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity does not directly relate to any of the DMVA strategic plan goals or objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v2",
+    "created": "2026-09-29T09:04:44-0400",
+    "prompt_tokens": 4143,
+    "output_tokens": 274,
+    "seconds": 31.9
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "state_governments, public_and_state_institutions_of_higher_education, public_and_indian_housing_authorities, city_or_township_governments, special_district_governments, county_governments, other_native_american_tribal_organizations, federally_recognized_native_american_tribal_governments",
+    "program_domain": "D01",
+    "owning_division": "DHHS: Mental Health, Developmental Disabilities and Substance Use Services",
+    "required_capabilities": [
+      "data_systems_interoperability",
+      "public_health_surveillance"
+    ],
+    "requires_subrecipient_network": false,
+    "evaluation_required": false,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "none",
+    "target_population": "all_residents",
+    "alignment_dhhs": {
+      "level": "partial",
+      "plan_row": "G3.O5",
+      "rationale": "The opportunity aims to improve language access services, which aligns with the goal of improving behavioral health data infrastructure and utilization."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity does not align with DMVA's strategic plan objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v3.1",
+    "created": "2026-09-29T15:38:08-0400",
+    "prompt_tokens": 3463,
+    "output_tokens": 336,
+    "seconds": 36.4
+  }
+}

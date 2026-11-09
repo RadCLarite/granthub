@@ -1,0 +1,37 @@
+{
+  "label": {
+    "administrable_by_state_agency": false,
+    "administrable_evidence": "",
+    "program_domain": "none",
+    "owning_division": "none",
+    "required_capabilities": [],
+    "requires_subrecipient_network": false,
+    "evaluation_required": false,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": true,
+    "match_pct_stated": 0,
+    "match_evidence": "Documentation of Cost Share or Matching Applications must include commitment letters or equivalent documents that demonstrate, to the satisfaction of EDA, that all matching funds (whether cash, loans, bonds, or in-kind) from all sources (e.g., any applicant, any co-applicants, and any other sources of matching funds) referenced in the application will be unencumbered, unrestricted, and committed at the time of award and that are signed by authorized representatives of the sources of the matching funds.",
+    "target_population": "all_residents",
+    "alignment_dhhs": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "none"
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "none"
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v3",
+    "created": "2026-09-29T14:25:48-0400",
+    "prompt_tokens": 4558,
+    "output_tokens": 302,
+    "seconds": 30.4
+  }
+}

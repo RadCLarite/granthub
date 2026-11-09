@@ -1,0 +1,37 @@
+{
+  "label": {
+    "administrable_by_state_agency": false,
+    "administrable_evidence": "none",
+    "program_domain": "none",
+    "owning_division": "none",
+    "required_capabilities": [],
+    "requires_subrecipient_network": false,
+    "evaluation_required": true,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": true,
+    "match_pct_stated": 25,
+    "match_evidence": "A non-Federal entity is a state, local government, Indian tribe, institution of higher education, for-profit or nonprofit organization that carries out a federal award as a recipient or subrecipient. Cost Sharing Required Cost Share: • 25 percent of total project costs (total project costs includes Federal and non-Federal funds)",
+    "target_population": "all_residents",
+    "alignment_dhhs": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "none"
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "none"
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v3",
+    "created": "2026-09-29T13:41:26-0400",
+    "prompt_tokens": 4653,
+    "output_tokens": 266,
+    "seconds": 39.3
+  }
+}

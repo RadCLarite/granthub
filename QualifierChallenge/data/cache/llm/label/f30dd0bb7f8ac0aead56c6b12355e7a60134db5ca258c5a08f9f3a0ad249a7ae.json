@@ -1,0 +1,37 @@
+{
+  "label": {
+    "administrable_by_state_agency": false,
+    "administrable_evidence": "Applicant organizations may submit more than one application, provided that each application is scientifically distinct.",
+    "program_domain": "none",
+    "owning_division": "none",
+    "required_capabilities": [],
+    "requires_subrecipient_network": false,
+    "evaluation_required": false,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "none",
+    "target_population": "system_level",
+    "alignment_dhhs": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity focuses on research and regulatory decision-making, not direct service delivery or program improvement."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity focuses on research and regulatory decision-making, not direct service delivery or program improvement."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v3.1",
+    "created": "2026-09-29T15:51:30-0400",
+    "prompt_tokens": 3334,
+    "output_tokens": 249,
+    "seconds": 19.6
+  }
+}

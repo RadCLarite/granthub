@@ -1,0 +1,39 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "state_governments, city_or_township_governments",
+    "program_domain": "none",
+    "owning_division": "none",
+    "required_capabilities": [
+      "data_systems_interoperability"
+    ],
+    "requires_subrecipient_network": false,
+    "evaluation_required": false,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": true,
+    "match_pct_stated": 10,
+    "match_evidence": "ten percent (10%) of the total funding requested",
+    "target_population": "all_residents",
+    "alignment_dhhs": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The program focuses on noise mitigation and does not align with any specific health or human services objectives."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The program focuses on noise mitigation and does not align with any specific veteran services objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v3.1",
+    "created": "2026-09-29T15:34:22-0400",
+    "prompt_tokens": 4367,
+    "output_tokens": 265,
+    "seconds": 43.2
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "state_governments, public_and_state_institutions_of_higher_education, other",
+    "program_domain": "D07",
+    "owning_division": "DHHS: Health Service Regulation",
+    "required_capabilities": [
+      "workforce_training_credentialing"
+    ],
+    "requires_subrecipient_network": false,
+    "evaluation_required": false,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "none",
+    "target_population": "all_residents",
+    "alignment_dhhs": {
+      "level": "partial",
+      "plan_row": "G4.O4",
+      "rationale": "The grant aims to build the occupational safety and health workforce, which aligns with the objective to support the public health and child welfare workforce."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The grant does not specifically target veterans or veteran services."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v3.1",
+    "created": "2026-09-29T15:19:08-0400",
+    "prompt_tokens": 3165,
+    "output_tokens": 273,
+    "seconds": 52.9
+  }
+}

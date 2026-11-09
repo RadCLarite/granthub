@@ -1,0 +1,37 @@
+{
+  "label": {
+    "administrable_by_state_agency": false,
+    "administrable_evidence": "District Organizations (as defined in 13 C.F.R. § 300.3); Indian Tribes or a consortium of Indian Tribes; States, cities, or other political subdivisions of a State, including a special purpose unit of a State or local government engaged in economic or infrastructure development activities, or a consortium of political subdivisions; Institutions of higher education or a consortium of institutions of higher education; or Public or private non-profit organizations or associations acting in cooperation with officials of a political subdivision of a State",
+    "program_domain": "none",
+    "owning_division": "none",
+    "required_capabilities": [],
+    "requires_subrecipient_network": false,
+    "evaluation_required": false,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": true,
+    "match_pct_stated": 0,
+    "match_evidence": "Cost sharing is an essential element of any EDA project. The availability and committed nature of matching funds is a competitiveness factor in evaluating applications against each other",
+    "target_population": "all_residents",
+    "alignment_dhhs": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity focuses on economic development and does not align with any specific health or human services objectives in the NC DHHS Strategic Plan."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity focuses on economic development and does not align with any specific veterans services objectives in the NC DMVA Strategic Plan."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v3",
+    "created": "2026-09-29T14:38:24-0400",
+    "prompt_tokens": 4856,
+    "output_tokens": 383,
+    "seconds": 50.2
+  }
+}

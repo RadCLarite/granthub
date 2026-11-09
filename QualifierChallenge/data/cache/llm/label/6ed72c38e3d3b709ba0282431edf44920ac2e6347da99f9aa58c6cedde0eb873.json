@@ -1,0 +1,41 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "CDC anticipates an Approximate Total Fiscal Year Funding amount of $500,000 for Year 1, subject to the availability of funds.",
+    "program_domain": "D08",
+    "owning_division": "DHHS: Public Health",
+    "required_capabilities": [
+      "public_health_surveillance",
+      "data_systems_interoperability",
+      "laboratory_services"
+    ],
+    "requires_subrecipient_network": false,
+    "evaluation_required": true,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "none",
+    "target_population": "system_level",
+    "alignment_dhhs": {
+      "level": "partial",
+      "plan_row": "G1.O4",
+      "rationale": "The opportunity aims to strengthen the capacity of the Government of Ghana to manage laboratory services, which aligns with the goal of investing in the capacity of partners to overcome health disparities."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity does not align with any DMVA strategic plan objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v2",
+    "created": "2026-09-29T13:08:42-0400",
+    "prompt_tokens": 3959,
+    "output_tokens": 313,
+    "seconds": 39.1
+  }
+}

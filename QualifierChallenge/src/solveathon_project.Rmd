@@ -1,0 +1,437 @@
+---
+title: "Solve-A-Thon 2026"
+author: "Kent Lee"
+date: "`r Sys.Date()`"
+geometry: margin=0.5in
+output:
+  rmdformats::readthedown:
+      self_contained: true
+      thumbnails: true
+      lightbox: true
+      gallery: true
+      highlight: kate
+      toc_float: yes
+      code_folding: show
+      code_download: true
+params:
+  project_dir: "/Users/kentalee/Documents/KALProjects/UNCProjects/SolveAThon_2026"
+  results_dir: "outs"
+  data_dir: "data"
+  cache_dir: "cache"
+  grants_file: "grants-search-202608182008.csv"
+---
+
+<style>
+#content {
+  max-width: 100% !important;
+  padding-left: 40px !important;
+  padding-right: 40px !important;
+}
+
+mark {
+  background-color: #E6E6FA;
+  color: black;
+  border: 1px solid #E6E6FA;
+  border-radius: 5px;
+  font-family: Menlo, monospace;
+  font-size: 0.85em;
+}
+
+img, .ggplot2-responsive {
+  width: 80% !important;
+  max-width: 80% !important;
+  height: auto !important;
+}
+
+h1, h2 {
+  border-bottom: 1px solid #E6E6FA;
+  padding-bottom: 6px;
+  margin-top: 34px;
+}
+
+h3 {
+  margin-top: 26px;
+}
+
+.dataTables_wrapper {
+  margin-top: 18px;
+  margin-bottom: 30px;
+  font-size: 0.88em;
+}
+
+table.dataTable thead th {
+  background-color: #F4F6FA;
+}
+
+pre {
+  border-radius: 6px;
+}
+
+.figure, .ggplot2-responsive {
+  margin-top: 14px;
+  margin-bottom: 24px;
+}
+
+blockquote {
+  border-left: 4px solid #4A90E2;
+  background-color: #F8F9FA;
+  padding: 10px 16px;
+  color: #333333;
+}
+</style>
+
+# Setup
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  eval = TRUE,
+  message = TRUE,
+  warning = FALSE,
+  fig.align = "center",
+  dpi = 150,
+  out.width = "100%"
+)
+
+project_dir <- params$project_dir
+results_dir <- file.path(params$project_dir, params$results_dir)
+data_dir <- file.path(params$project_dir, params$data_dir)
+cache_dir <- file.path(data_dir, params$cache_dir)
+
+knitr::opts_knit$set(root.dir = project_dir)
+dir.create(results_dir, showWarnings = FALSE, recursive = TRUE)
+
+options(bitmapType = "cairo")
+```
+
+```{r libraries, include = FALSE}
+suppressPackageStartupMessages({
+  library(dplyr)
+  library(ggplot2)
+  library(readr)
+  library(tidyr)
+  library(lubridate)
+  library(stringr)
+  library(janitor)
+  library(ggrepel)
+  library(purrr)
+  library(DT)
+  library(scales)
+  library(crosstalk)
+  library(plotly)
+})
+```
+
+
+## Screening Parameters
+
+All screening logic is controlled from the config chunk below. Setting any parameter
+to `NULL` disables that restriction and lets every row through.
+
+* `ref_date_input` is the date the shortlist is built for. `NULL` uses today's date.
+* `min_runway_days` is the minimum number of days between the reference date and the deadline. `NULL` accepts any deadline, including postings with no close date.
+* `target_agencies` limits results to the federal agencies that issue the grant. `NULL` keeps every agency.
+* `required_applicant_types` requires at least one listed applicant type to appear on the posting. `NULL` keeps every applicant type.
+* `include_forecasts` keeps forecasted postings alongside posted ones. `NULL` or `TRUE` keeps both.
+* `exclude_research_mechanisms` removes investigator-initiated research grants. `NULL` or `FALSE` keeps them.
+* `exclude_restricted_competitions` removes single-source and invitation-only postings. `NULL` or `FALSE` keeps them.
+* `award_floor_usd` is the minimum award size worth pursuing. `NULL` applies no floor.
+
+```{r config}
+is_unset <- function(x) {
+  is.null(x) || length(x) == 0L || all(is.na(x))
+}
+
+ref_date_input <- "2026-09-30"
+min_runway_days <- 45
+target_agencies <- c("DHHS")
+required_applicant_types <- c("state_governments")
+include_forecasts <- FALSE
+exclude_research_mechanisms <- TRUE
+exclude_restricted_competitions <- TRUE
+award_floor_usd <- 250000
+
+ref_date <- if (is_unset(ref_date_input)) Sys.Date() else ymd(ref_date_input)
+earliest_close <- if (is_unset(min_runway_days)) NULL else ref_date + days(min_runway_days)
+keep_forecasts <- is_unset(include_forecasts) || isTRUE(include_forecasts)
+apply_research_rule <- isTRUE(exclude_research_mechanisms)
+apply_restricted_rule <- isTRUE(exclude_restricted_competitions)
+
+lbl_agency <- if (is_unset(target_agencies)) {
+  "Any issuing agency"
+} else {
+  paste0("Issued by ", paste(target_agencies, collapse = " / "))
+}
+
+lbl_forecast <- if (keep_forecasts) "Posted or forecasted" else "Posted, not forecast"
+
+lbl_runway <- if (is.null(earliest_close)) {
+  "Any deadline"
+} else {
+  paste0("Closes on or after ", format(earliest_close, "%b %d, %Y"))
+}
+
+lbl_eligible <- if (is_unset(required_applicant_types)) {
+  "Any applicant type"
+} else {
+  paste0(
+    paste(str_replace_all(required_applicant_types, "_", " "), collapse = " or "),
+    " eligible"
+  )
+}
+
+lbl_research <- if (apply_research_rule) "Not a research mechanism" else "Research mechanisms kept"
+lbl_restricted <- if (apply_restricted_rule) "Open competition" else "Restricted competitions kept"
+
+research_agency_regex <- "^HHS-NIH"
+
+research_number_regex <- "^(PA|PAR|PD|RFA)-"
+
+research_activity_regex <- paste0(
+  "\\b(",
+  paste(
+    c("R01", "R03", "R13", "R21", "R24", "R25", "R34", "R35", "R41", "R42", "R43", "R44",
+      "U01", "U18", "U19", "U24", "U54", "UG3", "UH3", "UM1", "P01", "P20", "P30", "P50",
+      "K01", "K08", "K23", "K99", "T03", "T32", "T42", "F31", "F32", "DDRIG"),
+    collapse = "|"
+  ),
+  ")\\b"
+)
+
+research_category <- "science_technology_and_other_research_and_development"
+
+restricted_regex <- regex(
+  paste(
+    c("only the following applicant",
+      "only the following entit",
+      "single source",
+      "sole source",
+      "invited applicant",
+      "is eligible to apply for this single",
+      "not a competitive"),
+    collapse = "|"
+  ),
+  ignore_case = TRUE
+)
+
+pal <- list(
+  primary   = "#4A90E2",
+  secondary = "#7B68A6",
+  accent    = "#FF6B6B",
+  neutral   = "#B8C2CC",
+  ink       = "#222222",
+  light     = "#F8F9FA"
+)
+
+pal_flag <- c("Kept" = "#4A90E2", "Dropped" = "#FF6B6B")
+
+theme_sat <- function(base_size = 13) {
+  theme_minimal(base_size = base_size) +
+    theme(
+      plot.title = element_text(face = "bold", size = base_size + 2, color = pal$ink),
+      plot.subtitle = element_text(color = "#555555", margin = margin(b = 10)),
+      plot.caption = element_text(color = "#777777", size = base_size - 4, hjust = 0),
+      panel.grid.minor = element_blank(),
+      axis.text.y = element_text(face = "bold"),
+      plot.margin = margin(10, 20, 10, 10)
+    )
+}
+
+theme_set(theme_sat())
+
+make_dt <- function(df, page_length = 10, caption = NULL) {
+  display <- df |>
+    mutate(
+      across(where(is.list), ~ sapply(.x, paste, collapse = ", ")),
+      across(
+        where(is.character),
+        ~ if_else(!is.na(.x) & nchar(.x) > 150, paste0(substr(.x, 1, 150), "..."), .x)
+      )
+    )
+
+  headers <- names(display) |>
+    str_replace_all("_", " ") |>
+    str_to_title()
+
+  DT::datatable(
+    display,
+    colnames = headers,
+    caption = caption,
+    filter = "top",
+    rownames = FALSE,
+    width = "100%",
+    extensions = "FixedHeader",
+    options = list(
+      pageLength = page_length,
+      scrollX = TRUE,
+      fixedHeader = TRUE,
+      autoWidth = FALSE,
+      searchHighlight = TRUE,
+      dom = "itfpt"
+    ),
+    class = "cell-border stripe hover"
+  )
+}
+```
+
+```{r load_data, include = FALSE}
+grants_data <- read_csv(file.path(data_dir, params$grants_file))
+
+date_cols <- grep("date$", names(grants_data), value = TRUE, ignore.case = TRUE)
+bool_cols <- grep("^is_", names(grants_data), value = TRUE, ignore.case = TRUE)
+
+grants_data <- grants_data |>
+  mutate(
+    across(all_of(date_cols), ymd),
+    across(all_of(bool_cols), as.logical)
+  )
+
+clean_grants_data <- grants_data |>
+  select(
+    where(~ !all(is.na(.x))),
+    -c(agency_email_address_description, agency_contact_description, additional_info_url_description)
+  ) |>
+  mutate(
+    close_date = if_else(close_date == as.Date("2099-01-01"), as.Date(NA), close_date),
+    funding_instruments = str_split(funding_instruments, "\\s*;\\s*") |> map(~ str_trim(.x)),
+    funding_categories = str_split(funding_categories, "\\s*;\\s*") |> map(~ str_trim(.x)),
+    applicant_types = str_split(applicant_types, "\\s*;\\s*") |> map(~ str_trim(.x)), 
+    top_level_agency_name = case_match(
+      top_level_agency_name,
+      "Department of Health and Human Services"       ~ "DHHS",
+      "U.S. National Science Foundation"              ~ "NSF",
+      "Department of Defense"                         ~ "DOD",
+      "Department of State"                           ~ "DOS",
+      "Department of the Interior"                    ~ "DOI",
+      "Department of Justice"                         ~ "DOJ",
+      "Department of Agriculture"                     ~ "USDA",
+      "Department of Transportation"                  ~ "DOT",
+      "Department of Commerce"                        ~ "DOC",
+      "Department of Housing and Urban Development"   ~ "HUD",
+      "National Aeronautics and Space Administration" ~ "NASA",
+      "Department of Energy"                          ~ "DOE",
+      "Department of Labor"                           ~ "DOL",
+      "Department of Homeland Security"               ~ "DHS",
+      "Department of Education"                       ~ "ED",
+      "National Endowment for the Arts"               ~ "NEA",
+      "Small Business Administration"                 ~ "SBA",
+      "Office of National Drug Control Policy"        ~ "ONDCP",
+      "Department of Veterans Affairs"                ~ "VA",
+      "Department of the Treasury"                    ~ "TREAS",
+      "Environmental Protection Agency"               ~ "EPA",
+      "National Endowment for the Humanities"         ~ "NEH",
+      "Department of Energy - Office of Science"      ~ "DOE-SC",
+      "Millennium Challenge Corporation"              ~ "MCC",
+      "Library of Congress"                           ~ "LOC",
+      .default = top_level_agency_name
+    )
+  )
+
+if (!"applicant_eligibility_description" %in% names(clean_grants_data)) {
+  clean_grants_data$applicant_eligibility_description <- NA_character_
+}
+```
+
+# Part 1. All Federal Grant Opportunities
+
+```{r format_summarize, include = FALSE}
+total_grants <- nrow(clean_grants_data)
+unique_agencies <- n_distinct(clean_grants_data$top_level_agency_name)
+
+if ("award_ceiling" %in% names(clean_grants_data)) {
+  max_grant <- clean_grants_data |> 
+    filter(!is.na(award_ceiling)) |> 
+    slice_max(award_ceiling, n = 1, with_ties = FALSE)
+  
+  max_amount <- dollar(max_grant$award_ceiling)
+  max_agency <- max_grant$top_level_agency_name
+} else {
+  max_amount <- "N/A"
+  max_agency <- "N/A"
+}
+```
+
+## Executive Summary
+
+Welcome to the **Solve-A-Thon 2026** data portfolio tracker. This workspace isolates key operational trajectories across federal grant systems to guide team strategy.
+
+* **Identified Opportunities:** Tracking <mark>`r total_grants`</mark> unique funding programs.
+* **Sponsoring Bodies:** Distributed across <mark>`r unique_agencies`</mark> key federal agencies.
+* **Top Ceiling Value:** The largest cataloged single award opportunity scales up to **`r max_amount`**, managed by the **`r max_agency`**.
+
+---
+
+## Visual Analysis
+
+### Portfolio Volume by Sponsoring Agency
+The figure below sorts federal agencies by the total count of funding announcements in our dataset, illustrating where investment pipelines are most heavily concentrated.
+
+```{r agency_chart, fig.width=10, fig.height=6}
+agency_summary <- clean_grants_data |> 
+  count(top_level_agency_name, sort = TRUE) |> 
+  head(15)
+
+ggplot(agency_summary, aes(x = reorder(top_level_agency_name, n), y = n)) +
+  geom_col(fill = pal$primary, width = 0.7) +
+  geom_text(aes(label = n), hjust = -0.2, size = 3.5, color = "#333333") +
+  coord_flip() +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.08))) +
+  labs(
+    title = "Top 15 Agencies by Grant Listing Volume",
+    subtitle = "Posted and forecasted announcements in the August 18, 2026 snapshot",
+    x = NULL,
+    y = "Number of Grant Opportunities"
+  ) +
+  theme(panel.grid.major.y = element_blank())
+```
+
+<br>
+
+### Financial Distribution of Award Ceilings
+This map details the financial spreads across the highest-volume funding agencies, charting maximum award ranges using a relative logarithmic view.
+
+```{r financial_chart, fig.width=10, fig.height=6}
+if ("award_ceiling" %in% names(clean_grants_data)) {
+  financial_data <- clean_grants_data |> 
+    filter(!is.na(award_ceiling) & award_ceiling > 0) |> 
+    filter(top_level_agency_name %in% agency_summary$top_level_agency_name[1:8])
+
+  ggplot(financial_data, aes(x = top_level_agency_name, y = award_ceiling)) +
+    geom_boxplot(outlier.color = pal$accent, fill = pal$light, color = pal$primary) +
+    scale_y_log10(labels = label_dollar(scale_cut = cut_short_scale())) +
+    labs(
+      title = "Award Ceiling Variations by Core Agency Portfolio",
+      subtitle = "Logarithmic scaling highlighting overall award funding distributions",
+      x = "Agency Identifier",
+      y = "Programmatic Award Ceiling ($)"
+    ) +
+    coord_flip()
+} else {
+  cat("Financial column 'award_ceiling' not detected in current input data frame structure.")
+}
+```
+
+---
+
+## Interactive Database Explorer
+
+```{r interactive_table}
+cols_to_remove <- c(
+  "opportunity_id", 
+  "opportunity_number", 
+  "close_date_description", 
+  "opportunity_assistance_listings", 
+  "applicant_eligibility_description", 
+  "forecasted_close_date_description", 
+  "fiscal_year"
+)
+
+table_display <- clean_grants_data |>
+  select(top_level_agency_name, everything()) |> 
+  select(-any_of(cols_to_remove)) |>
+  mutate(
+    award_ceiling = if_else(!is.na(award_ceiling), scales::dollar(award_ceiling), "N/A"),
+    award_floor = if_else(!is.na(award_floor), scales::dollar(award_floor), "N/A")
+  )
+
+make_dt(table_display, caption = "All opportunities in the source file.")
+```

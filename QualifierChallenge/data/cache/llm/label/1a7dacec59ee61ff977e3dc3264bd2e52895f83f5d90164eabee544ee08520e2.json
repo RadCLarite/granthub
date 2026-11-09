@@ -1,0 +1,40 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "The purpose of the compact is to provide for mutual assistance between the states entering into the compact in managing any emergency disaster that is duly declared by the Governor of the affected state, whether arising from natural disaster, technological hazard, man-made disaster, civil emergency aspects of resources shortages, community disorders, insurgency or enemy attack.",
+    "program_domain": "D08",
+    "owning_division": "DHHS: Public Health",
+    "required_capabilities": [
+      "emergency_management",
+      "subrecipient_network_management"
+    ],
+    "requires_subrecipient_network": true,
+    "evaluation_required": true,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "none",
+    "target_population": "hazard_exposed",
+    "alignment_dhhs": {
+      "level": "partial",
+      "plan_row": "G1.O4",
+      "rationale": "The opportunity aims to strengthen interconnectivity and collaboration between federal agencies and non-federal partners, which aligns with the objective of investing in the capacity of partners to overcome persistent health disparities."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity does not directly align with any DMVA strategic plan objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v2",
+    "created": "2026-09-29T09:10:01-0400",
+    "prompt_tokens": 3966,
+    "output_tokens": 338,
+    "seconds": 33.5
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "Eligible applicant types: state_governments",
+    "program_domain": "none",
+    "owning_division": "none",
+    "required_capabilities": [
+      "subrecipient_network_management",
+      "capital_construction"
+    ],
+    "requires_subrecipient_network": true,
+    "evaluation_required": false,
+    "is_capital_project": true,
+    "needs_formal_designation": true,
+    "is_renewal": false,
+    "match_required": true,
+    "match_pct_stated": 50,
+    "match_evidence": "Cost Sharing Required? Yes 50 percent non-Federal cost share required.",
+    "target_population": "system_level",
+    "alignment_dhhs": {
+      "level": "none",
+      "plan_row": "G1",
+      "rationale": "The program focuses on land conservation and does not directly advance health equity or access to health services."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "G1",
+      "rationale": "The program is unrelated to veteran services or military transition support."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v2",
+    "created": "2026-09-29T13:11:31-0400",
+    "prompt_tokens": 3328,
+    "output_tokens": 275,
+    "seconds": 32.6
+  }
+}

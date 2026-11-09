@@ -1,0 +1,39 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "Historic battlefields and associated sites of armed conflict are powerful reminders of the shared heritage of all Americans.",
+    "program_domain": "none",
+    "owning_division": "Other state agency",
+    "required_capabilities": [
+      "capital_construction"
+    ],
+    "requires_subrecipient_network": false,
+    "evaluation_required": false,
+    "is_capital_project": true,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": true,
+    "match_pct_stated": 50,
+    "match_evidence": "In accordance with 54 U.S.C. § 308103(d), non-Federal cost share in the amount of 50%, or a ratio of 1:1, is required.",
+    "target_population": "all_residents",
+    "alignment_dhhs": {
+      "level": "none",
+      "plan_row": "G1",
+      "rationale": "The opportunity does not directly advance any of the health and situational challenges within NCDHHS."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "G1",
+      "rationale": "The opportunity does not directly advance any of the goals related to veterans or military transition services."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v2",
+    "created": "2026-09-29T09:57:58-0400",
+    "prompt_tokens": 4030,
+    "output_tokens": 318,
+    "seconds": 38.4
+  }
+}

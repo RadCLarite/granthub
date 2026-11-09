@@ -1,0 +1,12 @@
+NOTE: using TOY EXAMPLE data (items_example.csv). Real file expected at data/processed/items.csv
+NOTE: using TOY EXAMPLE data (criteria_example.csv). Real file expected at data/manual/criteria.csv
+NOTE: using TOY EXAMPLE data (test_cases_example.csv). Real file expected at data/manual/test_cases.csv
+NOTE: using TOY EXAMPLE data (facts_example.csv). Real file expected at data/manual/facts.csv
+[Department of Public Schools] 1/1576
+[Department of Public Schools] 11/1576
+[Department of Public Schools] 21/1576
+[Department of Public Schools] 31/1576
+[Department of Public Schools] 41/1576
+[Department of Public Schools] 51/1576
+[Department of Public Schools] 61/1576
+[Department of Public Schools] 71/1576

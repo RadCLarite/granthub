@@ -1,0 +1,29 @@
+name: Site freshness check
+
+# Loads the live payload and fails (GitHub emails the repo owners on a failed run) if data_as_of is
+# more than 3 days old or the file is missing. Catches a paused cron or a failed refresh.
+# Set the repo variable SITE_URL (Settings > Variables) if the Pages address differs from the assumed one [uncertain].
+on:
+  schedule:
+    - cron: "0 15 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Payload is recent
+        env:
+          SITE_URL: ${{ vars.SITE_URL || 'https://kapollol.github.io/granthub/matchmaker/' }}
+        run: |
+          curl -fsS "${SITE_URL%/}/payload.json" -o payload.json
+          python3 - <<'PY'
+          import json, datetime as dt
+          d = json.load(open("payload.json"))["data_as_of"][:10]
+          age = (dt.date.today() - dt.date.fromisoformat(d)).days
+          print("data_as_of", d, "age", age, "days")
+          assert age <= 3, f"data is {age} days old"
+          PY

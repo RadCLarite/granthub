@@ -1,0 +1,266 @@
+
+
+===== PAGE 1 =====
+
+1
+NC Office of Indigent Defense Services
+Strategic Plan
+2025 – 2029
+DRAFT
+August 27, 2025
+Office of Indigent Defense Services
+Aaron.M.Gallagher@NCCourts.org
+
+===== PAGE 2 =====
+
+2
+Table of Contents
+A. Introduction 3
+B. Mission, Vision, & Values
+1. Mission 5
+2. Vision 5
+3. Values 5,6
+C. Goals, Objectives, & Performance Measures
+1. Goal: Continue to implement a comprehensive long-term plan for provision of quality client
+service in 100 counties. 6
+2. Goal: Improve compensation and case-related support to all appointed counsel to help build
+private assigned counsel rosters and to help improve client outcomes. 6,7
+3. Goal: Improve agency administrative support for and communications to public defense attorneys
+to help improve client outcomes and to increase efficiency of agency operations. 7
+D. Priority Questions 8
+
+===== PAGE 3 =====
+
+3
+A. Introduction
+The North Carolina Office of Indigent Defense Services (IDS) has a statutory mandate to
+enhance oversight of the delivery of counsel and related services provided at State
+expense; to improve the quality of representation and ensure the independence of
+counsel; to establish uniform policies and procedures for the delivery of services; to
+generate reliable statistical information in order to evaluate the services provided and
+funds expended; and to deliver services in the most efficient and cost-effective manner
+without sacrificing quality representation.
+IDS is responsible for the provision of counsel at the trial and appellate level in:
+• adult criminal cases and juvenile delinquency proceedings;
+• involuntary commitment cases;
+• abuse, neglect, and termination of parental rights proceedings; and
+• other cases where counsel is a statutory or constitutional right.
+IDS Central Office staff is responsible for planning, budget oversight, development of
+policy, data analysis, and financial services (recoupment receipts and attorney payments).
+There are five statewide defender offices: Capital Defender, Juvenile Defender, Parent
+Defender, Special Counsel (involuntary commitment), and Appellate Defender. The
+statewide defenders are appointed to four-year terms by the IDS Commission. The state
+defenders work closely with Central Office staff and the Commission.
+IDS’s ability to fulfill the second prong of its statutory mandate – improve the quality of
+representation and ensure the independence of counsel – is presently limited. Trial level
+representation in the state’s 100 counties is provided through three different delivery
+models. State-funded public defender offices exist in 60 counties; while IDS has budgetary
+oversight, the chief public defender is selected by the senior resident superior court judge
+and IDS has no supervisory control over that individual. In 18 counties, five of which also
+have public defender offices, IDS contracts with private attorneys to provide
+representation; those attorneys receive some oversight from IDS’s two regional defenders
+and are paid directly by IDS pursuant to the terms of their contracts. In the remaining 27
+counties, judges appoint counsel from a roster that is to be composed in accordance with
+the Uniform Appointment Plan promulgated by IDS pursuant to statute. The Plan sets out
+required qualifications for counsel for different types of cases. Roster management and
+oversight is left to the local bar. Fee applications are submitted to the judge who oversaw
+the matter to be approved and sent to IDS for payment.
+
+===== PAGE 4 =====
+
+4
+A statewide shortage of quality attorneys willing to agree to take cases at the state rates
+limits the ability of IDS to improve the quality of representation and ensure the
+independence of counsel.
+B. Mission, Vision, & Values
+1. Mission
+To uphold the constitutional promise of counsel for every indigent person by
+supporting a system of independent public defense grounded in quality, consistency,
+and accountability. We provide the resources, training, and policy framework public
+defense attorneys need to deliver effective, client-centered representation across
+North Carolina.
+2. Vision
+Ensure all North Carolinians, regardless of the ability to pay, has robust legal
+representation and their cases are fairly adjudicated.
+
+===== PAGE 5 =====
+
+5
+3. Values
+Value # 1: Independence of Defense Counsel
+Everyone deserves independent counsel with no allegiance to the government or the
+courts, regardless of their ability to pay. The United States Supreme Court has
+recognized that a lawyer’s independence is essential to a fair trial. The American Bar
+Association also lists independence as the first of its Ten Principles of a Public
+Defense Delivery System, calling it a core requirement for meaningful representation.
+To protect this right, public defense attorneys must be free to act in the interest of
+their clients, without pressure from political leaders, judges, or funding concerns. IDS
+supports a system where appointed lawyers have the same independence as private
+attorneys.
+This independence is what allows attorneys to advocate zealously and effectively.
+When public defense lawyers are empowered to focus solely on their clients’ needs, it
+strengthens both the quality of representation and the fairness of outcomes. Just as
+importantly, the public must see that this independence is real. The appearance of
+fairness and impartiality is essential to building and maintaining trust in the justice
+system.
+Value # 2: Excellent service to our stakeholders
+IDS staff will receive feedback and respond to the concerns of its wide array of
+stakeholders including the clients who rely on attorneys funded by IDS, the attorneys
+who rely on IDS for the resources necessary to provide effective representation, and
+the judges and other court system actors who are involved in the process of
+appointment of qualified counsel for indigent persons.
+The responses provided by IDS will address stakeholder concerns through the
+implementation of solutions that will increase agency accountability and automation
+to further the agency vision of growing and supporting a strong, statewide community
+of zealous, client centered public defense attorneys.
+Value # 3: Responsible stewardship of the tax dollars entrusted to the agency for the
+provision of counsel to poor people
+
+===== PAGE 6 =====
+
+6
+IDS best serves both indigent clients and our state’s taxpayers by thoughtfully
+allocating and carefully accounting for the funds provided to it. Responsible stewardship
+includes working to ensure that public funds are not used to provide anything less than
+zealous and effective representation.
+4. Goals, Objectives, & Performance Measures
+Goal 1
+Continue to implement a comprehensive long-term plan for provision of quality client
+service in 100 counties.
+Performance Measures
+Objective: 1.1 Improve the effectiveness and
+efficiency of public defense by implementing
+statewide expansion of public defender districts.
+• Performance Measure 1.1.1 –
+Percentage of Judicial Districts
+with a public defender office.
+• Performance Measure 1.1.2 –
+Percentage of indigent cases to
+which a public defender is
+appointed as opposed to
+private assigned counsel (PAC)
+or managed assigned counsel
+(MAC) is appointed.
+• Performance Measure 1.1.3 –
+Effective case outcomes
+achieved by PD compared to
+similar outcomes achieved by
+PAC/MAC.
+• Performance Measure 1.2.1 –
+Cost per case for MAC
+attorneys compared to the
+cost per case of PAC attorneys.
+• Performance Measure 1.2.2 –
+Percentage of MAC attorneys
+remaining in the program after
+one year.
+Objective: 1.2 Determine the effectiveness
+and efficiency of the Managed Assigned
+Counsel (MAC) system.
+Goal 2
+Improve compensation and case-related support to all appointed counsel to help
+build private assigned counsel rosters and to help improve client outcomes.
+
+===== PAGE 7 =====
+
+7
+Performance Measures
+Objective: 2.1 Implement the OASIS system
+statewide to streamline payments and
+increase PAC population.
+• Performance Measure 2.1.1 –
+Percentage of IDS Fiscal staff
+time to process 100 fee apps in
+OASIS compared to processing
+100 fee apps counties using
+Enterprise Justice (excluding
+MAC).
+• Performance Measure 2.1.2 –
+Percentage of PAC retained from
+prior year.
+Objective: 2.2 Implement increased or
+differential rates to grow the PAC population in
+underserved rural areas.
+• Performance Measure 2.2.1 –
+Number of new PAC attorneys
+added in the previous 12
+months.
+Objective: 2.3 Provide PD level access to
+AXON digital discovery platform to pilot MAC
+population to increase effectiveness and
+efficiency. (This would require legislative
+approval.)
+• Performance Measure 2.3.1 –
+Number of PAC attorneys with
+AXON licenses provided by
+IDS.
+• Performance Measure 2.3.2 –
+Hours spent on digital
+discovery for pilot population
+compared to those without
+AXON licenses for similar case
+types.
+Goal 3
+Improve agency administrative support for and communications to public defense
+attorneys to help improve client outcomes and to increase efficiency of agency
+operations.
+Performance Measures
+Objective: 3.1 Increase PD office operational
+effectiveness and efficiency.
+• Performance Measure 3.1.1 –
+Assistant Public Defenders
+retained from prior year.
+• Performance Measure 3.1.2 –
+Percentage of new APDs
+assigned a mentor during
+onboarding.
+• Performance Measure 3.1.3 –
+Number of training
+
+===== PAGE 8 =====
+
+8
+opportunities offered to APDs
+annually.
+• Performance Measure 3.1.4 –
+Number of PD staff participating
+in agency training and
+community building
+opportunities during the
+previous 12 months.
+Performance Measures
+Objective: 3.2 Increase the effectiveness of
+counsel through informed decision making by
+PD staff.
+• Performance Measure 3.2.1 –
+Number of opportunities and
+resources to support informed
+decision making about client
+conflicts.
+• Performance Measure 3.2.2 –
+Percentage of cases being
+referred to PAC due to conflicts
+in the PD office.
+• Performance Measure 3.3.1 –
+Number of staff hours
+reviewing digital discovery as a
+percentage of hours out of
+court.
+• Performance Measure 3.4.1 –
+Number of unique clicks per
+quarterly IDS newsletter.
+Objective: 3.3 Increase the efficiency of
+counsel and strategic use of staff time through
+the utilization of available technology tools by
+PD staff.
+Objective: 3.4 Maximize the subscriber
+engagement with IDS publications issued to
+the defense community.
+C. Priority Questions
+1. What can IDS do to ensure adequate access to counsel in all of North Carolina’s
+100 counties?
+2. How does digital discovery affect casework and PAC costs?
+3. Are there identifiable and changing trends in demand for services that can inform PAC
+projections?
+4. Will MAC be the preferred method of service delivery in court appointed cases in
+the future?

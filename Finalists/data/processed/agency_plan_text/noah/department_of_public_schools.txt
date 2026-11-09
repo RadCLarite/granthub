@@ -1,0 +1,1711 @@
+=== PAGE 1 ===
+  Achieving Educational Excellence:
+  2025 – 2030 Strategic Plan for North
+  Carolina Public Schools
+
+
+
+
+         2025-2030
+      Strategic Plan for
+North Carolina Public Schools
+
+
+
+
+                                         1
+
+=== PAGE 2 ===
+    STATE BOARD OF EDUCATION
+    State Board of Education Vision:
+    Every public school student in North Carolina will be empowered to accept academic challenges, prepared to pursue their
+    chosen path after graduating high school, and encouraged to become lifelong learners with the capacity to engage in a
+    globally-collaborative society.
+    State Board of Education Mission:
+    The mission of the North Carolina State Board of Education is to use its constitutional authority to guard and maintain the
+    right of a sound, basic education for every child in North Carolina Public Schools.
+
+    ERIC DAVIS, Chair                                        JILL CAMNITZ                                    JOHN BLACKBURN
+    Charlotte – At-Large                                     Greenville – Northeast Region                   Linville – Northwest Region
+    ALAN DUNCAN, Vice Chair                                  REGINALD KENAN                                  DR. JANET MASON
+    Greensboro – Piedmont-Triad Region                       Rose Hill – Southeast Region                    Forest City – Western Region
+    RACHEL HUNT, Lieutenant Governor                         VACANT                                          J. WENDELL HALL
+    Charlotte – Ex Officio                                   North Central Region                            Ahoskie – At-Large
+    BRAD BRINER, State Treasurer                             OLIVIA OXENDINE                                 CATTY MOORE
+    Chapel Hill – Ex Officio                                 Pinehurst – Sandhills Region                    Monroe – At-Large
+    MAURICE “MO” GREEN, Superintendent                       VACANT
+    Greensboro – Secretary to the Board                      Southwest Region
+
+    BOARD ADVISORS
+    Dr. Freddie Williamson, 2025 A. Craig Phillips North Carolina Superintendent of the Year
+    Dr. Darrell Pennell, 2024-25 Raleigh Dingman Award for Outstanding Boardsmanship
+    Beckie Spears, 2024 Wells Fargo North Carolina Principal of the Year
+    Jason Johnson, 2025 Wells Fargo North Carolina Principal of the Year
+    Heather Smith, 2024 Burroughs Wellcome Fund North Carolina Teacher of the Year
+    Rachel Candaso, 2025 Burroughs Wellcome Fund North Carolina Teacher of the Year
+    Ian House, Student Advisor
+    Daniela Mojica Uriostegui, Student Advisor
+
+    The above State Board of Education information is a record of the board members at the time of this document’s
+    approval for publication. For the current list of State Board Members, Vision and Mission Statements, go to
+    www.dpi.nc.gov/about-dpi/state-board-education.
+
+
+    NC DEPARTMENT OF PUBLIC INSTRUCTION
+    Maurice “Mo” Green, State Superintendent / 301 N. Wilmington Street / Raleigh, North Carolina 27601-2825
+
+    In compliance with federal law, the NC Department of Public Instruction administers all state-operated educational programs, employment
+    activities and admissions without discrimination because of race, religion, national or ethnic origin, color, age, military service, disability, or
+    gender, except where exemption is appropriate and allowed by law.
+    Inquiries or complaints regarding discrimination issues should be directed to:
+    Thomas Tomberlin, Senior Director, Educator Preparation, Licensure, and Performance, NCDPI
+    6301 Mail Service Center, Raleigh, NC 27699 / Phone: (984) 236-2114
+
+    Visit us on the Web: www.dpi.nc.gov
+
+
+
+
+2
+
+=== PAGE 3 ===
+TABLE OF CONTENTS
+Mission Statement .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 4
+
+Letter from State Board Chairman Eric Davis and
+State Superintendent Maurice “Mo” Green .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 5
+
+North Carolina Public Schools Facts & Figures .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 6
+
+Vision and Overarching Goals.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 8
+
+Best in Nation Measurements .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 9
+
+Plan Organization .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 13
+
+        Pillar 1: Prepare Each Student for Their Next Phase in Life.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 14
+
+        Pillar 2: Revere Public School Educators.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 16
+
+        Pillar 3: Enhance Parent, Caregiver and Community Support. .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 18
+
+        Pillar 4: Ensure Healthy, Safe and Secure Learning Environments. .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 20
+
+        Pillar 5: Optimize Operational Excellence .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 22
+
+        Pillar 6: Lead Transformative Change .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 24
+
+        Pillar 7: Celebrate the Excellence in Public Education .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 26
+
+        Pillar 8: Galvanize Champions to Fully Invest in and Support Public Education. .  .  .  .  . 28
+
+Strategic Plan Implementation, Monitoring and Accountability. .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 31
+
+Mo Wants to Know (Listening and Learning Tour) Summary .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 32
+
+Glossary.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 34
+
+
+
+
+                                                                                                                                                                                                                     3
+
+=== PAGE 4 ===
+                            MISSION STATEMENT
+        The mission of the North Carolina State Board of Education and the
+         North Carolina Superintendent of Public Instruction is to use their
+         constitutional authority to guard and maintain the right to a public
+        education for every student in North Carolina and to support public
+        school units in providing every student an excellent education that
+                prepares them for success in their next phase of life.
+
+
+
+
+    At the August 2025 State Board of Education meeting, we celebrated the 2025 Wells Fargo North
+    Carolina and regional Principals of the Year. We are grateful to these champions of North Carolina
+    public education and their contributions toward making our public schools the best in the nation.
+
+
+
+
+4
+
+=== PAGE 5 ===
+      NORTH CAROLINA
+      STATE BOARD OF EDUCATION | Eric C. Davis, Chairman
+      DEPARTMENT OF PUBLIC INSTRUCTION | Maurice “Mo” Green, Superintendent
+
+
+
+August 2025
+
+To the People of North Carolina,
+
+We are proud to share with you Achieving Educational Excellence: 2025 – 2030
+Strategic Plan for North Carolina Public Schools. The plan is a declaration: Public
+education is the foundation of North Carolina’s future. The plan represents the shared
+vision of the North Carolina State Board of Education (SBE) and the North Carolina
+Superintendent of Public Instruction – to have our public schools be the best in the
+United States of America.
+
+To be clear – to be the best is the only option.
+
+Grounded in eight transformative pillars that come from listening to North Carolinians
+expressing their hopes for our public schools, this plan is both a commitment and a
+call to action – to prepare each student for their next phase in life, to elevate and revere
+our educators, to strengthen family and community partnerships and to ensure that
+our schools are safe, healthy and inclusive spaces for all. Through focused efforts to
+modernize operations, scale innovation and celebrate the value of our public schools,
+we aim to ensure that public education remains an excellent choice for families.
+
+Implementation of this plan will require coordinated effort and transparency, as well
+as the voices and leadership of educators; students; families; federal, state and local
+government officials; and partners across every region of North Carolina. That’s why
+this plan was built not only by SBE and North Carolina Department of Public Instruction
+(NCDPI) leaders, but in collaboration with our students, public school units (PSUs),
+parents and caregivers, members of the North Carolina General Assembly, community
+partners and state and national networks. This is a living, evolving framework – and it
+will only succeed through shared ownership and collective commitment.
+
+We are excited about the path forward and grateful to walk it with you. Together, we
+will deliver on the promise of public education – for every child, in every community,
+across North Carolina.
+
+
+
+
+ERIC C. DAVIS                                 MAURICE “MO” GREEN
+Chair, North Carolina                         North Carolina Superintendent
+State Board of Education                      of Public Instruction
+
+
+
+                                                                                               5
+
+=== PAGE 6 ===
+    North Carolina              About 1.5 Million Students                          188,103 People
+    Public Schools              attend public schools in North                      are employed full time by a
+    FACTS &                     Carolina, which accounts for 84%
+                                of school-aged children in our state.
+                                                                                    public school or district.
+                                                                                    128,896 certified employees
+    FIGURES                     Of those, 150,399 (10.5%) attend                    59,207 non-certified employees1
+                                public charter schools.1
+
+
+
+                                2,683                    2,467                      208                         8
+                                Public                  traditional                 public                 regional and
+                                Schools               public schools            charter schools            lab schools1
+
+
+
+
+Special Populations                          Annual Accountability                      National Assessment
+    • Approximately 14.3% of                 Report Highlights                          of Educational Progress
+      North Carolina’s public school         North Carolina students continue           (NAEP)
+      students receive special               to see gains in most grades and
+      education services.                                                               North Carolina students are
+                                             subjects, according to the 2023-24         ahead of the national average in
+    • Approximately 11.7% of                 state test results.                        eighth grade math and tracking
+      students are identified as
+                                              • Approximately 72.5% of                  with their peers in other tested
+      English Language Learners.
+                                                schools met or exceeded                 subjects.6
+    • Approximately 62% of                      growth in 2023-24
+      North Carolina public schools                                                     The 2024 data show that there
+                                                (vs. 72.3% in 2022-23 and
+      receive money through the                                                         has been no significant change
+                                                up from 69.6% in 2021-22).
+      federal Title I program based                                                     in North Carolina students’ scale
+                                              • The four-year cohort                    scores in any area since 2022
+      on the number of students
+                                                graduation rate is 86.9%                and three of the four tested areas
+      enrolled from low-income
+                                                (an increase from 86.5% in              remain below pre-pandemic levels.
+      families.
+                                                2022-23).
+                                              • Student performance
+                                                increased in many reading
+                                                testing areas, but declined
+                                                in fourth and seventh grade
+                                                reading.
+                                              • Student math performance
+                                                increased in grades 3-8, plus
+                                                NC Math I.
+
+
+
+1
+    NC Department of Public Instruction (NCDPI),
+    https://www.dpi.nc.gov/documents/fbs/resources/25-highlights-finalpdf/download?attachment
+2
+    United States (US) Census Bureau, https://www.census.gov/programs-surveys/school-finances.html
+3
+    Education Law Center, Making the Grade 2024, https://edlawcenter.org/research/making-the-grade-2024
+4
+    National Education Association, Rankings of the States 2024 and Estimates of School Statistics 2025,
+    https://www.nea.org/resource-library/educator-pay-and-student-spending-how-does-your-state-rank/teacher
+5
+    National Education Association, 2023-24 Teacher Salary Benchmark Report,
+    https://www.nea.org/resource-library/educator-pay-and-student-spending-how-does-your-state-rank/starting-teacher
+6
+    National Assessment of Educational Progress (NAEP),
+    https://www.nationsreportcard.gov/profiles/stateprofile?sfj=NP&chort=1&sub=MAT&sj=&st=MN&year=2024R3
+7
+    National Board for Professional Teaching Standards,
+    https://www.nbpts.org/wp-content/uploads/2025/01/2024_State_Rankings_Total_NBCTs.pdf
+
+6
+
+=== PAGE 7 ===
+      $12,492                                                       $60,323
+      is the amount that North Carolina spent per                   is the average salary, including local
+      public school student in 2023.                                supplements, for North Carolina public school
+                                                                    teachers in the 2024-25 academic year.
+      This amount includes federal, state and local
+      funding, placing North Carolina 41st nationally               For the 2023-24 school year (the most recent
+      and 9th out of the 12 states in the Southeast                 year for which nationally comparable data are
+      for per-pupil spending according to data from                 available), North Carolina’s average teacher
+      the U.S. Census Bureau.2 The Education Law                    pay including local supplements ($58,292)4
+      Center’s annual Making the Grade3 report places               was ranked 43rd nationally and 8th out of the
+      North Carolina’s expenditures even lower and                  12 states in the Southeast. North Carolina’s
+      its effort to fund public schools (a measure of               average starting teacher pay ($42,542)5 was
+      PreK–12 spending as a percentage of the state’s               ranked 39th nationally and 10th out of the 12
+      economic activity or gross domestic product) at               states in the Southeast.
+      49th nationally in 2022.
+
+
+
+National and State Accomplishments
+    • North Carolina has 24,886 National Board                   • North Carolina’s Career and Technical Education
+      Certified Teachers, which is the most of any state           (CTE) programs had a record-breaking year in
+      in the United States.7                                       2023-24. Students earned more than 358,000
+    • North Carolina is a national leader in early                 individual credentials, the highest credential
+      colleges, with more than 130 schools across the              attainment since NCDPI started tracking 14 years
+      state that provide thousands of students with                ago.13
+      college courses for free.8                                 • In 2023-24, 78,811 public high school students
+    • The Early College at Guilford was ranked as the              were dually enrolled in at least one college
+      number one high school in the nation in 2023 by              course through Career and College Promise,
+      U.S. News and World Report.9                                 which gives students the opportunity to earn
+                                                                   college credits while in high school, and 36% of
+    • Since 2014, the Science, Technology, Engineering
+                                                                   all 2023-24 graduates had earned credits through
+      and Mathematics (STEM) Schools of Distinction
+                                                                   the program.14
+      program has recognized over 50 schools in North
+      Carolina for meeting rigorous standards around             • NCDPI was the fourth state education department
+      STEM principles.10                                           in the nation to issue guidance to its schools on
+                                                                   the use of artificial intelligence (AI) technology.15
+    • North Carolina has one of the top dual language
+      immersion programs in the country.11                       • In 2018, North Carolina was the first state in
+                                                                   the nation to pass a law (SL 2018-32) requiring
+    • North Carolina high school students in 2023‑24
+                                                                   automatic enrollment in advanced math courses
+      participated and performed in college‑level
+                                                                   for all students who score at the highest level on
+      Advanced Placement (AP) courses at record-
+                                                                   their math End-of-Grade tests.16
+      setting levels – reaching the highest participation
+      and final scores in the 10-year partnership
+      between NCDPI and the College Board, which
+      administers the AP program and exams.12
+
+8
+   EdNC, https://www.ednc.org/perspective-the-power-of-early-colleges-stronger-together
+9
+   Guilford College, https://www.guilford.edu/news/2023/08/early-college-guilford-nations-top-ranked-high-school
+10
+   NCDPI, https://www.dpi.nc.gov/districts-schools/classroom-resources/academic-standards/programs-and-initiatives/stem-
+   education-and-leadership/stem-schools-distinction#NCRecognizedSTEMSchoolsofDistinction-875
+11
+   2021 Canvass of Dual Language and Immersion (DLI) Programs in US Public Schools, https://www.americancouncils.org/sites/
+   default/files/documents/pages/2021-10/Canvass%20DLI%20-%20October%202021-2_ac.pdf
+12
+   NCDPI, https://www.dpi.nc.gov/news/press-releases/2024/09/24/nc-students-set-record-high-completed-ap-exams-scores-
+   outperform-national-average
+13
+   NCDPI, https://www.dpi.nc.gov/2023-2024-credential-report/open
+14
+   NCDPI, https://webservices.ncleg.gov/ViewDocSiteFile/94893
+15
+   NCDPI, https://www.dpi.nc.gov/news/press-releases/2024/01/16/ncdpi-releases-guidance-use-artificial-intelligence-schools
+16
+   BEST NC, https://bestnc.org/spotlight_on_2023_advanced_math_access
+                                                                                                                              7
+
+=== PAGE 8 ===
+             VISION AND OVERARCHING GOALS
+             Achieving Educational Excellence is the vision for this strategic plan. This vision has
+             three main components: high academic achievement, character development and
+             making North Carolina public schools the best in the United States of America.
+
+             A Vision for North Carolina’s Public Schools
+             Pick any zip code in North Carolina — across the Blue Ridge Mountains, in our vibrant
+             Piedmont cities or along our coastal communities. A child arrives safely at school —
+             on a bus or connecting virtually — and steps into a space that is vibrant, welcoming
+             and built for learning. Educators are revered professionals. Families and communities
+             are engaged. And every student is safe, loved and ready to learn.
+
+             Inside, expert teachers lead collaborative teams. Technology supports personalized
+             instruction, not to replace human connection but to enhance it — giving educators the
+             freedom to do what they do best: inspire, guide and mentor. Students learn in spaces
+             that nurture creativity and curiosity, where their health and wellness needs are fully
+             met. They are known, seen and supported.
+
+             Parents volunteer with pride. Local businesses sponsor clubs, arts programs,
+             apprenticeships and innovation labs. Community members take evening classes in the
+             same buildings, turning schools into centers of lifelong learning. Board meetings brim
+             with support, not protest.
+
+             Classrooms are alive with possibility. Students debate history in virtual reality, solve
+             local challenges with advanced math, compose symphonies with AI and build climate
+             tech solutions. Character is not a lesson but a lived experience. By the time the final
+             bell rings, schools shift — not shut down. After-school programs are full of music,
+             robotics, chess, farming and mentorship while other students are competing in a wide
+             variety of athletic endeavors.
+
+             This isn’t one exceptional school in one fortunate district. From Murphy to Manteo,
+             it’s the reality for every child — rural, urban or suburban; in traditional, charter, lab or
+             virtual schools. In the future, North Carolina hasn’t just improved public education —
+             we’ve redefined it. Every child receives an education that prepares them not just for a
+             job, but for a life of purpose, joy and endless possibility.
+
+             How will we measure if North Carolina’s public schools collectively are the best public
+             schools in the nation? While acknowledging that our students are more than metrics,
+             here are some of the measures that will be used and will be updated to include
+             disaggregated goals to the extent possible.17
+
+
+
+17
+     Various measures and actions in the plan may name specific vendors, such as ACT, College Board, and Cambridge International,
+     among others. The inclusion of those vendors in a measure or an action is based on current relationships with those vendors. If
+     in the future there is a change in a relationship with a vendor, the measure or action will be updated to reflect that change.
+8
+
+=== PAGE 9 ===
+BEST IN NATION MEASUREMENTS
+Four-Year Cohort High School Graduation Rate          Participation in Advanced Placement (AP) Exams
+Each state calculates and reports an adjusted         The College Board annually reports the
+four-year cohort high school graduation rate          percentage of 10th, 11th and 12th grade students
+to the National Center for Education Statistics       in each state that took at least one AP exam. In
+(NCES). Based on data from the most recent year       2024, 21.5% of North Carolina’s 10th, 11th and
+available (2021-22), North Carolina ranked 25th       12th grade students took at least one AP exam,
+among all states and Washington, D.C., with an        placing North Carolina 15th among all states and
+adjusted cohort high school graduation rate of        Washington, D.C. The highest AP participation
+86.4%. West Virginia had the highest adjusted         rate was 29.2% for Washington, D.C.20
+cohort high school graduation rate of 91.2%.18        To be best in the nation by 2030, North Carolina
+To be best in the nation by 2030, North Carolina      public schools will:
+public schools will:                                   • Increase the AP participation rate among 10th,
+ • Increase the adjusted four-year cohort high           11th and 12th grade students to
+   school graduation rate to                              • 23% by 2026,
+     • 88% by 2026,                                       • 25% by 2027,
+     • 89% by 2027,                                       • 27% by 2028,
+     • 90% by 2028,                                       • 29% by 2029, and
+     • 91% by 2029, and                                   • 30% by 2030.
+     • 92% by 2030.
+                                                      Performance on Advanced Placement (AP) Exams
+ACT Composite Score                                   The College Board annually reports the
+As part of the state’s school accountability model,   percentage of 10th, 11th and 12th grade students
+every 11th grade student takes the ACT during the     in each state who pass the AP exam with a score
+spring of their junior year. ACT annually reports     of 3, 4, or 5. In 2024, 65.4% of North Carolina’s
+the average composite score for all high school       10th, 11th and 12th grade students passed the
+graduates for each state. Among the 17 states         AP exams, placing North Carolina 31st among
+and Washington, D.C., where 75% or more of high       all states and Washington, D.C. The highest
+school graduates take the ACT, North Carolina         pass rate, referred to as the qualifying score
+ranked 10th with an average ACT composite score       percentage, was 74.3% for Montana.21
+of 18.5 in 2024. Utah had the highest average ACT     To be best in the nation by 2030, North Carolina
+composite score of 20.19                              public schools will:
+To be best in the nation by 2030, North Carolina       • Increase the percentage of 10th, 11th and 12th
+public schools will:                                     grade students passing AP exams to
+ • Increase the average ACT composite score to            • 67% by 2026,
+     • 18.8 by 2026,                                      • 69% by 2027,
+     • 19.2 by 2027,                                      • 71% by 2028,
+     • 19.5 by 2028,                                      • 73% by 2029, and
+     • 19.8 by 2029, and                                  • 75% by 2030.
+     • 20 by 2030.
+
+                                                                                                          9
+
+=== PAGE 10 ===
+Participation in Dual Enrollment Courses              Participation in Career and Technical Education
+Every eligible North Carolina high school             (CTE) Courses
+student has the opportunity to take advantage         Each year, state education agencies report to
+of several dual enrollment options, including         the U.S. Department of Education the number
+through Cooperative Innovative High Schools,          of K-12 students that participated in a CTE
+the Career and College Promise (CCP) program          course during the previous school year. During
+and the College Transfer pathway. During the          the 2022-23 school year, 548,010 K-12 students
+2023-24 school year, NCDPI reported that 36% of       in North Carolina participated in a CTE course,
+all high school graduates enrolled in at least one    placing North Carolina 4th among all states and
+dual enrollment course. This represents 39,819        Washington, D.C. As a percentage of all K-12
+students. This is an increase of 2,002 students (1%   students, North Carolina ranked 2nd among all
+increase) from the previous 2022-23 graduating        states and Washington, D.C., with 36.1% of all K-12
+class.22                                              students participating in a CTE course. Nebraska
+ • Increase the percentage of graduates that          was the top state with 41.2% of all K-12 students
+   enroll in at least one dual enrollment course to   participating in a CTE course.23
+     • 37% by 2026,                                   To be best in the nation, North Carolina
+     • 38% by 2027,                                   public schools will:
+     • 39% by 2028,                                    • Increase the percentage of all K-12 students
+     • 40% by 2029, and                                  participating in a CTE course to
+     • 41% by 2030.
+                                                           • 37% in 2026,
+Performance in Dual Enrollment Courses                     • 38% in 2027,
+                                                           • 40% in 2028,
+In 2023-24, 36% of all graduates earned
+                                                           • 41% in 2029, and
+high school credit through dual enrollment
+                                                           • 42% by 2030.
+opportunities in their high school years. This
+represents 37,598 graduates, a 3% increase from       Performance in Career and Technical Education
+the previous year.22 While there are no national      (CTE) Credentials
+standard data to compare obtaining credit in dual     During the 2023-24 academic year, 363 different
+enrollment courses, North Carolina should strive      individual credentials measuring workplace
+to continue increasing the percentage of high         readiness skills or proficiency in career-specific
+school graduates who have successfully passed         skills were available to students across North
+and earned credit through such courses.               Carolina.24 Credentials related to workplace
+ • Increase the percentage of all graduates           readiness skills represent general job skills
+   who earn high school credit through dual           applicable to many different careers such as
+   enrollment courses to                              Microsoft Office Specialist (MOS) certifications
+     • 37% by 2026                                    in MOS Word, MOS Excel, MOS PowerPoint,
+     • 38% by 2027                                    and MOS Access. Career-specific examples of
+     • 39% by 2028                                    credentials include the North Carolina Nurse Aide
+     • 40% by 2029, and                               certificate and the Certified Veterinary Assistant
+     • 41% by 2030.                                   certificate, among others. During the 2023-24
+                                                      school year, NC CTE students achieved an all-time
+                                                      high of 358,069 credentials earned and reported.
+                                                      To maintain the momentum and ensure NC
+                                                      CTE students successfully earn a minimum of
+                                                      10% more credentials each year, North Carolina
+                                                      public schools will:
+                                                       • Increase the number of credentials earned
+                                                         yearly to
+                                                           • 400,000 by 2026,
+                                                           • 425,000 by 2027,
+                                                           • 450,000 by 2028,
+                                                           • 475,000 by 2029,
+                                                           • 500,000 by 2030.
+
+10
+
+=== PAGE 11 ===
+Performance in 4th and 8th Grade                                      Participation in Character Education
+Reading and Math                                                      A hallmark of this plan is to develop each
+Every two years, the NCES administers the                             student’s character. States do not have a uniform
+National Assessment of Educational Progress                           way of measuring this effort and many do not
+(NAEP) in reading and math to a representative                        do so at all. NCDPI and the SBE will develop
+sample of 4th and 8th grade students across the                       a student-centered metric. In the meantime,
+nation in all fifty states; Washington, D.C.; Puerto                  NCDPI and the SBE will continue to recognize
+Rico and Department of Defense schools. NAEP                          State Schools of Character. Those schools are
+reports average scale scores for each of the 4th                      then nominated to be recognized as National
+and 8th grade reading and math assessments.                           Schools of Character by Character.org (now
+Massachusetts has the highest average scale                           CharacterPlus). Since 2017, 16 schools have been
+scores among states and Washington, D.C.,                             recognized as State Schools of Character and
+across all four NAEP assessments.25                                   eight schools have been recognized as National
+To be best in the nation by 2030, North Carolina                      Schools of Character.26 North Carolina will strive
+public schools will:                                                  to lead the nation in this area by significantly
+                                                                      increasing the number of schools recognized
+     • Increase the average scale score on the 4th                    as State Schools of Character and National
+       grade reading NAEP assessment (N.C. average                    Schools of Character, as well as developing other
+       scale score in 2024 was 213) to                                metrics that measure our schools’ successes in
+         • 217 by 2026,                                               developing strong students of character.
+         • 221 by 2028, and
+         • 225 by 2030.                                               School-Aged Children Enrolled In Public Schools
+     • Increase the average scale score on the 8th
+                                                                      During the 2023-24 school year, approximately
+       grade reading NAEP assessment (N.C. average
+                                                                      84% of all North Carolina school-aged children
+       scale score in 2024 was 255) to
+                                                                      were enrolled in public schools (either a traditional
+         • 259 by 2026,                                               public, public charter, lab or regional school).
+         • 264 by 2028, and                                           While this data is not consistently reported, either
+         • 268 by 2030.                                               in North Carolina or nationally, the latest reliable
+     • Increase the average scale score on the 4th
+                                                                      data report that 89% of all school-aged children
+       grade math NAEP assessment (N.C. average
+                                                                      were enrolled in North Carolina public schools
+       scale score in 2024 was 239) to
+                                                                      during the 2013-14 school year.27
+         • 241 by 2026,
+                                                                      To ensure that North Carolina public schools
+         • 244 by 2028, and
+                                                                      continue to be a great choice for all children,
+         • 246 by 2030.
+                                                                      North Carolina public schools will:
+     • Increase the average scale score on the 8th
+       grade math NAEP assessment (N.C. average                         • Increase the percentage of school-aged
+       scale score in 2024 was 276) to                                    children enrolled in public schools to
+        • 278 by 2026,                                                      • 85% by 2026,
+        • 281 by 2028, and                                                  • 86% by 2027,
+        • 283 by 2030.                                                      • 87% by 2028,
+                                                                            • 88% by 2029, and
+                                                                            • 89% by 2030.
+
+18
+   National Center for Education Statistics (NCES) Digest of Education Statistics (Table 219.46),
+   https://nces.ed.gov/programs/digest/d19/tables/dt19_219.46.asp
+19
+   ACT, https://www.act.org/content/dam/act/unsecured/documents/2024-Average-ACT-Scores-by-State-Percent-Meeting-Benchmarks.pdf
+20
+   College Board, Advanced Placement Participation, https://apcentral.collegeboard.org/about-ap/ap-data-research/national-state-data
+21
+   College Board, Advanced Placement Performance, https://apcentral.collegeboard.org/about-ap/ap-data-research/national-state-data
+22
+   NC Department of Public Instruction (NCDPI), https://www.dpi.nc.gov/2025-ccpcihs-report-general-assembly/open
+23
+   Perkins Collaborative Resource Network, https://cte.ed.gov/pcrn/explorer; National Center for Education Statistics (NCES),
+   Total K-12 Enrollment, 2022-23, http://nces.ed.gov/ccd/elsi/
+24
+   NCDPI, https://www.dpi.nc.gov/2023-2024-credential-report/open
+25
+   National Assessment of Educational Progress (NAEP),
+   https://www.nationsreportcard.gov/profiles/stateprofile?sfj=NP&chort=1&sub=MAT&sj=&st=MN&year=2024R3
+26
+   NCDPI, https://www.dpi.nc.gov/districts-schools/classroom-resources/office-teaching-and-learning/programs-and-initiatives/
+   character-education/character-matters#Tab-2024-6783
+27
+   BEST NC Facts and Figures 2025, https://bestnc.org/wp-content/uploads/2025/06/2025-Facts-Figures-June-2025_v2.pdf
+                                                                                                                                  11
+
+=== PAGE 12 ===
+                   Realization of these goals rests upon successful actions across eight pillars,
+                   outlined below:
+     PILLAR 1       PILLAR 2       PILLAR 3     PILLAR 4    PILLAR 5     PILLAR 6     PILLAR 7         PILLAR 8
+                     1.	 Prepare Each Student For Their Next Phase in Life
+                     2.	 Revere Public School Educators
+                     3.	 Enhance Parent, Caregiver and Community Support
+                     4.	 Ensure Healthy, Safe and Secure Learning Environments
+                     5.	 Optimize Operational Excellence
+                     6.	 Lead Transformative Change
+                     7.	 Celebrate the Excellence in Public Education
+                     8.	 Galvanize Champions to Fully Invest in and Support Public Education
+
+                   Each pillar is necessary, and together they share the weight of preparing the
+                   future of our state with excellence.
+
+
+
+
+        PILLAR 1       PILLAR 2    PILLAR 3     PILLAR 4    PILLAR 5     PILLAR 6    PILLAR 7       PILLAR 8
+
+
+
+
+12
+
+=== PAGE 13 ===
+PLAN ORGANIZATION
+The Strategic Plan is organized around eight key pillars with a series of focus
+areas, under which are measures and actions with launch dates. A numbering
+system is included to clearly identify and reference the measures and actions
+within the plan.
+
+ • PILLARS are thematic goals that guide the framing of the overall plan.
+
+ • MEASURES are the outcomes that are expected to be achieved as a result
+   of the implementation of the actions in the plan. For any measures that do
+   not have a target goal, the target for 2030 and interim benchmarks will be
+   set by early 2026 based on baseline data from the 2024-25 school year. The
+   measures will include student data disaggregated by demographics where
+   appropriate.
+
+ • ACTIONS are the discrete activities that will be undertaken to accomplish
+   each pillar. Actions under each pillar are grouped into FOCUS AREAS, which
+   are intended to further organize the scope of work for that pillar. In the plan,
+   each action has an associated month and year in parentheses, which is
+   when the work on that action will launch (“launch date”). Launch dates are
+   expected and planned launch dates, but as the plan progresses, they may be
+   earlier or later.
+
+ • The NUMBERING SYSTEM is utilized to clearly identify and reference
+   each measure or action by organizing them by pillars and focus areas. It is
+   formatted as follows:
+
+
+
+
+                        PillarNumber.MeasureNumber
+                                        and
+                 PillarNumber.FocusNumber.ActionNumber
+
+
+
+          For example, the second measure under Pillar 1 would be P1.M2.
+     The fourth action under the second focus area of Pillar 2 would be P2.F2.A4.
+
+
+
+
+                                                                                      13
+
+=== PAGE 14 ===
+                           Public education unlocks the doors to the world and allows our democracy
+                           and economy to flourish. Children who have learned the skill of lifelong
+                           learning are prepared to chart their own path. Teaching and learning go
+                           beyond a focus on a single academic assessment. North Carolina public
+                           schools should be places where students build a strong foundation in early
+                           childhood, learn to think critically and have good character.
+                           Throughout their journey in public education, students will not only
+                           develop foundational skills in reading, writing, mathematics, the sciences
+                           and civic engagement, but will also be given ample opportunities to find
+                           inspiration and growth through world languages, arts, career and technical
+
+     Pillar 1
+                           education (CTE) courses, physical education, health, financial literacy,
+                           college-level courses and co-curricular and extracurricular activities,
+                           such as athletics. Students will also develop work-ready skills needed to
+                           succeed in college, career and their lives beyond PreK-12 instruction.
+     Prepare Each          Preparing our students for the next phase of their lives means giving them
+      Student for          the tools that all people need to function in the 21st century. It also means
+                           ensuring access to opportunities after they graduate from high school.
+      Their Next           This preparation will not be the same for every student, as each one will
+                           need different types and levels of support based upon their needs.
+     Phase in Life
+
+                          MEASURES
+                          • Increase the adjusted four-year
+     FOCUS AREAS            cohort high school graduation rate
+                            to 92% by 2030. [P1.M7]
+     • Ignite early
+                          • Increase the average ACT composite
+       learning             score to 20 by 2030. [P1.M6]
+     • Elevate teaching   • Increase the Advanced Placement
+                            participation rate among 10th, 11th
+       and learning         and 12th grade students to 29% by       • Increase the average scale score
+                            2030. [P1.M8]                             on the 4th grade math NAEP
+     • Promote
+                          • Increase the percentage                   assessment to 246 by 2030. [P1.M3]
+       excellence
+                            undergraduate enrollments that          • Increase the average scale score
+       for all              are high school dually enrolled           on the 8th grade math NAEP
+                            students to 27% by 2030. [P1.M9]          assessment to 283 by 2030. [P1.M4]
+     • Reimagine
+                          • Increase the percentage of all K-12     • Increase the number of North
+       the student          students participating in a CTE           Carolina public schools recognized
+       experience           course to 41% by 2030. [P1.M10]           as National Schools of Character by
+                          • Increase the percentage of                Character.org (now CharacterPlus).
+     • Launch               students scoring levels 3, 4 or 5 on      [P1.M11]
+       life-ready           the End of Grade / End of Course        • Establish a baseline and increase the
+       graduates            (EOG/EOC) test scores. [P1.M5]            number of schools implementing
+                          • Increase the average scale score          high-quality character, service-
+                            on the 4th grade reading NAEP             learning and civic programs that
+                            assessment to 225 by 2030. [P1.M1]        reinforce durable skills. [P1.M12]
+                            Increase the average scale score        • Establish a baseline and decrease
+                            on the 8th grade reading NAEP             disproportionality in identification
+                            assessment to 268 by 2030. [P1.M2]        of students for Exceptional Children
+                                                                      (EC) and Academically/Intellectually
+                                                                      Gifted (AIG) programs. [P1.M13]
+
+                              Best in the Nation!
+
+14
+
+=== PAGE 15 ===
+ACTIONS
+Ignite early learning                                        Reimagine the student experience
+ • Expand high-quality PreK and strengthen                    • Promote awareness of NC College Connect,
+   kindergarten readiness by partnering with North              NextNC and the NC Need Based Scholarship to
+   Carolina Department of Health and Human Services             provide direct admission to North Carolina colleges
+   (NCDHHS) and PSUs to align standards, coordinate             and universities and financial aid to support the
+   inclusive early learning systems and enhance                 cost of attendance. (August 2025) [P1.F4.A1]
+   transition supports. (January 2026) [P1.FA1.A1]            • Identify strategies for Public School Units to
+ • Explore how to increase play-based learning                  strengthen grade level transitions through
+   in early childhood classrooms to better foster               coordinated planning, advising and personalized
+   children’s social, emotional, cognitive and physical         pathways between PreK, elementary, middle and
+   development. (January 2028) [P1.FA1.A2].                     high school. (August 2026) [P1.FA4.A2]
+ • Build on the implementation of North Carolina’s            • Provide PSUs with technical assistance to monitor
+   Science of Reading initiative by continuing to               credits toward graduation to support PSUs
+   expand high-impact literacy practices and launch             in keeping students on track for graduation.
+   a parallel focus on foundational mathematics to              (January 2027) [P1.FA4.A3]
+   support early learning. (January 2027) [P1.FA1.A3]         • Provide PSUs with technical assistance to
+Elevate teaching and learning                                   implement Career Development Plans so that
+ • Design a PreK–12 Teaching and Learning Framework             students graduate with a purposeful plan for their
+   with PSUs to set shared expectations for standards-          future. (January 2027) [P1.FA4.A4]
+   aligned instruction, integrated supports and               • Promote whole-child development and student
+   access to high-quality learning for all students.            engagement by expanding access to arts, athletics
+   (August 2026) [P1.FA2.A1]                                    and student-led leadership opportunities that are
+ • Implement the Golden LEAF Schools Initiative                 aligned to academic standards and designed to
+   through cross-agency collaboration to transform              cultivate students’ strengths, interests and well-
+   educator practice and student outcomes in rural              being. (August 2026) [P1.FA4.A5]
+   schools, focusing on high-quality mathematics              • Develop and pilot strategies to promote student
+   instruction via the High Reliability Schools model.          learning in artificial intelligence (AI) safety,
+   (July 2025) [P1.FA2.A2]                                      ethical use and collaborative problem-solving.
+ • Strengthen digital learning and literacy PreK-12             (August 2025) [P1.FA4.A6]
+   by developing high-quality, standards-aligned             Launch life-ready graduates
+   online content, formalizing NCDPI’s approach to            • Create and award durable skills endorsements for
+   supporting PSUs with goals and a data-driven                 graduating students who demonstrate mastery of
+   framework for effective digital and personalized             critical competencies aligned to the Portrait of a
+   learning environments and continuing to guide                Graduate. (August 2028) [P1.FA5.A1]
+   the responsible use of artificial intelligence.
+   (February 2026) [P1.FA2.A3]                                • Explore ways to expand service learning programs for
+                                                                students to ensure every student has access to service
+Promote excellence for all                                      learning opportunities. (January 2027) [P1.FA5.A2]
+ • Promote appropriate screening, identification practices    • Create awards for student service learning projects
+   and policy shifts that reduce disproportionality in AIG      at the school and district levels, as well as a state-
+   and EC services and expand instructional support for         level high school diploma endorsement from
+   multilingual learners across North Carolina schools.         NCDPI. (January 2027) [P1.FA5.A3]
+   (December 2026) [P1.FA3.A2]
+                                                              • Develop a statewide toolkit to support schools in
+ • Expand access to advanced learning opportunities             implementing high-quality character education that
+   K–12, including NC Governor’s School and K–8                 teaches students to be good citizens and important
+   talent development programming, aligned to                   values, such as respect, responsibility, integrity,
+   student strengths, interests and career pathways.            perseverance, courage, justice and self-discipline.
+   (August 2026) [P1.FA3.A3]                                    (January 2026) [P1.FA5.A4]
+ • Expand access to rigorous pathways, such                   • Develop a system for tracking students’ post-
+   as Advanced Placement (AP), International                    secondary transitions, including to postsecondary
+   Baccalaureate (IB), Cambridge International, Career          education, employment or military service
+   and College Promise (CCP), credentialed Career               within twelve months of graduation.
+   and Technical Education (CTE) and Junior Reserve             (August 2027) [P1.FA5.A5]
+   Officers’ Training Corps (JROTC), to ensure every
+   student takes and passes a college level and career-
+   connected course. (April 2026) [P1.FA3.A1]
+                                                                                                                     15
+
+=== PAGE 16 ===
+                           To fully prepare each student for their next phase of life, we must
+                           first honor and uplift those who make that preparation possible: the
+                           dedicated professionals who serve in our public schools. Every adult in
+                           a school building plays a vital role in shaping the student experience and
+                           contributing to student success.
+                           North Carolina’s public school professionals are the single most important
+                           in-school factor influencing student learning. Yet today, they are not
+                           compensated adequately, and too often, their working conditions fail to
+                           reflect the deep respect they deserve. Reversing this trend is not just a
+                           moral imperative — it is essential to the future of our students and our state.
+
+     Pillar 2              To truly revere our educators and school staff, we must start by
+                           ensuring competitive pay for our educators – beginning and veterans,
+                           alike. We must go further to ensure supportive and respectful working
+                           environments and provide resources necessary for every professional to
+        Revere             thrive throughout their career. We must also elevate all educational roles
+     Public School         and recognize the profession as an aspirational career that attracts and
+                           retains talented individuals committed to public service. Education must
+      Educators            be a profession of choice, pride and purpose.
+
+
+                          MEASURES
+     FOCUS AREAS          • Establish a baseline and increase         • Increase North Carolina’s
+                            the proportion of students                  starting teacher pay, including
+     • Improve              completing teaching recruitment             local supplements, so that it
+                            programs including “Teaching as             is the highest in the Southeast
+       educator             a Profession” CTE pathways and              ($50,031 for 2023-24). [P2.M5]
+       recruitment          who pursue teacher preparation            • Increase North Carolina’s
+       and retention        after graduation. [P2.M1]                   average teacher pay, including
+                          • Establish a baseline and increase           local supplements, so that it
+     • Expand career        the number of teacher candidates            is the highest in the Southeast
+       pathways for         enrolling in and completing                 ($67,641 for 2023-24). [P2.M6]
+       education            traditional educator-preparation          • Increase North Carolina principal
+                            programs (EPPs). [P2.M2]                    pay to account for school complexity
+       professionals
+                          • Establish a baseline and increase           and to reward retention. [P2.M7]
+     • Increase             retention of beginning teachers           • Increase North Carolina school
+                            and early-career administrators,            support staff pay. [P2.M8]
+       educator             especially in low-performing and
+       compensation         high-poverty schools. [P2.M3]
+                          • Establish a baseline and increase
+     • Elevate and
+                            the number of PSUs implementing
+       restore pride in     Advanced Teaching Roles (ATR),
+       the education        as well as the number of teachers
+       profession           serving in advanced roles that
+                            support peer learning. [P2.M4]
+
+
+
+
+                                To fully prepare each student for their next
+                                phase of life, we must first honor and uplift
+                                those who make that preparation possible.
+
+
+16
+
+=== PAGE 17 ===
+ACTIONS
+Improve educator recruitment and retention                 Increase educator compensation
+ • Expand student recruitment programs starting no          • Advocate to the North Carolina General Assembly,
+   later than middle school, such as career academy           in partnership with educators, business leaders
+   programs, “Teaching as a Profession” CTE                   and community leaders, for competitive teacher,
+   pathways and other programs to encourage more              principal and other school staff compensation,
+   students to engage in the education profession.            including pay for advanced degrees.
+   (July 2026) [P2.F1.A1]                                     (November 2026) [P2.F3.A1]
+ • Revise and strengthen Beginning Teacher (BT)             • Develop and advocate for a revised principal
+   policy and supports, including exploring a standard        compensation model with partners that includes
+   statewide definition of BTs and regionalized support       increased base pay, factors for school complexity
+   approaches with partners. (July 2026) [P2.F1.A2]           and retention incentives to better attract and
+ • Develop, adopt and promote statewide standards             keep leaders in the schools that need them most.
+   for high-quality professional learning to serve            (November 2026) [P2.F3.A2]
+   as guidance for the design and evaluation of            Elevate and restore pride in the education
+   professional learning opportunities, including          profession
+   microcredentials. (August 2026) [P2.F1.A3]               • Engage with local boards of education to honor
+ • Advocate for expanding the teacher pipeline                teachers and principals of the year, expand
+   and lowering financial barriers to entering the            meaningful advisor roles for students, teachers and
+   profession, in partnership with EPPs. (January 2027)       principals at the district and state levels and identify
+   [P2.F1.A4]                                                 additional ways to publicly recognize educator
+Expand career pathways for education                          excellence. (July 2026) [P2.F4.A1]
+professionals                                               • Explore models that increase instructional capacity
+ • Advocate for continued expansion of the Advanced           by reducing burden on teachers, including
+   Teaching Roles program. (August 2025) [P2.F2.A1]           eliminating or significantly reducing unpaid
+                                                              teacher duties, streamlining compliance processes,
+ • Establish an SBE task force to develop:                    increasing teacher planning time and increasing
+    • a licensure model that is more transparent and          flexible scheduling. (August 2026) [P2.F4.A2]
+      includes multiple pathways into the profession;       • Launch a statewide teacher reverence initiative that
+    • an updated online licensure system that is              highlights educator stories and contributions, trains
+      user-friendly and guides applicants through the         educators to serve as recruiters of future teachers
+      application process;                                    and partners with local chambers of commerce and
+    • apprenticeship models;                                  community organizations to celebrate and support
+                                                              local public school educators. (January 2027)
+    • pathways for professional advancement,
+                                                              [P2.F4.A3]
+      such as exploring mentoring or coaching
+      opportunities and additional local or state
+      financial incentives for serving in advanced
+      roles or high-need schools; and
+    • valid and reliable measures of teacher impact
+      and effectiveness. (February 2026) [P2.F2.A2]
+ • Develop a uniform NCDPI model for instructional
+   coaching that integrates literacy, numeracy and
+   supports for low-performing schools. (July 2026)
+   [P2.F2.A3]
+ • Continue to expand leadership academies in
+   collaboration with state and regional partners for
+   aspiring principals and superintendents, particularly
+   in high-poverty and low-performing schools and
+   provide specialized professional learning for
+   financial officers and charter leaders to strengthen
+   strategic management. (July 2027) [P2.F2.A4]
+
+
+
+
+                                                                                                                   17
+
+=== PAGE 18 ===
+                        While schools are a powerful force in a child’s life, there are many
+                        important partners who support our state’s students. Parents, guardians
+                        and other caregivers (collectively referred to here as “parents”) are the
+                        most important people in a child’s life and they are the most important
+                        partners for schools. Important, too, are community organizations, houses
+                        of worship, nonprofits, healthcare providers, philanthropies, mental
+                        health providers, social service providers, volunteers and community
+                        organizations that impact children. Study after study shows that students
+                        who have strong parent and/or community support do far better than
+                        students who do not. Parents and community also make a major
+
+     Pillar 3
+                        difference in the life of the school itself, creating the type of environment
+                        where students learn and grow.
+                        Educators must be empowered to establish strong relationships with
+                        families and view family and community stakeholders as true partners in
+ Enhance Parent,        decision-making processes. In turn, families will feel strongly connected
+  Caregiver and         to their students’ schools. Communities should see their public schools as
+                        the anchor.
+   Community
+    Support
+                      MEASURES
+                       • Establish a baseline and increase
+                         the number of schools and
+                         districts that have developed
+     FOCUS AREAS         and implemented comprehensive
+                         family engagement policies
+     • Engage and        and activities. [P3.M1]
+       empower         • Establish a baseline and increase
+       families          access to NCDPI parent and
+                         community resources. [P3.M2]
+     • Strengthen      • Establish a baseline and
+       community         increase the number of PSUs
+       partnerships      implementing integrated
+                         support models that remove
+                         non-academic barriers and
+                         improve student well-being and
+                         perceptions of school. [P3.M3]
+
+
+
+
+                             While schools are a powerful force in
+                             a child’s life, there are many important
+                             partners who support our state’s students.
+
+
+
+                      Parents Guardians Caregivers Community Organizations Houses of Worship Nonprofits
+
+
+
+18
+
+=== PAGE 19 ===
+   ACTIONS
+   Engage and empower families                                Strengthen community partnerships
+     • Identify ways to develop translations of                • Engage philanthropic and business
+       NCDPI resources based on student                          communities to fund and support research
+       demographics. (January 2026) [P3.F1.A1]                   and adoption of innovative school models.
+     • Conduct a comprehensive needs assessment                  (June 2026) [P3.F2.A1]
+       of parent and community resources at NCDPI              • Promote partnerships between PSUs and local
+       (personnel, funds, training, instruments,                 community organizations to provide support
+       current activities, etc.). (March 2026) [P3.F1.A2]        for families, especially in underserved areas.
+     • Form an advisory group to play a role in needs            (January 2027) [P3.F2.A2]
+       identification, decision-making and plans               • Increase NCDPI supports for the educators who
+       to enhance parent, family and community                   serve as a bridge to the local community, such
+       engagement. (March 2026) [P3.F1.A3]                       as nurses, counselors, social workers, school
+     • Promote collaboration and partner with                    psychologists and parent liaisons. (January 2027)
+       PSUs to share best practices on effective                 [P3.F2.A3]
+       communication between schools and families.             • Advocate for evidence-based school models,
+       (June 2026) [P3.F1.A4]                                    such as “community schools,” that reduce
+     • Create a virtual NCDPI Family Academy that                barriers by promoting community resources
+       could be linked to PSU websites that will offer           to support student and family well-being.
+       accessible, webinar-style learning sessions for           (May 2027) [P3.F2.A4]
+       families. (May 2027) [P3.F1.A5]                         • Identify and share best practices around
+                                                                 partnerships between PSUs and local health
+                                                                 professionals for providing mental and
+                                                                 physical health supports to students and staff.
+                                                                 (December 2027) [P3.F2.A5]
+
+
+
+
+Healthcare Providers Philanthropies Mental Health Providers   Social Service Providers   Volunteers
+
+
+
+                                                                                                                     19
+
+=== PAGE 20 ===
+                           Students and staff in our public schools are not able to achieve
+                           educational excellence unless we ensure their safety and well-being.
+                           Physical safety must balance effective security measures with maintaining
+                           welcoming, nurturing spaces. Through thoughtful design, staff training
+                           and appropriate protocols, we should create environments where
+                           students and staff can focus on teaching and learning. Within these
+                           environments, proven, research-based practices that foster emotional
+                           security and physical and mental well-being should be implemented.
+                           School counselors, social workers, nurses and psychologists work
+                           collaboratively with teachers to provide appropriate support tailored to
+                           individual student needs. Overall, schools must be places where students
+     Pillar 4              develop resilience, build relationships and prepare for their futures in safe,
+                           secure environments that nurture their full potential.
+
+ Ensure Healthy,
+                          MEASURES
+    Safe and              • Establish a baseline and increase       • Based on Youth Risk Behavior
+ Secure Learning            the number of schools working             Survey (YRBS) data, establish
+                            with NCDPI to implement perimeter         a baseline and increase the
+  Environments              control, secured access points            percentage of high school students
+                            management and protected internal         who a) most of the time or always
+                            spaces across PSUs. [P4.M1]               feel safe and secure at school
+                          • Establish a baseline and increase         and b) strongly agree or agree
+                            the number of trained school              that they feel like they belong at
+     FOCUS AREAS            resource officers (SROs) to support       their school; and decrease the
+                            a safe school environment. [P4.M2]        percentage of high school students
+     • Ensure                                                         who a) reported that their mental
+                          • Establish a baseline and increase         health was most of the time or
+       safe school          the proportion of school personnel        always not good and b) felt sad or
+       environments         certified in Youth Mental Health          hopeless. [P4.M6]
+                            First Aid. [P4.M3]
+     • Improve student                                              • Increase the percentage of schools
+                          • Establish a baseline and decrease         reporting none to a limited number
+       and staff health     chronic absenteeism rates across          of incidents of violence annually.
+       and well-being       PSUs. [P4.M4]                             [P4.M7]
+                          • Establish a baseline and increase
+                            Medicaid revenue for eligible
+                            school-based services across PSUs
+                            while reducing the administrative
+                            processing time. [P4.M5]
+
+
+
+
+                                Overall, schools must be places where
+                                students develop resilience, build
+                                relationships and prepare for their futures
+                                in safe, secure environments that nurture
+                                their full potential.
+
+
+
+20
+
+=== PAGE 21 ===
+ACTIONS
+Ensure safe school environments                    Improve student and staff health and well-being
+ • Strengthen physical security measures in         • Guide PSUs to identify and apply best practices
+   PSUs, such as perimeter control, secured           to limit distractions from wireless devices
+   access points and protected internal spaces,       and promote responsible social media use to
+   through school construction assistance             support safe and focused learning environments.
+   provided by NCDPI. (September 2025)                (January 2026) [P4.F2.A1]
+   [P4.F1.A1]                                       • Identify and share effective practices for reducing
+ • Support PSUs in creating safe and secure           chronic absenteeism and strengthening student
+   online learning environments by providing          attendance. (January 2026) [P4.F2.A2]
+   tools, best practices and advanced training      • Promote student and staff well-being by supporting
+   for educators on virtual classrooms and            PSUs in implementing Whole School, Whole
+   secure online interactions. (January 2026)         Community, Whole Child models to foster positive
+   [P4.F1.A2]                                         school climates and elevate student voice and
+ • Encourage PSUs that utilize SROs to ensure         belonging. (March 2026) [P4.F2.A3]
+   all SROs receive training appropriate for        • Develop a student behavior pilot to address
+   working with school-aged children, in              behavior challenges and scale trauma-informed
+   collaboration with the Governor’s Advisory         practices in PSUs identified with significant
+   Council for Student Safety and Well-Being and      discipline referrals. (August 2026) [P4.F2.A4]
+   local law enforcement agencies. (March 2027)
+                                                    • Support PSUs in implementing Positive Behavioral
+   [P4.F1.A3]
+                                                      Interventions and Supports (PBIS) and share
+                                                      best practices for fostering supportive school
+                                                      environments and reducing behavioral challenges.
+                                                      (August 2026) [P4.F2.A5]
+                                                    • Partner with PSUs for widespread implementation
+                                                      of physical activity recommendations in State
+                                                      Board Policy SHLT-000. (January 2027) [P4.F2.A6]
+                                                    • Partner with community and health service
+                                                      organizations to identify and share strategies to
+                                                      expand school-based health services for students
+                                                      and staff, including telehealth. (December 2027)
+                                                      [P4.F2.A7]
+                                                    • Increase educator capacity to address student
+                                                      mental health needs by expanding Youth and Teen
+                                                      Mental Health First Aid training. (December 2027)
+                                                      [P4.F2.A8]
+                                                    • Enhance operational efficiency and maximize
+                                                      allowable Medicaid reimbursements for school-based
+                                                      services across PSUs. (August 2028) [P4.F2.A9]
+
+
+
+
+                                                                                                            21
+
+=== PAGE 22 ===
+                            NCDPI is committed to reimagining its operational infrastructure to better
+                            serve schools and districts through a focus on organizational excellence.
+                            At the core of this pillar is NCDPI’s unwavering dedication to support
+                            PSUs in providing a high-quality education for every student. Through
+                            modernized operations at both the state and local levels, we aim to use
+                            cutting-edge technology, streamlined processes and data-informed
+                            decision-making to eliminate unnecessary administrative burdens. This
+                            operational focus extends beyond NCDPI itself, as the agency will actively
+                            partner with PSUs across the state to model operational efficiency and
+                            share best practices. Through this pillar, NCDPI will model that careful
+                            attention to processes, systems and service delivery creates the essential
+     Pillar 5               foundation upon which educational innovation can flourish, ultimately
+                            ensuring that North Carolina’s public schools operate with maximum
+                            effectiveness to support the success of every student.
+      Optimize
+     Operational           MEASURES
+     Excellence            • Establish a baseline satisfaction     • Establish a baseline and increase
+                             index among PSU central office          the percentage of PSUs using data
+                             staff and increase satisfaction         analytic tools for student, finance
+                             according to the DPI Customer           and business data. [P5.M4]
+                             Service Survey (as defined below),    • Establish a baseline and decrease
+     FOCUS AREAS             ensuring representativeness of
+                             survey responses and achieving a
+                                                                     total statewide technology contract
+                                                                     expenditures by renegotiating
+                             ≥70% response rate. [P5.M1]
+     • Improve                                                       or discontinuing contracts that
+       NCDPI’s services    • All PSUs are live on the North          fall below established return
+                             Carolina Student Information            on investment benchmarks and
+       to stakeholders       System powered by Infinite              redirect the savings to high-impact,
+                             Campus (NCSIS) with minimal             evidence-based tools. [P5.M5]
+     • Improve               critical incident rate in the first
+       collaboration and     year of full implementation.
+       communication         [P5.M2]
+       across NCDPI        • Establish a baseline and increase
+       offices               the number of PSUs that adopt
+                             modernized financial and human
+     • Modernize             resources systems. [P5.M3]
+       NCDPI and PSU
+       operations
+
+
+
+
+                                At the core of this pillar is NCDPI’s unwavering
+                                dedication to support PSUs in providing a
+                                high-quality education for every student.
+
+
+
+22
+
+=== PAGE 23 ===
+ACTIONS
+Improve NCDPI’s services to stakeholders                   Modernize NCDPI and PSU operations
+ • Implement an agency-wide language access plan            • Implement with limited challenges the NCSIS.
+   and ensure communications and website materials            (August 2025) [P5.F3.A1]
+   meet accessibility standards to better serve diverse     • Develop and implement a uniform framework
+   PSU needs. (January 2026) [P5.F1.A1]                       for the handling of data, including collection,
+ • Improve ability of PSU staff to communicate                validation, management, security and reporting
+   with NCDPI by making contact information more              processes, across all NCDPI departments.
+   accessible and transparent and by enhancing                (March 2026) [P5.F3.A2]
+   support protocols, such as regular NCDPI staff office    • Launch enhanced data analytic tools for use with
+   hour sessions. (June 2026) [P5.F1.A2]                      the NCSIS. (August 2026) [P5.F3.A3]
+ • Develop and administer a survey to central office        • Audit agency contracts to identify opportunities for cost
+   staff (a “DPI Customer Service Survey”) to assess          savings, increased efficiency and improved return on
+   customer service strengths and needs. (June 2026)          investment, with special focus on technology-related
+   [P5.F1.A3]                                                 agreements. (September 2026) [P5.F3.A4]
+ • Create and share NCDPI guidance focused on               • Identify and promote PSU best practices for
+   capacity building for PSUs, including best practices       operational efficiency, such as shared services
+   for strategic purchasing decisions and aligning            models, as well as engage the business community
+   budget decisions with instructional priorities.            to leverage expertise on operational effectiveness.
+   (June 2026) [P5.F1.A4]                                     (January 2027) [P5.F3.A5]
+ • Evaluate the condition, functionality and safety of      • Explore ways to leverage machine learning,
+   the NCDPI building and shared spaces to identify           artificial intelligence and advanced analytics to
+   maintenance, modernization and accessibility               enhance NCDPI efficiency and extend value and
+   needs that impact staff and visitor health, safety         insights essential to all statewide stakeholders.
+   and productivity. (June 2026) [P5.F1.A5]                   (January 2027) [P5.F3.A6]
+ • Review, refine and standardize work order,               • Modernize the financial, human resources and
+   maintenance and operational support request                licensure systems across both NCDPI and PSUs.
+   processes to ensure consistent, timely and                 (January 2028) [P5.F3.A7]
+   transparent service delivery to all NCDPI offices and
+                                                            • Design, deploy and operationalize a centralized and
+   stakeholders. (August 2026) [P5.F1.A6]
+                                                              unified data visualization platform for NCDPI data.
+Improve collaboration and communication across                (August 2028) [P5.F3.A8]
+NCDPI offices
+ • Establish an intra-agency working group to identify
+   and address barriers to operational consistency,
+   collaboration and communication across NCDPI
+   offices. (January 2026) [P5.F2.A1]
+ • Reestablish the NCDPI Agency Roundtable to better
+   coordinate, differentiate and streamline identified
+   supports to PSUs. (January 2026) [P5.F2.A2]
+ • Create key performance indicators for all NCDPI
+   offices aligned to the strategic plan to monitor
+   and drive agency effectiveness. (February 2026)
+   [P5.F2.A3]
+
+
+
+
+                                                                                                                    23
+
+=== PAGE 24 ===
+                           North Carolina stands ready to pioneer approaches that will position our
+                           state as a national leader in public education excellence. At the heart
+                           of this pillar is a commitment to research and development that sparks
+                           educational reimagining through thoughtful innovation. NCDPI will serve
+                           as both catalyst and facilitator, establishing networks that transcend
+                           boundaries between traditional public schools, charter schools and lab
+                           schools, sharing promising practices and scaling effective innovations.
+                           Through community-driven school designs and different approaches to
+                           testing and accountability, we will ensure innovation remains grounded in
+                           local needs while benefiting from statewide expertise. Our commitment
+                           also extends to funding reform that prioritizes transparency, flexibility, a
+     Pillar 6              focus on student needs and increased investments. This pillar represents
+                           our commitment to the thoughtful, deliberate work of innovation and
+                           elevating North Carolina’s public schools to new heights by strategically
+                           using research, networks and integrated systems.
+          Lead
+     Transformative
+        Change            MEASURES
+                          • Establish a baseline and decrease       • Establish a baseline and increase
+                            the number of identified low-             the number of active NCDPI, PSU
+                            performing schools and PSUs               and partner networks collaborating
+                            annually. [P6.M1]                         on the implementation of Strategic
+     FOCUS AREAS          • Establish a baseline and increase         Plan actions. [P6.M3]
+                            PSU use of assessment tools
+      • Transform           that provide timely, actionable
+        schools through     information and multiple measures
+                            of learning. [P6.M2]
+        research and
+        development
+
+      • Connect
+        North Carolina
+        public schools
+        through
+        education
+        networks
+
+      • Promote
+        integrated
+        support systems
+        for schools and
+        districts
+
+      • Explore
+        accountability         North Carolina stands ready to pioneer
+        and funding            approaches that will position our state as a
+        reform
+                               national leader in public education excellence.
+
+
+
+
+24
+
+=== PAGE 25 ===
+ACTIONS
+Transform schools through research and                        Promote integrated support systems for schools
+development                                                   and districts
+ • Create a cross-sector Innovation Leadership Council         • Explore redesign of the statutory process for
+   (charter, district and lab school leaders, along with         identifying low-performing schools to ensure it is
+   NCDPI staff) to guide knowledge transfer and scale-           supportive, research-informed and better aligned to
+   up. (January 2026) [P6.F1.A1]                                 improvement needs. (February 2026) [P6.F3.A1]
+ • Establish a structured process to identify, pilot,          • Explore strategies, including how to creatively use
+   evaluate and/or scale innovative school models                currently available funding allotments, to recruit
+   and instructional practices across North Carolina.            and retain highly effective teachers and principals
+   (March 2026) [P6.F1.A2]                                       to work in low-performing schools and districts.
+ • Publish and promote an annual collection of                   (June 2026) [P6.F3.A2]
+   effective and innovative practices drawn from               • Adopt statewide protocols, including diagnostics,
+   local, statewide and national research, to inform             planning tools and fidelity monitoring to guide local
+   policy, NCDPI work and PSU improvement efforts.               improvement efforts for low-performing schools.
+   (June 2026) [P6.F1.A3]                                        (September 2026) [P6.F3.A3]
+Connect North Carolina public schools through                  • Expand SBE and NCDPI efforts to support districts
+education networks                                               designated as low-performing and districts
+                                                                 experiencing financial challenges. (March 2028)
+ • Establish statewide, regional and partner education
+                                                                 [P6.F3.A4]
+   networks to facilitate implementation of key
+   strategic plan priorities, share scalable resources        Explore accountability and funding reform
+   and support continuous improvement across PSUs.             • Establish an SBE Task Force to develop a new
+   (September 2026) [P6.F2.A1]                                   school-level accountability system that will:
+ • Create and maintain shared resources, assets                   • Consider the variability among high schools
+   and digital tools for use by education networks,                 with respect to available opportunities and
+   enabling districts and schools to accelerate                     funding, such as AP and CTE courses, etc.;
+   strategic initiatives and replicate effective practices.       • Reliably assess multiple measures of student
+   (September 2026) [P6.F2.A2]                                      performance in grades 3-12 that includes
+ • Convene an annual statewide and interstate                       measures of progress towards ensuring all
+   networks conference to showcase innovative PreK–                 students graduate prepared for their next
+   12 practices, host immersive site visits and expand              phase of life. (October 2025) [P6.F4.A1]
+   access to research-driven models. (October 2027)            • Enhance interim assessments aligned to the
+   [P6.F2.A3]                                                    North Carolina Standard Course of Study,
+                                                                 promote multiple measures beyond standardized
+                                                                 assessments and provide PSUs with the resources
+                                                                 to increase progress monitoring using assessment
+                                                                 data. (January 2026) [P6.F4.A2]
+                                                               • Explore reforms to North Carolina’s school funding
+                                                                 model to ensure allocations are transparent, flexible
+                                                                 and based on student needs. (November 2026)
+                                                                 [P6.F4.A3]
+                                                               • Publish new School Performance Profiles based
+                                                                 on the redesigned accountability system to ensure
+                                                                 public transparency and equip communities with
+                                                                 clear data on local school success. (December 2026)
+                                                                 [P6.F4.A4]
+
+
+
+
+                                                                                                                     25
+
+=== PAGE 26 ===
+                           Families all across North Carolina send their children to their local public
+                           school – in fact, the vast majority of them do choose public education.
+                           They entrust their children to the educators whose bright faces greet
+                           them each morning. They build community around high school football
+                           games and middle school band performances. Each year, thousands of
+                           students walk across stages to cheers and tears as they are prepared to
+                           go out and lead the life they choose. Our schools did not become bright
+                           beacons of hope all on their own. Generations of North Carolinians are
+                           proud of our public schools, share their support for schools and have
+                           made the choice to invest in them and make them strong, which is
+                           noteworthy. It is vitally important that these choices are celebrated and
+     Pillar 7              that more make similar choices.
+
+
+
+     Celebrate the        MEASURES
+                          • Establish a baseline and increase        • Establish a baseline and increase
+      Excellence            the number of public information           family, student and community
+       in Public            officers (PIOs) and other PSU              satisfaction, knowledge and
+                            communicators engaged in this              perception of public schools.
+      Education             initiative. [P7.M1]                        [P7.M3]
+                          • Establish a baseline and increase        • Establish a baseline and increase
+                            the number of professional                 the number of NCDPI staff and
+                            development opportunities                  education partners working in
+                            provided for PIOs and NCDPI                collaboration on celebrating public
+     FOCUS AREAS            partners to use shared messaging           education. [P7.M4]
+                            and materials. [P7.M2]
+     • Develop
+       comprehensive
+       public education
+       messaging
+
+     • Engage partners
+       on education
+
+     • Share public
+       education
+       messaging and
+       stories
+
+
+
+                                Our schools did not become bright beacons
+                                of hope all on their own. Generations of
+                                North Carolinians are proud of our public
+                                schools, share their support for schools and
+                                have made the choice to invest in them and
+                                make them strong.
+
+
+26
+
+=== PAGE 27 ===
+ACTIONS
+Develop comprehensive public education                      Share public education messaging and stories
+messaging                                                    • Work with education partners on statewide
+ • Use research and assessment of current NCDPI                communication efforts that uplift success stories,
+   partners’ initiatives and messaging for public              testimonials and positive narratives about public
+   education. (October 2025) [P7.F1.A1]                        schools. (December 2025) [P7.F3.A1]
+ • Work with partners to develop and test                    • Coordinate and share messaging that celebrates
+   comprehensive public education messaging.                   public education successes. (March 2026) [P7.F3.A2]
+   (January 2026) [P7.F1.A2]                                 • Encourage joint events and community
+ • Create accessible and engaging materials about              engagement activities where NCDPI and education
+   how public education works and is managed in                partners present unified messaging about public
+   North Carolina. (March 2026) [P7.F1.A3]                     education. (May 2026) [P7.F3.A3]
+ • Create supportive materials and training for              • Evaluate the initiative’s impact on public school
+   PIOs and NCDPI partners to adopt and adapt and              satisfaction, knowledge and perception from
+   coordinate communications. (May 2026) [P7.F1.A4]            families, students and North Carolina residents.
+                                                               (January 2027) [P7.F3.A4]
+Engage partners on education
+ • Engage, align and support PSU communications
+   staff to align communication efforts that celebrate
+   public education. (December 2025) [P7.F2.A1]
+ • Engage, connect and support NCDPI staff and
+   education partners’ communication efforts for this
+   initiative. (March 2026) [P7.F2.A2]
+ • Engage and align non-education partners’
+   communication efforts for this initiative. (July 2026)
+   [P7.F2.A3]
+
+
+
+
+                                                                                                                    27
+
+=== PAGE 28 ===
+                          North Carolina’s journey toward educational excellence requires more
+                          than vision and strategy — it demands the engagement, advocacy and
+                          investment of champions across our state who recognize public education
+                          as the cornerstone of our shared prosperity and collective future. This
+                          pillar builds upon efforts to transform the narrative around public schools
+                          by converting positive perception into concrete action by aligning
+                          partners behind a unified commitment to educational excellence. We
+                          envision a powerful network of non-education partners who bring fresh
+                          perspectives, resources and influence to advocacy efforts.
+                          By developing a formal alliance of nonprofit, philanthropic and business
+
+     Pillar 8
+                          champions, we can systematically advocate for increased public school
+                          investments, particularly for critical infrastructure needs and competitive
+                          educator compensation. By elevating authentic stories from local
+                          communities, we will showcase the remarkable achievements occurring
+    Galvanize             daily in classrooms across North Carolina, creating connections that
+                          inspire deeper engagement while honestly acknowledging challenges
+  Champions to            and transparently communicating our strategies to address them.
+  Fully Invest in         By galvanizing champions across every sector of our state — from
+                          rural communities to urban centers, from small businesses to major
+   and Support            corporations, from parents to retirees — we create a force for educational
+                          investment and improvement that propels North Carolina’s public schools
+ Public Education         to be recognized as the very best in the nation, fulfilling our obligation to
+                          provide every child the world-class education they deserve.
+
+
+     FOCUS AREAS         MEASURES
+                         • Increase state and local                • Increase the percentage of
+     • Build community     investments in public schools             school-aged children enrolled
+       voices              so that per pupil funding increases       in public schools to 89% by 2030.
+                           by 10% (over 2023 levels) by 2030.        [P8.M2]
+     • Promote             [P8.M1]
+       engagement
+       initiatives
+
+     • Move champions
+       to action
+
+                                North Carolina’s journey toward
+                                educational excellence requires more than
+                                vision and strategy — it demands the
+                                engagement, advocacy and investment of
+                                champions across our state who recognize
+                                public education as the cornerstone of our
+                                shared prosperity and collective future.
+
+
+
+28
+
+=== PAGE 29 ===
+ACTIONS
+Build community voices                                     Move champions to action
+ • Engage and train partners and communicators to           • Engage local and state policymakers to attend
+   advocate for public education. (May 2026)                  events, visit schools and participate in public
+   [P8.F1.A1]                                                 education initiatives. (August 2026) [P8.F3.A1]
+ • Connect and align NCDPI, education partners and          • Engage businesses, individuals and philanthropic
+   allies to support local, regional and statewide            organizations to invest in PSUs at the local,
+   efforts. (September 2026) [P8.F1.A2]                       regional and state levels. (October 2026) [P8.F3.A2]
+ • Encourage and support aligned initiatives and            • Work with partners to advocate for investments
+   outreach via social media, media and events.               in public schools, especially for initiatives for
+   (September 2026) [P8.F1.A3]                                improving student achievement and school
+                                                              infrastructure. (November 2026) [P8.F3.A3]
+Promote engagement initiatives
+ • Develop and launch a statewide reading campaign          • Create a statewide foundation to fund various
+   where students will collectively read 10 million           initiatives in this and future strategic plans.
+   books annually, in collaboration with state and local      (December 2026) [P8.F3.A4]
+   partners. (January 2026) [P8.F2.A1]                      • Highlight the changing narrative on public
+ • Develop toolkits for PSUs to engage families and           education in North Carolina and how it is part of
+   partners in their schools. (August 2026) [P8.F2.A2]        the state’s identity. (November 2028) [P8.F3.A5]
+
+ • Develop toolkits for local chambers, businesses          • Work with partners to explore creating an
+   and community organizations to work with                   endowment that will allow all public high school
+   eighth graders on their career development plans           graduates, regardless of income, to attend at least
+   and 12th graders on their postsecondary plans.             two years of postsecondary education completely
+   (January 2027) [P8.F2.A3]                                  tuition-free inclusive of federal and state financial
+                                                              aid. (June 2030) [P8.F3.A6]
+
+
+
+
+                                                                                                                  29
+
+=== PAGE 30 ===
+     PILLAR 1   PILLAR 2   PILLAR 3   PILLAR 4   PILLAR 5   PILLAR 6   PILLAR 7   PILLAR 8
+
+
+
+
+30
+
+=== PAGE 31 ===
+STRATEGIC PLAN IMPLEMENTATION, MONITORING
+AND ACCOUNTABILITY
+The goal of this strategic plan is ambitious and clear: to make North Carolina’s
+public schools the best in the nation. As we ask our students to embrace growth
+and progress, we hold ourselves to the same standard. Excellence is not a fixed
+destination, but a continuous journey. Accordingly, this plan is designed to
+evolve through a continuous improvement process that strengthens and refines
+our efforts over time.
+
+To ensure faithful and effective implementation, NCDPI will establish an
+Office of Strategic Planning tasked with overseeing the execution and evolution
+of the plan. In collaboration with NCDPI leadership and staff, the Office will
+assign business owners from among NCDPI staff to lead the implementation of
+each plan action. Business owners will lead project teams of NCDPI staff and
+other strategic partners in developing and executing a detailed project plan for
+the actions assigned to them. The project teams will execute each project plan
+by the launch date assigned to each action.
+
+NCDPI will also convene a Strategic Plan Monitoring and Accountability
+Committee (SPAC) composed of senior leaders from across the agency to
+support this implementation work. The SPAC will be responsible for:
+
+ • Reviewing and approving project plans developed by business owners
+   and project teams;
+ • Providing direction, support and resources to business owners and
+   project teams;
+ • Managing timelines, milestones and deliverables;
+ • Identifying implementation challenges and addressing barriers;
+ • Developing an Excellence Report Card that relates to the pillars of the plan;
+ • Monitoring progress toward strategic goals; and
+ • Reporting quarterly on plan implementation to the state superintendent
+   and the SBE.
+The SPAC’s quarterly reports will serve as a transparent mechanism for tracking
+progress and ensuring accountability as we collectively pursue a stronger, more
+effective public education system for all North Carolinians.
+
+The plan is intended to be a dynamic document and will change as the SPAC
+annually reviews progress on each action in the plan and the timeline for
+launching upcoming plan actions. Based on that review, the SPAC will assess
+and make recommendations to the Superintendent and SBE on any changes
+that need to be made to plan actions or timelines.
+
+
+
+
+                                                                                   31
+
+=== PAGE 32 ===
+     Northwest   Piedmont-Triad   North Central         Northeast
+
+
+
+
+                                              RALEIGH
+
+
+
+
+     Western     Southwest        Sandhills             Southeast
+
+
+
+
+32
+
+=== PAGE 33 ===
+                                       LISTENING AND LEARNING
+                                       TOUR SUMMARY
+
+
+
+From February to May 2025, Superintendent Green embarked on the “Mo
+Wants to Know” (MWTK) listening and learning tour across North Carolina.
+This initiative included eight in-person regional sessions, over 30 virtual and
+in-person stakeholder meetings, more than a dozen school visits and an
+online feedback form accessible to all North Carolinians. The tour engaged
+thousands of educators, students, parents, business leaders and community
+members in meaningful conversations about the future of public education in
+our state.
+
+The tour revealed both the deep pride North Carolinians have in their
+public schools and their aspirations for continued improvement. Common
+themes included calls for competitive educator compensation, modernized
+infrastructure, personalized learning pathways, mental health support
+and strengthened partnerships between schools and communities. While
+each region highlighted unique issues, there was remarkable consistency
+in the core values and priorities expressed across the state. A report that
+summarizes the key themes, regional perspectives and transformative ideas
+gathered during the MWTK tour is available on the website at: go.ncdpi.gov/
+mwtk. In partnership with research firm RTI International, using advanced
+analytical techniques, patterns in the community feedback that aligned with
+Superintendent Green’s initial six pillars for Achieving Educational Excellence
+were identified. What emerged was a collective vision that emphasizes career
+readiness, teacher empowerment, increased and equitable funding, whole-
+child support and community partnerships.
+
+The insights gathered through the MWTK tour directly informed the
+development of a comprehensive strategic plan for North Carolina’s public
+schools. By listening to the collective wisdom of stakeholders from Murphy
+to Manteo, a foundation for educational excellence that truly reflects the
+needs, values and aspirations of North Carolinians will be built.
+
+
+
+
+                                                                                  33
+
+=== PAGE 34 ===
+GLOSSARY
+
+ ACRONYM
+                   FULL TERM                      BRIEF DESCRIPTION
+ (IF APPLICABLE)
+ ­—                Accessible                     Making a tool broadly available by endeavoring
+                                                  to cater to as many needs as possible.
+
+ ACT               American College Test          College readiness exam taken by all North
+                                                  Carolina 11th-graders.
+
+ AI                Artificial Intelligence        Computer systems that perform tasks requiring
+                                                  human intelligence; focus on safe, instructional
+                                                  use.
+
+ AIG               Academically/Intellectually    North Carolina program for students performing
+                   Gifted                         or showing potential at high levels.
+
+ AP                Advanced Placement             College-level high-school courses with exams
+                                                  administered by the College Board.
+
+ —                 Character Education            The mission of Character Education is to help
+                                                  schools teach students to be good citizens. It is
+                                                  a goal for schools, districts and states to teach
+                                                  students important values, including respect,
+                                                  responsibility, integrity, perseverance, courage,
+                                                  justice and self-discipline.
+
+ CIE               Cambridge International        Provider of international qualifications, offering
+                   Education (Cambridge           examinations and qualifications to 10,000
+                   International)                 schools in more than 160 countries. It is part of
+                                                  the University of Cambridge.
+
+ CTE               Career and Technical           Courses and credentials that prepare students
+                   Education                      for specific careers.
+
+ DE                Dual Enrollment                Students earn high-school and college credit
+                                                  simultaneously (e.g., Career & College Promise).
+
+ DIBELS            Dynamic Indicators of Basic    Benchmark and progress monitoring tool for
+                   Early Literacy Skills          early reading.
+
+ —                 Digital Safety                 Refers to the practices and precautions
+                                                  individuals and organizations take to protect
+                                                  themselves from risks in the online environment.
+
+ EC                Exceptional Children           North Carolina’s term for special education
+                                                  services.
+
+ EOG / EOC         End-of-Grade / End-of-Course   State summative assessments in grades 3-8 and
+                                                  select high school subjects.
+
+ Golden LEAF       Golden Long-term Economic      North Carolina foundation funding rural
+                   Advancement Foundation         economic and education improvement grants.
+                   (LEAF)
+
+ IB                International Baccalaureate    Internationally recognized rigorous high school
+                                                  diploma and course program.
+
+
+34
+
+=== PAGE 35 ===
+ACRONYM
+                     FULL TERM                      BRIEF DESCRIPTION
+(IF APPLICABLE)
+JROTC                Junior Reserve Officers’       Leadership and citizenship program in high
+                     Training Corps                 schools sponsored by the United States Armed
+                                                    Forces.
+
+ML                   Multilingual Learner           A student whose primary language is not
+                                                    English; sometimes referred to as an English
+                                                    Learner (EL) or English Language Learner (ELL).
+
+NCDHHS               North Carolina Department of   State agency partnering on early-learning and
+                     Health and Human Services      health initiatives.
+
+NCDPI                North Carolina Department of   State education agency overseeing public
+                     Public Instruction             schools in North Carolina (often “NCDPI”).
+
+—                    NCDPI Agency Roundtable        A forum hosted by NCDPI to promote academic
+                                                    data analysis regionally.
+
+NCSIS                North Carolina Student         NCSIS, powered by Infinite Campus, is a new
+                     Information System             student information system with a parent portal
+                                                    for grades, attendance, and assignments, and a
+                                                    mobile application.
+
+NextNC /             NC direct-admissions &         Offer automatic college admission and grants to
+NC College Connect   financial-support programs     eligible seniors.
+
+—                    Professional Learning          Structured learning, including professional
+                                                    development, for educators or staff.
+
+PSU                  Public School Unit             North Carolina term encompassing traditional
+                                                    public school districts, lab schools, regional
+                                                    schools, and charter schools.
+
+SIS                  Student Information System     Core database holding student information,
+                                                    including enrollment, grades, attendance.
+
+SOR                  Science of Reading             Evidence-based body of research guiding literacy
+                                                    instruction.
+
+—                    Trauma-Informed                An approach where schools recognize and
+                                                    respond to the impacts of traumatic stress on
+                                                    those within the school system.
+
+WSCC                 Whole School, Whole            The Centers for Disease Control and Prevention’s
+                     Community, Whole Child         framework for addressing health in schools.
+                     (WSCC) Model                   The WSCC model is student-centered and
+                                                    emphasizes the role of the community in
+                                                    supporting the school, the connections between
+                                                    health and academic achievement and the
+                                                    importance of evidence-based school policies
+                                                    and practices.
+
+
+
+
+                                                                                                      35
+
+=== PAGE 36 ===
+     Best in the Nation—Our 2030 Plan
+     for North Carolina Public Schools
+
+
+
+
+36
+

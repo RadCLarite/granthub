@@ -1,0 +1,39 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "administrable_by_state_agency: true if a state health, human services, or veterans agency could realistically be the lead applicant and run this program.",
+    "program_domain": "none",
+    "owning_division": "none",
+    "required_capabilities": [
+      "emergency_management"
+    ],
+    "requires_subrecipient_network": false,
+    "evaluation_required": false,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "none",
+    "target_population": "hazard_exposed",
+    "alignment_dhhs": {
+      "level": "partial",
+      "plan_row": "G1.O4",
+      "rationale": "The opportunity aims to enhance security and law enforcement capabilities at faith-based institutions, which can support local capacity to overcome persistent health disparities."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity does not directly align with any DMVA strategic plan objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v2",
+    "created": "2026-09-29T09:30:29-0400",
+    "prompt_tokens": 2580,
+    "output_tokens": 284,
+    "seconds": 27.5
+  }
+}

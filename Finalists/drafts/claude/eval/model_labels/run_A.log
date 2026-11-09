@@ -1,0 +1,1274 @@
+NOTE: using TOY EXAMPLE data (items_example.csv). Real file expected at data/processed/items.csv
+NOTE: using TOY EXAMPLE data (criteria_example.csv). Real file expected at data/manual/criteria.csv
+NOTE: using TOY EXAMPLE data (test_cases_example.csv). Real file expected at data/manual/test_cases.csv
+NOTE: using TOY EXAMPLE data (facts_example.csv). Real file expected at data/manual/facts.csv
+[Department of Public Schools] 1/1576
+[Department of Public Schools] 11/1576
+[Department of Public Schools] 21/1576
+[Department of Public Schools] 31/1576
+[Department of Public Schools] 41/1576
+[Department of Public Schools] 51/1576
+[Department of Public Schools] 61/1576
+[Department of Public Schools] 71/1576
+[Department of Public Schools] 81/1576
+[Department of Public Schools] 91/1576
+[Department of Public Schools] 101/1576
+[Department of Public Schools] 111/1576
+[Department of Public Schools] 121/1576
+[Department of Public Schools] 131/1576
+[Department of Public Schools] 141/1576
+[Department of Public Schools] 151/1576
+[Department of Public Schools] 161/1576
+[Department of Public Schools] 171/1576
+[Department of Public Schools] 181/1576
+[Department of Public Schools] 191/1576
+[Department of Public Schools] 201/1576
+[Department of Public Schools] 211/1576
+[Department of Public Schools] 221/1576
+[Department of Public Schools] 231/1576
+[Department of Public Schools] 241/1576
+[Department of Public Schools] 251/1576
+[Department of Public Schools] 261/1576
+[Department of Public Schools] 271/1576
+[Department of Public Schools] 281/1576
+[Department of Public Schools] 291/1576
+[Department of Public Schools] 301/1576
+[Department of Public Schools] 311/1576
+[Department of Public Schools] 321/1576
+[Department of Public Schools] 331/1576
+[Department of Public Schools] 341/1576
+[Department of Public Schools] 351/1576
+[Department of Public Schools] 361/1576
+[Department of Public Schools] 371/1576
+[Department of Public Schools] 381/1576
+[Department of Public Schools] 391/1576
+[Department of Public Schools] 401/1576
+[Department of Public Schools] 411/1576
+[Department of Public Schools] 421/1576
+[Department of Public Schools] 431/1576
+[Department of Public Schools] 441/1576
+[Department of Public Schools] 451/1576
+[Department of Public Schools] 461/1576
+[Department of Public Schools] 471/1576
+[Department of Public Schools] 481/1576
+[Department of Public Schools] 491/1576
+[Department of Public Schools] 501/1576
+[Department of Public Schools] 511/1576
+[Department of Public Schools] 521/1576
+[Department of Public Schools] 531/1576
+[Department of Public Schools] 541/1576
+[Department of Public Schools] 551/1576
+[Department of Public Schools] 561/1576
+[Department of Public Schools] 571/1576
+[Department of Public Schools] 581/1576
+[Department of Public Schools] 591/1576
+[Department of Public Schools] 601/1576
+[Department of Public Schools] 611/1576
+[Department of Public Schools] 621/1576
+[Department of Public Schools] 631/1576
+[Department of Public Schools] 641/1576
+[Department of Public Schools] 651/1576
+[Department of Public Schools] 661/1576
+[Department of Public Schools] 671/1576
+[Department of Public Schools] 681/1576
+[Department of Public Schools] 691/1576
+[Department of Public Schools] 701/1576
+[Department of Public Schools] 711/1576
+[Department of Public Schools] 721/1576
+[Department of Public Schools] 731/1576
+[Department of Public Schools] 741/1576
+[Department of Public Schools] 751/1576
+[Department of Public Schools] 761/1576
+[Department of Public Schools] 771/1576
+[Department of Public Schools] 781/1576
+[Department of Public Schools] 791/1576
+[Department of Public Schools] 801/1576
+[Department of Public Schools] 811/1576
+[Department of Public Schools] 821/1576
+[Department of Public Schools] 831/1576
+[Department of Public Schools] 841/1576
+[Department of Public Schools] 851/1576
+[Department of Public Schools] 861/1576
+[Department of Public Schools] 871/1576
+[Department of Public Schools] 881/1576
+[Department of Public Schools] 891/1576
+[Department of Public Schools] 901/1576
+[Department of Public Schools] 911/1576
+[Department of Public Schools] 921/1576
+[Department of Public Schools] 931/1576
+[Department of Public Schools] 941/1576
+[Department of Public Schools] 951/1576
+[Department of Public Schools] 961/1576
+[Department of Public Schools] 971/1576
+[Department of Public Schools] 981/1576
+[Department of Public Schools] 991/1576
+[Department of Public Schools] 1001/1576
+[Department of Public Schools] 1011/1576
+[Department of Public Schools] 1021/1576
+[Department of Public Schools] 1031/1576
+[Department of Public Schools] 1041/1576
+[Department of Public Schools] 1051/1576
+[Department of Public Schools] 1061/1576
+[Department of Public Schools] 1071/1576
+[Department of Public Schools] 1081/1576
+[Department of Public Schools] 1091/1576
+[Department of Public Schools] 1101/1576
+[Department of Public Schools] 1111/1576
+[Department of Public Schools] 1121/1576
+[Department of Public Schools] 1131/1576
+[Department of Public Schools] 1141/1576
+[Department of Public Schools] 1151/1576
+[Department of Public Schools] 1161/1576
+[Department of Public Schools] 1171/1576
+[Department of Public Schools] 1181/1576
+[Department of Public Schools] 1191/1576
+[Department of Public Schools] 1201/1576
+[Department of Public Schools] 1211/1576
+[Department of Public Schools] 1221/1576
+[Department of Public Schools] 1231/1576
+[Department of Public Schools] 1241/1576
+[Department of Public Schools] 1251/1576
+[Department of Public Schools] 1261/1576
+[Department of Public Schools] 1271/1576
+[Department of Public Schools] 1281/1576
+[Department of Public Schools] 1291/1576
+[Department of Public Schools] 1301/1576
+[Department of Public Schools] 1311/1576
+[Department of Public Schools] 1321/1576
+[Department of Public Schools] 1331/1576
+[Department of Public Schools] 1341/1576
+[Department of Public Schools] 1351/1576
+[Department of Public Schools] 1361/1576
+[Department of Public Schools] 1371/1576
+[Department of Public Schools] 1381/1576
+[Department of Public Schools] 1391/1576
+[Department of Public Schools] 1401/1576
+[Department of Public Schools] 1411/1576
+[Department of Public Schools] 1421/1576
+[Department of Public Schools] 1431/1576
+[Department of Public Schools] 1441/1576
+[Department of Public Schools] 1451/1576
+[Department of Public Schools] 1461/1576
+[Department of Public Schools] 1471/1576
+[Department of Public Schools] 1481/1576
+[Department of Public Schools] 1491/1576
+[Department of Public Schools] 1501/1576
+[Department of Public Schools] 1511/1576
+[Department of Public Schools] 1521/1576
+[Department of Public Schools] 1531/1576
+[Department of Public Schools] 1541/1576
+[Department of Public Schools] 1551/1576
+[Department of Public Schools] 1561/1576
+[Department of Public Schools] 1571/1576
+[Department of Public Schools] 1576/1576
+DONE Department of Public Schools
+[Department of Environmental Quality] 1/1576
+[Department of Environmental Quality] 11/1576
+[Department of Environmental Quality] 21/1576
+[Department of Environmental Quality] 31/1576
+[Department of Environmental Quality] 41/1576
+[Department of Environmental Quality] 51/1576
+[Department of Environmental Quality] 61/1576
+[Department of Environmental Quality] 71/1576
+[Department of Environmental Quality] 81/1576
+[Department of Environmental Quality] 91/1576
+[Department of Environmental Quality] 101/1576
+[Department of Environmental Quality] 111/1576
+[Department of Environmental Quality] 121/1576
+[Department of Environmental Quality] 131/1576
+[Department of Environmental Quality] 141/1576
+[Department of Environmental Quality] 151/1576
+[Department of Environmental Quality] 161/1576
+[Department of Environmental Quality] 171/1576
+[Department of Environmental Quality] 181/1576
+[Department of Environmental Quality] 191/1576
+[Department of Environmental Quality] 201/1576
+[Department of Environmental Quality] 211/1576
+[Department of Environmental Quality] 221/1576
+[Department of Environmental Quality] 231/1576
+[Department of Environmental Quality] 241/1576
+[Department of Environmental Quality] 251/1576
+[Department of Environmental Quality] 261/1576
+[Department of Environmental Quality] 271/1576
+[Department of Environmental Quality] 281/1576
+[Department of Environmental Quality] 291/1576
+[Department of Environmental Quality] 301/1576
+[Department of Environmental Quality] 311/1576
+[Department of Environmental Quality] 321/1576
+[Department of Environmental Quality] 331/1576
+[Department of Environmental Quality] 341/1576
+[Department of Environmental Quality] 351/1576
+[Department of Environmental Quality] 361/1576
+[Department of Environmental Quality] 371/1576
+[Department of Environmental Quality] 381/1576
+[Department of Environmental Quality] 391/1576
+[Department of Environmental Quality] 401/1576
+[Department of Environmental Quality] 411/1576
+[Department of Environmental Quality] 421/1576
+[Department of Environmental Quality] 431/1576
+[Department of Environmental Quality] 441/1576
+[Department of Environmental Quality] 451/1576
+[Department of Environmental Quality] 461/1576
+[Department of Environmental Quality] 471/1576
+[Department of Environmental Quality] 481/1576
+[Department of Environmental Quality] 491/1576
+[Department of Environmental Quality] 501/1576
+[Department of Environmental Quality] 511/1576
+[Department of Environmental Quality] 521/1576
+[Department of Environmental Quality] 531/1576
+[Department of Environmental Quality] 541/1576
+[Department of Environmental Quality] 551/1576
+[Department of Environmental Quality] 561/1576
+[Department of Environmental Quality] 571/1576
+[Department of Environmental Quality] 581/1576
+[Department of Environmental Quality] 591/1576
+[Department of Environmental Quality] 601/1576
+[Department of Environmental Quality] 611/1576
+[Department of Environmental Quality] 621/1576
+[Department of Environmental Quality] 631/1576
+[Department of Environmental Quality] 641/1576
+[Department of Environmental Quality] 651/1576
+[Department of Environmental Quality] 661/1576
+[Department of Environmental Quality] 671/1576
+[Department of Environmental Quality] 681/1576
+[Department of Environmental Quality] 691/1576
+[Department of Environmental Quality] 701/1576
+[Department of Environmental Quality] 711/1576
+[Department of Environmental Quality] 721/1576
+[Department of Environmental Quality] 731/1576
+[Department of Environmental Quality] 741/1576
+[Department of Environmental Quality] 751/1576
+[Department of Environmental Quality] 761/1576
+[Department of Environmental Quality] 771/1576
+[Department of Environmental Quality] 781/1576
+[Department of Environmental Quality] 791/1576
+[Department of Environmental Quality] 801/1576
+[Department of Environmental Quality] 811/1576
+[Department of Environmental Quality] 821/1576
+[Department of Environmental Quality] 831/1576
+[Department of Environmental Quality] 841/1576
+[Department of Environmental Quality] 851/1576
+[Department of Environmental Quality] 861/1576
+[Department of Environmental Quality] 871/1576
+[Department of Environmental Quality] 881/1576
+[Department of Environmental Quality] 891/1576
+[Department of Environmental Quality] 901/1576
+[Department of Environmental Quality] 911/1576
+[Department of Environmental Quality] 921/1576
+[Department of Environmental Quality] 931/1576
+[Department of Environmental Quality] 941/1576
+[Department of Environmental Quality] 951/1576
+[Department of Environmental Quality] 961/1576
+[Department of Environmental Quality] 971/1576
+[Department of Environmental Quality] 981/1576
+[Department of Environmental Quality] 991/1576
+[Department of Environmental Quality] 1001/1576
+[Department of Environmental Quality] 1011/1576
+[Department of Environmental Quality] 1021/1576
+[Department of Environmental Quality] 1031/1576
+[Department of Environmental Quality] 1041/1576
+[Department of Environmental Quality] 1051/1576
+[Department of Environmental Quality] 1061/1576
+[Department of Environmental Quality] 1071/1576
+[Department of Environmental Quality] 1081/1576
+[Department of Environmental Quality] 1091/1576
+[Department of Environmental Quality] 1101/1576
+[Department of Environmental Quality] 1111/1576
+[Department of Environmental Quality] 1121/1576
+[Department of Environmental Quality] 1131/1576
+[Department of Environmental Quality] 1141/1576
+[Department of Environmental Quality] 1151/1576
+[Department of Environmental Quality] 1161/1576
+[Department of Environmental Quality] 1171/1576
+[Department of Environmental Quality] 1181/1576
+[Department of Environmental Quality] 1191/1576
+[Department of Environmental Quality] 1201/1576
+[Department of Environmental Quality] 1211/1576
+[Department of Environmental Quality] 1221/1576
+[Department of Environmental Quality] 1231/1576
+[Department of Environmental Quality] 1241/1576
+[Department of Environmental Quality] 1251/1576
+[Department of Environmental Quality] 1261/1576
+[Department of Environmental Quality] 1271/1576
+[Department of Environmental Quality] 1281/1576
+[Department of Environmental Quality] 1291/1576
+[Department of Environmental Quality] 1301/1576
+[Department of Environmental Quality] 1311/1576
+[Department of Environmental Quality] 1321/1576
+[Department of Environmental Quality] 1331/1576
+[Department of Environmental Quality] 1341/1576
+[Department of Environmental Quality] 1351/1576
+[Department of Environmental Quality] 1361/1576
+[Department of Environmental Quality] 1371/1576
+[Department of Environmental Quality] 1381/1576
+[Department of Environmental Quality] 1391/1576
+[Department of Environmental Quality] 1401/1576
+[Department of Environmental Quality] 1411/1576
+[Department of Environmental Quality] 1421/1576
+[Department of Environmental Quality] 1431/1576
+[Department of Environmental Quality] 1441/1576
+[Department of Environmental Quality] 1451/1576
+[Department of Environmental Quality] 1461/1576
+[Department of Environmental Quality] 1471/1576
+[Department of Environmental Quality] 1481/1576
+[Department of Environmental Quality] 1491/1576
+[Department of Environmental Quality] 1501/1576
+[Department of Environmental Quality] 1511/1576
+[Department of Environmental Quality] 1521/1576
+[Department of Environmental Quality] 1531/1576
+[Department of Environmental Quality] 1541/1576
+[Department of Environmental Quality] 1551/1576
+[Department of Environmental Quality] 1561/1576
+[Department of Environmental Quality] 1571/1576
+[Department of Environmental Quality] 1576/1576
+DONE Department of Environmental Quality
+[Department of Health and Human Services] 1/1576
+[Department of Health and Human Services] 11/1576
+[Department of Health and Human Services] 21/1576
+[Department of Health and Human Services] 31/1576
+[Department of Health and Human Services] 41/1576
+[Department of Health and Human Services] 51/1576
+[Department of Health and Human Services] 61/1576
+[Department of Health and Human Services] 71/1576
+[Department of Health and Human Services] 81/1576
+[Department of Health and Human Services] 91/1576
+[Department of Health and Human Services] 101/1576
+[Department of Health and Human Services] 111/1576
+[Department of Health and Human Services] 121/1576
+[Department of Health and Human Services] 131/1576
+[Department of Health and Human Services] 141/1576
+[Department of Health and Human Services] 151/1576
+[Department of Health and Human Services] 161/1576
+[Department of Health and Human Services] 171/1576
+[Department of Health and Human Services] 181/1576
+[Department of Health and Human Services] 191/1576
+[Department of Health and Human Services] 201/1576
+[Department of Health and Human Services] 211/1576
+[Department of Health and Human Services] 221/1576
+[Department of Health and Human Services] 231/1576
+[Department of Health and Human Services] 241/1576
+[Department of Health and Human Services] 251/1576
+[Department of Health and Human Services] 261/1576
+[Department of Health and Human Services] 271/1576
+[Department of Health and Human Services] 281/1576
+[Department of Health and Human Services] 291/1576
+[Department of Health and Human Services] 301/1576
+[Department of Health and Human Services] 311/1576
+[Department of Health and Human Services] 321/1576
+[Department of Health and Human Services] 331/1576
+[Department of Health and Human Services] 341/1576
+[Department of Health and Human Services] 351/1576
+[Department of Health and Human Services] 361/1576
+[Department of Health and Human Services] 371/1576
+[Department of Health and Human Services] 381/1576
+[Department of Health and Human Services] 391/1576
+[Department of Health and Human Services] 401/1576
+[Department of Health and Human Services] 411/1576
+[Department of Health and Human Services] 421/1576
+[Department of Health and Human Services] 431/1576
+[Department of Health and Human Services] 441/1576
+[Department of Health and Human Services] 451/1576
+[Department of Health and Human Services] 461/1576
+[Department of Health and Human Services] 471/1576
+[Department of Health and Human Services] 481/1576
+[Department of Health and Human Services] 491/1576
+[Department of Health and Human Services] 501/1576
+[Department of Health and Human Services] 511/1576
+[Department of Health and Human Services] 521/1576
+[Department of Health and Human Services] 531/1576
+[Department of Health and Human Services] 541/1576
+[Department of Health and Human Services] 551/1576
+[Department of Health and Human Services] 561/1576
+[Department of Health and Human Services] 571/1576
+[Department of Health and Human Services] 581/1576
+[Department of Health and Human Services] 591/1576
+[Department of Health and Human Services] 601/1576
+[Department of Health and Human Services] 611/1576
+[Department of Health and Human Services] 621/1576
+[Department of Health and Human Services] 631/1576
+[Department of Health and Human Services] 641/1576
+[Department of Health and Human Services] 651/1576
+[Department of Health and Human Services] 661/1576
+[Department of Health and Human Services] 671/1576
+[Department of Health and Human Services] 681/1576
+[Department of Health and Human Services] 691/1576
+[Department of Health and Human Services] 701/1576
+[Department of Health and Human Services] 711/1576
+[Department of Health and Human Services] 721/1576
+[Department of Health and Human Services] 731/1576
+[Department of Health and Human Services] 741/1576
+[Department of Health and Human Services] 751/1576
+[Department of Health and Human Services] 761/1576
+[Department of Health and Human Services] 771/1576
+[Department of Health and Human Services] 781/1576
+[Department of Health and Human Services] 791/1576
+[Department of Health and Human Services] 801/1576
+[Department of Health and Human Services] 811/1576
+[Department of Health and Human Services] 821/1576
+[Department of Health and Human Services] 831/1576
+[Department of Health and Human Services] 841/1576
+[Department of Health and Human Services] 851/1576
+[Department of Health and Human Services] 861/1576
+[Department of Health and Human Services] 871/1576
+[Department of Health and Human Services] 881/1576
+[Department of Health and Human Services] 891/1576
+[Department of Health and Human Services] 901/1576
+[Department of Health and Human Services] 911/1576
+[Department of Health and Human Services] 921/1576
+[Department of Health and Human Services] 931/1576
+[Department of Health and Human Services] 941/1576
+[Department of Health and Human Services] 951/1576
+[Department of Health and Human Services] 961/1576
+[Department of Health and Human Services] 971/1576
+[Department of Health and Human Services] 981/1576
+[Department of Health and Human Services] 991/1576
+[Department of Health and Human Services] 1001/1576
+[Department of Health and Human Services] 1011/1576
+[Department of Health and Human Services] 1021/1576
+[Department of Health and Human Services] 1031/1576
+[Department of Health and Human Services] 1041/1576
+[Department of Health and Human Services] 1051/1576
+[Department of Health and Human Services] 1061/1576
+[Department of Health and Human Services] 1071/1576
+[Department of Health and Human Services] 1081/1576
+[Department of Health and Human Services] 1091/1576
+[Department of Health and Human Services] 1101/1576
+[Department of Health and Human Services] 1111/1576
+[Department of Health and Human Services] 1121/1576
+[Department of Health and Human Services] 1131/1576
+[Department of Health and Human Services] 1141/1576
+[Department of Health and Human Services] 1151/1576
+[Department of Health and Human Services] 1161/1576
+[Department of Health and Human Services] 1171/1576
+[Department of Health and Human Services] 1181/1576
+[Department of Health and Human Services] 1191/1576
+[Department of Health and Human Services] 1201/1576
+[Department of Health and Human Services] 1211/1576
+[Department of Health and Human Services] 1221/1576
+[Department of Health and Human Services] 1231/1576
+[Department of Health and Human Services] 1241/1576
+[Department of Health and Human Services] 1251/1576
+[Department of Health and Human Services] 1261/1576
+[Department of Health and Human Services] 1271/1576
+[Department of Health and Human Services] 1281/1576
+[Department of Health and Human Services] 1291/1576
+[Department of Health and Human Services] 1301/1576
+[Department of Health and Human Services] 1311/1576
+[Department of Health and Human Services] 1321/1576
+[Department of Health and Human Services] 1331/1576
+[Department of Health and Human Services] 1341/1576
+[Department of Health and Human Services] 1351/1576
+[Department of Health and Human Services] 1361/1576
+[Department of Health and Human Services] 1371/1576
+[Department of Health and Human Services] 1381/1576
+[Department of Health and Human Services] 1391/1576
+[Department of Health and Human Services] 1401/1576
+[Department of Health and Human Services] 1411/1576
+[Department of Health and Human Services] 1421/1576
+[Department of Health and Human Services] 1431/1576
+[Department of Health and Human Services] 1441/1576
+[Department of Health and Human Services] 1451/1576
+[Department of Health and Human Services] 1461/1576
+[Department of Health and Human Services] 1471/1576
+[Department of Health and Human Services] 1481/1576
+[Department of Health and Human Services] 1491/1576
+[Department of Health and Human Services] 1501/1576
+[Department of Health and Human Services] 1511/1576
+[Department of Health and Human Services] 1521/1576
+[Department of Health and Human Services] 1531/1576
+[Department of Health and Human Services] 1541/1576
+[Department of Health and Human Services] 1551/1576
+[Department of Health and Human Services] 1561/1576
+[Department of Health and Human Services] 1571/1576
+[Department of Health and Human Services] 1576/1576
+DONE Department of Health and Human Services
+[Department of Administration] 1/1576
+[Department of Administration] 11/1576
+[Department of Administration] 21/1576
+[Department of Administration] 31/1576
+[Department of Administration] 41/1576
+[Department of Administration] 51/1576
+[Department of Administration] 61/1576
+[Department of Administration] 71/1576
+[Department of Administration] 81/1576
+[Department of Administration] 91/1576
+[Department of Administration] 101/1576
+[Department of Administration] 111/1576
+[Department of Administration] 121/1576
+[Department of Administration] 131/1576
+[Department of Administration] 141/1576
+[Department of Administration] 151/1576
+[Department of Administration] 161/1576
+[Department of Administration] 171/1576
+[Department of Administration] 181/1576
+[Department of Administration] 191/1576
+[Department of Administration] 201/1576
+[Department of Administration] 211/1576
+[Department of Administration] 221/1576
+[Department of Administration] 231/1576
+[Department of Administration] 241/1576
+[Department of Administration] 251/1576
+[Department of Administration] 261/1576
+[Department of Administration] 271/1576
+[Department of Administration] 281/1576
+[Department of Administration] 291/1576
+[Department of Administration] 301/1576
+[Department of Administration] 311/1576
+[Department of Administration] 321/1576
+[Department of Administration] 331/1576
+[Department of Administration] 341/1576
+[Department of Administration] 351/1576
+[Department of Administration] 361/1576
+[Department of Administration] 371/1576
+[Department of Administration] 381/1576
+[Department of Administration] 391/1576
+[Department of Administration] 401/1576
+[Department of Administration] 411/1576
+[Department of Administration] 421/1576
+[Department of Administration] 431/1576
+[Department of Administration] 441/1576
+[Department of Administration] 451/1576
+[Department of Administration] 461/1576
+[Department of Administration] 471/1576
+[Department of Administration] 481/1576
+[Department of Administration] 491/1576
+[Department of Administration] 501/1576
+[Department of Administration] 511/1576
+[Department of Administration] 521/1576
+[Department of Administration] 531/1576
+[Department of Administration] 541/1576
+[Department of Administration] 551/1576
+[Department of Administration] 561/1576
+[Department of Administration] 571/1576
+[Department of Administration] 581/1576
+[Department of Administration] 591/1576
+[Department of Administration] 601/1576
+[Department of Administration] 611/1576
+[Department of Administration] 621/1576
+[Department of Administration] 631/1576
+[Department of Administration] 641/1576
+[Department of Administration] 651/1576
+[Department of Administration] 661/1576
+[Department of Administration] 671/1576
+[Department of Administration] 681/1576
+[Department of Administration] 691/1576
+[Department of Administration] 701/1576
+[Department of Administration] 711/1576
+[Department of Administration] 721/1576
+[Department of Administration] 731/1576
+[Department of Administration] 741/1576
+[Department of Administration] 751/1576
+[Department of Administration] 761/1576
+[Department of Administration] 771/1576
+[Department of Administration] 781/1576
+[Department of Administration] 791/1576
+[Department of Administration] 801/1576
+[Department of Administration] 811/1576
+[Department of Administration] 821/1576
+[Department of Administration] 831/1576
+[Department of Administration] 841/1576
+[Department of Administration] 851/1576
+[Department of Administration] 861/1576
+[Department of Administration] 871/1576
+[Department of Administration] 881/1576
+[Department of Administration] 891/1576
+[Department of Administration] 901/1576
+[Department of Administration] 911/1576
+[Department of Administration] 921/1576
+[Department of Administration] 931/1576
+[Department of Administration] 941/1576
+[Department of Administration] 951/1576
+[Department of Administration] 961/1576
+[Department of Administration] 971/1576
+[Department of Administration] 981/1576
+[Department of Administration] 991/1576
+[Department of Administration] 1001/1576
+[Department of Administration] 1011/1576
+[Department of Administration] 1021/1576
+[Department of Administration] 1031/1576
+[Department of Administration] 1041/1576
+[Department of Administration] 1051/1576
+[Department of Administration] 1061/1576
+[Department of Administration] 1071/1576
+[Department of Administration] 1081/1576
+[Department of Administration] 1091/1576
+[Department of Administration] 1101/1576
+[Department of Administration] 1111/1576
+[Department of Administration] 1121/1576
+[Department of Administration] 1131/1576
+[Department of Administration] 1141/1576
+[Department of Administration] 1151/1576
+[Department of Administration] 1161/1576
+[Department of Administration] 1171/1576
+[Department of Administration] 1181/1576
+[Department of Administration] 1191/1576
+[Department of Administration] 1201/1576
+[Department of Administration] 1211/1576
+[Department of Administration] 1221/1576
+[Department of Administration] 1231/1576
+[Department of Administration] 1241/1576
+[Department of Administration] 1251/1576
+[Department of Administration] 1261/1576
+[Department of Administration] 1271/1576
+[Department of Administration] 1281/1576
+[Department of Administration] 1291/1576
+[Department of Administration] 1301/1576
+[Department of Administration] 1311/1576
+[Department of Administration] 1321/1576
+[Department of Administration] 1331/1576
+[Department of Administration] 1341/1576
+[Department of Administration] 1351/1576
+[Department of Administration] 1361/1576
+[Department of Administration] 1371/1576
+[Department of Administration] 1381/1576
+[Department of Administration] 1391/1576
+[Department of Administration] 1401/1576
+[Department of Administration] 1411/1576
+[Department of Administration] 1421/1576
+[Department of Administration] 1431/1576
+[Department of Administration] 1441/1576
+[Department of Administration] 1451/1576
+[Department of Administration] 1461/1576
+[Department of Administration] 1471/1576
+[Department of Administration] 1481/1576
+[Department of Administration] 1491/1576
+[Department of Administration] 1501/1576
+[Department of Administration] 1511/1576
+[Department of Administration] 1521/1576
+[Department of Administration] 1531/1576
+[Department of Administration] 1541/1576
+[Department of Administration] 1551/1576
+[Department of Administration] 1561/1576
+[Department of Administration] 1571/1576
+[Department of Administration] 1576/1576
+DONE Department of Administration
+[Department of Agriculture and Consumer Services] 1/1576
+[Department of Agriculture and Consumer Services] 11/1576
+[Department of Agriculture and Consumer Services] 21/1576
+[Department of Agriculture and Consumer Services] 31/1576
+[Department of Agriculture and Consumer Services] 41/1576
+[Department of Agriculture and Consumer Services] 51/1576
+[Department of Agriculture and Consumer Services] 61/1576
+[Department of Agriculture and Consumer Services] 71/1576
+[Department of Agriculture and Consumer Services] 81/1576
+[Department of Agriculture and Consumer Services] 91/1576
+[Department of Agriculture and Consumer Services] 101/1576
+[Department of Agriculture and Consumer Services] 111/1576
+[Department of Agriculture and Consumer Services] 121/1576
+[Department of Agriculture and Consumer Services] 131/1576
+[Department of Agriculture and Consumer Services] 141/1576
+[Department of Agriculture and Consumer Services] 151/1576
+[Department of Agriculture and Consumer Services] 161/1576
+[Department of Agriculture and Consumer Services] 171/1576
+[Department of Agriculture and Consumer Services] 181/1576
+[Department of Agriculture and Consumer Services] 191/1576
+[Department of Agriculture and Consumer Services] 201/1576
+[Department of Agriculture and Consumer Services] 211/1576
+[Department of Agriculture and Consumer Services] 221/1576
+[Department of Agriculture and Consumer Services] 231/1576
+[Department of Agriculture and Consumer Services] 241/1576
+[Department of Agriculture and Consumer Services] 251/1576
+[Department of Agriculture and Consumer Services] 261/1576
+[Department of Agriculture and Consumer Services] 271/1576
+[Department of Agriculture and Consumer Services] 281/1576
+[Department of Agriculture and Consumer Services] 291/1576
+[Department of Agriculture and Consumer Services] 301/1576
+[Department of Agriculture and Consumer Services] 311/1576
+[Department of Agriculture and Consumer Services] 321/1576
+[Department of Agriculture and Consumer Services] 331/1576
+[Department of Agriculture and Consumer Services] 341/1576
+[Department of Agriculture and Consumer Services] 351/1576
+[Department of Agriculture and Consumer Services] 361/1576
+[Department of Agriculture and Consumer Services] 371/1576
+[Department of Agriculture and Consumer Services] 381/1576
+[Department of Agriculture and Consumer Services] 391/1576
+[Department of Agriculture and Consumer Services] 401/1576
+[Department of Agriculture and Consumer Services] 411/1576
+[Department of Agriculture and Consumer Services] 421/1576
+[Department of Agriculture and Consumer Services] 431/1576
+[Department of Agriculture and Consumer Services] 441/1576
+[Department of Agriculture and Consumer Services] 451/1576
+[Department of Agriculture and Consumer Services] 461/1576
+[Department of Agriculture and Consumer Services] 471/1576
+[Department of Agriculture and Consumer Services] 481/1576
+[Department of Agriculture and Consumer Services] 491/1576
+[Department of Agriculture and Consumer Services] 501/1576
+[Department of Agriculture and Consumer Services] 511/1576
+[Department of Agriculture and Consumer Services] 521/1576
+[Department of Agriculture and Consumer Services] 531/1576
+[Department of Agriculture and Consumer Services] 541/1576
+[Department of Agriculture and Consumer Services] 551/1576
+[Department of Agriculture and Consumer Services] 561/1576
+[Department of Agriculture and Consumer Services] 571/1576
+[Department of Agriculture and Consumer Services] 581/1576
+[Department of Agriculture and Consumer Services] 591/1576
+[Department of Agriculture and Consumer Services] 601/1576
+[Department of Agriculture and Consumer Services] 611/1576
+[Department of Agriculture and Consumer Services] 621/1576
+[Department of Agriculture and Consumer Services] 631/1576
+[Department of Agriculture and Consumer Services] 641/1576
+[Department of Agriculture and Consumer Services] 651/1576
+[Department of Agriculture and Consumer Services] 661/1576
+[Department of Agriculture and Consumer Services] 671/1576
+[Department of Agriculture and Consumer Services] 681/1576
+[Department of Agriculture and Consumer Services] 691/1576
+[Department of Agriculture and Consumer Services] 701/1576
+[Department of Agriculture and Consumer Services] 711/1576
+[Department of Agriculture and Consumer Services] 721/1576
+[Department of Agriculture and Consumer Services] 731/1576
+[Department of Agriculture and Consumer Services] 741/1576
+[Department of Agriculture and Consumer Services] 751/1576
+[Department of Agriculture and Consumer Services] 761/1576
+[Department of Agriculture and Consumer Services] 771/1576
+[Department of Agriculture and Consumer Services] 781/1576
+[Department of Agriculture and Consumer Services] 791/1576
+[Department of Agriculture and Consumer Services] 801/1576
+[Department of Agriculture and Consumer Services] 811/1576
+[Department of Agriculture and Consumer Services] 821/1576
+[Department of Agriculture and Consumer Services] 831/1576
+[Department of Agriculture and Consumer Services] 841/1576
+[Department of Agriculture and Consumer Services] 851/1576
+[Department of Agriculture and Consumer Services] 861/1576
+[Department of Agriculture and Consumer Services] 871/1576
+[Department of Agriculture and Consumer Services] 881/1576
+[Department of Agriculture and Consumer Services] 891/1576
+[Department of Agriculture and Consumer Services] 901/1576
+[Department of Agriculture and Consumer Services] 911/1576
+[Department of Agriculture and Consumer Services] 921/1576
+[Department of Agriculture and Consumer Services] 931/1576
+[Department of Agriculture and Consumer Services] 941/1576
+[Department of Agriculture and Consumer Services] 951/1576
+[Department of Agriculture and Consumer Services] 961/1576
+[Department of Agriculture and Consumer Services] 971/1576
+[Department of Agriculture and Consumer Services] 981/1576
+[Department of Agriculture and Consumer Services] 991/1576
+[Department of Agriculture and Consumer Services] 1001/1576
+[Department of Agriculture and Consumer Services] 1011/1576
+[Department of Agriculture and Consumer Services] 1021/1576
+[Department of Agriculture and Consumer Services] 1031/1576
+[Department of Agriculture and Consumer Services] 1041/1576
+[Department of Agriculture and Consumer Services] 1051/1576
+[Department of Agriculture and Consumer Services] 1061/1576
+[Department of Agriculture and Consumer Services] 1071/1576
+[Department of Agriculture and Consumer Services] 1081/1576
+[Department of Agriculture and Consumer Services] 1091/1576
+[Department of Agriculture and Consumer Services] 1101/1576
+[Department of Agriculture and Consumer Services] 1111/1576
+[Department of Agriculture and Consumer Services] 1121/1576
+[Department of Agriculture and Consumer Services] 1131/1576
+[Department of Agriculture and Consumer Services] 1141/1576
+[Department of Agriculture and Consumer Services] 1151/1576
+[Department of Agriculture and Consumer Services] 1161/1576
+[Department of Agriculture and Consumer Services] 1171/1576
+[Department of Agriculture and Consumer Services] 1181/1576
+[Department of Agriculture and Consumer Services] 1191/1576
+[Department of Agriculture and Consumer Services] 1201/1576
+[Department of Agriculture and Consumer Services] 1211/1576
+[Department of Agriculture and Consumer Services] 1221/1576
+[Department of Agriculture and Consumer Services] 1231/1576
+[Department of Agriculture and Consumer Services] 1241/1576
+[Department of Agriculture and Consumer Services] 1251/1576
+[Department of Agriculture and Consumer Services] 1261/1576
+[Department of Agriculture and Consumer Services] 1271/1576
+[Department of Agriculture and Consumer Services] 1281/1576
+[Department of Agriculture and Consumer Services] 1291/1576
+[Department of Agriculture and Consumer Services] 1301/1576
+[Department of Agriculture and Consumer Services] 1311/1576
+[Department of Agriculture and Consumer Services] 1321/1576
+[Department of Agriculture and Consumer Services] 1331/1576
+[Department of Agriculture and Consumer Services] 1341/1576
+[Department of Agriculture and Consumer Services] 1351/1576
+[Department of Agriculture and Consumer Services] 1361/1576
+[Department of Agriculture and Consumer Services] 1371/1576
+[Department of Agriculture and Consumer Services] 1381/1576
+[Department of Agriculture and Consumer Services] 1391/1576
+[Department of Agriculture and Consumer Services] 1401/1576
+[Department of Agriculture and Consumer Services] 1411/1576
+[Department of Agriculture and Consumer Services] 1421/1576
+[Department of Agriculture and Consumer Services] 1431/1576
+[Department of Agriculture and Consumer Services] 1441/1576
+[Department of Agriculture and Consumer Services] 1451/1576
+[Department of Agriculture and Consumer Services] 1461/1576
+[Department of Agriculture and Consumer Services] 1471/1576
+[Department of Agriculture and Consumer Services] 1481/1576
+[Department of Agriculture and Consumer Services] 1491/1576
+[Department of Agriculture and Consumer Services] 1501/1576
+[Department of Agriculture and Consumer Services] 1511/1576
+[Department of Agriculture and Consumer Services] 1521/1576
+[Department of Agriculture and Consumer Services] 1531/1576
+[Department of Agriculture and Consumer Services] 1541/1576
+[Department of Agriculture and Consumer Services] 1551/1576
+[Department of Agriculture and Consumer Services] 1561/1576
+[Department of Agriculture and Consumer Services] 1571/1576
+[Department of Agriculture and Consumer Services] 1576/1576
+DONE Department of Agriculture and Consumer Services
+[Department of Information Technology] 1/1576
+[Department of Information Technology] 11/1576
+[Department of Information Technology] 21/1576
+[Department of Information Technology] 31/1576
+[Department of Information Technology] 41/1576
+[Department of Information Technology] 51/1576
+[Department of Information Technology] 61/1576
+[Department of Information Technology] 71/1576
+[Department of Information Technology] 81/1576
+[Department of Information Technology] 91/1576
+[Department of Information Technology] 101/1576
+[Department of Information Technology] 111/1576
+[Department of Information Technology] 121/1576
+[Department of Information Technology] 131/1576
+[Department of Information Technology] 141/1576
+[Department of Information Technology] 151/1576
+[Department of Information Technology] 161/1576
+[Department of Information Technology] 171/1576
+[Department of Information Technology] 181/1576
+[Department of Information Technology] 191/1576
+[Department of Information Technology] 201/1576
+[Department of Information Technology] 211/1576
+[Department of Information Technology] 221/1576
+[Department of Information Technology] 231/1576
+[Department of Information Technology] 241/1576
+[Department of Information Technology] 251/1576
+[Department of Information Technology] 261/1576
+[Department of Information Technology] 271/1576
+[Department of Information Technology] 281/1576
+[Department of Information Technology] 291/1576
+[Department of Information Technology] 301/1576
+[Department of Information Technology] 311/1576
+[Department of Information Technology] 321/1576
+[Department of Information Technology] 331/1576
+[Department of Information Technology] 341/1576
+[Department of Information Technology] 351/1576
+[Department of Information Technology] 361/1576
+[Department of Information Technology] 371/1576
+[Department of Information Technology] 381/1576
+[Department of Information Technology] 391/1576
+[Department of Information Technology] 401/1576
+[Department of Information Technology] 411/1576
+[Department of Information Technology] 421/1576
+[Department of Information Technology] 431/1576
+[Department of Information Technology] 441/1576
+[Department of Information Technology] 451/1576
+[Department of Information Technology] 461/1576
+[Department of Information Technology] 471/1576
+[Department of Information Technology] 481/1576
+[Department of Information Technology] 491/1576
+[Department of Information Technology] 501/1576
+[Department of Information Technology] 511/1576
+[Department of Information Technology] 521/1576
+[Department of Information Technology] 531/1576
+[Department of Information Technology] 541/1576
+[Department of Information Technology] 551/1576
+[Department of Information Technology] 561/1576
+[Department of Information Technology] 571/1576
+[Department of Information Technology] 581/1576
+[Department of Information Technology] 591/1576
+[Department of Information Technology] 601/1576
+[Department of Information Technology] 611/1576
+[Department of Information Technology] 621/1576
+[Department of Information Technology] 631/1576
+[Department of Information Technology] 641/1576
+[Department of Information Technology] 651/1576
+[Department of Information Technology] 661/1576
+[Department of Information Technology] 671/1576
+[Department of Information Technology] 681/1576
+[Department of Information Technology] 691/1576
+[Department of Information Technology] 701/1576
+[Department of Information Technology] 711/1576
+[Department of Information Technology] 721/1576
+[Department of Information Technology] 731/1576
+[Department of Information Technology] 741/1576
+[Department of Information Technology] 751/1576
+[Department of Information Technology] 761/1576
+[Department of Information Technology] 771/1576
+[Department of Information Technology] 781/1576
+[Department of Information Technology] 791/1576
+[Department of Information Technology] 801/1576
+[Department of Information Technology] 811/1576
+[Department of Information Technology] 821/1576
+[Department of Information Technology] 831/1576
+[Department of Information Technology] 841/1576
+[Department of Information Technology] 851/1576
+[Department of Information Technology] 861/1576
+[Department of Information Technology] 871/1576
+[Department of Information Technology] 881/1576
+[Department of Information Technology] 891/1576
+[Department of Information Technology] 901/1576
+[Department of Information Technology] 911/1576
+[Department of Information Technology] 921/1576
+[Department of Information Technology] 931/1576
+[Department of Information Technology] 941/1576
+[Department of Information Technology] 951/1576
+[Department of Information Technology] 961/1576
+[Department of Information Technology] 971/1576
+[Department of Information Technology] 981/1576
+[Department of Information Technology] 991/1576
+[Department of Information Technology] 1001/1576
+[Department of Information Technology] 1011/1576
+[Department of Information Technology] 1021/1576
+[Department of Information Technology] 1031/1576
+[Department of Information Technology] 1041/1576
+[Department of Information Technology] 1051/1576
+[Department of Information Technology] 1061/1576
+[Department of Information Technology] 1071/1576
+[Department of Information Technology] 1081/1576
+[Department of Information Technology] 1091/1576
+[Department of Information Technology] 1101/1576
+[Department of Information Technology] 1111/1576
+[Department of Information Technology] 1121/1576
+[Department of Information Technology] 1131/1576
+[Department of Information Technology] 1141/1576
+[Department of Information Technology] 1151/1576
+[Department of Information Technology] 1161/1576
+[Department of Information Technology] 1171/1576
+[Department of Information Technology] 1181/1576
+[Department of Information Technology] 1191/1576
+[Department of Information Technology] 1201/1576
+[Department of Information Technology] 1211/1576
+[Department of Information Technology] 1221/1576
+[Department of Information Technology] 1231/1576
+[Department of Information Technology] 1241/1576
+[Department of Information Technology] 1251/1576
+[Department of Information Technology] 1261/1576
+[Department of Information Technology] 1271/1576
+[Department of Information Technology] 1281/1576
+[Department of Information Technology] 1291/1576
+[Department of Information Technology] 1301/1576
+[Department of Information Technology] 1311/1576
+[Department of Information Technology] 1321/1576
+[Department of Information Technology] 1331/1576
+[Department of Information Technology] 1341/1576
+[Department of Information Technology] 1351/1576
+[Department of Information Technology] 1361/1576
+[Department of Information Technology] 1371/1576
+[Department of Information Technology] 1381/1576
+[Department of Information Technology] 1391/1576
+[Department of Information Technology] 1401/1576
+[Department of Information Technology] 1411/1576
+[Department of Information Technology] 1421/1576
+[Department of Information Technology] 1431/1576
+[Department of Information Technology] 1441/1576
+[Department of Information Technology] 1451/1576
+[Department of Information Technology] 1461/1576
+[Department of Information Technology] 1471/1576
+[Department of Information Technology] 1481/1576
+[Department of Information Technology] 1491/1576
+[Department of Information Technology] 1501/1576
+[Department of Information Technology] 1511/1576
+[Department of Information Technology] 1521/1576
+[Department of Information Technology] 1531/1576
+[Department of Information Technology] 1541/1576
+[Department of Information Technology] 1551/1576
+[Department of Information Technology] 1561/1576
+[Department of Information Technology] 1571/1576
+[Department of Information Technology] 1576/1576
+DONE Department of Information Technology
+[Department of Justice] 1/1576
+[Department of Justice] 11/1576
+[Department of Justice] 21/1576
+[Department of Justice] 31/1576
+[Department of Justice] 41/1576
+[Department of Justice] 51/1576
+[Department of Justice] 61/1576
+[Department of Justice] 71/1576
+[Department of Justice] 81/1576
+[Department of Justice] 91/1576
+[Department of Justice] 101/1576
+[Department of Justice] 111/1576
+[Department of Justice] 121/1576
+[Department of Justice] 131/1576
+[Department of Justice] 141/1576
+[Department of Justice] 151/1576
+[Department of Justice] 161/1576
+[Department of Justice] 171/1576
+[Department of Justice] 181/1576
+[Department of Justice] 191/1576
+[Department of Justice] 201/1576
+[Department of Justice] 211/1576
+[Department of Justice] 221/1576
+[Department of Justice] 231/1576
+[Department of Justice] 241/1576
+[Department of Justice] 251/1576
+[Department of Justice] 261/1576
+[Department of Justice] 271/1576
+[Department of Justice] 281/1576
+[Department of Justice] 291/1576
+[Department of Justice] 301/1576
+[Department of Justice] 311/1576
+[Department of Justice] 321/1576
+[Department of Justice] 331/1576
+[Department of Justice] 341/1576
+[Department of Justice] 351/1576
+[Department of Justice] 361/1576
+[Department of Justice] 371/1576
+[Department of Justice] 381/1576
+[Department of Justice] 391/1576
+[Department of Justice] 401/1576
+[Department of Justice] 411/1576
+[Department of Justice] 421/1576
+[Department of Justice] 431/1576
+[Department of Justice] 441/1576
+[Department of Justice] 451/1576
+[Department of Justice] 461/1576
+[Department of Justice] 471/1576
+[Department of Justice] 481/1576
+[Department of Justice] 491/1576
+[Department of Justice] 501/1576
+[Department of Justice] 511/1576
+[Department of Justice] 521/1576
+[Department of Justice] 531/1576
+[Department of Justice] 541/1576
+[Department of Justice] 551/1576
+[Department of Justice] 561/1576
+[Department of Justice] 571/1576
+[Department of Justice] 581/1576
+[Department of Justice] 591/1576
+[Department of Justice] 601/1576
+[Department of Justice] 611/1576
+[Department of Justice] 621/1576
+[Department of Justice] 631/1576
+[Department of Justice] 641/1576
+[Department of Justice] 651/1576
+[Department of Justice] 661/1576
+[Department of Justice] 671/1576
+[Department of Justice] 681/1576
+[Department of Justice] 691/1576
+[Department of Justice] 701/1576
+[Department of Justice] 711/1576
+[Department of Justice] 721/1576
+[Department of Justice] 731/1576
+[Department of Justice] 741/1576
+[Department of Justice] 751/1576
+[Department of Justice] 761/1576
+[Department of Justice] 771/1576
+[Department of Justice] 781/1576
+[Department of Justice] 791/1576
+[Department of Justice] 801/1576
+[Department of Justice] 811/1576
+[Department of Justice] 821/1576
+[Department of Justice] 831/1576
+[Department of Justice] 841/1576
+[Department of Justice] 851/1576
+[Department of Justice] 861/1576
+[Department of Justice] 871/1576
+[Department of Justice] 881/1576
+[Department of Justice] 891/1576
+[Department of Justice] 901/1576
+[Department of Justice] 911/1576
+[Department of Justice] 921/1576
+[Department of Justice] 931/1576
+[Department of Justice] 941/1576
+[Department of Justice] 951/1576
+[Department of Justice] 961/1576
+[Department of Justice] 971/1576
+[Department of Justice] 981/1576
+[Department of Justice] 991/1576
+[Department of Justice] 1001/1576
+[Department of Justice] 1011/1576
+[Department of Justice] 1021/1576
+[Department of Justice] 1031/1576
+[Department of Justice] 1041/1576
+[Department of Justice] 1051/1576
+[Department of Justice] 1061/1576
+[Department of Justice] 1071/1576
+[Department of Justice] 1081/1576
+[Department of Justice] 1091/1576
+[Department of Justice] 1101/1576
+[Department of Justice] 1111/1576
+[Department of Justice] 1121/1576
+[Department of Justice] 1131/1576
+[Department of Justice] 1141/1576
+[Department of Justice] 1151/1576
+[Department of Justice] 1161/1576
+[Department of Justice] 1171/1576
+[Department of Justice] 1181/1576
+[Department of Justice] 1191/1576
+[Department of Justice] 1201/1576
+[Department of Justice] 1211/1576
+[Department of Justice] 1221/1576
+[Department of Justice] 1231/1576
+[Department of Justice] 1241/1576
+[Department of Justice] 1251/1576
+[Department of Justice] 1261/1576
+[Department of Justice] 1271/1576
+[Department of Justice] 1281/1576
+[Department of Justice] 1291/1576
+[Department of Justice] 1301/1576
+[Department of Justice] 1311/1576
+[Department of Justice] 1321/1576
+[Department of Justice] 1331/1576
+[Department of Justice] 1341/1576
+[Department of Justice] 1351/1576
+[Department of Justice] 1361/1576
+[Department of Justice] 1371/1576
+[Department of Justice] 1381/1576
+[Department of Justice] 1391/1576
+[Department of Justice] 1401/1576
+[Department of Justice] 1411/1576
+[Department of Justice] 1421/1576
+[Department of Justice] 1431/1576
+[Department of Justice] 1441/1576
+[Department of Justice] 1451/1576
+[Department of Justice] 1461/1576
+[Department of Justice] 1471/1576
+[Department of Justice] 1481/1576
+[Department of Justice] 1491/1576
+[Department of Justice] 1501/1576
+[Department of Justice] 1511/1576
+[Department of Justice] 1521/1576
+[Department of Justice] 1531/1576
+[Department of Justice] 1541/1576
+[Department of Justice] 1551/1576
+[Department of Justice] 1561/1576
+[Department of Justice] 1571/1576
+[Department of Justice] 1576/1576
+DONE Department of Justice
+[Department of Military and Veterans Affairs] 1/1576
+[Department of Military and Veterans Affairs] 11/1576
+[Department of Military and Veterans Affairs] 21/1576
+[Department of Military and Veterans Affairs] 31/1576
+[Department of Military and Veterans Affairs] 41/1576
+[Department of Military and Veterans Affairs] 51/1576
+[Department of Military and Veterans Affairs] 61/1576
+[Department of Military and Veterans Affairs] 71/1576
+[Department of Military and Veterans Affairs] 81/1576
+[Department of Military and Veterans Affairs] 91/1576
+[Department of Military and Veterans Affairs] 101/1576
+[Department of Military and Veterans Affairs] 111/1576
+[Department of Military and Veterans Affairs] 121/1576
+[Department of Military and Veterans Affairs] 131/1576
+[Department of Military and Veterans Affairs] 141/1576
+[Department of Military and Veterans Affairs] 151/1576
+[Department of Military and Veterans Affairs] 161/1576
+[Department of Military and Veterans Affairs] 171/1576
+[Department of Military and Veterans Affairs] 181/1576
+[Department of Military and Veterans Affairs] 191/1576
+[Department of Military and Veterans Affairs] 201/1576
+[Department of Military and Veterans Affairs] 211/1576
+[Department of Military and Veterans Affairs] 221/1576
+[Department of Military and Veterans Affairs] 231/1576
+[Department of Military and Veterans Affairs] 241/1576
+[Department of Military and Veterans Affairs] 251/1576
+[Department of Military and Veterans Affairs] 261/1576
+[Department of Military and Veterans Affairs] 271/1576
+[Department of Military and Veterans Affairs] 281/1576
+[Department of Military and Veterans Affairs] 291/1576
+[Department of Military and Veterans Affairs] 301/1576
+[Department of Military and Veterans Affairs] 311/1576
+[Department of Military and Veterans Affairs] 321/1576
+[Department of Military and Veterans Affairs] 331/1576
+[Department of Military and Veterans Affairs] 341/1576
+[Department of Military and Veterans Affairs] 351/1576
+[Department of Military and Veterans Affairs] 361/1576
+[Department of Military and Veterans Affairs] 371/1576
+[Department of Military and Veterans Affairs] 381/1576
+[Department of Military and Veterans Affairs] 391/1576
+[Department of Military and Veterans Affairs] 401/1576
+[Department of Military and Veterans Affairs] 411/1576
+[Department of Military and Veterans Affairs] 421/1576
+[Department of Military and Veterans Affairs] 431/1576
+[Department of Military and Veterans Affairs] 441/1576
+[Department of Military and Veterans Affairs] 451/1576
+[Department of Military and Veterans Affairs] 461/1576
+[Department of Military and Veterans Affairs] 471/1576
+[Department of Military and Veterans Affairs] 481/1576
+[Department of Military and Veterans Affairs] 491/1576
+[Department of Military and Veterans Affairs] 501/1576
+[Department of Military and Veterans Affairs] 511/1576
+[Department of Military and Veterans Affairs] 521/1576
+[Department of Military and Veterans Affairs] 531/1576
+[Department of Military and Veterans Affairs] 541/1576
+[Department of Military and Veterans Affairs] 551/1576
+[Department of Military and Veterans Affairs] 561/1576
+[Department of Military and Veterans Affairs] 571/1576
+[Department of Military and Veterans Affairs] 581/1576
+[Department of Military and Veterans Affairs] 591/1576
+[Department of Military and Veterans Affairs] 601/1576
+[Department of Military and Veterans Affairs] 611/1576
+[Department of Military and Veterans Affairs] 621/1576
+[Department of Military and Veterans Affairs] 631/1576
+[Department of Military and Veterans Affairs] 641/1576
+[Department of Military and Veterans Affairs] 651/1576
+[Department of Military and Veterans Affairs] 661/1576
+[Department of Military and Veterans Affairs] 671/1576
+[Department of Military and Veterans Affairs] 681/1576
+[Department of Military and Veterans Affairs] 691/1576
+[Department of Military and Veterans Affairs] 701/1576
+[Department of Military and Veterans Affairs] 711/1576
+[Department of Military and Veterans Affairs] 721/1576
+[Department of Military and Veterans Affairs] 731/1576
+[Department of Military and Veterans Affairs] 741/1576
+[Department of Military and Veterans Affairs] 751/1576
+[Department of Military and Veterans Affairs] 761/1576
+[Department of Military and Veterans Affairs] 771/1576
+[Department of Military and Veterans Affairs] 781/1576
+[Department of Military and Veterans Affairs] 791/1576
+[Department of Military and Veterans Affairs] 801/1576
+[Department of Military and Veterans Affairs] 811/1576
+[Department of Military and Veterans Affairs] 821/1576
+[Department of Military and Veterans Affairs] 831/1576
+[Department of Military and Veterans Affairs] 841/1576
+[Department of Military and Veterans Affairs] 851/1576
+[Department of Military and Veterans Affairs] 861/1576
+[Department of Military and Veterans Affairs] 871/1576
+[Department of Military and Veterans Affairs] 881/1576
+[Department of Military and Veterans Affairs] 891/1576
+[Department of Military and Veterans Affairs] 901/1576
+[Department of Military and Veterans Affairs] 911/1576
+[Department of Military and Veterans Affairs] 921/1576
+[Department of Military and Veterans Affairs] 931/1576
+[Department of Military and Veterans Affairs] 941/1576
+[Department of Military and Veterans Affairs] 951/1576
+[Department of Military and Veterans Affairs] 961/1576
+[Department of Military and Veterans Affairs] 971/1576
+[Department of Military and Veterans Affairs] 981/1576
+[Department of Military and Veterans Affairs] 991/1576
+[Department of Military and Veterans Affairs] 1001/1576
+[Department of Military and Veterans Affairs] 1011/1576
+[Department of Military and Veterans Affairs] 1021/1576
+[Department of Military and Veterans Affairs] 1031/1576
+[Department of Military and Veterans Affairs] 1041/1576
+[Department of Military and Veterans Affairs] 1051/1576
+[Department of Military and Veterans Affairs] 1061/1576
+[Department of Military and Veterans Affairs] 1071/1576
+[Department of Military and Veterans Affairs] 1081/1576
+[Department of Military and Veterans Affairs] 1091/1576
+[Department of Military and Veterans Affairs] 1101/1576
+[Department of Military and Veterans Affairs] 1111/1576
+[Department of Military and Veterans Affairs] 1121/1576
+[Department of Military and Veterans Affairs] 1131/1576
+[Department of Military and Veterans Affairs] 1141/1576
+[Department of Military and Veterans Affairs] 1151/1576
+[Department of Military and Veterans Affairs] 1161/1576
+[Department of Military and Veterans Affairs] 1171/1576
+[Department of Military and Veterans Affairs] 1181/1576
+[Department of Military and Veterans Affairs] 1191/1576
+[Department of Military and Veterans Affairs] 1201/1576
+[Department of Military and Veterans Affairs] 1211/1576
+[Department of Military and Veterans Affairs] 1221/1576
+[Department of Military and Veterans Affairs] 1231/1576
+[Department of Military and Veterans Affairs] 1241/1576
+[Department of Military and Veterans Affairs] 1251/1576
+[Department of Military and Veterans Affairs] 1261/1576
+[Department of Military and Veterans Affairs] 1271/1576
+[Department of Military and Veterans Affairs] 1281/1576
+[Department of Military and Veterans Affairs] 1291/1576
+[Department of Military and Veterans Affairs] 1301/1576
+[Department of Military and Veterans Affairs] 1311/1576
+[Department of Military and Veterans Affairs] 1321/1576
+[Department of Military and Veterans Affairs] 1331/1576
+[Department of Military and Veterans Affairs] 1341/1576
+[Department of Military and Veterans Affairs] 1351/1576
+[Department of Military and Veterans Affairs] 1361/1576
+[Department of Military and Veterans Affairs] 1371/1576
+[Department of Military and Veterans Affairs] 1381/1576
+[Department of Military and Veterans Affairs] 1391/1576
+[Department of Military and Veterans Affairs] 1401/1576
+[Department of Military and Veterans Affairs] 1411/1576
+[Department of Military and Veterans Affairs] 1421/1576
+[Department of Military and Veterans Affairs] 1431/1576
+[Department of Military and Veterans Affairs] 1441/1576
+[Department of Military and Veterans Affairs] 1451/1576
+[Department of Military and Veterans Affairs] 1461/1576
+[Department of Military and Veterans Affairs] 1471/1576
+[Department of Military and Veterans Affairs] 1481/1576
+[Department of Military and Veterans Affairs] 1491/1576

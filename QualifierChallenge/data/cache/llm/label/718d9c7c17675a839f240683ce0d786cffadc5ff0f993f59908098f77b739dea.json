@@ -1,0 +1,39 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "state_governments",
+    "program_domain": "none",
+    "owning_division": "none",
+    "required_capabilities": [
+      "emergency_management"
+    ],
+    "requires_subrecipient_network": true,
+    "evaluation_required": true,
+    "is_capital_project": false,
+    "needs_formal_designation": true,
+    "is_renewal": false,
+    "match_required": true,
+    "match_pct_stated": 25,
+    "match_evidence": "Applicants and subapplicants selected for this award must commit to an acceptable cost share agreement.",
+    "target_population": "system_level",
+    "alignment_dhhs": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The program focuses on flood mitigation and does not align with any specific health or human services objectives."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The program focuses on flood mitigation and does not align with any specific veterans services objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v3.1",
+    "created": "2026-09-29T15:15:02-0400",
+    "prompt_tokens": 4096,
+    "output_tokens": 260,
+    "seconds": 39.8
+  }
+}

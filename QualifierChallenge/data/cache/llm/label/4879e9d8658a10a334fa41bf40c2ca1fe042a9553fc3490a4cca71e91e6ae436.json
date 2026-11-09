@@ -1,0 +1,37 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "state_governments, other, federally_recognized_native_american_tribal_governments",
+    "program_domain": "none",
+    "owning_division": "none",
+    "required_capabilities": [],
+    "requires_subrecipient_network": false,
+    "evaluation_required": false,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": true,
+    "match_pct_stated": 50,
+    "match_evidence": "ORLP is dollar for dollar match, meaning it covers up to 50% of all project costs. Applicants are responsible for providing non-federal funds for at least 50% of project costs.",
+    "target_population": "all_residents",
+    "alignment_dhhs": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The program focuses on outdoor recreation and does not align with any specific health or human services objectives in the NC DHHS Strategic Plan."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The program focuses on outdoor recreation and does not align with any specific veteran services objectives in the NC DMVA Strategic Plan."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v3.1",
+    "created": "2026-09-29T15:20:30-0400",
+    "prompt_tokens": 4638,
+    "output_tokens": 304,
+    "seconds": 31.3
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "The ASPP collection is BJS’s most comprehensive source of information on persons under community supervision, which accounts for the largest segment of the adult correctional population in the United States.",
+    "program_domain": "D08",
+    "owning_division": "DHHS: Public Health",
+    "required_capabilities": [
+      "public_health_surveillance",
+      "data_systems_interoperability",
+      "research_and_rigorous_evaluation"
+    ],
+    "requires_subrecipient_network": false,
+    "evaluation_required": true,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "none",
+    "target_population": "system_level",
+    "alignment_dhhs": {
+      "level": "partial",
+      "plan_row": "G1.O2",
+      "rationale": "The ASPP aims to use data to hold partners accountable, aligning with the goal of using data to improve accountability."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity does not directly relate to any DMVA strategic plan objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v2",
+    "created": "2026-09-29T09:44:53-0400",
+    "prompt_tokens": 3033,
+    "output_tokens": 309,
+    "seconds": 32.7
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "label": {
+    "administrable_by_state_agency": false,
+    "administrable_evidence": "The CDC office in Ethiopia was established in 2001 and works closely with the Ministry of Health (MOH), the Ethiopian Public Health Institute (EPHI), and other Government of Ethiopia (GOE) agencies to develop the capacity to prevent, detect, and respond to priority diseases.",
+    "program_domain": "none",
+    "owning_division": "none",
+    "required_capabilities": [],
+    "requires_subrecipient_network": false,
+    "evaluation_required": true,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "Cost sharing and matching funds This program has no cost-sharing or matching funds requirement.",
+    "target_population": "system_level",
+    "alignment_dhhs": {
+      "level": "none",
+      "plan_row": "G1.O2",
+      "rationale": "The opportunity focuses on global health security in Ethiopia, which does not align with the NC DHHS strategic plan's focus on health access and workforce in North Carolina."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "G1.O1",
+      "rationale": "The opportunity focuses on global health security in Ethiopia, which does not align with the NC DMVA strategic plan's focus on increasing the number of transitioning service members and families who choose to remain in or return to North Carolina."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v3",
+    "created": "2026-09-29T13:44:44-0400",
+    "prompt_tokens": 4462,
+    "output_tokens": 353,
+    "seconds": 40.8
+  }
+}

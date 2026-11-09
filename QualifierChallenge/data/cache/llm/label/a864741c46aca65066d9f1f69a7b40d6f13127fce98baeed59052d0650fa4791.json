@@ -1,0 +1,41 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "state_governments, public_and_state_institutions_of_higher_education, nonprofits_non_higher_education_with_504c3",
+    "program_domain": "none",
+    "owning_division": "none",
+    "required_capabilities": [
+      "public_health_surveillance",
+      "data_systems_interoperability",
+      "research_and_rigorous_evaluation"
+    ],
+    "requires_subrecipient_network": false,
+    "evaluation_required": false,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "none",
+    "target_population": "all_residents",
+    "alignment_dhhs": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity focuses on occupational safety and health in agriculture, forestry, and fishing, which does not align with any specific DHHS objectives."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity focuses on occupational safety and health in agriculture, forestry, and fishing, which does not align with any specific DMVA objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v3.1",
+    "created": "2026-09-29T15:29:55-0400",
+    "prompt_tokens": 3476,
+    "output_tokens": 306,
+    "seconds": 24.5
+  }
+}

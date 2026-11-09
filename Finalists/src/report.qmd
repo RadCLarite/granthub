@@ -1,0 +1,85 @@
+---
+title: "Project title (fill in at release)"
+subtitle: "Solve-A-Thon 2026 Final Quest"
+author:
+  - Kent Lee
+  - Everett Foo
+  - Marco Gullotto
+  - Matthew Martin
+  - Noah Goldblatt
+date: today
+format:
+  html:
+    embed-resources: true
+    toc: true
+    toc-location: left
+    code-fold: true
+    code-summary: "Show code"
+    theme: cosmo
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+```{r setup}
+here::i_am("src/report.qmd")
+source(here::here("src", "R", "00_config.R"))
+source(here::here("src", "R", "helpers_io.R"))
+source(here::here("src", "R", "helpers_report.R"))
+library(dplyr); library(readr)
+ranking <- read_csv(RANKING_CSV, show_col_types = FALSE)
+criteria <- read_csv(CRITERIA_FILE, show_col_types = FALSE)
+tests <- read_csv(file.path(DIR_OUTS, "test_report.csv"), show_col_types = FALSE)
+```
+
+```{r toy-warning, results='asis', echo=FALSE}
+if (USING_EXAMPLE) cat("> **This report was built on TOY example data. Replace it before submitting.**\n")
+```
+
+## 1. The answer
+
+(Lead with the recommendation: what the user should do, in one or two sentences.)
+
+```{r top, fig.height=4.5}
+plot_ranking(ranking, n = 10, title = "Top results")
+```
+
+## 2. User and decision
+
+- **User:** (a specific person with a job, a deadline, and limited time)
+- **Decision:** (the action our result should trigger)
+- **What would make them distrust it:** (jargon, black-box score, one obviously bad result)
+
+## 3. Criteria
+
+Each criterion is a measurable rule tied to a data field, in the user's words.
+
+```{r criteria}
+criteria |> select(any_of(c("label", "type", "rule", "value", "weight", "why", "source"))) |> knitr::kable()
+```
+
+## 4. Method
+
+Filter, score, rank, explain. A teammate can rerun the raw file and get the same top results.
+
+## 5. Tests
+
+```{r tests}
+cat(sum(tests$ok), "of", nrow(tests), "tests pass\n")
+tests |> count(section, ok) |> knitr::kable()
+```
+
+(Name the real failure we found and what we did about it.)
+
+## 6. Limits
+
+(Where it can mislead, the tradeoff we chose, and what to check first.)
+
+## 7. Next step
+
+(Who does what, by when.)
+
+## AI usage disclosure
+
+(Write from `AI_USAGE_LOG.md`: what AI did, what people did, what was verified and how.)

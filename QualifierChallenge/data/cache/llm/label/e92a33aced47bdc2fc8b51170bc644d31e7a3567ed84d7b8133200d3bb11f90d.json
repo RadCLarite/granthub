@@ -1,0 +1,39 @@
+{
+  "label": {
+    "administrable_by_state_agency": false,
+    "administrable_evidence": "FMA Swift Current aims to better align the delivery of FMA flood mitigation funding to the disaster survivor experience.",
+    "program_domain": "none",
+    "owning_division": "none",
+    "required_capabilities": [
+      "emergency_management"
+    ],
+    "requires_subrecipient_network": false,
+    "evaluation_required": false,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": true,
+    "match_pct_stated": 25,
+    "match_evidence": "Applicants, and if applicable, subapplicants, selected for this award must commit to an acceptable cost share agreement.",
+    "target_population": "all_residents",
+    "alignment_dhhs": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "none"
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "none"
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v3",
+    "created": "2026-09-29T13:55:41-0400",
+    "prompt_tokens": 4313,
+    "output_tokens": 251,
+    "seconds": 25.8
+  }
+}

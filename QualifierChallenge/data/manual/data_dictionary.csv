@@ -1,0 +1,41 @@
+group,column,what_it_is,why_it_matters
+Identity and status,opportunity_id,Unique ID,Join key. No duplicates.
+Identity and status,opportunity_number,The agency's own announcement number,The prefix tells you the type: PA/PAR/PD/RFA means an NIH-style research announcement.
+Identity and status,opportunity_title,Program name,Activity codes in parentheses like (R01) or (U54) are another research signal.
+Identity and status,opportunity_status,posted or forecasted,Duplicate of is_forecast. Ignore one.
+Identity and status,url,Link to the opportunity page,Full coverage; all one website.
+Who is issuing it,agency_code,Org code like HHS-NIH11,Most useful single filter in the file: the HHS-NIH prefix catches nearly all the research grants.
+Who is issuing it,agency_name,Sub-agency name,Use for routing to a division.
+Who is issuing it,top_level_agency_name,Cabinet department,Too coarse alone. HHS contains both NIH research and CDC program money.
+Who is issuing it,agency_contact_description,Contact info,Sometimes has a named program officer. Useful for a one-pager.
+Who is issuing it,agency_email_address,Contact email,Same.
+Who is issuing it,agency_email_address_description,Usually the same email again,Drop.
+Dates,post_date,When it posted,"With close date, gives the application window."
+Dates,close_date,The deadline,Contains a fake date 2099-01-01 that must be cleaned. Some posted rows have no deadline (rolling programs).
+Dates,close_date_description,Text about the deadline,Usually a time of day. Occasionally the real rule.
+Dates,archive_date,When the listing disappears,Not a deadline. Typically weeks after close. Do not use for runway.
+Dates,forecasted_post_date,Expected posting date,Powers the coming-soon pipeline view.
+Dates,forecasted_close_date,Expected deadline,An estimate. Forecasts slip.
+Dates,forecasted_award_date,Expected award date,Underused. Shows the lag between applying and getting money.
+Dates,forecasted_project_start_date,Expected start,Same.
+Dates,forecasted_close_date_description,Text,Sparse. Automatic type guessing misreads this column; read it as text.
+Dates,created_at,Empty,Drop.
+Dates,updated_at,Empty,Drop.
+Money,estimated_total_program_funding,Total national pot,Never present this as money NC could get. It is split nationally; summing it produces misleading billions.
+Money,expected_number_of_awards,How many awards,Many opportunities make exactly one award: heavy competition.
+Money,award_ceiling,Maximum single award,"An upper bound, not an expectation. Zeros mean not stated."
+Money,award_floor,Minimum single award,Contains junk values of 0 and 1.
+Money,is_cost_sharing,"Yes/no, match required",The percentage is almost never in this file. This is our headline limitation.
+Classification,category,"discretionary, other, mandatory, earmark",Underused. Mandatory and formula awards are noncompetitive: a different risk profile.
+Classification,category_explanation,"Free text, sometimes says Formula",Too sparse to model. Read by hand.
+Classification,funding_instruments,"grant, cooperative agreement, other, contract",Workload signal. Cooperative agreements mean more federal involvement and more staff time.
+Classification,funding_categories,"Topic tags like health, education",Coarse but usable for grouping by program area.
+Classification,funding_category_description,Free text,Sparse.
+Classification,opportunity_assistance_listings,Program catalog (CFDA) numbers,The key that links to past award history on USAspending.
+Eligibility,applicant_types,List of who can apply,Much weaker than it looks: most rows list one type or nearly all of them. Use the count as a crowding signal.
+Eligibility,applicant_eligibility_description,Free text,"Where the real restrictions hide: phrases like 'Only the following applicant is eligible' appear here even when the structured field looks open."
+Narrative,summary_description,The abstract,Many contain raw HTML tags that must be stripped first. Main input for text analysis.
+Narrative,additional_info_url,Link to the full announcement,"Scattered across many websites, many PDFs. We use the Grants.gov API instead."
+Narrative,additional_info_url_description,Label for the link,Drop.
+Narrative,fiscal_year,Federal fiscal year,Only filled for forecast rows. Not general purpose.
+Narrative,is_forecast,Forecast flag,Duplicate of opportunity_status.

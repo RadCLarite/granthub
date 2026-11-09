@@ -1,0 +1,37 @@
+{
+  "label": {
+    "administrable_by_state_agency": false,
+    "administrable_evidence": "None of the work happens within the health or human services domain of North Carolina state agencies.",
+    "program_domain": "none",
+    "owning_division": "none",
+    "required_capabilities": [],
+    "requires_subrecipient_network": false,
+    "evaluation_required": false,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "Cost-sharing or matching requirements are not required under this NOFO.",
+    "target_population": "all_residents",
+    "alignment_dhhs": {
+      "level": "none",
+      "plan_row": "G1.O3",
+      "rationale": "The opportunity does not directly address health access barriers or use data to hold partners accountable, as it focuses on traffic safety enforcement."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "G1.O1",
+      "rationale": "The opportunity does not align with DMVA's goal of increasing the number of transitioning service members and families who choose to remain in or return to North Carolina."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v3",
+    "created": "2026-09-29T13:54:20-0400",
+    "prompt_tokens": 4416,
+    "output_tokens": 286,
+    "seconds": 26.5
+  }
+}

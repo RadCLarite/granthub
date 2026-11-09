@@ -1,0 +1,7 @@
+id,type,label,field,rule,value,weight,if_missing,why,source
+eligible,filter,Not clearly closed to state agencies,eligibility,neq,no,,pass,An agency cannot apply when the notice excludes state governments; unknown stays visible with a check-eligibility badge.,Team default for Nov 7 build [from notes; confirm with Kent]
+us_based,filter,Not run by a U.S. embassy abroad,overseas_post,neq,TRUE,,pass,"Notices from U.S. Embassies, Missions and Consulates fund groups in that country, so an NC state agency cannot use them.",Kent (Sat Nov 7) after embassy notices appeared in agency lists
+fit,score,Fit with the agency plan,fit,scale,0|1,1,drop,The closer the notice reads to what the agency's own strategic plan says it wants to do the more likely it is worth a grant writer's time.,Quest brief: match opportunities to agency strategic goals
+award_size,score,Award size,log_ceiling,scale,4|7,0,drop,A larger award pays for more of the plan; off by default so a big award does not outrank a good fit.,Team default for Nov 7 build [from notes; confirm with Kent]
+no_cost_share,score,No cost share,cost_sharing,eq,No,0,drop,A grant that needs no state match is easier for a small agency to take on.,Team default for Nov 7 build [from notes; confirm with Kent]
+runway,score,Time to apply,days_left,scale,7|60,0,drop,More days before the close date means more time to write; rolling or unlisted dates count as unknown.,Quest brief: early enough to meet the deadline

@@ -1,0 +1,39 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "Eligible applicants for the Buses and Bus Facilities Program include designated recipients that allocate funds to fixed route bus operators, States (including territories and Washington D.C.) or local governmental entities that operate fixed route bus service, and Indian tribes.",
+    "program_domain": "none",
+    "owning_division": "Other state agency",
+    "required_capabilities": [
+      "transportation_services"
+    ],
+    "requires_subrecipient_network": false,
+    "evaluation_required": false,
+    "is_capital_project": true,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "none",
+    "target_population": "all_residents",
+    "alignment_dhhs": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity does not directly advance any of the NCDHHS strategic plan objectives as it focuses on transportation infrastructure rather than health or social services."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity does not directly advance any of the NCDMVA strategic plan objectives as it focuses on transportation infrastructure rather than veteran care or services."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v2",
+    "created": "2026-09-29T09:43:14-0400",
+    "prompt_tokens": 3245,
+    "output_tokens": 317,
+    "seconds": 33.7
+  }
+}

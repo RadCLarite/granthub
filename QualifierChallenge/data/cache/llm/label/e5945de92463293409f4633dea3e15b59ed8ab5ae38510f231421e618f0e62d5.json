@@ -1,0 +1,40 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "Territory or Possession, the District of Columbia, and federally recognized Indian/Native American Tribal Government shall designate one agency to serve as the applicant for FMA Swift Current funding.",
+    "program_domain": "D08",
+    "owning_division": "DHHS: Public Health",
+    "required_capabilities": [
+      "emergency_management",
+      "subrecipient_network_management"
+    ],
+    "requires_subrecipient_network": true,
+    "evaluation_required": true,
+    "is_capital_project": false,
+    "needs_formal_designation": true,
+    "is_renewal": false,
+    "match_required": true,
+    "match_pct_stated": 25,
+    "match_evidence": "Generally, the cost share for this program is 75% federal cost share and 25% non-federal cost share.",
+    "target_population": "hazard_exposed",
+    "alignment_dhhs": {
+      "level": "partial",
+      "plan_row": "G1.O4",
+      "rationale": "The opportunity aims to reduce flood risk to NFIP policyholders, which can improve access to health services for residents in high-hazard-risk counties."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity does not directly relate to any DMVA strategic plan objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v2",
+    "created": "2026-09-29T13:18:52-0400",
+    "prompt_tokens": 3581,
+    "output_tokens": 332,
+    "seconds": 77.8
+  }
+}

@@ -1,0 +1,3 @@
+# Copy to .Renviron (same folder) and fill in. .Renviron is gitignored; never commit a key.
+# Only needed to re-run the ACS pull. Not needed to rebuild from the committed caches.
+CENSUS_API_KEY=

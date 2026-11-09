@@ -1,0 +1,41 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "state_governments, public_and_state_institutions_of_higher_education, nonprofits_non_higher_education_with_501c3, private_institutions_of_higher_education, other_native_american_tribal_organizations, for_profit_organizations_other_than_small_businesses, nonprofits_non_higher_education_without_501c3, city_or_township_governments",
+    "program_domain": "D04",
+    "owning_division": "DHHS: Child and Family Well-Being",
+    "required_capabilities": [
+      "public_health_surveillance",
+      "data_systems_interoperability",
+      "workforce_training_credentialing"
+    ],
+    "requires_subrecipient_network": false,
+    "evaluation_required": false,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "",
+    "target_population": "children",
+    "alignment_dhhs": {
+      "level": "strong",
+      "plan_row": "G2.O1",
+      "rationale": "The opportunity supports the implementation of enhanced child welfare practices, which aligns with the objective to strengthen capacity to meet the behavioral and mental health needs of North Carolina children and families."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity does not align with any specific DMVA strategic plan objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v3.1",
+    "created": "2026-09-29T15:22:26-0400",
+    "prompt_tokens": 3206,
+    "output_tokens": 360,
+    "seconds": 41.5
+  }
+}

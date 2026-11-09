@@ -1,0 +1,831 @@
+===== PAGE 1 =====
+
+NC Department of Transportation
+Strategic Plan
+2025 – 2029
+
+
+
+
+September 2025
+
+NCDOT
+SIPSData@ncdot.gov
+
+
+
+
+                                  1
+
+
+===== PAGE 2 =====
+
+Table of Contents
+A.   Introduction                                                                                      3
+
+B.   Mission, Vision, & Values                                                                         4
+
+     1.   Mission                                                                                      4
+
+     2.   Vision                                                                                       4
+
+     3.   Values                                                                                       4
+
+C.   Goals, Objectives, & Performance Measures                                                         5
+
+     4.   Recover the transportation network after emergencies                                         5
+
+     5.   Provide a safe and efficient transportation system in North Carolina                         5
+
+     6.   Improve efficiency and effectiveness of programs, projects, and services                     9
+
+D.   Priority Questions                                                                               12
+
+     7.   How can NCDOT enhance its disaster response capabilities to better estimate post-disaster
+     impacts and improve its statewide response?                                                      12
+
+     8.    How is NCDOT measuring the impact of its programs and services to ensure we are meeting its
+     intended goals and objectives?                                                                    12
+
+     9.   How is NCDOT planning to meet future funding needs and ensure funds are maximized?          13
+
+     10. How can NCDOT deploy new technologies to support the delivery of the Department’s goals and
+     help drive efficiency and productivity?                                                       14
+
+     11. How can NCDOT leverage data to make better-informed decisions that enhance the efficiency
+     and effectiveness of its operations?                                                          16
+
+     12. What strategies can NCDOT implement to improve internal operational efficiency and
+     effectiveness, ensuring optimal use of resources and timely completion of projects?              17
+
+
+
+
+                                                                                                       2
+
+
+===== PAGE 3 =====
+
+A. Introduction
+
+   The North Carolina Department of Transportation (NCDOT) Strategic Plan reﬂects our
+   commitment to serving customers, employees, and stakeholders through a uniﬁed
+   vision and clear strategic direction. This plan articulates our mission, vision, and
+   values, which are reﬂected through three meaningful strategic goals and seven
+   accompanying objectives that form the core foundation for the Department’s
+   accountability and long-term success.
+
+   The Department’s goals clearly deﬁne our expected outcomes, establishes
+   measurable targets, and chart a clear path forward to provide a safe, efficient, and
+   sustainable transportation network that drives economic growth, improves mobility,
+   and enhances the quality of life for all North Carolinians. The 2025–2029 Strategic
+   Plan also includes a focused commitment to the Division of Motor Vehicles (NCDMV).
+   NCDMV is developing a more detailed strategic plan, and it will be released later this
+   year. This plan will be updated once NCDMV’s plan is complete.
+
+   Strategic planning is central to how NCDOT sets priorities, communicates
+   expectations, establishes accountability, and measures performance. While the plan
+   does not capture every operational activity across the Department, it identiﬁes critical
+   objectives that drive progress toward our long-term and core values, supporting the
+   Department’s mission.
+
+   NCDOT employs a phased approach to develop and reﬁne its strategic plan. Our
+   process starts with a detailed review of our mission, vision, values, and existing goals
+   to ensure they are aligned with NC customer demands. Staff in the Office of Strategic
+   Initiatives and Program Support (SIPS) met with units throughout the Department over
+   eighteen months to align unit level goals to the agency’s strategic level goals. The next
+   phase deﬁned performance measures and clear outcomes for each strategic goal,
+   paired with actionable strategies to ensure success.
+
+   Finally, the plan provides direction to all business units and agencies, ensuring
+   alignment between daily operations, unit goals, and employee performance plans
+   (NCVIP). This integrated approach ensures that every level of the organization
+   contributes to achieving NCDOT’s strategic priorities.
+
+
+
+
+                                                                                           3
+
+
+===== PAGE 4 =====
+
+   The NCDOT Strategic Plan is both a roadmap and a commitment: a framework that
+   directs our work today and positions us to meet the transportation challenges and
+   opportunities of tomorrow. Today, NCDOT has evolved into a multimodal agency
+   committed to supporting the travelers, economy, and overall well-being of North
+   Carolina by providing a comprehensive statewide transportation system that
+   encompasses all forms of travel.
+
+
+B. Mission, Vision, & Values
+   1. Mission
+       Connecting people, products and places safely and efficiently with customer
+       focus, accountability, and environmental sensitivity to enhance the economy and
+       vitality of North Carolina.
+
+   2. Vision
+       To provide a safe and efficient transportation system that works well for everyone.
+
+   3. Values
+          •    Safety – We are dedicated to providing a safe transportation network and
+               work environment.
+
+          •    Quality – We pursue excellence in delivering our projects, programs,
+               services and initiatives.
+
+          •    Integrity – We earn and maintain trust through accountability, transparency
+               and data-driven decisions.
+
+          •    Customer Service – We serve our customers in a respectful, professional
+               and timely manner.
+
+          •    Innovation – We promote the development and use of new and better
+               solutions.
+
+          •    Teamwork – We work together using our diverse strengths and skills,
+               collaborating to solve problems and serve our communities.
+
+
+
+
+                                                                                          4
+
+
+===== PAGE 5 =====
+
+C. Goals, Objectives, & Performance Measures
+   4. Recover the transportation network after emergencies
+                                       Performance               Notes and Deﬁnitions
+                                       Measures
+     Objective:                        • Helene recovery         NCDOT has reopened over 90%
+     Restore transportation              measures:               of all roads damaged in
+     infrastructure                       • Percentage           Hurricane Helene. Roads may
+                                             of roads            continue to open and close
+                                             reopened            during permanent repair work, so
+     At the time of this plan’s                                  this number will continue to
+                                             (96%)
+     publication, these disaster                                 ﬂuctuate.
+     recovery metrics are speciﬁc to
+     Helene recovery. NCDOT will           •   Percentage        North Carolina sustained over
+                                               of damage         6,900 damage sites during
+     track these and additional
+                                               sites             Hurricane Helene. Temporary
+     metrics for future extreme
+                                                                 repairs have been put in place in
+     weather events.                           repaired
+                                                                 many sites, and NCDOT
+                                               (95%)             continues to work towards
+                                                                 permanent repairs throughout
+                                                                 the state.
+
+
+
+
+   5. Provide a safe and efficient transportation system in North Carolina
+                                       Performance                  Notes and Deﬁnitions
+                                       Measures
+     Objective: Improve Safety         Number of fatalities on      North Carolina is a Vision Zero
+     for all Modes                     public roadways in NC        state; even one fatality or
+                                       (50% reduction by            serious injury on our roadways
+                                       2035, Vision Zero by         is unacceptable. This metric is
+     These metrics represent key
+                                       2050)                        deﬁned as the total number of
+     indicators of our progress on
+                                                                    persons suffering fatal injuries
+     our safety goals. More
+                                                                    in a motor vehicle crash
+     information about the                                          during a calendar year.
+     Department’s activities can be
+     found in our Highway Safety
+     Plan.                             Rate of fatalities on        The fatality rate is calculated
+                                       public roadways in NC        as the ratio of total number of
+                                       (50% reduction by            fatalities to the number of
+                                       2035, Vision Zero by         vehicle miles traveled (VMT, in
+                                       2050)                        100 million VMT).
+
+
+
+
+                                                                                                       5
+
+
+===== PAGE 6 =====
+
+                                  Performance                Notes and Deﬁnitions
+                                  Measures
+                                  Number of serious          This metric is deﬁned as the
+                                  injuries on public         total number of persons
+                                  roadways in NC (50%        suffering at least one serious
+                                  reduction by 2035,         injury in a motor vehicle crash.
+                                  Vision Zero by 2050)       USDOT deﬁnes serious
+                                                             injuries here.
+                                  Rate of serious injuries   The serious injury rate is
+                                  on public roadways in      calculated as the ratio of total
+                                  NC (50% reduction by       number of serious injuries to
+                                  2035, Vision Zero by       the number of VMT (in 100
+                                  2050)                      million VMT).
+
+
+                                  Number of non-             This metric is deﬁned as the
+                                  motorized fatalities and   combined total number of
+                                  serious injuries on        non-motorized fatalities and
+                                  public roadways (50%       non-motorized serious injuries
+                                  reduction by 2035,         involving a motor vehicle.
+                                  Vision Zero by 2050)
+
+
+Objective: Increase               National Highway           Percentage of person-miles
+Reliability and Access            System (NHS) Reliability   traveled on the non-Interstate
+                                  Index (80-100%)            NHS that are reliable.
+                                                             Reliability is deﬁned as the
+Our mission is to keep people,
+                                                             ratio of the 80th percentile
+products, and places
+                                                             travel time of a reporting
+connected. These metrics
+                                                             segment to a “normal” travel
+represent a few key reliability                              time (50th percentile).
+and access targets across
+modes.                            Interstate travel time     Interstate Travel Time Index
+                                  index (1.04-1.15)          (ITTI) compares the actual
+                                                             travel time to the ideal travel
+                                                             time as deﬁned by the posted
+                                                             speed limits. A value of 1.00
+                                                             means traffic is moving at the
+                                                             posted speed limit, while a
+                                                             result greater than 1.00 means
+                                                             traffic is slower and a result
+                                                             less than 1.00 means traffic is
+                                                             moving above the posted
+                                                             speed limit, which is feasible
+                                                             in rural and less populated
+                                                             areas.
+                                  Incident Clearance         This metric represents the
+                                  (90% in 90 minutes)        percent of time a major crash
+                                                             (i.e. one that causes
+                                                             signiﬁcant or unusual delays)
+
+
+
+                                                                                                6
+
+
+===== PAGE 7 =====
+
+                        Performance                  Notes and Deﬁnitions
+                        Measures
+                                                     is cleared from a North
+                                                     Carolina highway within 90
+                                                     minutes.
+                        Ferry reliability (93-97%)   Ferry reliability is deﬁned as
+                                                     the number of scheduled runs
+                                                     missed, not including runs
+                                                     missed due to shoaling and
+                                                     weather, as this is a safety
+                                                     concern.
+                        Rail reliability (70-80%)    Passenger train on-time
+                                                     performance is based on
+                                                     Amtrak reporting and
+                                                     accounts for delays due to
+                                                     freight, weather, passenger,
+                                                     mechanical, signal, track and
+                                                     other issues. The Department
+                                                     cannot control freight,
+                                                     weather, and many other
+                                                     delays, and the target for this
+                                                     metric reﬂects this reality.
+                                                     Agreements between Amtrak
+                                                     and the railroads set national
+                                                     standards for passenger train
+                                                     reliability. Those agreements
+                                                     deﬁne "On-time" as
+                                                     passengers arriving within 15
+                                                     minutes of their scheduled
+                                                     arrival at a station.
+                        Percentage of North          NCDOT is exploring
+                        Carolinians with access      opportunities to reliably and
+                        to a viable alternative to   fairly measure access in North
+                        driving (target and          Carolina. This plan will be
+                        measurement to be            amended with details for
+                        determined)                  measurement once available.
+                        Total hours of DMV           Sum of total hours when
+                        service available across     service is available at each
+                        North Carolina in a          DMV Driver License Office
+                        typical week (target to      location statewide.
+                        be determined)               NCDOT aims to expand
+                                                     capacity at DMV and provide
+                                                     access that ﬁts into
+                                                     customers schedules.
+Objective: Increase     Performance                  Notes and Deﬁnitions
+Customer Satisfaction   Measures
+
+
+
+                                                                                       7
+
+
+===== PAGE 8 =====
+
+                                    Performance                Notes and Deﬁnitions
+                                    Measures
+                                    Customer satisfaction      This metric is our annual
+NCDOT administers an annual         score (70-85%)             statewide customer
+customer satisfaction survey                                   satisfaction score derived
+that scores satisfaction across                                from a statewide survey
+our modes, divisions, and                                      administered by ITRE.
+services.
+                                    DMV customer               DMV is working to make point
+                                    satisfaction score (70-    of service surveys available to
+                                    85%)                       all customers after a
+                                                               transaction.
+NCDMV is the most common
+and frequent customer service       DMV Driver License         DMV is refreshing
+we provide the public. NCDMV        Office wait times (15-30   methodology for calculating
+is developing a more detailed       minutes)                   wait time to accurately
+strategic plan, and it will be                                 consider the time between
+released later this year, so this                              when a customer arrives at a
+                                                               DMV location and when they
+plan will be updated after
+                                                               are served.
+NCDMV’s plan is complete.
+NCDMV is analyzing historical                                  Standard procedures ask
+data to create appropriate                                     examiners to check in
+targets for several metrics;                                   customers as soon as
+additional targets and metrics                                 possible when they arrive, but
+                                                               time waiting before opening or
+will be added after the
+                                                               while waiting on customers
+publication of its strategic
+                                                               ahead to be signed in is not
+plan.
+                                                               included.
+                                    DMV Driver License         DMV aspires to provide
+                                    Office average service     accurate, quality service in a
+                                    time (target TBD)          timely fashion to maximize the
+                                                               organization’s capacity to
+                                                               meet customer needs.
+                                    DMV Driver License         Average daily percentage of
+                                    Office average daily       terminals for issuing driver
+                                    ﬁlled terminals (target    licenses staffed throughout
+                                    TBD)                       the year. This is an indicator of
+                                                               staffing and capacity across
+                                                               the state.
+                                    DMV % of transactions      Total percentage of driver and
+                                    completed online           vehicle transactions
+                                    (target TBD)               completed without need for
+                                                               an in-person visit.
+                                    DMV Annual Driver          Total driver license and ID
+                                    Services Credential        cards issued to North
+                                    Issuances (target to be    Carolinians in a year including
+                                    deﬁned)                    in-office and online
+                                                               transactions
+
+
+
+                                                                                                   8
+
+
+===== PAGE 9 =====
+
+6. Improve efficiency and effectiveness of programs, projects, and services
+                                Performance                  Notes and Deﬁnitions
+                                Measures
+  Objective: Improve            End days cash on hand (90-   Period end available cash
+  Resource Stewardship          143 days)                    divided by average daily
+  NCDOT is committed to                                      expenditures. The ratio
+  being the best possible                                    measures how many days the
+                                                             Department can cover
+  steward of public
+                                                             expenditures using only its
+  resources. To be open and
+                                                             current cash balance.
+  transparent and to
+  comply with Session Law       Percentage cash to           Period end available cash
+  2019-251of the N.C.           commitments (26-33%)         divided by total commitments.
+  General Assembly, the                                      The ratio expresses the
+  N.C. Department of                                         Department’s ability to cover
+  Transportation will issue a                                its obligations with its current
+                                                             cash balance.
+  news release each Friday
+  publishing the weekly         Total budget overrun for     Total Construction
+  “NCDOT Cash Watch             completed projects (0-5%)    Expenditures should be within
+  Numbers” report                                            5% of the budgeted amount for
+                                                             construction. The budgeted
+                                                             amount of construction is 15%
+                                                             over the contract bid amount
+                                                             and considers contract
+                                                             expenditures as well as
+                                                             administrative costs on the
+                                                             project.
+                                Percentage of total budget   Expenditures categorized as
+                                expended on external         construction contracts,
+                                goods (75-85%)               professional engineering &
+                                                             consultant contracts, right-of-
+                                                             way purchases, grants to other
+                                                             entities, vendor payments,
+                                                             misc. service contracts,
+                                                             equipment purchases, and
+                                                             material purchases divided by
+                                                             total expenditures.
+                                Vacancy rate (15%)           With a staff of just over 9,000
+                                                             employees in both urban and
+                                                             rural areas, NCDOT faces
+                                                             challenges such as employee
+                                                             recruitment and retention,
+                                                             competitive marketplaces for
+                                                             labor, and increasing number
+                                                             of employees eligible for
+                                                             retirement. NCDOT also
+                                                             employs several hard to ﬁll
+                                                             positions, such as DMV
+
+
+
+                                                                                                9
+
+
+===== PAGE 10 =====
+
+                                                            examiners and transportation
+                                                            workers.
+Objective: Deliver Our       Delivery rate of projects on   NCDOT is exploring
+Program                      the 12-month let list          opportunities to more
+                             (12MLL) (75%)                  accurately measure project
+The State Transportation                                    delivery across the state. This
+Improvement Program                                         plan will be amended with
+(STIP) is a 10-year State                                   details for measurement once
+and Federal-mandated                                        available.
+plan that identiﬁes the      Percentage of STIP projects    Metric is deﬁned as the
+construction funding for     let to contract on schedule    percentage of STIP and bridge
+and scheduling of            (80-90%)                       projects with the completed
+transportation projects                                     Let milestone as compared to
+throughout the state.                                       the planned milestone at the
+These metrics relate to                                     start of the ﬁscal year
+the delivery of the STIP.                                   (baseline). This is based on the
+                                                            number of projects.
+                             Percentage of STIP dollars     Metric is deﬁned as the
+                             let to contract on schedule    percentage of STIP and bridge
+                             (80-90%)                       projects with the completed
+                                                            Let milestone as compared to
+                                                            the planned milestone at the
+                                                            start of the ﬁscal year
+                                                            (baseline). This is based on the
+                                                            dollar amount of projects.
+                             Percentage of construction     “On schedule” is deﬁned as
+                             projects completed on          being completed within 15
+                             schedule (80-90%)              days of the approved contract
+                                                            completion date.
+Objective: Operate           Facility condition score       NCDOT owns and maintains
+and Maintain Our             (70-90%)                       more than 2,000 buildings
+System                                                      statewide. These buildings
+                                                            include both unoccupied
+                                                            storage facilities in which an
+NCDOT maintains and                                         acceptable score can begin at
+operates over 80,000                                        70 percent, and occupied
+miles of road, over 13,000                                  buildings with a target score of
+bridges, 23 ferries on 8                                    90 percent or better.
+routes, and over 2,000
+                             Pavement health – good         North Carolina maintains the
+buildings. These metrics
+                             condition (70-80%)             second largest road system in
+are a small selection of
+                                                            the country. In order to
+the work we do to                                           maximize limited funding,
+maintain our assets.                                        NCDOT performs road
+                                                            condition surveys to identify
+                                                            roads in greatest need of
+                                                            resurfacing and to help
+                                                            maintain roads throughout
+                                                            their lifecycle. Interstates and
+
+
+                                                                                               10
+
+
+===== PAGE 11 =====
+
+                              Primaries are surveyed on an
+                              annual basis and Secondaries
+                              are surveyed biennially with
+                              half being evaluated each year.
+Bridge condition score –      “Good condition” means that
+good health (70-80%)          the bridge can safely carry the
+                              typical-sized commercial or
+                              passenger vehicles for that
+                              route. For example, an
+                              interstate route would have
+                              higher weight expectation than
+                              a rural secondary road.
+                              To achieve this goal, the
+                              department uses a data-driven
+                              strategy to improve the overall
+                              condition of all bridges in North
+                              Carolina by focusing taxpayer
+                              dollars where they're needed
+                              most.
+Percentage of Citizen         This metric reports total
+Action Requests (CARs)        responsiveness to citizen-
+addressed on time (100%)      reported maintenance issues,
+                              including potholes, drainage
+                              issues, guardrail repairs,
+                              damaged or missing signs,
+                              malfunctioning traffic lights
+                              and shoulder damage, in
+                              accordance with G.S. 136-
+                              18.05(b)(1).
+Ferry Division – Ramp         Ramp conditions are assessed
+condition score (target       biannually.
+TBD)
+Ferry Division – Percentage   This metric compares planned
+of unplanned vessel           and reactive maintenance for
+maintenance cost vs.          the ferry division’s vessels.
+planned vessel
+maintenance cost (target
+TBD)
+Ferry Division – Vessel       To assess condition, the Ferry
+condition score (target       Division applies a ﬁve-point
+TBD)                          rating scale to the vessel’s age,
+                              visual condition, and
+                              functional condition. The
+                              scores are weighted, and an
+                              overall vessel condition score
+                              is then assigned to each
+                              vessel.
+
+
+
+
+                                                                  11
+
+
+===== PAGE 12 =====
+
+D. Priority Questions
+   7. How can NCDOT enhance its disaster response capabilities to better
+      estimate post-disaster impacts and improve its statewide response?
+      a. Nearly a year after Hurricane Helene, the North Carolina Department of
+         Transportation has made signiﬁcant progress in rebuilding western North
+         Carolina. As of July 2025, 97% of damaged roads have reopened, and over 460
+         bridges and over 1,300 large and small culverts have been repaired. A key
+         milestone was reopening Interstate 40, restoring vital access between North
+         Carolina and Tennessee.
+
+         A key question for agency leadership is how to document and institutionalize
+         lessons learned from Hurricane Helene. Extreme weather events will
+         continue, and NCDOT is responsible for recovering the transportation network
+         as efficiently as possible after emergencies.
+
+         NCDOT has already begun facilitating internal peer exchanges to
+         communicate lessons learned and continuous improvement. Disaster
+         response staff have also been updating the Department’s disaster playbook
+         and training materials in order to document critical lessons learned from
+         Divisions of Highway, Integrated Mobility, Aviation, and Motor Vehicles.
+
+         NCDOT will also actively engage in peer exchanges with partner agencies and
+         states to analyze past incidents to better understand safety and risk
+         management. Intra-state coordination has been a part of disaster recovery,
+         and the Department aims to help other states not only to recover from events
+         when possible but also to proactively share lessons learned.
+
+   8. How is NCDOT measuring the impact of its programs and services to
+      ensure we are meeting its intended goals and objectives?
+         North Carolina invests over ﬁve billion dollars annually in its transportation
+         infrastructure. While the metrics included in this strategic plan are sound
+         indicators of statewide outcomes (travel time, fatalities and serious injuries,
+         ferry and rail reliability, etc.), the Department is expanding its evaluation
+         process from the program level to the project level, and we are incorporating
+         new processes to measure project level performance outcomes.
+
+
+
+
+                                                                                       12
+
+
+===== PAGE 13 =====
+
+      The Department is examining methods to calculate the return on investment
+      at the project level and will institute a capital STIP pilot program in the coming
+      years. The program will be expanded to maintenance and operations, followed
+      by non-highway functions.
+
+      The Department is currently undertaking steps towards this goal. First, staff
+      are improving data quality, accessibility, and are standardizing data to allow
+      uniform analysis. Further, as part of this strategic plan, units are creating goals
+      related to the topline agency outcomes. The Department will closely monitor
+      unit level goals and reﬁne as necessary to ensure impact on statewide goals.
+      NCDOT is also instituting procedural improvements to its state and federal
+      grant award and administration processes.
+
+9. How is NCDOT planning to meet future funding needs and ensure funds are
+   maximized?
+       The Infrastructure Investment and Jobs Act (IIJA) increased federal highway
+       construction funding by approximately 20 percent, increased federal transit
+       funding for public transit by 30 percent, and established new discretionary
+       and competitive grant programs to support the administration’s priority.
+       While IIJA’s historic funding provided new resources, North Carolina
+       experienced COVID and post-COVID impacts that increased pre-
+       construction and construction costs for materials, land, and consultant and
+       contracting services. Additionally, North Carolina’s population growth and
+       increased vehicle miles traveled put further demands on North Carolina’s
+       transportation infrastructure. As a result, one of NCDOT’s key priorities is to
+       identify public and private funding and ﬁnancing opportunities while
+       continuing to implement value engineering and other cost saving
+       mechanisms.
+
+       Several tax and fee adjustments have increased NCDOT’s state revenues in
+       the last ﬁve years. Revenues increased from $4.83B in FY 2022 to $5.77B by
+       FY 2026, an increase of 19% percent. Most prominently, the General
+       Assembly authorized a three-year phase-in of a 6 percent sales tax transfer
+       from FY 2023 to FY 2025. Sales tax revenues are estimated to be $683M in FY
+       2026. Additionally, DMV fees are adjusted for inﬂation every four years, last
+       occurring on July 1, 2024. The motor fuels tax is adjusted annually on January
+       1, and the Transportation Network Fee became effective on July 1, 2025.
+
+
+
+
+                                                                                      13
+
+
+===== PAGE 14 =====
+
+       NCDOT will continue to identify options for legislative consideration to
+       increase funding and expand alternative ﬁnancing solutions. This includes
+       updating the Toll Project Development Policy Handbook, studying alternative
+       funding solutions through the Eastern Transportation Coalition/Delaware
+       grant awards for Phase 6 of the Surface Transportation System Funding
+       Alternatives Program and Phase One of the Strategic Innovation for Revenue
+       Collection grant program, conducting yearly citizen perception surveys of
+       transportation revenues, and maintaining the
+       AdvanceNCTransportation.com website to inform the public about NCDOT’s
+       funding needs and investment options. The Federal Grants Committee will
+       continue to identify eligible projects for competitive grant awards.
+
+10. How can NCDOT deploy new technologies to support the delivery of the
+    Department’s goals and help drive efficiency and productivity?
+       NCDOT is committed to continuous improvement and innovation. We are
+       actively exploring the integration of new technologies across modes and
+       throughout the Department to improve functions. To strengthen governance
+       and coordination, The Office of Strategic Initiatives and Program Support
+       (SIPS) has created a new AI Program Manager position in the Data and
+       Information Branch. This role is focused on aligning and coordinating AI
+       initiatives across NCDOT, the Department of Information Technology
+       Transportation (DITT), and the North Carolina Department of Information
+       Technology (DIT). Collectively, these efforts underscore NCDOT’s
+       commitment to leveraging AI and automation as core tools for operational
+       excellence, statewide alignment, and smarter service delivery. A few
+       examples in other units are as follows:
+
+       •   SIPS also has a staff member dedicated to the Department’s work on
+           Connected and Automated Vehicles (CAV), including the following items:
+           o   Coordinating collaboration, enabling partnerships, facilitating
+               Departmental committees and working groups such as North
+               Carolina’s legislatively mandated Fully Autonomous Vehicle (FAV)
+               Committee.
+           o   Strategic planning and implementation for CAV while serving as a
+               senior advisor on emerging technologies and innovation.
+           o   Developing an updated strategic plan that reﬂects on the state’s
+               accomplishments and updates the agency’s vision, goals, focus
+
+
+
+
+                                                                                  14
+
+
+===== PAGE 15 =====
+
+        areas, and objectives for CAV towards actions that advance the
+        technology and the state’s readiness for the beneﬁt of the public.
+•   The Integrated Mobility Division (IMD)'s work on automated shuttles,
+    including the following items:
+    o   The IMD-led Connected Autonomous Shuttle Supporting Innovation
+        program, or CASSI. NCDOT has piloted two models of all-electric,
+        low-speed automated shuttles across ﬁve different projects to date.
+    o   Testing the shuttles at two university campuses, a recreational public
+        lands site, and a municipal park in ﬁxed-route, circulator services on
+        short routes that offered ﬁrst and last mile connections.
+    o   Issuing a report to summarize the history and motivations of the
+        CASSI program, ﬁndings from completed projects, and overall lessons
+        learned. These ﬁndings will guide future pilots under the CASSI
+        program.
+•   The Division of Aviation’s work on UAS (drones) and AAM (Advanced Air
+    Mobility), including the following items:
+    o   The announcement of the country’s ﬁrst multi-state AAM freight
+        corridor feasibility study between Charlotte and Atlanta.
+    o   Implementation of a USDOT SMART Grant (RESPOND) to install
+        drone-in-a-box solutions for UAS disaster response and infrastructure
+        inspections.
+    o   Piloting tethered light drones for worksite / transportation worker
+        safety.
+    o   Further investigation to determine how (AAM) solutions can be
+        integrated into North Carolina’s multimodal transportation system to
+        safely and efficiently move freight and passengers in the future. The
+        Department is working through what infrastructure, regulatory, and
+        operational frameworks are needed to support this integration.
+•   The Transportation System Management and Operations unit’s work on
+    digital infrastructure modernization, including the following items:
+    o   Initiatives focused on modernizing infrastructure and implementing
+        foundational technologies, such as broadband, to support future
+        technologies like connected and autonomous vehicles.
+    o   Using various technologies such as dashcams and drones to monitor
+        traffic ﬂow and respond to events in areas without traditional
+        surveillance.
+
+
+
+
+                                                                              15
+
+
+===== PAGE 16 =====
+
+           o   Efforts to anticipate and mitigate traffic disruptions, including using
+               hydraulics data to predict impacts on infrastructure, implementing
+               automated alerts for navigation apps and commercial drivers, and
+               piloting emerging technologies for freeway and arterial traffic
+               management.
+           o   Using different communication methods, such as Wireless
+               Emergency Alerts (WEA) and connected vehicle technology, to keep
+               the public informed during emergencies and special events.
+       •   The Turnpike Authority uses advanced technology throughout its
+           operations, including the following items:
+           o   In-vehicle tokenized payment initiative with Volvo and Mastercard
+               pilot, positioning us to lead the industry into fully interoperable,
+               vehicle-based tolling and commerce.
+           o   5G Cellular Modems used as the primary data source to maintain the
+               roadside integration schedule while ﬁber is installed and used as a
+               secondary network after ﬁber installation.
+           o   Advanced Cameras deployed to count vehicles and improve traffic
+               and revenue studies.
+           o   Implementation of AI voice recognition software to enhance customer
+               service, including analyzing incoming customer calls and providing
+               scripted prompts to call center agents based on key words used by
+               the customer.
+       •   NCDMV is refreshing its website and improving technology to track
+           operational metrics, including the following items:
+           o   New paths to direct customers to the most effective channel for the
+               service they need
+           o   Embedded quizzes to determine whether a customer needs a given
+               service and ensure they have appropriate documentation
+           o   AI tools for management to explore wait time data to develop office
+               coaching plans
+
+11. How can NCDOT leverage data to make better-informed decisions that
+    enhance the efficiency and effectiveness of its operations?
+      NCDOT seeks to improve data reliability and quality to make it easier to make
+      data-driven decisions. Agency leadership is committed to improving data
+      governance in the Department.
+
+
+
+
+                                                                                         16
+
+
+===== PAGE 17 =====
+
+       In the summer of 2024, the agency created a new unit called the Data &
+       Information Branch in the Office of Strategic Initiatives and Program Support
+       (SIPS). This unit is responsible for the following actions that support units
+       across the Department, including DOH, Multi-Modal and shared services:
+
+           o Data driven problem/gap identiﬁcation
+           o Robust modeling, forecasting, and scenario planning
+           o Clear strategy waterfall from vision to tactical and operational goals
+             that everyone supports
+           o Structure of transparency and accountability to know how NCDOT is
+             performing in all areas
+           o Plan governance to ensure open dialogue and frequent calibration as
+             new information becomes available
+
+12. What strategies can NCDOT implement to improve internal operational
+    efficiency and effectiveness, ensuring optimal use of resources and timely
+    completion of projects?
+        To be the best steward of state resources, NCDOT is exploring all
+        opportunities to modernize the agency and make units more efficient and
+        effective. NCDOT is semi-decentralized, with 14 highway divisions across the
+        state delivering local projects. Central units, such as HR, IT, Technical
+        Services, Finance, Planning and Programming, Ferry, Rail, Aviation,
+        Integrated Mobility, and Communications provide support and expertise to
+        the department's various divisions and projects.
+
+        To better and more easily support thousands of staff across the state, agency
+        leadership has identiﬁed the following potential steps to implement over the
+        coming years:
+            o Expand repository of Standard Operating Procedures and Job Aids,
+               including centralizing existing resources and providing support for
+               units to develop new documents
+            o Develop an AI strategic plan and steering committee, including
+               exploring AI use cases, such as Microsoft Co-Pilot
+            o Improve central unit performance to streamline working across and
+               throughout the Department, including newly developed unit level
+               goals
+
+
+
+
+                                                                                       17
+

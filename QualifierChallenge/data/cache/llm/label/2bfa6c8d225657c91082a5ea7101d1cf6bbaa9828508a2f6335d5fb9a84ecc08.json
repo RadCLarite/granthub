@@ -1,0 +1,42 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "Funding recipients will focus on one or more Focus Prevention Areas (FPAs), groups or settings identified through available data as experiencing a significant suicide burden, higher suicide morbidity or mortality rates or emerging suicide-related trends.",
+    "program_domain": "D01",
+    "owning_division": "DHHS: Mental Health, Developmental Disabilities and Substance Use Services",
+    "required_capabilities": [
+      "public_health_surveillance",
+      "data_systems_interoperability",
+      "subrecipient_network_management",
+      "research_and_rigorous_evaluation"
+    ],
+    "requires_subrecipient_network": true,
+    "evaluation_required": true,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "none",
+    "target_population": "adults_mental_distress",
+    "alignment_dhhs": {
+      "level": "partial",
+      "plan_row": "G3.O5",
+      "rationale": "The opportunity focuses on suicide prevention, which aligns with the goal of improving behavioral health data infrastructure and utilization."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity does not specifically target veterans or align with DMVA's strategic objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v3",
+    "created": "2026-09-29T14:00:55-0400",
+    "prompt_tokens": 3413,
+    "output_tokens": 337,
+    "seconds": 39
+  }
+}

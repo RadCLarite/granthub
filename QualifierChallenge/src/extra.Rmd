@@ -1,0 +1,303 @@
+---
+title: "extra"
+output: html_document
+---
+
+---
+
+# Part 2. NC DHHS Match Screening
+
+Part 1 describes the whole file. Everything below narrows to opportunities that
+**NC DHHS could realistically submit**, using the thresholds set in the config chunk.
+
+> **Active screen.** Reference date `r format(ref_date, "%B %d, %Y")`.
+> `r lbl_agency`. `r lbl_forecast`. `r lbl_runway`. `r lbl_eligible`.
+> `r lbl_research`. `r lbl_restricted`.
+
+```{r dhhs_subset, include = FALSE}
+dhhs_grants <- if (is_unset(target_agencies)) {
+  clean_grants_data
+} else {
+  clean_grants_data |> filter(top_level_agency_name %in% target_agencies)
+}
+
+n_dhhs <- nrow(dhhs_grants)
+```
+
+## Criterion Flags
+
+Each rule below is stored as its own column. No rows are deleted at this stage, so
+every exclusion can be audited later.
+
+```{r flag_rows}
+dhhs_flagged <- dhhs_grants |>
+  mutate(
+    elig_text = coalesce(applicant_eligibility_description, ""),
+    search_text = paste(opportunity_title, opportunity_number),
+    is_posted = if (keep_forecasts) TRUE else !is_forecast,
+    has_runway = if (is.null(earliest_close)) {
+      TRUE
+    } else {
+      !is.na(close_date) & close_date >= earliest_close
+    },
+    state_eligible = if (is_unset(required_applicant_types)) {
+      TRUE
+    } else {
+      map_lgl(applicant_types, ~ any(required_applicant_types %in% .x))
+    },
+    flag_nih_agency = str_detect(coalesce(agency_code, ""), research_agency_regex),
+    flag_research_number = str_detect(coalesce(opportunity_number, ""), research_number_regex),
+    flag_activity_code = str_detect(search_text, research_activity_regex),
+    flag_research_category = map_lgl(funding_categories, ~ research_category %in% .x),
+    is_research_mechanism = flag_nih_agency | flag_research_number |
+      flag_activity_code | flag_research_category,
+    is_restricted = str_detect(elig_text, restricted_regex),
+    drop_research = apply_research_rule & is_research_mechanism,
+    drop_restricted = apply_restricted_rule & is_restricted,
+    passes_screen = is_posted & has_runway & state_eligible &
+      !drop_research & !drop_restricted
+  ) |>
+  select(-search_text)
+
+flag_summary <- tibble(
+  label = c(lbl_forecast, lbl_runway, lbl_eligible, lbl_research, lbl_restricted,
+            "Passes all active screens"),
+  n_true = c(
+    sum(dhhs_flagged$is_posted, na.rm = TRUE),
+    sum(dhhs_flagged$has_runway, na.rm = TRUE),
+    sum(dhhs_flagged$state_eligible, na.rm = TRUE),
+    sum(!dhhs_flagged$drop_research, na.rm = TRUE),
+    sum(!dhhs_flagged$drop_restricted, na.rm = TRUE),
+    sum(dhhs_flagged$passes_screen, na.rm = TRUE)
+  )
+) |>
+  mutate(share = n_true / n_dhhs)
+
+ggplot(flag_summary, aes(x = reorder(label, n_true), y = n_true)) +
+  geom_col(fill = pal$primary, width = 0.7) +
+  geom_text(aes(label = paste0(n_true, " (", percent(share, accuracy = 1), ")")),
+            hjust = -0.1, size = 3.5, color = "#333333") +
+  coord_flip() +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.15))) +
+  labs(
+    title = "How Many Opportunities Satisfy Each Criterion",
+    subtitle = paste0("Out of ", n_dhhs, " opportunities after the agency filter"),
+    x = NULL,
+    y = "Opportunities surviving this rule on its own",
+    caption = "A disabled rule keeps every row, so its bar equals the starting count."
+  ) +
+  theme(panel.grid.major.y = element_blank())
+```
+
+## Screening Funnel
+
+```{r funnel, fig.width=10, fig.height=6}
+step_agency <- dhhs_flagged
+step_posted <- step_agency |> filter(is_posted)
+step_runway <- step_posted |> filter(has_runway)
+step_eligible <- step_runway |> filter(state_eligible)
+step_nonresearch <- step_eligible |> filter(!drop_research)
+step_open_comp <- step_nonresearch |> filter(!drop_restricted)
+
+screened_grants <- step_open_comp
+
+stage_labels <- c("All opportunities in file", lbl_agency, lbl_forecast,
+                  lbl_runway, lbl_eligible, lbl_research, lbl_restricted)
+
+funnel_data <- tibble(
+  stage = factor(stage_labels, levels = rev(stage_labels)),
+  n = c(nrow(clean_grants_data), nrow(step_agency), nrow(step_posted),
+        nrow(step_runway), nrow(step_eligible), nrow(step_nonresearch),
+        nrow(step_open_comp))
+) |>
+  mutate(dropped = lag(n) - n)
+
+ggplot(funnel_data, aes(x = stage, y = n)) +
+  geom_col(fill = pal$primary, width = 0.72) +
+  geom_text(
+    aes(label = case_when(
+      is.na(dropped) ~ as.character(n),
+      dropped == 0 ~ paste0(n, "  (no change)"),
+      TRUE ~ paste0(n, "  (-", dropped, ")")
+    )),
+    hjust = -0.1, size = 3.6, color = "#333333"
+  ) +
+  coord_flip() +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.2))) +
+  labs(
+    title = "From Every Federal Posting to a Submittable Shortlist",
+    subtitle = "Each bar applies one additional screening rule to the rows above it",
+    x = NULL,
+    y = "Opportunities remaining",
+    caption = "Numbers in parentheses show how many opportunities that rule removed."
+  ) +
+  theme(panel.grid.major.y = element_blank())
+```
+
+`r nrow(screened_grants)` opportunities survive every active screen out of `r nrow(clean_grants_data)` in the source file.
+
+```{r screened_table}
+shortlist_flat <- step_eligible |>
+  transmute(
+    key = opportunity_id,
+    title = opportunity_title,
+    agency = agency_name,
+    close_date,
+    days_to_close = as.integer(close_date - ref_date),
+    award_ceiling_num = coalesce(award_ceiling, 0),
+    award_ceiling_fmt = if_else(!is.na(award_ceiling), dollar(award_ceiling), "N/A"),
+    cost_share = if_else(coalesce(is_cost_sharing, FALSE), "Match required", "No match"),
+    grant_type = case_when(
+      drop_research ~ "Research mechanism",
+      drop_restricted ~ "Restricted competition",
+      TRUE ~ "Administrable by the department"
+    ),
+    link = paste0("<a href='", url, "' target='_blank'>Open</a>")
+  ) |>
+  filter(!is.na(days_to_close))
+
+shared_grants <- SharedData$new(shortlist_flat, key = ~key, group = "grants")
+
+type_colors <- c(
+  "Administrable by the department" = pal$primary,
+  "Research mechanism" = pal$accent,
+  "Restricted competition" = pal$secondary
+)
+
+count_plot <- plot_ly(
+  shared_grants,
+  y = ~grant_type,
+  color = ~grant_type,
+  colors = type_colors,
+  type = "histogram",
+  orientation = "h",
+  hovertemplate = "%{x} opportunities<extra></extra>"
+) |>
+  layout(
+    title = list(text = "Opportunities Matching Your Filters", x = 0),
+    xaxis = list(title = "Count"),
+    yaxis = list(title = ""),
+    showlegend = FALSE,
+    margin = list(l = 10)
+  ) |>
+  config(displayModeBar = FALSE)
+
+scatter_plot <- plot_ly(
+  shared_grants,
+  x = ~days_to_close,
+  y = ~award_ceiling_num,
+  color = ~grant_type,
+  colors = type_colors,
+  type = "scatter",
+  mode = "markers",
+  marker = list(size = 10, opacity = 0.75, line = list(width = 0.5, color = "white")),
+  hoverinfo = "text",
+  text = ~paste0(
+    "<b>", title, "</b><br>", agency,
+    "<br>Closes: ", close_date, " (", days_to_close, " days out)",
+    "<br>Ceiling: ", award_ceiling_fmt,
+    "<br>", cost_share
+  )
+) |>
+  layout(
+    title = list(text = "Deadline Runway vs Award Size", x = 0),
+    xaxis = list(title = "Days from reference date to deadline"),
+    yaxis = list(title = "Award ceiling ($, log scale)", type = "log"),
+    legend = list(orientation = "h", y = -0.25)
+  ) |>
+  config(displayModeBar = FALSE)
+
+bscols(
+  widths = c(3, 9),
+  list(
+    filter_slider("runway", "Minimum days until deadline",
+                  shared_grants, ~days_to_close, min = 0, step = 15),
+    filter_slider("ceiling", "Minimum award ceiling ($)",
+                  shared_grants, ~award_ceiling_num, step = 50000),
+    filter_checkbox("type", "Opportunity type", shared_grants, ~grant_type),
+    filter_checkbox("match", "Cost share", shared_grants, ~cost_share),
+    filter_select("agency_pick", "Issuing office", shared_grants, ~agency)
+  ),
+  list(count_plot, scatter_plot)
+)
+
+datatable(
+  shared_grants,
+  escape = FALSE,
+  rownames = FALSE,
+  filter = "top",
+  colnames = c("Key", "Title", "Agency", "Closes", "Days out", "Ceiling num",
+               "Ceiling", "Cost share", "Type", "Link"),
+  options = list(
+    pageLength = 10,
+    scrollX = TRUE,
+    searchHighlight = TRUE,
+    dom = "itfpt",
+    columnDefs = list(list(visible = FALSE, targets = c(0, 5)))
+  ),
+  class = "cell-border stripe hover"
+)
+```
+
+## Exclusion Audit
+
+The two judgment-based rules are the research mechanism filter and the restricted
+competition filter. Everything they removed is listed here so the tradeoff is visible
+rather than hidden inside the ranking. If either rule is disabled in the config chunk,
+it contributes nothing to this section.
+
+```{r exclusion_audit, fig.width=10, fig.height=5}
+excluded <- step_eligible |>
+  filter(drop_research | drop_restricted)
+
+exclusion_reasons <- tibble(
+  signal = c("NIH issuing agency", "PA / PAR / PD / RFA number",
+             "NIH activity code in title", "Research funding category",
+             "Restricted or single source"),
+  n = c(
+    sum(excluded$flag_nih_agency & excluded$drop_research, na.rm = TRUE),
+    sum(excluded$flag_research_number & excluded$drop_research, na.rm = TRUE),
+    sum(excluded$flag_activity_code & excluded$drop_research, na.rm = TRUE),
+    sum(excluded$flag_research_category & excluded$drop_research, na.rm = TRUE),
+    sum(excluded$drop_restricted, na.rm = TRUE)
+  )
+)
+
+ggplot(exclusion_reasons, aes(x = reorder(signal, n), y = n)) +
+  geom_col(fill = pal$accent, width = 0.7) +
+  geom_text(aes(label = n), hjust = -0.15, size = 3.6, color = "#333333") +
+  coord_flip() +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.15))) +
+  labs(
+    title = "Which Signal Removed Each Excluded Opportunity",
+    subtitle = paste0(nrow(excluded), " eligible, still-open opportunities were excluded"),
+    x = NULL,
+    y = "Opportunities flagged by this signal",
+    caption = "Signals overlap: one opportunity can be flagged by more than one rule."
+  ) +
+  theme(panel.grid.major.y = element_blank())
+```
+
+```{r exclusion_table}
+excluded |>
+  transmute(
+    opportunity_title,
+    agency_name,
+    close_date,
+    award_ceiling = if_else(!is.na(award_ceiling), dollar(award_ceiling), "N/A"),
+    exclusion_reasons = paste(
+      if_else(flag_nih_agency & drop_research, "NIH agency", ""),
+      if_else(flag_research_number & drop_research, "research number", ""),
+      if_else(flag_activity_code & drop_research, "activity code", ""),
+      if_else(flag_research_category & drop_research, "research category", ""),
+      if_else(drop_restricted, "restricted competition", ""),
+      sep = "; "
+    ) |>
+      str_replace_all("(; )+", "; ") |>
+      str_remove("^; ") |>
+      str_remove("; $"),
+    url
+  ) |>
+  arrange(desc(close_date)) |>
+  make_dt(caption = "Every opportunity removed by the research and restricted competition rules.")
+```

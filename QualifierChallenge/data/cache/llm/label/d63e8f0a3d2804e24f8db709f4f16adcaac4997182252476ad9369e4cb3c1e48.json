@@ -1,0 +1,40 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "state_governments, nonprofits_non_higher_education_with_501c3, public_and_state_institutions_of_higher_education",
+    "program_domain": "D04",
+    "owning_division": "DHHS: Child and Family Well-Being",
+    "required_capabilities": [
+      "data_systems_interoperability",
+      "research_and_rigorous_evaluation"
+    ],
+    "requires_subrecipient_network": false,
+    "evaluation_required": false,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "none",
+    "target_population": "children",
+    "alignment_dhhs": {
+      "level": "partial",
+      "plan_row": "G2.O1",
+      "rationale": "The opportunity aims to improve home visiting services for families, which aligns with the objective to strengthen capacity to meet the behavioral and mental health needs of North Carolina children and families."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity does not align with any specific DMVA strategic plan objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v3.1",
+    "created": "2026-09-29T15:30:51-0400",
+    "prompt_tokens": 3102,
+    "output_tokens": 304,
+    "seconds": 21.3
+  }
+}

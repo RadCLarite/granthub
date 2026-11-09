@@ -1,0 +1,33 @@
+grantHub (Federal Funds Matchmaker)
+Copyright 2026 NC grantHub contributors
+
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+Data sources
+------------
+This repository ranks publicly posted federal funding opportunities against
+publicly posted North Carolina agency strategic plans. It uses these public
+sources:
+
+  - Grants.gov (opportunity database extract and API) and Simpler.Grants.gov
+  - Federal Register notices
+  - USAspending.gov (past awards to North Carolina government recipients)
+  - SAM.gov Assistance Listings (federal program catalog; CC0)
+  - NC Office of State Budget and Management (OSBM) published agency
+    strategic plans, as PDFs
+  - U.S. Census Bureau American Community Survey 2023 and census county
+    shapes (population display only; never enters the ranking)
+
+Each source remains subject to its own terms of use. Files under
+Finalists/data/raw/ and Finalists/data/cache/ are copies of those sources,
+kept so the pipeline can be reproduced. Finalists/data/raw/README.md lists the
+source, date and notes for each one. Finalists/data/raw/organizer/ holds
+materials supplied by the Solve-A-Thon 2026 organizers; they are not covered
+by the Apache-2.0 grant of this repository.
+
+No endorsement
+--------------
+This is an independent project. It is not an official product of, and is not
+endorsed by, the NC Office of State Budget and Management, any North Carolina
+agency, or any federal agency. Agency and program names appear only to
+identify public records. The tool is a screening aid; a person decides.

@@ -1,0 +1,42 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "Applicants eligible for an award include a State or local agency, authority, association, educational institution, or nonprofit organization",
+    "program_domain": "none",
+    "owning_division": "Other state agency",
+    "required_capabilities": [
+      "public_health_surveillance",
+      "data_systems_interoperability",
+      "research_and_rigorous_evaluation",
+      "transportation_services"
+    ],
+    "requires_subrecipient_network": false,
+    "evaluation_required": true,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "Cost-sharing or matching requirements are not required under this NOFO",
+    "target_population": "system_level",
+    "alignment_dhhs": {
+      "level": "partial",
+      "plan_row": "G1.O4",
+      "rationale": "The opportunity aims to develop innovative traffic safety enforcement programs, which can enhance the capacity of local agencies to address health disparities related to traffic safety."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity does not directly align with DMVA's strategic plan goals and objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v2",
+    "created": "2026-09-29T13:25:53-0400",
+    "prompt_tokens": 4036,
+    "output_tokens": 315,
+    "seconds": 74.1
+  }
+}

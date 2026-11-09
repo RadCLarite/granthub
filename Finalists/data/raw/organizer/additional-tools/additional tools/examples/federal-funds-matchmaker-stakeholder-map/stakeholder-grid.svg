@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 1010" width="1440" height="1010" role="img" aria-labelledby="t d" font-family="Segoe UI, Arial, Helvetica, sans-serif">
+  <title id="t">Federal Funds Matchmaker: Stakeholder Power/Interest Grid</title>
+  <desc id="d">Mendelow power/interest grid placing 14 stakeholders in four quadrants: Manage Closely, Keep Satisfied, Keep Informed, and Monitor. Marker colour shows attitude, a solid outline marks stakeholders inside NC state government, a dashed outline marks external stakeholders, and dashed arrows show the desired movement.</desc>
+  <defs><marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#555"/></marker></defs>
+  <rect width="1440" height="1010" fill="#FFF"/>
+  <text x="40" y="42" font-size="26" font-weight="700" fill="#08427B">Federal Funds Matchmaker: Stakeholder Power/Interest Grid</text>
+  <text x="40" y="68" font-size="14" fill="#555">Example Team • Mendelow power/interest matrix • 2026-10-21 • v1.0</text>
+  <rect x="140" y="110" width="410" height="410" fill="#FFF4E5"/>
+  <rect x="550" y="110" width="410" height="410" fill="#FDECEA"/>
+  <rect x="140" y="520" width="410" height="410" fill="#F5F5F5"/>
+  <rect x="550" y="520" width="410" height="410" fill="#E8F1FB"/>
+  <rect x="140" y="110" width="820" height="820" fill="none" stroke="#9E9E9E" stroke-width="1.5"/>
+  <line x1="550" y1="110" x2="550" y2="930" stroke="#9E9E9E" stroke-width="1.5"/>
+  <line x1="140" y1="520" x2="960" y2="520" stroke="#9E9E9E" stroke-width="1.5"/>
+  <g font-size="17" font-weight="700" fill="#555">
+    <text x="156" y="138">KEEP SATISFIED</text>
+    <text x="944" y="138" text-anchor="end">MANAGE CLOSELY</text>
+    <text x="156" y="900">MONITOR</text>
+    <text x="944" y="900" text-anchor="end">KEEP INFORMED</text>
+  </g>
+  <g font-size="12" fill="#666">
+    <text x="156" y="156">Concise briefings on their priorities</text>
+    <text x="944" y="156" text-anchor="end">Co-design, frequent updates</text>
+    <text x="156" y="918">Light-touch updates</text>
+    <text x="944" y="918" text-anchor="end">Demos, feedback loops</text>
+  </g>
+  <!-- axes -->
+  <g stroke="#333" stroke-width="2" fill="none"><line x1="140" y1="930" x2="975" y2="930" marker-end="url(#arw)"/><line x1="140" y1="930" x2="140" y2="96" marker-end="url(#arw)"/></g>
+  <g font-size="12" fill="#333" text-anchor="middle">
+    <text x="222" y="950">1</text><text x="386" y="950">2</text><text x="550" y="950">3</text><text x="714" y="950">4</text><text x="878" y="950">5</text>
+    <text x="124" y="852">1</text><text x="124" y="688">2</text><text x="124" y="524">3</text><text x="124" y="360">4</text><text x="124" y="196">5</text>
+  </g>
+  <text x="550" y="985" font-size="15" font-weight="700" fill="#222" text-anchor="middle">INTEREST in the solution  (Low → High)</text>
+  <text x="80" y="520" font-size="15" font-weight="700" fill="#222" text-anchor="middle" transform="rotate(-90 80 520)">POWER / INFLUENCE  (Low → High)</text>
+  <!-- desired movement -->
+  <g stroke="#555" stroke-width="2" stroke-dasharray="6 4" fill="none" marker-end="url(#arw)">
+    <line x1="655" y1="200" x2="790" y2="200"/>
+    <line x1="655" y1="360" x2="790" y2="360"/>
+  </g>
+  <g font-size="11" fill="#555" font-style="italic"><text x="722" y="192" text-anchor="middle">target</text><text x="722" y="352" text-anchor="middle">target</text></g>
+  <!-- stakeholders -->
+  <g>
+    <circle cx="878" cy="200" r="17" fill="#1B7837" stroke="#222" stroke-width="2"/><text x="878" y="204" font-size="12" font-weight="700" fill="#FFF" text-anchor="middle">S1</text>
+    <text x="878" y="233" font-size="12" fill="#222" text-anchor="middle">OSBM leadership</text>
+    <text x="878" y="247" font-size="12" fill="#222" text-anchor="middle">(sponsor)</text>
+    <circle cx="820" cy="420" r="17" fill="#1B7837" stroke="#222" stroke-width="2"/><text x="820" y="424" font-size="12" font-weight="700" fill="#FFF" text-anchor="middle">S2</text>
+    <text x="820" y="453" font-size="12" fill="#222" text-anchor="middle">OSBM analysts</text>
+    <circle cx="910" cy="455" r="17" fill="#7FBF7B" stroke="#222" stroke-width="2"/><text x="910" y="459" font-size="12" font-weight="700" fill="#222" text-anchor="middle">S3</text>
+    <text x="910" y="488" font-size="12" fill="#222" text-anchor="middle">Agency grant</text>
+    <text x="910" y="502" font-size="12" fill="#222" text-anchor="middle">managers</text>
+    <circle cx="635" cy="200" r="17" fill="#BDBDBD" stroke="#222" stroke-width="2"/><text x="635" y="204" font-size="12" font-weight="700" fill="#222" text-anchor="middle">S4</text>
+    <text x="635" y="233" font-size="12" fill="#222" text-anchor="middle">Agency leadership</text>
+    <circle cx="635" cy="360" r="17" fill="#F1A340" stroke="#222" stroke-width="2"/><text x="635" y="364" font-size="12" font-weight="700" fill="#222" text-anchor="middle">S6</text>
+    <text x="635" y="393" font-size="12" fill="#222" text-anchor="middle">State IT security</text>
+    <text x="635" y="407" font-size="12" fill="#222" text-anchor="middle">&amp; privacy (NCDIT)</text>
+    <circle cx="390" cy="200" r="17" fill="#BDBDBD" stroke="#222" stroke-width="2"/><text x="390" y="204" font-size="12" font-weight="700" fill="#222" text-anchor="middle">S7</text>
+    <text x="390" y="233" font-size="12" fill="#222" text-anchor="middle">NC General Assembly</text>
+    <circle cx="390" cy="360" r="17" fill="#BDBDBD" stroke="#222" stroke-width="2"/><text x="390" y="364" font-size="12" font-weight="700" fill="#222" text-anchor="middle">S11</text>
+    <text x="390" y="393" font-size="12" fill="#222" text-anchor="middle">State Auditor /</text>
+    <text x="390" y="407" font-size="12" fill="#222" text-anchor="middle">compliance</text>
+    <circle cx="222" cy="455" r="17" fill="#BDBDBD" stroke="#222" stroke-width="2" stroke-dasharray="4 3"/><text x="222" y="459" font-size="12" font-weight="700" fill="#222" text-anchor="middle">S8</text>
+    <text x="222" y="488" font-size="12" fill="#222" text-anchor="middle">Federal funding</text>
+    <text x="222" y="502" font-size="12" fill="#222" text-anchor="middle">agencies</text>
+    <circle cx="878" cy="630" r="17" fill="#1B7837" stroke="#222" stroke-width="2" stroke-dasharray="4 3"/><text x="878" y="634" font-size="12" font-weight="700" fill="#FFF" text-anchor="middle">S12</text>
+    <text x="878" y="663" font-size="12" fill="#222" text-anchor="middle">Solveathon team /</text>
+    <text x="878" y="677" font-size="12" fill="#222" text-anchor="middle">maintainers</text>
+    <circle cx="730" cy="690" r="17" fill="#7FBF7B" stroke="#222" stroke-width="2" stroke-dasharray="4 3"/><text x="730" y="694" font-size="12" font-weight="700" fill="#222" text-anchor="middle">S9</text>
+    <text x="730" y="723" font-size="12" fill="#222" text-anchor="middle">Local govts &amp;</text>
+    <text x="730" y="737" font-size="12" fill="#222" text-anchor="middle">nonprofits</text>
+    <circle cx="600" cy="760" r="17" fill="#F1A340" stroke="#222" stroke-width="2"/><text x="600" y="764" font-size="12" font-weight="700" fill="#222" text-anchor="middle">S5</text>
+    <text x="600" y="793" font-size="12" fill="#222" text-anchor="middle">Agency program</text>
+    <text x="600" y="807" font-size="12" fill="#222" text-anchor="middle">staff (SMEs)</text>
+    <circle cx="600" cy="845" r="17" fill="#F1A340" stroke="#222" stroke-width="2" stroke-dasharray="4 3"/><text x="600" y="849" font-size="12" font-weight="700" fill="#222" text-anchor="middle">S14</text>
+    <text x="600" y="878" font-size="12" fill="#222" text-anchor="middle">Grant-writing</text>
+    <text x="600" y="892" font-size="12" fill="#222" text-anchor="middle">consultants</text>
+    <circle cx="390" cy="845" r="17" fill="#BDBDBD" stroke="#222" stroke-width="2" stroke-dasharray="4 3"/><text x="390" y="849" font-size="12" font-weight="700" fill="#222" text-anchor="middle">S10</text>
+    <text x="390" y="878" font-size="12" fill="#222" text-anchor="middle">General public</text>
+    <circle cx="390" cy="680" r="17" fill="#7FBF7B" stroke="#222" stroke-width="2" stroke-dasharray="4 3"/><text x="390" y="684" font-size="12" font-weight="700" fill="#222" text-anchor="middle">S13</text>
+    <text x="390" y="713" font-size="12" fill="#222" text-anchor="middle">Cloud vendor</text>
+    <text x="390" y="727" font-size="12" fill="#222" text-anchor="middle">(Microsoft)</text>
+  </g>
+  <!-- legend -->
+  <rect x="1000" y="110" width="400" height="300" rx="8" fill="#FFF" stroke="#9E9E9E"/>
+  <text x="1016" y="136" font-size="14" font-weight="700" fill="#222">Legend</text>
+  <g font-size="12" fill="#222">
+    <text x="1016" y="160" font-weight="700">Marker colour = attitude</text>
+    <circle cx="1028" cy="180" r="9" fill="#1B7837"/><text x="1044" y="184">Champion</text>
+    <circle cx="1140" cy="180" r="9" fill="#7FBF7B"/><text x="1156" y="184">Supporter</text>
+    <circle cx="1252" cy="180" r="9" fill="#BDBDBD"/><text x="1268" y="184">Neutral</text>
+    <circle cx="1028" cy="206" r="9" fill="#F1A340"/><text x="1044" y="210">Sceptic</text>
+    <circle cx="1140" cy="206" r="9" fill="#B2182B"/><text x="1156" y="210">Blocker</text>
+    <text x="1016" y="240" font-weight="700">Outline = relationship</text>
+    <circle cx="1028" cy="260" r="9" fill="#FFF" stroke="#222" stroke-width="2"/><text x="1044" y="264">Inside NC state government</text>
+    <circle cx="1028" cy="286" r="9" fill="#FFF" stroke="#222" stroke-width="2" stroke-dasharray="4 3"/><text x="1044" y="290">External to state government</text>
+    <line x1="1018" y1="316" x2="1042" y2="316" stroke="#555" stroke-width="2" stroke-dasharray="5 3" marker-end="url(#arw)"/><text x="1050" y="320">Desired shift (raise engagement)</text>
+    <text x="1016" y="350" fill="#555">Scores 1–5. A score of 3 counts as High</text>
+    <text x="1016" y="366" fill="#555">(drawn just inside the upper/right half).</text>
+    <text x="1016" y="390" fill="#555">Grid: Mendelow (1991) power/interest matrix.</text>
+  </g>
+  <!-- key -->
+  <rect x="1000" y="430" width="400" height="500" rx="8" fill="#FFF" stroke="#9E9E9E"/>
+  <text x="1016" y="456" font-size="14" font-weight="700" fill="#222">Stakeholder key (Power / Interest)</text>
+  <g font-size="12" fill="#222">
+    <text x="1016" y="484">S1  OSBM leadership: sponsor (5/5)</text>
+    <text x="1016" y="515">S2  OSBM budget &amp; grants analysts (3/5)</text>
+    <text x="1016" y="546">S3  Agency grant managers: primary users (3/5)</text>
+    <text x="1016" y="577">S4  Agency leadership: apply decision (5/3)</text>
+    <text x="1016" y="608">S5  Agency program staff / SMEs (2/3)</text>
+    <text x="1016" y="639">S6  NCDIT security &amp; privacy: approver (4/3)</text>
+    <text x="1016" y="670">S7  NC General Assembly (5/2)</text>
+    <text x="1016" y="701">S8  Federal funding agencies (3/1)</text>
+    <text x="1016" y="732">S9  Local governments &amp; nonprofits (2/4)</text>
+    <text x="1016" y="763">S10 General public / NC residents (1/2)</text>
+    <text x="1016" y="794">S11 State Auditor / compliance (4/2)</text>
+    <text x="1016" y="825">S12 Solveathon team / future maintainers (2/5)</text>
+    <text x="1016" y="856">S13 Cloud vendor (Microsoft) (2/2)</text>
+    <text x="1016" y="887">S14 Grant-writing consultants (1/3)</text>
+    <text x="1016" y="915" fill="#555" font-style="italic">ASSUMED scores: validate with OSBM.</text>
+  </g>
+</svg>

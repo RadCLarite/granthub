@@ -1,0 +1,40 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "state_governments, nonprofits_non_higher_education_with_501c3",
+    "program_domain": "none",
+    "owning_division": "none",
+    "required_capabilities": [
+      "data_systems_interoperability",
+      "subrecipient_network_management"
+    ],
+    "requires_subrecipient_network": true,
+    "evaluation_required": false,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": true,
+    "match_pct_stated": 25,
+    "match_evidence": "A cost share is required, from non-Federal sources in the form of cash and/or in-kind contributions, equal to 25% of the amount of Federal funds being requested.",
+    "target_population": "all_residents",
+    "alignment_dhhs": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The program focuses on specialty crops and does not align with any specific health or human services objectives."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The program focuses on specialty crops and does not align with any specific veterans services objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v3.1",
+    "created": "2026-09-29T15:14:01-0400",
+    "prompt_tokens": 4222,
+    "output_tokens": 304,
+    "seconds": 43.4
+  }
+}

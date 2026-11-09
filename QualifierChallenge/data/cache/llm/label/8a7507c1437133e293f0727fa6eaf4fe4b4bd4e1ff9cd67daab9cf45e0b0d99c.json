@@ -1,0 +1,41 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "Grants are available to State and Tribal Governments for construction or renovations of State/Tribal owned and operated Veterans Extended Care Facilities.",
+    "program_domain": "D06",
+    "owning_division": "DMVA: State Veterans Homes",
+    "required_capabilities": [
+      "long_term_care_operation",
+      "data_systems_interoperability",
+      "subrecipient_network_management"
+    ],
+    "requires_subrecipient_network": true,
+    "evaluation_required": false,
+    "is_capital_project": true,
+    "needs_formal_designation": true,
+    "is_renewal": false,
+    "match_required": true,
+    "match_pct_stated": 35,
+    "match_evidence": "The Department of Veterans Affairs participation may not exceed 65% of the total project costs.",
+    "target_population": "older_adults",
+    "alignment_dhhs": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity is focused on state veterans homes and does not align with any specific DHHS strategic plan objectives."
+    },
+    "alignment_dmva": {
+      "level": "strong",
+      "plan_row": "G2.O1",
+      "rationale": "The opportunity directly funds the construction or renovation of state veterans homes, which aligns with the DMVA strategic plan objective to modernize the State Veterans Homes infrastructure."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v3",
+    "created": "2026-09-29T14:19:11-0400",
+    "prompt_tokens": 5149,
+    "output_tokens": 328,
+    "seconds": 36.9
+  }
+}

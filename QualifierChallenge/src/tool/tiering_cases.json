@@ -1,0 +1,53 @@
+{
+  "note": "Synthetic opportunities, one per tier rule. build_tool.R runs these through tiering.js in V8 and refuses to build if any expectation fails.",
+  "profile": {
+    "clinical_service_delivery": {"control": "contracted", "label": "Clinical service delivery", "to_resolve": ""},
+    "housing_stock_or_assistance": {"control": "partner", "label": "Housing stock or assistance", "to_resolve": "MOU"},
+    "transportation_services": {"control": "none", "label": "Transportation services", "to_resolve": "Partner"}
+  },
+  "settings": {
+    "ref_day": 20726, "runway_days": 30, "match_authority": "with_approval", "staff_fte": 1,
+    "min_award_usd": 250000, "include_forecasts": false, "show_screened": false, "agency": "DHHS",
+    "domain_weights": {"D01": 1}, "appropriation_usd": 1000000,
+    "fte_by_burden": {"low": 0.25, "medium": 0.5, "high": 1}
+  },
+  "base": {
+    "number": "BASE", "status": "posted", "audience": ["DHHS"], "close_day": 20826,
+    "award_estimate_usd": 500000, "instrument": "grant", "instrument_burden": "low",
+    "cost_share": false, "match_pct": null, "subrecipient_required": false,
+    "evaluation_required": false, "is_capital_project": false, "needs_formal_designation": false,
+    "required_capabilities": [], "domain": "D01",
+    "screen": {"is_nih": false, "is_research_mechanism": false, "is_restricted": false}
+  },
+  "cases": [
+    {"name": "clean grant is Tier 1", "opp": {}, "expect": {"placement": "pile", "tier": 1, "rules": "T1_clear"}},
+    {"name": "contracted capability stays Tier 1", "opp": {"required_capabilities": ["clinical_service_delivery"]}, "expect": {"tier": 1}},
+    {"name": "partner capability is Tier 2", "opp": {"required_capabilities": ["housing_stock_or_assistance"]}, "expect": {"tier": 2, "rules": "T2_capability_partner"}},
+    {"name": "no-route capability is Tier 3", "opp": {"required_capabilities": ["transportation_services"]}, "expect": {"tier": 3, "rules": "T3_capability_none"}},
+    {"name": "small cost share with approval is Tier 2", "opp": {"cost_share": true}, "expect": {"tier": 2, "rules": "T2_match_approval"}},
+    {"name": "small cost share with authority is Tier 1", "opp": {"cost_share": true}, "settings": {"match_authority": "yes"}, "expect": {"tier": 1}},
+    {"name": "cost share without authority is Tier 3", "opp": {"cost_share": true}, "settings": {"match_authority": "no"}, "expect": {"tier": 3, "rules": "T3_match_no_authority"}},
+    {"name": "large cost share needs appropriation", "opp": {"cost_share": true, "award_estimate_usd": 2000000}, "settings": {"match_authority": "yes"}, "expect": {"tier": 3, "rules": "T3_match_appropriation"}},
+    {"name": "capital project is Tier 3", "opp": {"is_capital_project": true}, "expect": {"tier": 3, "rules": "T3_capital"}},
+    {"name": "designation is Tier 3", "opp": {"needs_formal_designation": true}, "expect": {"tier": 3, "rules": "T3_designation"}},
+    {"name": "subrecipients is Tier 2", "opp": {"subrecipient_required": true}, "expect": {"tier": 2, "rules": "T2_subrecipients"}},
+    {"name": "coop agreement with evaluation is Tier 2", "opp": {"instrument": "cooperative_agreement", "evaluation_required": true}, "expect": {"tier": 2, "rules": "T2_coop_evaluation"}},
+    {"name": "coop agreement without evaluation is not escalated", "opp": {"instrument": "cooperative_agreement"}, "expect": {"tier": 1}},
+    {"name": "too little staff is Tier 2", "opp": {"instrument_burden": "high"}, "settings": {"staff_fte": 0.5}, "expect": {"tier": 2, "rules": "T2_staff"}},
+    {"name": "short runway goes to not-this-cycle", "opp": {"close_day": 20740}, "expect": {"placement": "not_this_cycle"}},
+    {"name": "small award goes to not-this-cycle", "opp": {"award_estimate_usd": 100000}, "expect": {"placement": "not_this_cycle"}},
+    {"name": "NIH is screened", "opp": {"screen": {"is_nih": true, "is_research_mechanism": false, "is_restricted": false}}, "expect": {"placement": "screened"}},
+    {"name": "NIH shown when requested is Tier 4 (partner-led research)", "opp": {"screen": {"is_nih": true, "is_research_mechanism": false, "is_restricted": false}}, "settings": {"show_screened": true}, "expect": {"placement": "pile", "tier": 4, "rules": "T4_research_partner"}},
+    {"name": "restricted stays informational even when research is shown", "opp": {"screen": {"is_nih": false, "is_research_mechanism": false, "is_restricted": true}}, "settings": {"show_screened": true}, "expect": {"placement": "screened"}},
+    {"name": "not-administrable shown is Tier 4 (partner-led)", "opp": {"screen": {"is_nih": false, "is_research_mechanism": false, "is_restricted": false, "not_administrable": true}}, "settings": {"show_screened": true}, "expect": {"tier": 4, "rules": "T4_partner_lead"}},
+    {"name": "research award lists other rules that fired", "opp": {"is_capital_project": true, "screen": {"is_nih": true, "is_research_mechanism": false, "is_restricted": false}}, "settings": {"show_screened": true}, "expect": {"tier": 4, "rules": "T4_research_partner,T3_capital"}},
+    {"name": "labeler says not administrable is screened", "opp": {"screen": {"is_nih": false, "is_research_mechanism": false, "is_restricted": false, "not_administrable": true}}, "expect": {"placement": "screened"}},
+    {"name": "forecast hidden by default", "opp": {"status": "forecasted"}, "expect": {"placement": "out_of_scope"}},
+    {"name": "forecast shown when included", "opp": {"status": "forecasted"}, "settings": {"include_forecasts": true}, "expect": {"placement": "pile"}},
+    {"name": "other agency's opportunity is outside scope", "opp": {"audience": ["DMVA"]}, "expect": {"placement": "out_of_scope"}},
+    {"name": "not state-eligible is outside scope", "opp": {"state_eligible": false}, "expect": {"placement": "out_of_scope"}},
+    {"name": "closed before reference date is outside scope", "opp": {"close_day": 20700}, "expect": {"placement": "out_of_scope"}},
+    {"name": "no deadline passes runway", "opp": {"close_day": null}, "expect": {"placement": "pile"}},
+    {"name": "Tier 3 lists Tier 2 reasons too", "opp": {"is_capital_project": true, "subrecipient_required": true}, "expect": {"tier": 3, "rules": "T3_capital,T2_subrecipients"}}
+  ]
+}

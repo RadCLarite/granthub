@@ -1,0 +1,39 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "Eligible applicants under the ADCMS Competitive Grant Program are State Departments of Transportation (State DOT), including the District of Columbia and the Commonwealth of Puerto Rico.",
+    "program_domain": "none",
+    "owning_division": "Other state agency",
+    "required_capabilities": [
+      "transportation_services"
+    ],
+    "requires_subrecipient_network": false,
+    "evaluation_required": false,
+    "is_capital_project": true,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": true,
+    "match_pct_stated": 20,
+    "match_evidence": "The ADCMS Competitive Grant Program requires a minimum cost share of 20 percent of total project costs.",
+    "target_population": "system_level",
+    "alignment_dhhs": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The ADCMS grant program focuses on transportation technology and does not directly align with any of the health and human services goals or objectives in the NC DHHS Strategic Plan."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The ADCMS grant program focuses on transportation technology and does not directly align with any of the veteran services goals or objectives in the NC DMVA Strategic Plan."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v2",
+    "created": "2026-09-29T09:38:53-0400",
+    "prompt_tokens": 3765,
+    "output_tokens": 326,
+    "seconds": 34.8
+  }
+}

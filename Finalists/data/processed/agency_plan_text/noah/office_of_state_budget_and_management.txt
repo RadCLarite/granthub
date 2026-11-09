@@ -1,0 +1,323 @@
+=== PAGE 1 ===
+NC Office of State Budget & Management
+Strategic Plan
+2025 – 2029
+
+
+
+
+Sept 12, 2025
+
+NC Office of State Budget & Management
+strategicplanning@obsm.nc.gov
+
+
+
+
+                                         1
+
+=== PAGE 2 ===
+Table of Contents
+
+A.   Introduction                                                                              3
+
+B.   Mission, Vision, & Values                                                                 3
+
+     1.   Mission                                                                              3
+
+     2.   Vision                                                                               3
+
+     3.   Values                                                                               3
+
+C.   Goals, Objectives, & Performance Measures                                                 4
+
+     1.   Use evidence to allocate resources for programs and policies that deliver results.   4
+
+     2.   Advance technology and new tools to improve efficiency of operations.                4
+
+     3.   Ensure a team culture that thrives in uncertainty and solves problems creatively.    6
+
+     4.  Foster a statewide network of employees with expertise in ﬁnancial and performance
+     management.                                                                               7
+
+D.   Priority Questions                                                                        8
+
+
+
+
+                                                                                               2
+
+=== PAGE 3 ===
+A. Introduction
+The North Carolina Office of State Budget & Management (OSBM) delivers quality budget
+development and management services for the state. As part of this work, our team:
+
+   •    Provides budget and policy analysis counsel to the Governor, state agencies, and
+        General Assembly.
+   •    Works closely with agencies to manage the budget enacted by the General
+        Assembly and ensure a balanced budget.
+   •    Assimilates and analyzes economic and demographic data to help inform decisions
+        and maintain a balanced budget.
+   •    Provides government agencies with services to support stewardship of public
+        resources and prudent decision-making. These include tools to improve operational
+        excellence through the generation and use of evidence, such as strategic planning,
+        performance management, and impact analysis for proposed rules.
+   •    Supports ﬁnancial control structures such as grants management, internal audits,
+        and the oversight committee for retired state employees' health beneﬁts.
+   •    Serves as a home for the state fraud hotline, where any citizen or employee of the
+        state can report suspected misuse of public resources
+
+
+B. Mission, Vision, & Values
+       1. Mission
+          Ensure the effective stewardship of public resources by providing rigorous
+          analysis and leadership.
+
+       2. Vision
+          A North Carolina where money, evidence, and management align to improve
+          outcomes and deliver results.
+
+       3. Values
+          a.   Integrity: We honor facts, ethics, and accountability in every decision.
+          b.   Teamwork: We solve hard problems together—across roles and across
+               agencies.
+          c.   Innovation: We simplify, automate, and adapt to deliver better, faster.
+          d.   Excellence: We set clear standards and continuously improve service
+               quality.
+          e.   Curiosity: We question, test, and learn—so evidence drives action.
+
+
+
+                                                                                          3
+
+=== PAGE 4 ===
+C. Goals, Objectives, & Performance Measures
+   1. Use evidence to allocate resources for programs and policies that deliver
+      results.
+                                                     Performance Measures
+     Objective 1: By Aug 31, 2026, and annually      • % budget reviewed for
+     thereafter, 10% of recurring budget reviewed      evidence
+     for evidence of efficiency and effectiveness.   • # budget revisions
+     Objective 2: By April 1, 2027, 80% of change    • % budget revisions sent back
+     budget requests describe, with sufficient         to agencies
+     evidentiary justification, the predicted        • # evidence trainings &
+     outputs, outcomes, and causal impacts if the      attendance stats
+     request is funded.                              • $ savings per internal audit
+     Objective 3: By Aug 1, 2027, 90% of             • % of agencies with public
+     government employees involved in budget           strategic plans
+     development agree or strongly agree that        • % agencies with Priority
+     evidence is becoming more available over          Questions in strategic plans
+     time, to inform how they allocate funding.      • % Priority Questions answered
+
+     Objective 4: By Dec 31, 2027, 90% of agencies • # projects on NC Project Portal
+     are engaged with at least one OSBM            • Annually internal audit
+     “operational excellence” tool (e.g. Priority    identiﬁed $2M+ in efficiencies
+     Questions, Performance Management               or cost avoidance
+     Academy, Certified Budget Professional
+     Management Program, etc.)
+     Objective 5: By Dec 31, 2027, eliminate
+     requirement OSBM director sign off on RIFs
+     (and other small dollar review items)
+     Objective 6: By March 31, 2026, create a        •   # projects described
+     portfolio of evidence success stories.
+
+
+
+   2. Advance technology and new tools to improve efficiency of operations.
+                                                     Performance Measures
+     Objective 1: By July 1, 2027, implement new     Phase 0: Project Initiation,
+     budget system.                                  Contracts, Security, High-Level
+                                                     Design
+                                                     •   Milestone Completion Rate:
+                                                         % of foundational tasks (e.g.,
+                                                         contract execution, security
+
+
+
+                                                                                          4
+
+=== PAGE 5 ===
+                                                   assessment, high-level
+                                                   design) completed on
+                                                   schedule
+                                               Phase 1: Base Budget
+                                               Functionality
+                                               •   Finalization Timeliness: % of
+                                                   Base Budget totals ﬁnalized
+                                                   by target date after WSI and
+                                                   revision adjustments are
+                                                   complete
+                                               Phase 2: Core Budget
+                                               Functionality + Enhancements
+                                               •   Cycle Time Reduction: %
+                                                   decrease in time to complete
+                                                   a budget revision compared
+                                                   to legacy IBIS system with a
+                                                   data interface to NCFS.
+                                               •   Transaction Success Rate: %
+                                                   of certiﬁcations, revisions,
+                                                   and journal entries processed
+                                                   without error
+                                               Phase 3: Allotments, Budget
+                                               Book, Strategic Planning, Misc.
+                                               Forms
+                                               •   Cycle Time Reduction: %
+                                                   decrease in time to complete
+                                                   an allotment compared to
+                                                   legacy IBIS system with a
+                                                   data interface to NCFS
+                                               Cross-Phase Transition Measures
+                                               (applies after each phase)
+                                               •   Training Completion Rate
+                                               •   Post-Go-Live Issue Rate
+                                               •   User Satisfaction Score
+                                               •   Data Migration Accuracy
+Objective 2: By Dec 31, 2027, automate 3       • Estimated staff hours saved
+high-volume workﬂows (validations, extracts,   • % of staff report that they have
+reconciliations, routing) that together save     used GenAI to improve the
+≥4,000 staff hours/year.                         quality of their work and/or to
+                                                 save time
+
+
+
+
+                                                                                    5
+
+=== PAGE 6 ===
+  Objective 3: By August 31, 2026, support the     •    Survey results of % users
+  implementation of improved ﬁnancial                   agreeing or strongly agreeing
+  reporting by partnering with OSC and Oracle to        the reports are useful and
+  guide the development of a new reporting tool         efficient
+  that enables ad-hoc reporting and includes
+  both budget and accounting outputs.
+  Objective 4: By July 1, 2026, there is a state   • State contract implemented
+  term contract for Grants Systems.
+  Objective 5: (ongoing) Curate OSBM’s             • % of staff who agree or
+  SharePoint site to adhere to best practices of     strongly agree that SharePoint
+  document organization and make it easy for         is well organized and it’s easy
+  employees to ﬁnd needed information quickly.       to ﬁnd documents
+
+  Objective 6: By Dec 31, 2026, implement          • 100% of HR functional area
+  Workday phase 1.                                     processes (e.g. Point of
+                                                       Contact, Security, I-9,
+                                                       Recruiting and Non-Recruiting)
+                                                       are documented
+  Objective 7: Implement uniform system of         • Uniform system implemented
+  budgeting federal funds across agencies, as
+  part of roll out of new budget.
+
+3. Ensure a team culture that thrives in uncertainty and solves problems
+   creatively.
+                                                   Performance Measures
+  Objective 1: Empower staff to be decision-       • # staff trainings; survey ratings
+  makers.                                            of training value
+                                                   • By 2027, 90% of OSBM
+                                                     employees report they have
+                                                     learned or improved job-
+                                                     relevant skills in the past 12
+                                                     months
+  Objective 2: Maintain positive work              • Median happiness at work
+  environment and empower life-work harmony.         rating
+                                                   • % who agree or strongly agree
+                                                     they are able to maintain work-
+                                                     life harmony
+                                                   • Descriptive stats of use of
+                                                     vacation time
+
+
+
+
+                                                                                         6
+
+=== PAGE 7 ===
+ Objective 3: Perform a quarterly SWOT            • SWOT performed quarterly
+ analysis to monitor and prepare for potential
+ disasters or other shocks to budget
+ management.
+ Objective 4: By November 31, 2025,               • Survey implemented; analyze
+ implement short pulse surveys (10 or fewer         and use results
+ questions) for all staff
+
+ Objective 5: NCPRO closes office by June 30,     • # of NCPRO staff successfully
+ 2026. Remaining work (and staff) are               offboarded from OSBM and
+ successfully transitioned to OSBM or other         moved to Commerce
+ employment for full closure of federal
+ pandemic funds by April 30, 2027.
+ Objective 6: By June 30, 2026, stand up a
+ federal funds team and structure, in
+ conjunction with NCPRO wind down and
+ changing federal landscape.
+
+ Objective 7: Enhance recruitment efforts by      •   Average number of days from
+ ensuring timely, strategic job postings and by       job posting to offer
+ leveraging sourcing channels to attract              acceptance
+ qualiﬁed candidates.                             •   Percent of new hires still
+                                                      employed after two years.
+                                                  •   Percent of authorized
+                                                      positions unﬁlled for more
+                                                      than 90 days
+
+4. Foster a statewide network of employees with expertise in ﬁnancial and
+   performance management.
+                                                  Performance Measures
+ Objective 1: (ongoing) Empower state             • # Certiﬁed Budget
+ employees with performance management              Professional Program alumni;
+ techniques and tools for use in their daily        % alumni reporting using
+ work.                                              knowledge & skills
+
+ Objective 2: By Dec 31, 2027, host 2 OSBM      • # Performance Management
+                                                  Academy alumni; % alumni
+ events per month (on average) that promote
+                                                  reporting using knowledge &
+ operational excellence and collectively engage   skills
+ over 1,000 state employees annually.
+                                                  • # PMA events & attendee
+ Objective 3: By March 1, 2026, launch PMA          survey stats
+ (aka IMPACT) Fellowship Program, tackling at     • # PMA tools and trainings
+ least 3 Priority Questions.                        available online
+
+
+
+
+                                                                                    7
+
+=== PAGE 8 ===
+     Objective 4: By Oct 1, 2026, stand up ﬁnancial   • PMA/Impact Fellowship
+     professional leadership training/program (with     launched
+     SOG, OSHR).                                      • # internal audit trainings &
+                                                        attendee survey stats
+     Objective 5: Stand up ﬁnancial/budget
+                                                      • # First Friday trainings &
+     employee pipeline program with SOG, Auditor,
+                                                        attendee survey stats
+     OSHR, Controller, LGC
+                                                      • # OSBM alumni who assumed
+                                                        a higher leadership position
+                                                        related to ﬁnancial and
+                                                        performance management
+                                                        excellence.
+                                                      • # agency staff trained/coached
+                                                        on regulatory impact analysis
+
+
+D. Priority Questions
+   1.   How can artiﬁcial intelligence be used to improve the efficiency and quality of
+        budget development and execution workﬂows?
+   2.   How can we best design the routines and tools of the budgeting process to
+        facilitate the usefulness of evidence in operations and decision-making?
+   3.   How can we best develop employees so that they are equipped to excel at their
+        OSBM duties and be leaders across state government?
+   4.   What proportion of the budget has a known body of research evidence
+        describing the likelihood that the funded program or policy is achieving intended
+        outputs, outcomes, and causal impacts?
+   5.   What impacts, if any, has the roll-out of Microsoft CoPilot had on productivity?
+   6.   How many legislative reports are agencies required to create and what is the
+        estimated staff hours required?
+   7.   Should the state deploy a statewide employee viewpoint survey; how would it
+        operate and what is the cost-beneﬁt analysis?
+
+
+
+
+                                                                                         8
+

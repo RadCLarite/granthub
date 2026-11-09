@@ -1,0 +1,40 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "Eligible applicants are entities eligible to apply for the Section 5310 Program including: State departments of transportation, designated recipients, or local governmental entities that operate a public transportation service, or their eligible subrecipients including private non-profit organizations.",
+    "program_domain": "D06",
+    "owning_division": "Other state agency",
+    "required_capabilities": [
+      "transportation_services",
+      "subrecipient_network_management"
+    ],
+    "requires_subrecipient_network": true,
+    "evaluation_required": false,
+    "is_capital_project": true,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "none",
+    "target_population": "older_adults",
+    "alignment_dhhs": {
+      "level": "partial",
+      "plan_row": "G1.O3",
+      "rationale": "The opportunity aims to improve the coordination of transportation services for older adults, which aligns with the objective to mitigate barriers to access of health services."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity does not directly align with any DMVA strategic plan objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v2",
+    "created": "2026-09-29T09:35:04-0400",
+    "prompt_tokens": 3248,
+    "output_tokens": 312,
+    "seconds": 32.3
+  }
+}

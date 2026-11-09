@@ -1,0 +1,17 @@
+metric,n,pct
+Total opportunities classified,1662,100.0%
+Likely state-administrable (Yes),60,3.6%
+Not state-administrable (No),830,49.9%
+Administrability unclear / possible,772,46.5%
+Research mechanism flagged,698,42.0%
+No domain keyword match,1029,61.9%
+Single-domain match,409,24.6%
+Multi-domain match (2+),224,13.5%
+High domain confidence,0,0.0%
+Medium domain confidence,574,34.5%
+Low / no domain confidence,1088,65.5%
+Flagged for manual review,1274,76.7%
+Subrecipient network flagged,732,44.0%
+Renewal or continuation flagged,120,7.2%
+Cross-division routing,171,10.3%
+Unknown division,1022,61.5%

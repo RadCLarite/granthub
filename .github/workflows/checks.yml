@@ -1,0 +1,35 @@
+name: Checks
+
+# Runs on pull requests. Builds the site from the tracked payload, scans the tool for duplicate
+# function names (a later copy silently wins), and checks the feeds parse. Deploys nothing.
+# R tests are not run here until the package list in pages.yml is confirmed on GitHub.
+on:
+  pull_request:
+    paths:
+      - "Finalists/**"
+      - "QualifierChallenge/docs/**"
+      - ".github/workflows/**"
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Duplicate function scan
+        run: python3 Finalists/app/check_dupes.py
+      - name: Build site from tracked payload
+        run: sh Finalists/app/build_pages.sh "$RUNNER_TEMP/site"
+      - name: Feeds are well formed
+        run: |
+          python3 - "$RUNNER_TEMP/site/matchmaker/feeds" <<'EOF'
+          import sys, glob, xml.dom.minidom as m
+          d = sys.argv[1]; f = glob.glob(d + "/*.atom")
+          assert f, "no feeds built"
+          for p in f: m.parse(p)
+          for p in glob.glob(d + "/*.ics"):
+              t = open(p).read(); assert t.startswith("BEGIN:VCALENDAR") and t.rstrip().endswith("END:VCALENDAR"), p
+          print("ok:", len(f), "agency feeds")
+          EOF

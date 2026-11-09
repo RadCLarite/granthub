@@ -1,0 +1,25 @@
+parses
+testing 12 with prompt v3 
+Labeling 12 opportunities with qwen2.5:14b
+  10/12
+# A tibble: 12 × 10
+   t                                                  adm2  adm3  dom2  dom3  dhhs2   dhhs3   dmva3  eval2 eval3
+   <chr>                                              <lgl> <lgl> <chr> <chr> <chr>   <chr>   <chr>  <lgl> <lgl>
+ 1 "Strengthening Global Health Security through loc" TRUE  FALSE D08   none  partial none    none   TRUE  TRUE 
+ 2 "Department of Interior Wildland Fire Service BLM" TRUE  FALSE none  none  partial none    none   FALSE FALSE
+ 3 "FY26 Bureau of Land Management Abandoned Mine La" TRUE  FALSE D08   none  partial none    none   FALSE FALSE
+ 4 "Fiscal Year 2026 National Incident Management Sy" TRUE  TRUE  D08   none  partial partial none   TRUE  FALSE
+ 5 "BJA FY 2026 Enhancing Security Measures for Hous" TRUE  FALSE none  none  partial none    none   FALSE FALSE
+ 6 "Emerging Infections Network - Research for Preve" TRUE  TRUE  D08   D08   partial partial none   TRUE  TRUE 
+ 7 "Seattle FY 2021 – FY 2023 EDA Planning and Local" NA    FALSE <NA>  none  <NA>    none    none   NA    FALSE
+ 8 "Title X Family Planning Services Grants"          TRUE  TRUE  D03   D03   strong  strong  none   TRUE  FALSE
+ 9 "BJA FY 2026 Comprehensive Opioid, Stimulant, and" TRUE  TRUE  D02   D02   strong  strong  none   TRUE  FALSE
+10 "Fingerprinting Infrastructure Modernization for " TRUE  TRUE  D04   D04   partial partial none   TRUE  FALSE
+11 "Personal Responsibility Education Innovative Str" TRUE  TRUE  D04   D04   strong  partial none   TRUE  TRUE 
+12 "State Veterans Home Construction Grant Program"   NA    TRUE  <NA>  D06   <NA>    none    strong NA    FALSE
+
+real	14m25.687s
+user	0m3.092s
+sys	0m1.599s
+
+[exited with code 0]

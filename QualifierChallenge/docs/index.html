@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NC Grants Explorer</title>
+<meta name="description" content="Which federal grants can a North Carolina state agency actually act on? A triage tool that sorts opportunities by whose signature is needed.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23E6D6A8'/%3E%3Cpath d='M6 22c4-6 6 2 9-4s5 3 11-3' stroke='%2323408E' stroke-width='2.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light;
+  --page: #F2F3F0; --sheet: #FFFFFF; --ink: #1E2226; --ink-2: #4B5158; --ink-3: #737980;
+  --line: #D9DCD6; --line-2: #B9BDB5;
+  --pen: #23408E; --pen-soft: #E3E8F4;
+  --manila: #E6D6A8; --manila-line: #C9B57E; --manila-ink: #3B3320;
+  --t1: #23408E; --t2: #B7791F; --t3: #A63D2F; --t4: #6E7479;
+  --font: "Libre Franklin", "Franklin Gothic Book", "Franklin Gothic", "Helvetica Neue", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #181B1F; --sheet: #1F2328; --ink: #E7E8E4; --ink-2: #B3B7B1; --ink-3: #8B9089;
+    --line: #30353B; --line-2: #464C53;
+    --pen: #93AEF0; --pen-soft: #26304A;
+    --manila: #3A3424; --manila-line: #5A5036; --manila-ink: #EFE4C4;
+    --t1: #7F9DE8; --t2: #D9A04A; --t3: #D8705F; --t4: #9AA0A5;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #181B1F; --sheet: #1F2328; --ink: #E7E8E4; --ink-2: #B3B7B1; --ink-3: #8B9089;
+  --line: #30353B; --line-2: #464C53;
+  --pen: #93AEF0; --pen-soft: #26304A;
+  --manila: #3A3424; --manila-line: #5A5036; --manila-ink: #EFE4C4;
+  --t1: #7F9DE8; --t2: #D9A04A; --t3: #D8705F; --t4: #9AA0A5;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--page); color: var(--ink); font-family: var(--font); font-size: 17px; line-height: 1.6; font-weight: 400; }
+a { color: var(--pen); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--pen); outline-offset: 3px; }
+.wrap { max-width: 1060px; margin: 0 auto; padding: 0 28px; }
+p { margin: 0 0 14px; }
+.muted { color: var(--ink-2); }
+.small-note { font-size: 14px; color: var(--ink-3); }
+
+/* Top bar */
+.mast .wrap { display: flex; align-items: center; gap: 24px; padding-top: 20px; padding-bottom: 20px; flex-wrap: wrap; }
+.mast .name { font-weight: 800; font-size: 18px; letter-spacing: -.01em; color: var(--ink); text-decoration: none; }
+.mast nav { display: flex; gap: 22px; flex-wrap: wrap; font-size: 15px; margin-left: auto; }
+.mast nav a { color: var(--ink-2); text-decoration: none; }
+.mast nav a:hover { color: var(--pen); }
+.mast nav a.cta { color: var(--pen); font-weight: 600; }
+
+/* Hero: headline on the left, the routing slip on the right */
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: 56px; align-items: start; padding-top: 48px; padding-bottom: 88px; }
+.context { font-size: 15px; color: var(--ink-3); margin: 0 0 20px; }
+h1 { font-weight: 800; font-size: clamp(36px, 5.2vw, 60px); line-height: 1.04; letter-spacing: -.028em; margin: 0 0 26px; }
+.lead { font-size: 18.5px; line-height: 1.6; color: var(--ink-2); max-width: 58ch; margin: 0 0 30px; font-weight: 300; }
+.actions { display: flex; flex-wrap: wrap; gap: 14px 20px; align-items: center; }
+.btn { display: inline-block; padding: 12px 20px; font-weight: 600; font-size: 16px; text-decoration: none; border-radius: 3px; }
+.btn.solid { background: var(--pen); color: #fff; }
+.btn.solid:hover { background: var(--ink); }
+.btn.solid { color: var(--sheet); }
+.btn.plain { padding-left: 0; padding-right: 0; color: var(--pen); text-decoration: underline; text-underline-offset: 4px; }
+
+.slip { background: var(--manila); color: var(--manila-ink); padding: 26px 28px 22px; transform: rotate(1.1deg); margin-top: 8px;
+  box-shadow: 0 1px 0 var(--manila-line), 0 18px 30px -22px rgba(40, 30, 10, .45); position: relative; }
+.slip-title { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; border-bottom: 2px solid var(--manila-ink); padding-bottom: 8px; }
+.slip-title b { font-size: 21px; font-weight: 800; letter-spacing: -.01em; }
+.slip-title span { font-size: 13px; }
+.slip-re { font-size: 14px; padding: 10px 0 12px; border-bottom: 1px solid var(--manila-line); }
+.slip-re em { font-style: normal; color: var(--pen); font-weight: 500; }
+.slip table { width: 100%; border-collapse: collapse; font-size: 15px; }
+.slip th { text-align: left; font-weight: 500; font-size: 12.5px; padding: 10px 8px 4px 0; color: color-mix(in srgb, var(--manila-ink) 75%, transparent); }
+.slip th.n, .slip td.n { text-align: right; padding-right: 0; }
+.slip td { padding: 11px 8px 9px 0; border-bottom: 1px solid var(--manila-line); vertical-align: baseline; }
+.slip td.who b { display: block; font-weight: 600; }
+.slip td.who span { font-size: 13px; }
+.slip td.n { font-size: 30px; font-weight: 300; color: var(--pen); font-variant-numeric: tabular-nums lining-nums; line-height: 1; white-space: nowrap; }
+.slip td.box { width: 22px; }
+.slip td.box i { display: inline-block; width: 12px; height: 12px; border: 1.5px solid var(--manila-ink); background: var(--c); vertical-align: -1px; }
+.slip tr.rest td { border-bottom: 0; color: color-mix(in srgb, var(--manila-ink) 80%, transparent); }
+.slip tr.rest td.n { font-size: 20px; color: inherit; }
+.slip tr.rest td.box i { background: transparent; border-style: dashed; }
+.slip-foot { font-size: 12.5px; margin-top: 10px; }
+
+/* Sections */
+section.chapter { background: var(--sheet); padding: 72px 0 80px; border-top: 1px solid var(--line); }
+section.chapter.alt { background: var(--page); }
+.chapter-grid { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 32px; }
+.phase { font-size: 15px; color: var(--pen); font-weight: 600; padding-top: 10px; }
+h2 { font-weight: 700; font-size: clamp(26px, 3.2vw, 36px); line-height: 1.15; letter-spacing: -.02em; margin: 0 0 16px; max-width: 26ch; }
+.intro { color: var(--ink-2); max-width: 64ch; margin-bottom: 36px; }
+h3 { font-size: 19px; font-weight: 700; letter-spacing: -.01em; margin: 44px 0 14px; }
+h3:first-child { margin-top: 0; }
+@media (max-width: 860px) {
+  .hero .wrap { grid-template-columns: 1fr; gap: 44px; padding-bottom: 64px; }
+  .slip { transform: none; }
+  .chapter-grid { grid-template-columns: 1fr; gap: 4px; }
+  .phase { padding-top: 0; }
+  .mast nav { margin-left: 0; gap: 16px; }
+}
+
+/* Criteria as a checklist */
+ul.criteria { list-style: none; padding: 0; margin: 0; max-width: 68ch; }
+ul.criteria li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 10px; padding: 10px 0; }
+ul.criteria li::before { content: ""; width: 16px; height: 16px; border: 1.5px solid var(--ink-2); margin-top: 5px; }
+ul.criteria b { font-weight: 600; }
+ul.criteria span { color: var(--ink-2); }
+
+/* Funnel drawn to scale */
+.funnel { margin: 6px 0 0; max-width: 780px; }
+.bar { display: grid; grid-template-columns: 86px minmax(0, 1fr); gap: 16px; align-items: center; padding: 8px 0; }
+.bar .n { font-size: 28px; font-weight: 300; text-align: right; font-variant-numeric: tabular-nums lining-nums; line-height: 1; }
+.bar .track { position: relative; }
+.bar .fill { height: 12px; background: var(--line-2); width: var(--w); min-width: 3px; }
+.bar .l { font-size: 15px; color: var(--ink-2); margin-top: 6px; }
+.bar.hi .fill { background: var(--pen); }
+.bar.hi .n { color: var(--pen); font-weight: 600; }
+
+/* Tables */
+.table-wrap { overflow-x: auto; }
+table.data { width: 100%; border-collapse: collapse; font-size: 15px; }
+table.data th { text-align: left; font-size: 13.5px; font-weight: 600; color: var(--ink-2); padding: 0 14px 10px 0; border-bottom: 2px solid var(--ink); white-space: nowrap; }
+table.data td { padding: 14px 14px 14px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+table.data .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+td .t { font-weight: 600; }
+td.opp { min-width: 280px; width: 38%; }
+td.opp a { color: var(--ink); text-decoration-color: var(--line-2); }
+td.opp a:hover { color: var(--pen); text-decoration-color: currentColor; }
+td .sub { display: block; font-size: 13.5px; color: var(--ink-3); }
+.why { color: var(--ink-2); font-size: 14.5px; min-width: 260px; }
+.pile { white-space: nowrap; font-weight: 600; font-size: 14px; }
+.pile i { display: inline-block; width: 10px; height: 10px; margin-right: 8px; vertical-align: 0; background: var(--c); }
+.tag { font-size: 12.5px; color: var(--ink-2); background: var(--pen-soft); padding: 1px 6px; margin-left: 6px; white-space: nowrap; border-radius: 2px; }
+td.big { font-size: 22px; font-weight: 300; }
+
+@media (max-width: 640px) {
+  .table-wrap { overflow: visible; }
+  table.data, table.data tbody, table.data tr, table.data td { display: block; width: 100%; }
+  table.data thead { display: none; }
+  table.data tbody tr { padding: 14px 0; border-bottom: 1px solid var(--line); }
+  table.data td { border: 0; padding: 2px 0; text-align: left; }
+  td.opp, .why { min-width: 0; width: 100%; }
+  table.data td[data-label]::before { content: attr(data-label) ": "; font-size: 13.5px; font-weight: 600; color: var(--ink-3); }
+  td.pile::before, td.opp::before, td.why::before { display: none; }
+}
+
+/* Two columns of notes */
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 8px; }
+@media (max-width: 760px) { .cols { grid-template-columns: 1fr; gap: 12px; } }
+ul.plain { padding-left: 18px; margin: 0; }
+ul.plain li { margin: 0 0 12px; color: var(--ink-2); }
+ul.plain li b { color: var(--ink); font-weight: 600; }
+.quote { margin: 22px 0; padding: 18px 20px; background: var(--manila); color: var(--manila-ink); font-size: 18px; line-height: 1.45; }
+.quote cite { display: block; font-style: normal; font-size: 13.5px; margin-top: 10px; opacity: .85; }
+
+/* Decisions */
+.decisions { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; max-width: 760px; }
+.decisions li { padding: 22px 0; border-bottom: 1px solid var(--line); }
+.decisions li:first-child { border-top: 2px solid var(--ink); }
+.decisions .who { font-size: 14.5px; color: var(--pen); font-weight: 600; }
+.decisions b { display: block; font-size: 19px; font-weight: 700; margin: 4px 0 6px; letter-spacing: -.01em; }
+.decisions span { color: var(--ink-2); }
+
+/* Where to go next */
+.next { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 36px; }
+.next a { text-decoration: none; color: var(--ink); display: block; }
+.next .h { font-size: 21px; font-weight: 700; letter-spacing: -.015em; color: var(--pen); text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
+.next a:hover .h { text-decoration-thickness: 2px; }
+.next .d { font-size: 15px; color: var(--ink-2); margin-top: 8px; }
+@media (max-width: 760px) { .next { grid-template-columns: 1fr; gap: 24px; } }
+
+footer { padding: 44px 0 64px; font-size: 14px; color: var(--ink-3); border-top: 1px solid var(--line); }
+footer p { max-width: 80ch; }
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="wrap">
+    <a class="name" href="#top">NC Grants Explorer</a>
+    <nav aria-label="Sections">
+      <a href="#understand">Who it's for</a>
+      <a href="#solve">How it works</a>
+      <a href="#evaluate">How sure we are</a>
+      <a href="#mobilize">What to do next</a>
+      <a class="cta" href="tool.html">Open the tool</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <p class="context">A Solve-A-Thon 2026 project for NC DHHS</p>
+        <h1>Finding the grant was never the hard part. Knowing who has to say yes is.</h1>
+        <p class="lead">Every week, hundreds of federal funding opportunities post on Grants.gov. A grant writer at the
+          NC Department of Health and Human Services can't read them all, and most of what they could read isn't theirs
+          to win. We built a tool that sorts every opportunity by whose signature it needs: the writer's,
+          a supervisor's, or the secretary's or legislature's. Each result shows the reason in plain language.</p>
+        <div class="actions">
+          <a class="btn solid" href="tool.html">Try the tool</a>
+          <a class="btn plain" href="notebook.html">Read how we built it</a>
+        </div>
+        <p class="small-note" style="margin-top:16px">Works in any browser, nothing to install.</p>
+      </div>
+
+      <div class="slip" role="figure" aria-label="Routing slip: how many opportunities need each person's sign-off">
+        <div class="slip-title"><b>Routing slip</b><span>NC DHHS grants</span></div>
+        <div class="slip-re">Re: <em>1,662 federal opportunities</em> from Grants.gov, pulled August 18, 2026</div>
+        <table>
+          <thead><tr><th colspan="2">Needs sign-off from</th><th class="n">Items</th></tr></thead>
+          <tbody>
+            <tr><td class="box"><i style="--c:var(--t1)"></i></td><td class="who"><b>The grant writer</b><span>Start today, no approval needed</span></td><td class="n">27</td></tr>
+            <tr><td class="box"><i style="--c:var(--t2)"></i></td><td class="who"><b>A supervisor or division</b><span>Match approval, staff or a partner</span></td><td class="n">24</td></tr>
+            <tr><td class="box"><i style="--c:var(--t3)"></i></td><td class="who"><b>The secretary or legislature</b><span>Appropriation, construction, designation</span></td><td class="n">3</td></tr>
+            <tr><td class="box"><i style="--c:var(--t4)"></i></td><td class="who"><b>A university, with DHHS as partner</b><span>Research awards</span></td><td class="n">366</td></tr>
+            <tr class="rest"><td class="box"><i></i></td><td class="who"><b>Set aside</b><span>Not DHHS work, or not this cycle</span></td><td class="n">1,242</td></tr>
+          </tbody>
+        </table>
+        <p class="slip-foot">Opening scenario: about a month of runway, supervisor approval for match, one staff member.</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="chapter" id="understand">
+    <div class="wrap chapter-grid">
+      <div class="phase">Understand</div>
+      <div>
+        <h2>Built for one person: the DHHS grant writer who can't commit matching funds alone.</h2>
+        <p class="intro">We started by talking to someone who writes grants, then checked what we heard against how state grants
+          offices and federal reviewers actually decide. Our user is a mid-level grants coordinator inside NC DHHS, not
+          leadership. They get maybe half an hour a week to triage around a hundred postings. An application
+          takes weeks, and any money the state has to put in needs a supervisor's approval.</p>
+
+        <h3>What a good match means to them. We wrote these down before opening the data.</h3>
+        <ul class="criteria">
+          <li><div><b>We can actually be the applicant.</b> <span>Not a research grant that expects a university professor to lead it.</span></div></li>
+          <li><div><b>We have what it takes to run it, or know who we'd partner with.</b> <span>DHHS works on housing, for example, but doesn't own housing. That means a partner, and a partner means time.</span></div></li>
+          <li><div><b>There is enough runway.</b> <span>The deadline that matters is internal sign-off, not the writing.</span></div></li>
+          <li><div><b>The award justifies the staff weeks.</b> <span>An application costs about the same effort at $200,000 as at $5 million.</span></div></li>
+          <li><div><b>The match is survivable at the writer's level of authority.</b> <span>Whoever has to approve the state's share decides which pile it belongs in.</span></div></li>
+        </ul>
+
+        <h3>Why this matters: the haystack is mostly hay.</h3>
+        <div class="funnel" role="list">
+          <div class="bar" role="listitem"><div class="n">1,662</div><div class="track"><div class="fill" style="--w:100%"></div><div class="l">federal opportunities in the Grants.gov file we were given</div></div></div>
+          <div class="bar" role="listitem"><div class="n">296</div><div class="track"><div class="fill" style="--w:17.81%"></div><div class="l">are open and list state governments as eligible</div></div></div>
+          <div class="bar" role="listitem"><div class="n">272</div><div class="track"><div class="fill" style="--w:16.37%"></div><div class="l">of those are NIH research grants a state agency can't lead</div></div></div>
+          <div class="bar hi" role="listitem"><div class="n">6</div><div class="track"><div class="fill" style="--w:0.36%"></div><div class="l">posted, non-research opportunities that are genuinely DHHS work</div></div></div>
+        </div>
+        <p class="muted" style="margin-top:22px; max-width:64ch">Most of what a DHHS writer can pursue is still a forecast, not yet
+          posted. So the tool includes forecasts, because that's where the preparation time is.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter alt" id="solve">
+    <div class="wrap chapter-grid">
+      <div class="phase">Solve</div>
+      <div>
+        <h2>Sort by who has to sign off, not by a score.</h2>
+        <p class="intro">A ranked list tells you what looks good. It doesn't tell you what you can act on. We compare what each
+          opportunity requires (matching money, construction, a formal designation, services the agency doesn't run)
+          with what the agency actually controls. Short written rules then put it in a pile. Anyone can read the rules,
+          and anyone can change them.</p>
+
+        <div class="table-wrap">
+          <table class="data">
+            <thead><tr><th>Pile</th><th>Who has to say yes</th><th>What puts it there</th><th class="num">DHHS today</th></tr></thead>
+            <tbody>
+              <tr><td data-label="Pile" class="pile" style="--c:var(--t1)"><i></i>Tier 1</td><td data-label="Who has to say yes">The writer</td><td data-label="What puts it there" class="why">Nothing blocks it: no state match, capabilities in-house, fits current staff.</td><td data-label="DHHS today" class="num big">27</td></tr>
+              <tr><td data-label="Pile" class="pile" style="--c:var(--t2)"><i></i>Tier 2</td><td data-label="Who has to say yes">A supervisor or division</td><td data-label="What puts it there" class="why">Match needing approval, a partner agency, subgrants to manage, or more staff time.</td><td data-label="DHHS today" class="num big">24</td></tr>
+              <tr><td data-label="Pile" class="pile" style="--c:var(--t3)"><i></i>Tier 3</td><td data-label="Who has to say yes">The secretary or legislature</td><td data-label="What puts it there" class="why">A large state match (an appropriation), a construction project, or a formal state designation.</td><td data-label="DHHS today" class="num big">3</td></tr>
+              <tr><td data-label="Pile" class="pile" style="--c:var(--t4)"><i></i>Tier 4</td><td data-label="Who has to say yes">A university, with DHHS as partner</td><td data-label="What puts it there" class="why">Research awards. We keep them visible rather than deleting them.</td><td data-label="DHHS today" class="num big">366</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="small-note" style="margin-top:12px">Counts are for the tool's opening scenario. Change the runway, match or staffing in the tool,
+          in plain English, and the piles re-sort.</p>
+
+        <h3>What that looks like with real opportunities</h3>
+        <div class="table-wrap">
+          <table class="data">
+            <thead><tr><th>Pile</th><th>Opportunity</th><th class="num">Deadline</th><th class="num">Award ceiling</th><th>Why it's in this pile</th></tr></thead>
+            <tbody>
+              <tr><td data-label="Pile" class="pile" style="--c:var(--t1)"><i></i>Tier 1</td><td data-label="Opportunity" class="opp"><a class="t" href="https://simpler.grants.gov/opportunity/2e580529-c869-47d0-9aab-7d0e239ed5e8">Integrated Viral Hepatitis Surveillance, Testing, Treatment, and Prevention Programs for Health Departments (IVH-STTP)</a><span class="tag">forecast</span><span class="sub">HHS-CDC-NCHHSTP</span></td><td data-label="Deadline" class="num">Feb 16, 2027</td><td data-label="Award ceiling" class="num">$7.5M</td><td data-label="Why it&#x27;s in this pile" class="why">Nothing blocks it: required capabilities are in-house or contracted, no cost share, about 0.5 FTE fits your staff.</td></tr>
+              <tr><td data-label="Pile" class="pile" style="--c:var(--t1)"><i></i>Tier 1</td><td data-label="Opportunity" class="opp"><a class="t" href="https://simpler.grants.gov/opportunity/c30fddfd-2094-4cf0-ba21-04b6736fc755">Fiscal Year (FY) Service Area Competition (SAC)</a><span class="tag">forecast</span><span class="sub">HHS-HRSA</span></td><td data-label="Deadline" class="num">Dec 30, 2026</td><td data-label="Award ceiling" class="num">$22M</td><td data-label="Why it&#x27;s in this pile" class="why">Nothing blocks it: required capabilities are in-house or contracted, no cost share, about 0.25 FTE fits your staff.</td></tr>
+              <tr><td data-label="Pile" class="pile" style="--c:var(--t1)"><i></i>Tier 1</td><td data-label="Opportunity" class="opp"><a class="t" href="https://simpler.grants.gov/opportunity/51fa7e21-beca-497f-a0f1-bf175382f77f">Fiscal Year (FY) 2027 Service Area Competition (SAC)</a><span class="tag">forecast</span><span class="sub">HHS-HRSA</span></td><td data-label="Deadline" class="num">Dec 30, 2026</td><td data-label="Award ceiling" class="num">$19.2M</td><td data-label="Why it&#x27;s in this pile" class="why">Nothing blocks it: required capabilities are in-house or contracted, no cost share, about 0.25 FTE fits your staff.</td></tr>
+              <tr><td data-label="Pile" class="pile" style="--c:var(--t2)"><i></i>Tier 2</td><td data-label="Opportunity" class="opp"><a class="t" href="https://simpler.grants.gov/opportunity/42a1b238-2c19-47b4-ae58-f4a775231b78">Public Health Crisis Response Cooperative Agreement</a><span class="sub">HHS-CDC-OPHPR</span></td><td data-label="Deadline" class="num">Feb 11, 2027</td><td data-label="Award ceiling" class="num">$5M</td><td data-label="Why it&#x27;s in this pile" class="why">Needs emergency management, which DHHS reaches only through a partner; Cooperative agreement with a required evaluation.</td></tr>
+              <tr><td data-label="Pile" class="pile" style="--c:var(--t2)"><i></i>Tier 2</td><td data-label="Opportunity" class="opp"><a class="t" href="https://simpler.grants.gov/opportunity/477f11ad-e8c7-40ea-84f3-f5bec6e50e3b">Statewide Perinatal Quality Collaboratives: Improving Perinatal Care and Outcomes</a><span class="tag">forecast</span><span class="sub">HHS-CDC-NCCDPHP</span></td><td data-label="Deadline" class="num">May 3, 2027</td><td data-label="Award ceiling" class="num">$2.1M</td><td data-label="Why it&#x27;s in this pile" class="why">Needs research and rigorous evaluation, which DHHS reaches only through a partner.</td></tr>
+              <tr><td data-label="Pile" class="pile" style="--c:var(--t3)"><i></i>Tier 3</td><td data-label="Opportunity" class="opp"><a class="t" href="https://simpler.grants.gov/opportunity/8d272419-96d1-4898-9706-0d86a1e63c03">Preschool Development Grant Birth Through Five (PDG B-5) SMART Grant</a><span class="tag">forecast</span><span class="sub">HHS-ACF</span></td><td data-label="Deadline" class="num">Nov 20, 2026</td><td data-label="Award ceiling" class="num">$15M</td><td data-label="Why it&#x27;s in this pile" class="why">Cost share on a ~$15M award likely needs a state appropriation (line set at $1.0M); Requires a formal state designation (e.g. by the Governor).</td></tr>
+              <tr><td data-label="Pile" class="pile" style="--c:var(--t3)"><i></i>Tier 3</td><td data-label="Opportunity" class="opp"><a class="t" href="https://simpler.grants.gov/opportunity/f68cf378-43e2-49b9-a252-a7009c6b81cf">Maternal, Infant, and Early Childhood Home Visiting Program (MIECHV)</a><span class="tag">forecast</span><span class="sub">HHS-HRSA</span></td><td data-label="Deadline" class="num">Mar 18, 2027</td><td data-label="Award ceiling" class="num">$48.6M</td><td data-label="Why it&#x27;s in this pile" class="why">Cost share on a ~$49M award likely needs a state appropriation (line set at $1.0M); Needs workforce training and credentialing, which DHHS reaches only through a partner.</td></tr>
+              <tr><td data-label="Pile" class="pile" style="--c:var(--t3)"><i></i>Tier 3</td><td data-label="Opportunity" class="opp"><a class="t" href="https://simpler.grants.gov/opportunity/770eae58-b245-4431-a4b8-7b1aca9e917f">Title X Family Planning Services Grants</a><span class="sub">HHS-OPHS</span></td><td data-label="Deadline" class="num">Jan 11, 2027</td><td data-label="Award ceiling" class="num">$22M</td><td data-label="Why it&#x27;s in this pile" class="why">Cost share on a ~$22M award likely needs a state appropriation (line set at $1.0M); Cost share required (percentage not published): supervisor must approve match.</td></tr>
+              <tr><td data-label="Pile" class="pile" style="--c:var(--t3)"><i></i>Tier 3</td><td data-label="Opportunity" class="opp"><a class="t" href="https://simpler.grants.gov/opportunity/59462b36-6d05-4832-a628-427f72260f3d">State Veterans Home Construction Grant Program</a><span class="sub">for DMVA</span></td><td data-label="Deadline" class="num">not stated</td><td data-label="Award ceiling" class="num">$275M</td><td data-label="Why it&#x27;s in this pile" class="why">Cost share on a ~$275M award likely needs a state appropriation (line set at $1.0M); Capital construction project.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="small-note" style="margin-top:12px">A sample from our top results list. The full list, with a one-line rationale for each, is
+          <a href="downloads/top_results.xlsx" download>in Excel</a> or <a href="downloads/top_results.csv" download>CSV</a>.</p>
+
+        <h3>Reading the fine print, and who it reaches</h3>
+        <div class="cols">
+          <div>
+            <p class="muted">Match percentages almost never appear in the data: 6 of 1,662 rows. They're buried in the full
+              announcement. A free AI model running on a laptop reads each announcement and has to quote its evidence.</p>
+            <blockquote class="quote">"Projects must include financial support from sources other than Title X."
+              <cite>From the Title X Family Planning announcement. The Grants.gov data marks it "no cost sharing."</cite></blockquote>
+          </div>
+          <div>
+            <p class="muted">Open any opportunity in the tool to see where the people it serves live. It shows the top counties,
+              the split between rural, suburban and urban counties, and counts by congressional district.</p>
+            <p class="muted">Take the Veterans Home construction grant, DMVA's best match. It serves
+              618,846 North Carolina veterans, 39% of them in rural counties.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="evaluate">
+    <div class="wrap chapter-grid">
+      <div class="phase">Evaluate</div>
+      <div>
+        <h2>How sure you should be, and where we'd push back on our own work.</h2>
+        <p class="intro">Our team labeled 60 opportunities by hand without looking at the AI's answers, then compared.
+          The short version: trust the facts, check the judgment calls.</p>
+
+        <div class="table-wrap">
+          <table class="data">
+            <thead><tr><th>What the AI decides</th><th class="num">Agreed with us</th><th>What that means</th></tr></thead>
+            <tbody>
+              <tr><td data-label="What the AI decides">Is a state match required?</td><td data-label="Agreed with us" class="num big">93%</td><td data-label="What that means" class="why">Reliable. These facts decide Tier 3.</td></tr>
+              <tr><td data-label="What the AI decides">Is it a construction project?</td><td data-label="Agreed with us" class="num big">94%</td><td data-label="What that means" class="why">Reliable.</td></tr>
+              <tr><td data-label="What the AI decides">Does it need a formal state designation?</td><td data-label="Agreed with us" class="num big">94%</td><td data-label="What that means" class="why">Reliable.</td></tr>
+              <tr><td data-label="What the AI decides">Could a state agency lead it?</td><td data-label="Agreed with us" class="num big">67%</td><td data-label="What that means" class="why">Check it. Some Tier 1 items may belong in Tier 2.</td></tr>
+              <tr><td data-label="What the AI decides">How well does it fit the DHHS plan?</td><td data-label="Agreed with us" class="num big">59%</td><td data-label="What that means" class="why">Treat it as a hint. It only orders items within a pile.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="cols" style="margin-top:44px">
+          <div>
+            <h3>Where the AI was wrong, and how we caught it</h3>
+            <ul class="plain">
+              <li><b>It said yes too easily.</b> Our first version called wildfire and Sierra Leone programs "aligned with DHHS."
+                We caught it by reading its first 118 answers by hand.</li>
+              <li><b>Our fix went too far.</b> The stricter version rejected Title X, a textbook DHHS grant. Known test cases caught it.</li>
+              <li><b>It once made up evidence.</b> It wrote its own rule where a direct quote belonged. The tool shows every quote, so it was visible.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>What we didn't do, and the tradeoff</h3>
+            <ul class="plain">
+              <li><b>We didn't hand-check every Tier 1–3 result.</b> We ran out of time. The 60 blind labels are our evidence
+                instead, so a writer should confirm a Tier 1 result before committing staff.</li>
+              <li><b>The AI never picks the pile.</b> Written rules do, and every card shows why. That makes mistakes easy to see and fix.</li>
+              <li><b>Some lines are assumptions.</b> Nothing published sets the $1 million line above which a match needs an
+                appropriation. Leadership can change it in one place.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter alt" id="mobilize">
+    <div class="wrap chapter-grid">
+      <div class="phase">Mobilize</div>
+      <div>
+        <h2>Three decisions leadership could make this month.</h2>
+        <p class="intro">Not a top-ten list. Each one names who has to act and by when.</p>
+        <ul class="decisions">
+          <li><div class="who">Division of Public Health, to route it</div>
+            <b>Start on Integrated Viral Hepatitis Surveillance and Prevention.</b>
+            <span>Tier 1's top result: about $7.5 million per award (estimated), no state match, fits current staff. It's a forecast Grants.gov expects to close February 16, 2027, so Public Health can prepare before it posts.</span></li>
+          <li><div class="who">The Secretary, to decide on the match</div>
+            <b>Decide whether to fund the 30% match for the Preschool Development Grant Birth Through Five.</b>
+            <span>Tier 3: up to $15 million, needs a formal state designation. Due November 20, 2026, so the decision can't wait.</span></li>
+          <li><div class="who">Division directors, to line up partners</div>
+            <b>Put standing agreements in place for research evaluation and workforce training.</b>
+            <span>17 of the 24 opportunities waiting on a supervisor are waiting on a partner DHHS doesn't have in place.
+              Research and evaluation (9) and workforce training (6) come up most. Arranging those partners once, instead
+              of grant by grant, shortens the path for all of them.</span></li>
+        </ul>
+
+        <h3>With more time</h3>
+        <ul class="plain" style="max-width:64ch">
+          <li>Re-read announcements every week so match percentages and deadlines update themselves.</li>
+          <li>Sit down with division staff to verify what DHHS runs, contracts or partners for.</li>
+          <li>Add past award history to estimate how competitive North Carolina would be.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" style="padding:56px 0 64px">
+    <div class="wrap">
+      <div class="next">
+        <a href="tool.html"><div class="h">Sort the opportunities yourself</div>
+          <div class="d">Describe your situation ("one month, no matching funds, rural behavioral health") and watch the piles change.</div></a>
+        <a href="notebook.html"><div class="h">See every step and every number</div>
+          <div class="d">Data, charts, the exact AI prompt, the checks and the limitations. A large file, so give it a few seconds.</div></a>
+        <a href="downloads/top_results.xlsx" download><div class="h">Download the top results</div>
+          <div class="d">Every Tier 1–3 opportunity for DHHS and DMVA, with a one-line rationale each. Excel file.</div></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Data: the Grants.gov export supplied by the competition (pulled August 18, 2026, statuses re-checked on Grants.gov),
+      the NC DHHS 2023–25 and NC DMVA 2025–29 strategic plans, U.S. Census ACS 2019–2023, CDC PLACES,
+      HRSA shortage areas, OpenFEMA and NCHS overdose data.</p>
+    <p>We used AI in two ways. Claude Code helped us write the code, and a free local model (qwen2.5:14b) read the
+      announcements. Every AI label was checked as described above; the full disclosure is in the notebook.</p>
+    <p>Team: Kent Lee, Everett Foo, Marco Gullotto, Matthew Martin and Noah Goldblatt.</p>
+    <p>Updated October 22, 2026. <a href="https://github.com/KApolloL/SolveAThon_2026">Source code on GitHub</a>.</p>
+  </div>
+</footer>
+</body>
+</html>

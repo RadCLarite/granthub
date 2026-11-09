@@ -1,0 +1,148 @@
+"Notes"	"State"	"State Code"	"County"	"County Code"	Deaths	Population	Crude Rate
+	"North Carolina"	"37"	"Alamance County, NC"	"37001"	33005	3281057	1005.9
+	"North Carolina"	"37"	"Alexander County, NC"	"37003"	7652	798391	958.4
+	"North Carolina"	"37"	"Alleghany County, NC"	"37005"	3005	240495	1249.5
+	"North Carolina"	"37"	"Anson County, NC"	"37007"	6522	569028	1146.2
+	"North Carolina"	"37"	"Ashe County, NC"	"37009"	7043	579973	1214.4
+	"North Carolina"	"37"	"Avery County, NC"	"37011"	4329	389458	1111.5
+	"North Carolina"	"37"	"Beaufort County, NC"	"37013"	12445	1026877	1211.9
+	"North Carolina"	"37"	"Bertie County, NC"	"37015"	5566	441739	1260.0
+	"North Carolina"	"37"	"Bladen County, NC"	"37017"	8814	743473	1185.5
+	"North Carolina"	"37"	"Brunswick County, NC"	"37019"	24457	2325688	1051.6
+	"North Carolina"	"37"	"Buncombe County, NC"	"37021"	52799	5187111	1017.9
+	"North Carolina"	"37"	"Burke County, NC"	"37023"	20885	1976888	1056.5
+	"North Carolina"	"37"	"Cabarrus County, NC"	"37025"	30289	3825132	791.8
+	"North Carolina"	"37"	"Caldwell County, NC"	"37027"	19321	1780104	1085.4
+	"North Carolina"	"37"	"Camden County, NC"	"37029"	1662	206561	804.6
+	"North Carolina"	"37"	"Carteret County, NC"	"37031"	16425	1437432	1142.7
+	"North Carolina"	"37"	"Caswell County, NC"	"37033"	5745	513991	1117.7
+	"North Carolina"	"37"	"Catawba County, NC"	"37035"	33181	3344237	992.2
+	"North Carolina"	"37"	"Chatham County, NC"	"37037"	13099	1381908	947.9
+	"North Carolina"	"37"	"Cherokee County, NC"	"37039"	7671	589108	1302.1
+	"North Carolina"	"37"	"Chowan County, NC"	"37041"	4106	319779	1284.0
+	"North Carolina"	"37"	"Clay County, NC"	"37043"	2932	225623	1299.5
+	"North Carolina"	"37"	"Cleveland County, NC"	"37045"	24610	2140756	1149.6
+	"North Carolina"	"37"	"Columbus County, NC"	"37047"	14974	1233250	1214.2
+	"North Carolina"	"37"	"Craven County, NC"	"37049"	21582	2183335	988.5
+	"North Carolina"	"37"	"Cumberland County, NC"	"37051"	50289	6982205	720.2
+	"North Carolina"	"37"	"Currituck County, NC"	"37053"	4473	513366	871.3
+	"North Carolina"	"37"	"Dare County, NC"	"37055"	6498	747246	869.6
+	"North Carolina"	"37"	"Davidson County, NC"	"37057"	35334	3511783	1006.2
+	"North Carolina"	"37"	"Davie County, NC"	"37059"	8799	878175	1002.0
+	"North Carolina"	"37"	"Duplin County, NC"	"37061"	11628	1232986	943.1
+	"North Carolina"	"37"	"Durham County, NC"	"37063"	40517	5933326	682.9
+	"North Carolina"	"37"	"Edgecombe County, NC"	"37065"	13832	1210025	1143.1
+	"North Carolina"	"37"	"Forsyth County, NC"	"37067"	67401	7612414	885.4
+	"North Carolina"	"37"	"Franklin County, NC"	"37069"	11231	1295866	866.7
+	"North Carolina"	"37"	"Gaston County, NC"	"37071"	47115	4512808	1044.0
+	"North Carolina"	"37"	"Gates County, NC"	"37073"	2688	251489	1068.8
+	"North Carolina"	"37"	"Graham County, NC"	"37075"	2326	186694	1245.9
+	"North Carolina"	"37"	"Granville County, NC"	"37077"	11045	1244056	887.8
+	"North Carolina"	"37"	"Greene County, NC"	"37079"	4181	453941	921.0
+	"North Carolina"	"37"	"Guilford County, NC"	"37081"	86844	10592860	819.8
+	"North Carolina"	"37"	"Halifax County, NC"	"37083"	14652	1193056	1228.1
+	"North Carolina"	"37"	"Harnett County, NC"	"37085"	19199	2501257	767.6
+	"North Carolina"	"37"	"Haywood County, NC"	"37087"	15882	1286168	1234.8
+	"North Carolina"	"37"	"Henderson County, NC"	"37089"	28262	2299707	1228.9
+	"North Carolina"	"37"	"Hertford County, NC"	"37091"	6148	524917	1171.2
+	"North Carolina"	"37"	"Hoke County, NC"	"37093"	6473	1000152	647.2
+	"North Carolina"	"37"	"Hyde County, NC"	"37095"	1408	123618	1139.0
+	"North Carolina"	"37"	"Iredell County, NC"	"37097"	30192	3402738	887.3
+	"North Carolina"	"37"	"Jackson County, NC"	"37099"	7601	859418	884.4
+	"North Carolina"	"37"	"Johnston County, NC"	"37101"	26916	3630939	741.3
+	"North Carolina"	"37"	"Jones County, NC"	"37103"	2678	219837	1218.2
+	"North Carolina"	"37"	"Lee County, NC"	"37105"	11763	1228627	957.4
+	"North Carolina"	"37"	"Lenoir County, NC"	"37107"	15753	1288145	1222.9
+	"North Carolina"	"37"	"Lincoln County, NC"	"37109"	15346	1662797	922.9
+	"North Carolina"	"37"	"McDowell County, NC"	"37111"	10248	975227	1050.8
+	"North Carolina"	"37"	"Macon County, NC"	"37113"	9444	728688	1296.0
+	"North Carolina"	"37"	"Madison County, NC"	"37115"	5126	454681	1127.4
+	"North Carolina"	"37"	"Martin County, NC"	"37117"	7416	530107	1399.0
+	"North Carolina"	"37"	"Mecklenburg County, NC"	"37119"	118232	19985630	591.6
+	"North Carolina"	"37"	"Mitchell County, NC"	"37121"	4684	340700	1374.8
+	"North Carolina"	"37"	"Montgomery County, NC"	"37123"	6220	601060	1034.8
+	"North Carolina"	"37"	"Moore County, NC"	"37125"	22441	1924867	1165.8
+	"North Carolina"	"37"	"Nash County, NC"	"37127"	21454	2040450	1051.4
+	"North Carolina"	"37"	"New Hanover County, NC"	"37129"	37056	4392387	843.6
+	"North Carolina"	"37"	"Northampton County, NC"	"37131"	6143	468488	1311.2
+	"North Carolina"	"37"	"Onslow County, NC"	"37133"	21002	3818002	550.1
+	"North Carolina"	"37"	"Orange County, NC"	"37135"	16476	2904510	567.3
+	"North Carolina"	"37"	"Pamlico County, NC"	"37137"	3419	284322	1202.5
+	"North Carolina"	"37"	"Pasquotank County, NC"	"37139"	8708	850912	1023.4
+	"North Carolina"	"37"	"Pender County, NC"	"37141"	10470	1136012	921.6
+	"North Carolina"	"37"	"Perquimans County, NC"	"37143"	3410	281679	1210.6
+	"North Carolina"	"37"	"Person County, NC"	"37145"	9086	844903	1075.4
+	"North Carolina"	"37"	"Pitt County, NC"	"37147"	25890	3551357	729.0
+	"North Carolina"	"37"	"Polk County, NC"	"37149"	6391	438314	1458.1
+	"North Carolina"	"37"	"Randolph County, NC"	"37151"	29610	3060539	967.5
+	"North Carolina"	"37"	"Richmond County, NC"	"37153"	12002	1011946	1186.0
+	"North Carolina"	"37"	"Robeson County, NC"	"37155"	28183	2865449	983.5
+	"North Carolina"	"37"	"Rockingham County, NC"	"37157"	24266	2029908	1195.4
+	"North Carolina"	"37"	"Rowan County, NC"	"37159"	32662	3004782	1087.0
+	"North Carolina"	"37"	"Rutherford County, NC"	"37161"	18092	1450684	1247.1
+	"North Carolina"	"37"	"Sampson County, NC"	"37163"	14228	1375736	1034.2
+	"North Carolina"	"37"	"Scotland County, NC"	"37165"	8548	786870	1086.3
+	"North Carolina"	"37"	"Stanly County, NC"	"37167"	14426	1323648	1089.9
+	"North Carolina"	"37"	"Stokes County, NC"	"37169"	10721	1014305	1057.0
+	"North Carolina"	"37"	"Surry County, NC"	"37171"	18898	1595483	1184.5
+	"North Carolina"	"37"	"Swain County, NC"	"37173"	4029	303402	1327.9
+	"North Carolina"	"37"	"Transylvania County, NC"	"37175"	8529	706901	1206.5
+	"North Carolina"	"37"	"Tyrrell County, NC"	"37177"	985	92582	1063.9
+	"North Carolina"	"37"	"Union County, NC"	"37179"	25721	4165983	617.4
+	"North Carolina"	"37"	"Vance County, NC"	"37181"	10803	977310	1105.4
+	"North Carolina"	"37"	"Wake County, NC"	"37183"	98428	19313109	509.6
+	"North Carolina"	"37"	"Warren County, NC"	"37185"	5229	446902	1170.1
+	"North Carolina"	"37"	"Washington County, NC"	"37187"	3524	283611	1242.5
+	"North Carolina"	"37"	"Watauga County, NC"	"37189"	7095	1097705	646.3
+	"North Carolina"	"37"	"Wayne County, NC"	"37191"	25328	2642840	958.4
+	"North Carolina"	"37"	"Wilkes County, NC"	"37193"	16404	1500360	1093.3
+	"North Carolina"	"37"	"Wilson County, NC"	"37195"	18103	1739234	1040.9
+	"North Carolina"	"37"	"Yadkin County, NC"	"37197"	8941	827121	1081.0
+	"North Carolina"	"37"	"Yancey County, NC"	"37199"	4721	391180	1206.9
+"Total"	"North Carolina"	"37"			1791385	205681896	870.9
+"Total"					1791385	205681896	870.9
+"---"
+"Dataset: Underlying Cause of Death, 1999-2020"
+"Query Parameters:"
+"States: North Carolina (37)"
+"Group By: State; County"
+"Show Totals: True"
+"Show Zero Values: False"
+"Show Suppressed: False"
+"Calculate Rates Per: 100,000"
+"Rate Options: Default intercensal populations for years 2001-2009 (except Infant Age Groups)"
+"---"
+"Help: See http://wonder.cdc.gov/wonder/help/ucd.html for more information."
+"---"
+"Query Date: Sep 29, 2026 3:17:01 AM"
+"---"
+"Suggested Citation: Centers for Disease Control and Prevention, National Center for Health Statistics. National Vital Statistics"
+"System, Mortality 1999-2020 on CDC WONDER Online Database, released in 2021. Data are from the Multiple Cause of Death Files,"
+"1999-2020, as compiled from data provided by the 57 vital statistics jurisdictions through the Vital Statistics Cooperative"
+"Program. Accessed at http://wonder.cdc.gov/ucd-icd10.html on Sep 29, 2026 3:17:01 AM"
+"---"
+Caveats:
+"1. As of April 3, 2017, the underlying cause of death has been revised for 125 deaths in 2014. More information:"
+"http://wonder.cdc.gov/wonder/help/ucd.html#2014-Revision."
+"2. The population figures for year 2020 are bridged-race estimates of the July 1 resident population, from the Vintage 2020"
+"postcensal series released by NCHS on September 22, 2021. The population figures for year 2019 are bridged-race estimates of the"
+"July 1 resident population, from the Vintage 2019 postcensal series released by NCHS on July 9, 2020. The population figures for"
+"year 2018 are bridged-race estimates of the July 1 resident population, from the Vintage 2018 postcensal series released by NCHS"
+"on June 25, 2019. The population figures for year 2017 are bridged-race estimates of the July 1 resident population, from the"
+"Vintage 2017 postcensal series released by NCHS on June 27, 2018. The population figures for year 2016 are bridged-race"
+"estimates of the July 1 resident population, from the Vintage 2016 postcensal series released by NCHS on June 26, 2017. The"
+"population figures for year 2015 are bridged-race estimates of the July 1 resident population, from the Vintage 2015 postcensal"
+"series released by NCHS on June 28, 2016. The population figures for year 2014 are bridged-race estimates of the July 1 resident"
+"population, from the Vintage 2014 postcensal series released by NCHS on June 30, 2015. The population figures for year 2013 are"
+"bridged-race estimates of the July 1 resident population, from the Vintage 2013 postcensal series released by NCHS on June 26,"
+"2014. The population figures for year 2012 are bridged-race estimates of the July 1 resident population, from the Vintage 2012"
+"postcensal series released by NCHS on June 13, 2013. The population figures for year 2011 are bridged-race estimates of the July"
+"1 resident population, from the Vintage 2011 postcensal series released by NCHS on July 18, 2012. Population figures for 2010"
+"are April 1 Census counts. The population figures for years 2001 - 2009 are bridged-race estimates of the July 1 resident"
+"population, from the revised intercensal county-level 2000 - 2009 series released by NCHS on October 26, 2012. Population"
+"figures for 2000 are April 1 Census counts. Population figures for 1999 are from the 1990-1999 intercensal series of July 1"
+"estimates. Population figures for the infant age groups are the number of live births. <br/><b>Note:</b> Rates and population"
+"figures for years 2001 - 2009 differ slightly from previously published reports, due to use of the population estimates which"
+"were available at the time of release."
+"3. The population figures used in the calculation of death rates for the age group 'under 1 year' are the estimates of the"
+"resident population that is under one year of age. More information: http://wonder.cdc.gov/wonder/help/ucd.html#Age Group."

@@ -1,0 +1,42 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "The purpose of this NOFO is to strengthen International Health Regulations (IHR) (2005) capacities of the Nigeria Centre for Disease Control and Prevention (NCDC); other Government of Nigeria ministries, departments, and agencies (MDAs) relevant to the implementation of multi-sectoral response efforts of the IHR; and sub-national public health institutions, such as State Ministries of Health and local government authorities.",
+    "program_domain": "D08",
+    "owning_division": "DHHS: Public Health",
+    "required_capabilities": [
+      "public_health_surveillance",
+      "data_systems_interoperability",
+      "emergency_management",
+      "subrecipient_network_management"
+    ],
+    "requires_subrecipient_network": true,
+    "evaluation_required": true,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "none",
+    "target_population": "system_level",
+    "alignment_dhhs": {
+      "level": "partial",
+      "plan_row": "G1.O4",
+      "rationale": "The opportunity aims to strengthen health systems and workforce management capacity in Nigeria, which aligns with the goal of investing in the capacity of partners to overcome health disparities."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity does not align with any DMVA strategic plan objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v2",
+    "created": "2026-09-29T13:03:19-0400",
+    "prompt_tokens": 3942,
+    "output_tokens": 367,
+    "seconds": 41.9
+  }
+}

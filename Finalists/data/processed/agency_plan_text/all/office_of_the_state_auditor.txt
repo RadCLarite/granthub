@@ -1,0 +1,794 @@
+===== PAGE 1 =====
+
+North Carolina Office of the State Auditor
+              Strategic Plan
+               2023 – 2025
+
+
+===== PAGE 2 [OCR] =====
+
+This page left blank intentionally
+
+===== PAGE 3 =====
+
+Contents
+
+1.   Strategic Plan Executive Summary ............................................................................................................................. 2
+2.   Mission, Vision, and Values ........................................................................................................................................ 5
+3.   Goals, Objectives, and Performance Measures .......................................................................................................... 6
+4.   Highlights, Collaborative Opportunities, and Priority Questions ............................................................................. 15
+
+
+===== PAGE 4 =====
+
+1. Strategic Plan Executive Summary
+
+About OSA
+The Office of the State Auditor (OSA) performs an array of work, including financial statement audits,
+performance audits, information technology audits, and investigative audits. This includes the examination of all
+facets of state government, including education, health, transportation, computer systems, regulatory
+processes, and public safety. OSA’s work is critical in assisting with improving the efficiency of North Carolina
+State government and helps the state retain its coveted AAA bond rating.
+
+Under North Carolina statutes, the State Auditor is provided broad powers to examine all books, files, papers,
+documents, and financial affairs of every state agency. Additionally, OSA has the authority to summon people to
+produce records and answer questions under oath.
+
+OSA’s work is focused on improving government services and uncovering wasteful spending. The focus is on
+state agencies and other agencies receiving state and federal funds. OSA seeks to protect the future of North
+Carolinians by providing stakeholders with unbiased and irrefutable audits and investigations to allow them to
+make informed decisions, hold entities accountable, and ensure good stewardship of public funds. This focus is
+designed to foster change that improves the lives of North Carolinians through audit accountability and impact.
+
+Strategic Plan Executive Summary
+OSA’s strategic plan was developed utilizing the Balanced Scorecard Institute’s Nine Steps to Success™
+methodology, based on the early work of Dr. Robert Kaplan and Dr. Robert Norton at Harvard University where
+the concept of the Balanced Scorecard was introduced.
+
+The Nine Steps to Success™ “is a disciplined, practical, and tested approach to developing a strategic planning
+and management system based on the balanced scorecard. It provides organizations a way to ‘connect the
+dots’ between the various components of strategic planning, budgeting, operations and management; meaning
+there will be a visible connection between day-to-day operations, the measurements being used to track
+success, the strategic objectives the organization is trying to accomplish, and the mission, vision and strategy of
+the organization.”
+
+
+Strategic Plan Methodology
+The development of the OSA’s strategic plan is an office-wide collaborative effort and is a continuous process
+which requires constant re-evaluation. Leadership began the process by performing the steps in the
+methodology described above which resulted in an updated Mission, Vision, Goals, Objectives, and Key
+Performance Indicators.
+
+Perspectives
+To develop the strategic plan, OSA examined our organization from four perspectives. These perspectives were
+used to develop the objectives, key performance indicators (KPIs), targets, and related initiatives.
+
+
+
+                                                                           North Carolina Office of the State Auditor
+                                                                                                          2|Page
+
+
+===== PAGE 5 =====
+
+    1. Stakeholder Perspective: OSA’s primary stakeholders are the citizens of North Carolina, legislators, and
+       agency organizational heads.
+    2. Financial Stewardship Perspective: OSA, as a part of the North Carolina primary government, is
+       supported by appropriations and receipts, therefore, there is no focus on profits. Instead, financial
+       stewardship is driven by achieving cost effectiveness of resources to achieve the mission.
+    3. Internal Process Perspective: OSA’s internal processes are all driven by the maximization of timely and
+       impactful audits.
+    4. Organizational Capacity Perspective: OSA focuses on the need to recruit and retain well-qualified
+       individuals that embody the mission and vision of OSA. OSA recognizes human capital is one of its most
+       valuable resources.
+
+The strategy map on the following page illustrates the cause and effect relationships of the OSA’s strategic
+objectives and their alignment with the four focus points/perspectives and provides a visual representation of
+the OSA’s overall strategic plan. The arrows illustrate how objectives are inter-related. A large arrow indicates
+that a particular objective supports all of the objectives in the subsequent perspective. A box around two or
+more objectives indicates that those two objectives are directly related.
+
+
+Strategy Map
+
+
+
+
+This map depicts how these four focus points/perspectives are aligned to build value from the internal (bottom
+of map) to the external (top of map), ultimately achieving the OSA’s overall strategic plan.
+
+Beginning from the internal, strengthening recruitment and hiring and improving our culture of committed and
+engaged employees is central to supporting organizational capacity. Our staff must feel supported and
+
+
+
+                                                                           North Carolina Office of the State Auditor
+                                                                                                          3|Page
+
+
+===== PAGE 6 =====
+
+successful through improving tools and technology, as well as through continuous development of the
+knowledge, skills, abilities, and competencies of our staff.
+
+Internal processes seek to increase the efficiency and effectiveness of key processes which leads to increased
+organizational agility. Improved internal communications and collaboration leads to improved annual audit
+planning. All four of these objectives support the external values of financial stewardship through improved cost
+effectiveness and stakeholder services through timely, impactful audits and investigations. Other objectives to our
+strategy are to improve marketing , which will promote recruitment and hiring and serve to improve stakeholder
+awareness.
+
+The ultimate objective of this strategic plan is to improve government operations and services for the benefit of
+North Carolinians. Improvements to government operations and services occur when: we issue more timely,
+impactful audits and investigations and our stakeholders become more aware of OSA’s work and how it impacts
+the management of government services and the use of taxpayer dollars.
+
+
+
+
+                                                                           North Carolina Office of the State Auditor
+                                                                                                          4|Page
+
+
+===== PAGE 7 =====
+
+2. Mission, Vision, and Values
+
+
+Agency Mission Statement
+ We are the State’s Independent Auditor. We provide unbiased and irrefutable audit and
+    investigative reports so stakeholders can make informed decisions, hold entities
+               accountable, and ensure good stewardship of public funds.
+
+
+
+
+Agency Vision Statement
+   To protect the future of North Carolinians by devoting the majority of our resources
+ toward eliminating wasteful government spending and improving government services.
+
+
+
+
+Agency Values
+The Office of the State Auditor’s (OSA’s) core values are the beliefs and principles that drive its culture.
+These are the standards that describe how OSA’s employees and OSA, as a whole, are expected to
+behave internally and externally. They serve as the basis for decision-making and influence actions in
+everyday situations.
+
+
+
+
+                                                                       North Carolina Office of the State Auditor
+                                                                                                      5|Page
+
+
+===== PAGE 8 =====
+
+3. Goals, Objectives, and Performance Measures
+
+Strategic Approaches (Goals)
+
+There are three strategic approaches (goals) that the Office of the State Auditor (OSA) will use to achieve our
+Vision:
+
+    1. Impactful Audits and Investigations – We will know that our audits and investigations are impactful when
+       North Carolina has significantly reduced wasteful spending of public funds and improved government
+       services.
+    2. Operational Excellence – We will know that we have achieved operational excellence when we
+       successfully recruit and retain highly competent professionals committed to working together for the
+       good of the public. These competent professionals will collaborate across divisions, leveraging
+       technological resources, and demonstrate continuous improvement.
+    3. Culture of Excellence - We will know that we possess a culture of excellence where everyone feels their
+       work is meaningful, significant, and has purpose. Everyone is inspired by our Mission and Vision.
+       Everyone is striving to be their “best” self.
+
+Objectives
+The three strategic approaches to realizing our Vision are accomplished through 13 objectives, which require the
+achievement of internal activities and milestones measured through Key Performance Indicators (KPIs):
+    • Improve Government Operations and Services
+    • Improve Stakeholder Awareness
+    • Increase Timely Impactful Audits & Investigations
+    • Improve Cost Effectiveness
+    • Improve Marketing
+    • Increase Organizational Agility
+    • Increase the Efficiency & Effectiveness of Key Processes
+    • Improve Annual Audit Planning
+    • Improve Internal Communication & Collaboration
+    • Improve Tools & Technology
+    • Increase Knowledge, Skills, Abilities, & Competencies
+    • Strengthen Culture of Committed & Engaged Employees
+    • Strengthen Recruitment and Hiring
+
+
+
+
+                                                                          North Carolina Office of the State Auditor
+                                                                                                         6|Page
+
+
+===== PAGE 9 =====
+
+The table below illustrates the alignment of each objective with its strategic approach(es):
+
+                                                                           Strategic Approaches
+
+                                                                  Impactful      Operational       Culture of
+                                                                  Audits and     Excellence        Excellence
+                       Strategic Objectives
+                                                                Investigations
+
+     Improve Government Operations & Services
+
+     Improve Stakeholder Awareness
+
+     Increase Timely Impactful Audits & Investigations
+
+     Improve Cost Effectiveness
+
+     Improve Marketing
+
+      Increase Organizational Agility
+
+     Increase the Efficiency & Effectiveness of Key Processes
+
+      Improve Annual Audit Planning
+
+     Improve Internal Communication & Collaboration
+
+     Improve Tools & Technology
+
+     Increase Knowledge, Skills, Abilities, & Competencies
+
+     Strengthen Culture of Committed & Engaged Employees
+
+     Strengthen Recruitment and Hiring
+
+
+
+
+                                                                             North Carolina Office of the State Auditor
+                                                                                                            7|Page
+
+
+===== PAGE 10 =====
+
+Strategic Approach 1 – Impactful Audits and Investigations
+North Carolina has significantly reduced wasteful spending of public funds and improved government
+services as a result of timely, impactful audits and investigations.
+
+Strategic Approach 2 – Operational Excellence
+We successfully recruit and retain highly competent professionals committed to working together for
+the good of the public. These competent professionals will collaborate across divisions, leveraging
+technological resources, and demonstrate continuous improvement.
+
+Strategic Approach 3 – Culture of Excellence
+We possess a culture of excellence where everyone feels their work is meaningful, significant, and has
+purpose. Everyone is inspired by our Mission and Vision. Everyone is striving to be their “best” self.
+
+Strategic Objective 1 –                                 KPI (Key Performance Indicator) 1.1– Follow up
+                                                        Actions on Audit Findings
+Improve Government Operations and Services
+                                                        Percentage of corrective action implementations to
+We provide decision makers with timely, impactful
+                                                        total audit recommendations.
+audits and investigations to be utilized for them to
+improve the delivery of government services. These
+audits and investigations will include irrefutable
+findings and actionable recommendations for the
+reduction of waste, improved utilization of public
+funds and resources, as well as the improved delivery
+of program services.
+
+Strategic Objective 2 –                                 KPI 2.1 – Number of Subscribers
+Improve Stakeholder Awareness                           Percent change in subscribers monthly.
+Increase citizens’ awareness of OSA’s work and how it
+impacts the management of government services and
+the use of tax dollars. Increasing transparency and
+accountability of government agencies will equip
+citizens with the knowledge to strongly encourage
+needed changes and allow them to make informed
+voting decisions.
+
+Strategic Objective 2 –                                 KPI 2.2 – Social Media Tracking
+Improve Stakeholder Awareness, cont’d.                  “Engagement Rate by Reach” that measures
+                                                        percentage of people choosing to interact with posted
+                                                        content after notification.
+
+
+
+
+                                                                       North Carolina Office of the State Auditor
+                                                                                                      8|Page
+
+
+===== PAGE 11 =====
+
+Strategic Objective 2 –                                  KPI 2.3 – News Article Mentions
+Improve Stakeholder Awareness, cont’d.                   Monthly number of news articles about OSA or State
+                                                         Auditor
+
+Strategic Objective 3 –                                  KPI 3.1 – Audits Meeting Target Date
+Increase Timely Impactful Audits & Investigations        Percentage of Audits Issued by Target Date
+Increase number of timely audits and investigations
+that are impactful, meaning they identify problems
+that are socially and/or economically consequential to
+citizens if not corrected. Timely and impactful audits
+and investigations will improve government
+operations, reduce wasteful spending, and provide
+accurate, reliable, and irrefutable information for
+decision making. Provide actionable recommendations
+for key stakeholders.
+
+Strategic Objective 3 –                                  KPI 3.2 – Impact Index of Waste Identified,
+                                                         Violations Identified, and/or Cost Savings
+Increase Timely Impactful Audits & Investigations,
+                                                         Identified
+cont’d.
+                                                         Cumulative Impact Score
+
+Strategic Objective 4 –                                  KPI 4.1 – Percent Change in Impactful Audits and
+                                                         Investigations Hours
+Improve Cost Effectiveness
+                                                         Number of hours spent on audits deemed impactful
+We are a cost-conscious office in everything we do.
+                                                         divided by total audit hours (cumulative for the year to
+We continuously monitor the costs of delivering our
+                                                         date, evaluated monthly).
+services within our budget. We innovate to control
+and lower operating costs to dedicate more resources
+to impactful results.
+
+Strategic Objective 4 –                                  KPI 4.2 – Percentage Change in Ratio of Dollars
+                                                         Spent on Impactful Audits/Investigations vs. All
+Improve Cost Effectiveness, cont’d.
+                                                         Dollars Expended by OSA
+                                                         Dollars spent on audits deemed impactful divided by
+                                                         total dollars (cumulative for the year to date,
+                                                         evaluated monthly).
+
+
+
+
+                                                                        North Carolina Office of the State Auditor
+                                                                                                       9|Page
+
+
+===== PAGE 12 =====
+
+Strategic Objective 5 –                                    KPI 2.3 – News Article Mentions
+Improve Marketing                                          Monthly number of news articles about OSA or State
+                                                           Auditor
+Focus marketing and rebranding to the general public
+by promoting OSA’s impactful work, accomplishments,
+and value provided to the State. Increase public
+awareness through expanding speaking engagements,
+increasing the use of social media, and distributing
+more promotional materials.
+
+Strategic Objective 5 –                                    KPI 5.2 – Hotline Calls
+Improve Marketing, cont’d.                                 Monthly number of calls to the Hotline as a result of
+                                                           marketing efforts.
+
+Strategic Objective 5 –                                    KPI 5.3 – Number of New Job Applications
+Improve Marketing, cont’d.                                 Number of job applications citing marketing efforts as
+                                                           source.
+
+Strategic Objective 6 –                                    KPI 6.1– Multidiscipline Employees
+Increase Organizational Agility                                      (crossing over division)
+
+The ability to pivot in the face of change, individually   Percentage of Employees that charge hours to time
+and as an organization, to keep OSA moving toward          codes of other divisions.
+accomplishing the Vision. This includes being able to
+quickly adapt to change using agile management
+principles and doing the best with readily available
+resources.
+We will increase the number of subject matter experts
+(SMEs) and develop a pool of staff, who are
+competent and confident in their skills, making OSA
+more readily able to adapt to change. We will develop
+SOPs for OSA to facilitate sustainable knowledge
+transfer.
+
+
+
+
+                                                                          North Carolina Office of the State Auditor
+                                                                                                        10 | P a g e
+
+
+===== PAGE 13 =====
+
+Strategic Objective 7 –                                  KPI 7.1 – Percentage of
+                                                         Project/Audit/Investigation Milestones Met
+Increase the Efficiency & Effectiveness of Key
+Processes                                                Percentage of milestones completed during period.
+Improve OSA audit and support processes to produce
+more timely, impactful audits and investigations.
+Streamline processes, develop Standard Operating
+Procedures (SOPs) and reduce time spent on non-
+value-added work. Enhance the use of technology and
+develop project management skills to ensure duties
+and tasks are executed more efficiently.
+
+Strategic Objective 7 –                                  KPI 7.2 – Effectiveness Index
+Increase the Efficiency & Effectiveness of Key           Index of effectiveness measures that includes: audit
+Processes, cont’d.                                       planning hours as a percentage of total audit hours,
+                                                         manager hours as a percentage of audit planning
+                                                         hours, fieldwork hours incurred after fieldwork target
+                                                         date, planning hours incurred after fieldwork target
+                                                         date, etc.
+
+Strategic Objective 8 –                                  KPI 8.1 – Auditor Time on Impactful Engagements
+Improve Annual Audit Planning                            Percentage change of total hours on impactful audits
+The annual audit plan is a collaborative process built
+on priority (when the results are needed) and the
+efficient use of resources. Engagements are timely,
+focused, impactful, and aligned with our vision and
+mission. Engagement plans include staff assignments
+that promote cross divisional collaboration, skill
+development, and career progression.
+
+Strategic Objective 8 –                                  KPI 8.2 – Return on Investment (ROI)
+Improve Annual Audit Planning, cont’d.                   Percentage of total dollars of identified in audit
+                                                         findings to total cost of audit
+
+Strategic Objective 8 –                                  KPI 8.3 – ROI of impactful money spent
+Improve Annual Audit Planning, cont’d.                   Percentage of total dollars incurred for impactful
+                                                         audits to total appropriations
+
+
+
+
+                                                                         North Carolina Office of the State Auditor
+                                                                                                       11 | P a g e
+
+
+===== PAGE 14 =====
+
+Strategic Objective 9 –                                   KPI 9.1– Climate Survey Improvements
+Improve Internal Communication & Collaboration.           Percentage change of employees indicating satisfied
+                                                          or very satisfied in current survey.
+We will foster an environment that increases effective
+communication and collaboration across OSA to allow
+the sharing of resources and knowledge.
+
+Strategic Objective 10 –                                  KPI 10.1 – Time Cost Related to Technology Issues
+Improve Tools & Technology
+                                                          Percentage change in monthly hours recorded as
+Increase the use and leverage the capabilities of new
+                                                          “Computer Problems"
+and existing technology, in secure ways, to reduce
+manual processes and improve productivity. All staff
+accept ownership for providing business solutions in
+collaboration with TIMS.
+
+Strategic Objective 10 –                                  KPI 10.2 – Time Cost Related to Maintenance
+Improve Tools & Technology, cont’d.                       Percentage change in monthly hours charged to
+                                                          "Upgrades/Routine Maintenance"
+
+Strategic Objective 10 –                                  KPI 10.3 – Data Analytic Utilization in Audits and
+                                                          Projects
+Improve Tools & Technology, cont’d.
+                                                          Percentage of audits/investigations/projects using
+                                                          Data Analytics
+
+Strategic Objective 11 –                                  KPI 11.1 - Employee Competency Ratings
+Increase Knowledge, Skills, Abilities, &
+Competencies                                              Percentage change in employee competency rating
+Identify and deliver targeted and relevant training for
+all staff to increase knowledge, skills, abilities, and
+competencies (KSAC). This includes formal training,
+on-the-job training, reinforcement of trainings
+through coaching, and direction provided by
+supervisors using situational leadership.
+Train individuals to quickly shift focus as needed for
+operational needs (agility) and maximize resources.
+Staff development is aligned with the organization’s
+strategic needs.
+
+
+
+
+                                                                         North Carolina Office of the State Auditor
+                                                                                                       12 | P a g e
+
+
+===== PAGE 15 =====
+
+Strategic Objective 11 –                                  KPI 11.2 - Multidiscipline Employees (crossing over
+                                                          division)
+Increase Knowledge, Skills, Abilities, &
+Competencies, cont’d.                                     Percentage of Employees that charge hours to time
+                                                          codes of other divisions.
+
+Strategic Objective 12 –                                  KPI 12.1 – Employee Satisfaction Index
+Strengthen Culture of Committed & Engaged                 Index of employee satisfaction measures that
+Employees                                                 includes:
+
+OSA will build a strong, cohesive organization where          •   employee engagement,
+employees have a shared belief system and are                 •   absenteeism,
+personally invested in our success. As public servants,       •   HR complaints,
+employees will:                                               •   appraisals,
+                                                              •   satisfaction,
+    •   Be empowered and driven by our purpose,
+        where the intrinsic benefit extends far beyond        •   empowerment, etc.
+        any personal benefit
+    •   Understand the logical connection between
+        the work performed and how it contributes to
+        the fulfilment of the Mission and Vision
+    •   Recognize the importance of their work and
+        be committed to effective teamwork and
+        increasing efficiencies
+We will attract qualified applicants who actively seek
+to work for OSA due to our reputation and the impact
+that we have on our state.
+
+Strategic Objective 12 –                                  KPI 12.2 – Retention Marker Index
+Strengthen Culture of Committed & Engaged                 Index of retention marker measures that includes:
+Employees, cont’d.                                        Percentage change in turnover of employees
+                                                          separating for factors outside OSA’s control, retention
+                                                          rate of employees with annual performance
+                                                          evaluation (APE) ratings great than 2.0, change in
+                                                          vacant positions, etc.
+
+
+
+
+                                                                         North Carolina Office of the State Auditor
+                                                                                                       13 | P a g e
+
+
+===== PAGE 16 =====
+
+Strategic Objective 13 –                                 KPI 13.1 – Recruitment Index
+Strengthen Recruitment and Hiring                        Index of recruitment measures that includes:
+
+Increase awareness of OSA as the premier audit firm      Number of qualified candidates per posting, time to
+in the State to expand the pool of quality applicants.   hire, interview to hire ratio, offer acceptance rate, first
+Recruiting and hiring well qualified, highly motivated   year attrition, etc.
+individuals that will embrace the OSA mission, vision,
+core values, and culture.
+
+
+
+
+                                                                         North Carolina Office of the State Auditor
+                                                                                                       14 | P a g e
+
+
+===== PAGE 17 =====
+
+4. Highlights, Collaborative Opportunities, and Priority Questions
+
+Agency Highlights
+OSA Strategic Plan
+The Office of the State Auditor (OSA) has developed a strategic plan aimed at translating OSA's strategic
+approaches (goals) into a set of performance objectives that, in turn, are measured, monitored, and changed if
+necessary to ensure that OSA's strategic approaches, Mission, and Vision are met. OSA’s strategic approaches
+are:
+                        Impactful audits and investigations;
+                        Operational excellence; and
+                        Culture of excellence.
+OSA involved leaders from various levels and positions throughout OSA to gain insight, understanding, buy-in, and
+ownership of the organizational strategy. The ultimate goal of the strategic plan was to ensure every employee
+of OSA, regardless of position or title, understood how their role, on a daily basis, contributed to the success of
+OSA achieving its Mission and Vision. Revamping our strategic plan, from the ground up, has greatly increased
+the agility of OSA. This enables OSA to respond to challenges appropriately and timely through strategic alignment
+of activities and resources, regardless of the noise caused by constant disruption in today’s work environment.
+It is because of the tireless efforts of our dedicated, professional, and knowledgeable employees that we are
+confident in our abilities to raise the bar of performance and exceed the expectations of our stakeholders in the
+years to come.
+Recruitment
+The OSA has introduced new Hybrid/Flexible work options for staff to support recruitment and retention efforts.
+Flexible work options include six scheduling options for employees to “earn” an additional half-day or full day off
+during the work week. Hybrid work offers in-person/remote work options on a two-week rotation (three days in
+office/two days remote one week and then three days remote/two days in office the second week). Employees
+may also opt to work a typical 8-hour, five days a week work schedule.
+New Office Space
+In the Spring of 2023, the OSA is planning to move from the Old Revenue Building to newly renovated floors four
+and five in the Albemarle Building. The layout, furnishings, and technological capabilities of the new office space
+promotes greater collaboration among staff, conveniences such as on-site food options, and a “mother’s room,”
+and state-of-the-art technology deployed throughout. The new office space further implements hybrid/remote
+work options in that staff rotate use of office spaces depending on which days they are in the office.
+Impactful Audits
+The following is a selection of some of the more notable audits performed by OSA:
+    •   Untimely First Unemployment Benefit Payments (2022) – This audit looked back at the time period when
+        first-time unemployment claims were heavily increased due to the COVID-19 pandemic. The audit found
+
+                                                                          North Carolina Office of the State Auditor
+                                                                                                        15 | P a g e
+
+
+===== PAGE 18 =====
+
+    that the Division of Employment Security (DES) did not issue $438 million of first-time unemployment
+    payments timely during this time period. Additionally, the audit found that DES had not issued first-time
+    unemployment payments for over 10 years prior to the economic downturn caused by COVID-19. In
+    response to these findings, DES management will start implementing corrective actions to improve the
+    benefit payment process, improve oversight, and prepare a plan in the event of future economic
+    downturns.
+
+•   Medicaid Provider Enrollment (2021) – The audit found that unqualified medical providers, whose licenses
+    had been revoked, suspended, or had limitations imposed, were serving Medicaid beneficiaries, putting
+    their safety at risk. As a result, the Department of Health and Human Services let go of at least 14
+    providers and is attempting to get back $13.4 million in improper payments.
+
+•   Department of Transportation (DOT) Cash Spending Plan (2020) – The audit found that DOT exceeded its
+    Spending Plan by $742 million due to poor forecasting and management’s lack of monitoring and
+    enforcement of compliance. As a result, the General Assembly passed legislation requiring more
+    oversight, reporting, and auditing requirements for DOT.
+
+•   Town of Spring Lake (2022) – The audit found that the Town of Spring Lake’s former Accounting
+    Technician, who also served as the Finance Director for a period of time, used at least $430,112 of Town
+    funds for personal use, at least $36,400 in cash collected by the Town was not deposited into the Town’s
+    bank account, and Town employees spent $102,877 of Town funds on questionable credit card purchases,
+    among other findings. Last December the former Spring Lake finance director was sentenced to four years
+    in federal prison for embezzlement.
+
+
+
+
+                                                                     North Carolina Office of the State Auditor
+                                                                                                   16 | P a g e
+
+
+===== PAGE 19 =====
+
+Collaborative Opportunities
+ Per § 147-64.6(a) of North Carolina General Statutes, OSA is required to remain independent and must take care
+to ensure that any agency collaboration does not create a conflict of interest. However, OSA gladly collaborates
+with agencies or organizations where possible while adhering to the restrictions imposed by auditing standards
+and legislation.
+Collaboration with National Partners
+OSA collaborates with multiple partners external to the State of North Carolina. These important collaborative
+efforts ensure that OSA is up to date on professional standards, common issues other states are facing, and
+emerging trends within the industry. OSA also provides input on potential new auditing standards on a
+collaborative national level:
+    National Association of State Auditors, Comptrollers, and Treasurers (NASACT)
+    The State Auditor is a member of the NASACT, which serves as the premier organization working to bring
+    together state auditors, state comptrollers and state treasurers to cooperatively address government
+    financial management issues.
+    Currently, State Auditor Wood serves on committees, task forces, or other affiliations within NASACT in the
+    following roles:
+        1.   Chair of the Strategic Planning Committee
+        2.   Chair of the Hall of Fame Selection Committee
+        3.   Vice Chair of the Personnel Committee
+        4.   Vice Chair of the Training and Professional Development Committee
+        5.   Vice Chair of the FAF/GASB/GASAC Selection Task Force
+        6.   President of the Center for Governmental Financial Management
+    National State Auditor’s Association (NSAA, an affiliate of NASACT)
+    The State Auditor is a member of the NSAA, an organization dedicated to improving state government by
+    providing opportunities for the free exchange of information and ideas and promoting accountability,
+    transparency, and the observance of professional audit standards. Currently, State Auditor Wood serves as
+    Chair of the Resolutions Committee within NSAA.
+    Staff Committees
+    As a part of collaboration with NSAA and NASACT, many OSA staff participate in various committees under
+    the NSAA and NASACT umbrellas, such as:
+        •    Emerging Leaders Conference
+        •    Human Resources
+        •    IT Conference
+        •    Performance Audit
+        •    Audit Standards & Reporting
+        •    Single Audit
+        •    Peer Review
+        •    Committee on Accounting, Reporting and Auditing (CARA)
+
+                                                                          North Carolina Office of the State Auditor
+                                                                                                        17 | P a g e
+
+
+===== PAGE 20 =====
+
+        •   Resolutions
+        •   Communications Work Group
+        •   Training and Professional Development Committee
+        •   Hall of Fame Selection
+        •   Strategic Planning
+Collaboration within North Carolina State Government
+North Carolina’s Council of Internal Auditing (Council)
+The State Auditor serves on the Council, established by The North Carolina Internal Audit Act 3 (the Act), which
+oversees the Internal Audit Program across state government and the University System. The Council provides
+services to internal audit programs, issues an annual report on agencies’ internal audit services and
+accomplishments, and proposes legislation for consideration by the Governor and General Assembly.
+Local Government Commission (LGC)
+The State Auditor serves on the Local Government Commission which provides assistance to local governments
+and public authorities in North Carolina. It approves the issuance of debt for all units of local government and
+assists those units with fiscal management. The LGC staff oversees the annual independent auditing of local
+governments, monitors the fiscal health of local governments, and offers broad assistance in financial
+administration to local governments. OSA offers Quality Control Reviews, on a referral basis, to assist the LGC
+with these activities.
+Other Collaborative Opportunities
+OSA staff also participate in the North Carolina Association of Certified Public Accountants (NCACPA) Government
+Resource Group which helps ensure the prevailing certifying association of our profession is responsive to the
+needs of accounting professionals in Federal, State, and Local governments.
+
+
+
+Priority Questions
+The following priority questions are tied to the OSA’s most critical strategic objectives and while they are not the
+only important questions, answering them will have a significant impact on the OSA’s resource allocation
+decisions and strategic direction. Focus on answering these questions will facilitate planning and support for
+building the evidence needed to improve programs and operations.
+Question 1: Which types of audits or audit information can produce the greatest positive impact in the
+lives of the citizens of North Carolina?
+OSA has developed an impact index (KPI 3.2) containing many factors to assist in scoring our audit work and this
+information will be used to focus efforts on producing more audits and investigations which yield a greater impact
+for its stakeholders.
+OSA performs an array of work, including financial statement audits, financial related audits, performance audits,
+information technology audits, and investigative audits. We examine all facets of state government, including
+education, health, transportation, computer systems, regulatory processes, and public safety. We conduct special
+studies as requested by the Legislature and audit federal grant programs to ensure North Carolina can continue
+
+                                                                           North Carolina Office of the State Auditor
+                                                                                                         18 | P a g e
+
+
+===== PAGE 21 =====
+
+to receive federal money. Our work helps improve the efficiency of state government and helps the state retain
+its coveted AAA bond rating. It is through this work that OSA can improve the lives of North Carolina citizens by
+providing information to those citizens, the legislature, agency heads, and others to make informed decisions
+about programs and spending in North Carolina.
+Answering the question of what kinds of work will yield the greatest impact, will allow OSA to devote more of its
+resources to truly making positive change in the lives of North Carolinians.
+Question 2: How can OSA best connect with its stakeholders effectively to provide the information needed
+to make informed decisions?
+To maximize the impact of the OSA’s work, it is important to connect with the people, groups, and organizations
+that have an interest in OSA. OSA’s primary stakeholders are the citizens of North Carolina, legislators, and
+organizational heads.
+Currently OSA provides information through:
+    1. Reports published on the public website at https://www.auditor.nc.gov/.
+    2. A subscription service where interested parties can sign up via email to be notified of reports when issued.
+    3. The OSA Monitor, which is a quarterly publication by OSA also available on our website.
+    4. OSA’s social media presence on Facebook, Twitter, LinkedIn, and YouTube.
+Additionally, the State Auditor speaks publicly at many civic groups and functions interested in the OSA’s work.
+Current efforts to broaden the scope of communications to citizens, agency heads, and legislators include
+additional social media sites, communicating with groups in relation to our recruiting efforts, including additional
+civic groups in speaking engagements, establishing community service event days for employees to perform public
+service as a part of outreach, creating podcasts, issuing one-page information sheets, and rebranding OSA’s
+website.
+Understanding how to best connect with each of the OSA’s various stakeholders will allow OSA to target its
+communications to those interested parties who can make a difference.
+Question 3: How can OSA become a premier and desired place to work, a place where we can attract and
+retain top talent?
+Across the state, many agencies are suffering with unprecedented vacancies. The pool of candidates for OSA is
+shrinking while competition for candidates with the professional level of knowledge and skills required is greater
+than ever. High voluntary turnover requires OSA to use funds to address salary adjustment needs, such as
+compression, equity, and recruitment. Increasing pay scales and salary expectations for current employees and
+potential new hires, combined with limited funding, continues to exasperate the issue.
+OSA has implemented the following recommendations by the North Carolina Office of State Human Resources
+(OSHR) to strengthen retention:
+    1. Offering sign-on and retention bonuses,
+    2. Moving positions closer to the midpoint of their range, although over half of our positions are still below
+    midpoint,
+
+
+                                                                           North Carolina Office of the State Auditor
+                                                                                                         19 | P a g e
+
+
+===== PAGE 22 =====
+
+    3. Offering workplace flexibility, including revising our work policy where we now offer a 3/2, 2/3 in the
+    office/virtual workspace policy,
+    4. Addressing pay equity issues,
+    5. Developing career paths for opportunities for growth, and
+    6. Increasing training opportunities.
+Additional strategies that OSA is using to strengthen recruiting and retention include:
+    1. Hiring of a recruiting firm to assist with filling the most critical vacancies,
+    2. Intentional efforts to improve the culture within OSA through communication
+    3. Continuous out-reach efforts to:
+        a.       other state auditor entities throughout the USA,
+        b.       college campuses,
+        c.       advertising positions nationally.
+Understanding what strategies are most effective at retaining and recruiting top talent will allow OSA to tailor
+the OSA’s specific efforts in order to create a fully staffed organization of dedicated employees who feel their work
+is meaningful, significant, and has purpose.
+
+
+
+
+                                                                             North Carolina Office of the State Auditor
+                                                                                                           20 | P a g e
+
