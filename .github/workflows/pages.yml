@@ -2,8 +2,8 @@ name: Deploy site to GitHub Pages
 
 # One Pages site for the repo (Settings > Pages > Source: GitHub Actions).
 #   /             qualifier site (QualifierChallenge/docs, built by QualifierChallenge/src/build_site.py)
-#   /matchmaker/  Finals tool: Finalists/src/tool/matchmaker.html + a payload.json rebuilt from the saved cache
-# Replaces the Azure Container App and Blob job. The daily run only re-scores cached data (Finalists/app/job.R,
+#   /matchmaker/  Finals tool: tool/matchmaker.html + a payload.json rebuilt from the saved cache
+# Replaces the Azure Container App and Blob job. The daily run only re-scores cached data (app/job.R,
 # RUN_PIPELINE=1); it calls no outside service and needs no secret. If scoring or the contract check fails the
 # run fails and the previous deployment stays live.
 on:
@@ -11,12 +11,13 @@ on:
     branches: [main]
     paths:
       - "QualifierChallenge/docs/**"
-      - "Finalists/src/**"
-      - "Finalists/data/processed/**"
-      - "Finalists/data/manual/**"
-      - "Finalists/app/build_pages.sh"
-      - "Finalists/app/build_feeds.py"
-      - "Finalists/app/job.R"
+      - "R/**"
+      - "tool/**"
+      - "data/processed/**"
+      - "data/manual/**"
+      - "app/build_pages.sh"
+      - "app/build_feeds.py"
+      - "app/job.R"
       - ".github/workflows/pages.yml"
   schedule:
     - cron: "0 11 * * *"   # 11:00 UTC, 6 or 7 am Eastern
@@ -63,9 +64,9 @@ jobs:
       - name: Re-score from cache and check the payload
         run: |
           mkdir -p "$RUNNER_TEMP/site-data"
-          RUN_PIPELINE=1 JOB_DRY_RUN=1 JOB_OUT="$RUNNER_TEMP/site-data/payload.json" Rscript Finalists/app/job.R
+          RUN_PIPELINE=1 JOB_DRY_RUN=1 JOB_OUT="$RUNNER_TEMP/site-data/payload.json" Rscript app/job.R
       - name: Assemble site
-        run: sh Finalists/app/build_pages.sh "$RUNNER_TEMP/site" "$RUNNER_TEMP/site-data/payload.json"
+        run: sh app/build_pages.sh "$RUNNER_TEMP/site" "$RUNNER_TEMP/site-data/payload.json"
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

@@ -19,9 +19,9 @@ sources:
     shapes (population display only; never enters the ranking)
 
 Each source remains subject to its own terms of use. Files under
-Finalists/data/raw/ and Finalists/data/cache/ are copies of those sources,
-kept so the pipeline can be reproduced. Finalists/data/raw/README.md lists the
-source, date and notes for each one. Finalists/data/raw/organizer/ holds
+data/raw/ and data/cache/ are copies of those sources,
+kept so the pipeline can be reproduced. data/raw/README.md lists the
+source, date and notes for each one. data/raw/organizer/ holds
 materials supplied by the Solve-A-Thon 2026 organizers; they are not covered
 by the Apache-2.0 grant of this repository.
 
