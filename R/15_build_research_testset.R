@@ -39,7 +39,7 @@ for (i in seq_along(topics)) {
   act <- pick(res, "activity_code", "ActivityCode")
   act <- if (is.null(act)) rep(NA_character_, nrow(res)) else as.character(act)
   # fallback: activity code from the project number, e.g. 5R01NS123456-03 -> R01
-  act <- ifelse(is.na(act) | act == "", sub("^[0-9]?([A-Z][0-9A-Z]{2})[A-Z]{2}.*$", "\1", num), act)
+  act <- ifelse(is.na(act) | act == "", sub("^[0-9]?([A-Z][0-9A-Z]{2})[A-Z]{2}.*$", "\\1", num), act)
   df <- tibble::tibble(project_num = num, ic_abbr = abbr, mechanism = act,
                        title = as.character(pick(res, "project_title", "ProjectTitle")),
                        abstract = trimws(as.character(pick(res, "abstract_text", "AbstractText"))))
