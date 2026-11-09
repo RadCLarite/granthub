@@ -13,7 +13,7 @@ Use the repository's Issues tab and the "Matchmaker feedback" form. Issues are p
 3. Install the R packages listed under "Quick start" in [docs/pipeline.md](docs/pipeline.md).
 4. Check it works. From the repo root:
    ```bash
-   Rscript tests/run_tests.R     # expect "89 of 89 tests pass"
+   Rscript tests/run_tests.R     # expect every test to pass (zero failures)
    Rscript R/check_facts.R       # expect "49 of 49 rows pass"
    ```
    From the repository root: `python3 app/check_dupes.py` (must pass), and `sh app/build_pages.sh <outdir> data/processed/payload.json` to build the site.

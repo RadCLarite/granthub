@@ -1,0 +1,40 @@
+/* Researcher tab styles. Colors come only from tokens defined in :root of matchmaker.html. */
+#v-research { max-width: 860px; }
+#v-research .rt-privacy { margin: 14px 0 4px; padding: 8px 12px; border-radius: var(--radius-sm); background: var(--accent-soft); color: var(--text-primary); font-weight: 600; }
+#v-research .rt-panel { margin: 12px 0; padding: 14px; background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius); }
+#v-research label { display: block; font-weight: 600; margin: 0 0 6px; color: var(--text-primary); }
+#v-research textarea { width: 100%; box-sizing: border-box; min-height: 120px; resize: vertical; font: inherit; padding: 10px 12px; color: var(--text-primary); background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-sm); }
+#v-research input[type=number], #v-research select { font: inherit; padding: 8px 10px; color: var(--text-primary); background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-sm); max-width: 100%; box-sizing: border-box; min-height: 44px; }
+#v-research input[type=number] { width: 8.5em; }
+#v-research .rt-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; align-items: center; }
+#v-research .rt-btn { font: inherit; font-weight: 650; min-height: 44px; padding: 8px 16px; border-radius: var(--radius-sm); cursor: pointer; border: 1px solid var(--accent); background: var(--accent); color: var(--on-accent); }
+#v-research .rt-btn.rt-ex { background: var(--surface-2); color: var(--accent); font-weight: 600; text-align: left; }
+#v-research .rt-btn.rt-ex:hover { background: var(--accent-soft); }
+#v-research .rt-exlabel { color: var(--text-secondary); font-size: .9rem; }
+#v-research details.rt-filters { margin: 12px 0; background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius); padding: 4px 14px 12px; }
+#v-research details.rt-filters > summary { cursor: pointer; font-weight: 650; color: var(--accent); min-height: 44px; display: flex; align-items: center; }
+#v-research .rt-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 4px 16px; }
+#v-research .rt-grid > div { min-width: 0; }
+#v-research .rt-grid label { margin-top: 10px; font-size: .92rem; }
+#v-research .rt-note { color: var(--text-secondary); font-size: .88rem; margin: 8px 0 0; }
+#v-research fieldset { border: 1px solid var(--border); border-radius: var(--radius-sm); margin: 10px 0 0; padding: 6px 12px 10px; min-width: 0; }
+#v-research legend { font-weight: 650; padding: 0 6px; color: var(--text-primary); }
+#v-research fieldset label { display: inline-flex; align-items: center; gap: 6px; font-weight: 500; margin: 6px 14px 0 0; }
+#v-research .rt-meta { color: var(--text-secondary); font-size: .92rem; margin: 10px 0; }
+#v-research .rt-stale { margin: 10px 0; padding: 10px 14px; border-radius: var(--radius-sm); background: var(--warn-soft); color: var(--on-warn-soft); font-weight: 600; }
+#v-research .rt-stale[hidden] { display: none; }
+#v-research .rt-empty { padding: 14px; background: var(--surface-3); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text-primary); }
+#v-research .rt-card { margin: 10px 0; padding: 14px; background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius); overflow-wrap: anywhere; }
+#v-research .rt-card h3 { margin: 0 0 6px; font-size: 1.02rem; line-height: 1.35; }
+#v-research .rt-card h3 a { color: var(--accent); }
+#v-research .rt-sub { color: var(--text-secondary); font-size: .9rem; margin: 0 0 6px; }
+#v-research .rt-badges { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0; }
+#v-research .rt-badge { display: inline-block; font-size: .8rem; font-weight: 650; padding: 3px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
+#v-research .rt-badge.rt-ok { background: var(--good-soft); color: var(--good); }
+#v-research .rt-badge.rt-tight { background: var(--warn-soft); color: var(--on-warn-soft); }
+#v-research .rt-badge.rt-late { background: var(--bad-soft); color: var(--bad); }
+#v-research .rt-badge.rt-unknown { background: var(--surface-3); color: var(--text-secondary); border: 1px solid var(--border); }
+#v-research .rt-line { margin: 4px 0; color: var(--text-primary); font-size: .93rem; }
+#v-research .rt-snip { margin: 6px 0 0; color: var(--text-secondary); font-size: .9rem; }
+#v-research mark { background: var(--accent-soft); color: var(--text-primary); font-weight: 700; padding: 0 2px; border-radius: 3px; }
+#v-research .rt-aid { margin: 14px 0; color: var(--text-secondary); font-size: .9rem; font-weight: 600; }

@@ -23,6 +23,21 @@ It started as an entry in the Solve-A-Thon 2026 challenge for the NC Office of S
 - It does not apply for anything, and it does not replace your grants office, your budget office or the funder's contact.
 - It does not yet fetch new postings by itself (see below).
 
+## For researchers
+
+The "For researchers" tab lists open federal opportunities that a university or nonprofit applicant can apply to, with a search box, filters and a time warning. It is a screening aid: it helps you decide what to read, and the Grants.gov notice is the authority on dates, eligibility and fit. "Unknown" means unknown: when a mechanism, institute, trial status or date could not be read from the notice, the tab says so and does not guess.
+
+Ranking is keyword matching (BM25) with a synonym list. Each result shows the terms that matched, so you can see why it ranked where it did. In this version nothing you type is sent to any server; the search runs in your browser on two data files from this site, `research.json` and `synonyms.json`.
+
+Run the checks from the repo root with `node tests/research/test_core.js` (unit tests) and `node tests/research/run_testset.js` (scores the award test set and writes `outs/research_testset_report.csv`).
+
+Current limits:
+- Only R01, R21 and K-family mechanisms have lead times, and forecasted or no-close rows get no deadline check. On the current data (checked for 2026-11-09) 143 of 1,225 rows (11.7%) get an ok, tight or late time warning; the rest show "unknown" (no parsed mechanism, or a mechanism with no lead time) or "date not announced".
+- The tab shows when the listings were fetched and warns when they are 3 or more days old; research.json is rebuilt by hand, not by the daily job.
+- Funder (institute) codes are known for only about 13% of the pool.
+- The test set has 10 of 20 awards. The owner adds 10 more of their own.
+- Lead times behind the time warning are estimates, not agency commitments.
+
 ## Who maintains it
 
 No maintainer or owner is named yet. The [runbook](docs/runbook.md) is written for whoever takes it on and has an owner line still to fill in.
@@ -33,7 +48,7 @@ A daily GitHub Actions job re-scores the opportunity data already stored in the 
 
 ## Privacy
 
-The tool is a static page. It loads one data file from its own site and nothing else; your agency choice, marks and notes are kept in your browser's local storage on your device and are never sent anywhere. There are no accounts. Links in the tool (Grants.gov, SAM.gov, the feedback link) open other sites only when you click them. Clear your browser's site data to erase your marks.
+The tool is a static page. It loads its data files (the grant payload and, for the researcher tab, research.json and synonyms.json) from its own site and nothing else; your agency choice, marks and notes are kept in your browser's local storage on your device and are never sent anywhere. There are no accounts. Links in the tool (Grants.gov, SAM.gov, the feedback link) open other sites only when you click them. Clear your browser's site data to erase your marks.
 
 ## Report a problem or give feedback
 

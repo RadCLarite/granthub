@@ -11,7 +11,7 @@ Written when the repository was reorganized into a clean top-level layout (2026-
 | `api_keys.env.example`, `.Renviron.example` | Templates for local keys. Real key files are git-ignored. |
 | `R/` | The numbered R pipeline (`00_config.R` holds every threshold and path), helpers, backtests, `check_facts.R`, `ocr_vision.swift`. |
 | `tool/` | The static web page `matchmaker.html` (published as `/matchmaker/`), plus `ranker.js`, `ui.js`, `styles.css`, `index.html`, `stub/`, `build_tool.R`. |
-| `tests/` | `run_tests.R` and its helpers (89 tests). |
+| `tests/` | `run_tests.R` and its helpers. |
 | `app/` | Daily job `job.R`, Pages build `build_pages.sh`, feeds `build_feeds.py`, `check_dupes.py`, `site_index.html` (landing page at `/`), Dockerfiles and the Azure-era container files that remain. |
 | `data/raw/` | Untouched inputs (agency plan PDFs, SAM listings, organizer files). |
 | `data/manual/` | Hand-authored tables, including the agency goal tables and plan text checks. |
@@ -23,6 +23,16 @@ Written when the repository was reorganized into a clean top-level layout (2026-
 | `docs/` | Runbook, pipeline guide, fact sheet, payload contract (`contract.md`), real-app criteria, daily job, expansion plan, requirements, pilot plan, handover, this map, publishing checklist. |
 | `outs/` | Generated outputs (git-ignored except `.gitkeep`). |
 | `archive/` | Historical, not used by the pipeline. See `archive/README.md`. |
+| `R/helpers_research.R`, `R/14_build_research_payload.R` | Researcher tab: parsers and pool rule, and the script that writes `research.json`. |
+| `R/15_build_research_testset.R` | Builds the award test set files in `data/research_testset/`. |
+| `R/02f_research_pool.R` | Optional refresh of the researcher pool from Simpler.Grants.gov (needs a key; not run in phase 1). |
+| `data/manual/nih_ic_codes.csv` | Known NIH institute codes used to read the funder from opportunity numbers. |
+| `data/processed/research.json` | Researcher tab data snapshot (dated). |
+| `data/research_testset/` | Award test set for the researcher tab (10 of 20 awards so far). |
+| `tests/test_research.R`, `tests/research/` | R tests for the parsers; Node unit tests and test-set scorer for the tab. |
+| `tool/research/` | Researcher tab code: `research_core.js`, `research_tab.js`, `research.css`, `synonyms.json`. |
+| `docs/research_testset_results.md` | First test-set run, recorded without a pass bar. |
+| `docs/superpowers/` | Design spec and implementation plan for the researcher tab. |
 | `.github/` | Workflows (`pages.yml`, `checks.yml`, `freshness.yml`) and the feedback issue template. |
 
 ## Old to new paths
