@@ -193,6 +193,7 @@ check(l, "shards cover every item exactly once", identical(ids_seen, 1:7))
 # ---- 7. Ingest: merged opportunities table -----------------------------------------
 source(here::here("tests", "test_ingest.R"))
 source(here::here("tests", "test_plan_tables.R"))
+source(here::here("tests", "test_research.R"))
 
 # ---- Report ------------------------------------------------------------------------
 rep <- bind_rows(results)
