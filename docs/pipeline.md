@@ -109,7 +109,7 @@ Rules to know:
 
 ## Deploy on GitHub Pages
 
-One Pages site serves the repo: the qualifier site at `/` and this tool at `/matchmaker/`. `.github/workflows/pages.yml` runs on every push to `main` that touches the tool or its data, daily at 11:00 UTC, and on demand. It re-scores the cached data with `app/job.R` (`RUN_PIPELINE=1`, dry run, no outside call, no secret), checks the payload against `docs/contract.md`, then `app/build_pages.sh` assembles `index.html` and `payload.json`. If scoring or the check fails the run fails and the last deployment stays up. One-time setup: Settings > Pages > Source: GitHub Actions.
+One Pages site serves the repo: a landing page at `/` that forwards to the tool at `/matchmaker/`. `.github/workflows/pages.yml` runs on every push to `main` that touches the tool or its data, daily at 11:00 UTC, and on demand. It re-scores the cached data with `app/job.R` (`RUN_PIPELINE=1`, dry run, no outside call, no secret), checks the payload against `docs/contract.md`, then `app/build_pages.sh` assembles `index.html` and `payload.json`. If scoring or the check fails the run fails and the last deployment stays up. One-time setup: Settings > Pages > Source: GitHub Actions.
 
 ```bash
 # needs R 4.5 with dplyr, ggplot2, here, httr2, janitor, jsonlite, Matrix, digest, purrr, readr, stringr, tibble

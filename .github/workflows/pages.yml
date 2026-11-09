@@ -1,7 +1,7 @@
 name: Deploy site to GitHub Pages
 
 # One Pages site for the repo (Settings > Pages > Source: GitHub Actions).
-#   /             qualifier site (QualifierChallenge/docs, built by QualifierChallenge/src/build_site.py)
+#   /             a landing page that forwards to /matchmaker/ (app/site_index.html)
 #   /matchmaker/  Finals tool: tool/matchmaker.html + a payload.json rebuilt from the saved cache
 # Replaces the Azure Container App and Blob job. The daily run only re-scores cached data (app/job.R,
 # RUN_PIPELINE=1); it calls no outside service and needs no secret. If scoring or the contract check fails the
@@ -10,11 +10,12 @@ on:
   push:
     branches: [main]
     paths:
-      - "QualifierChallenge/docs/**"
       - "R/**"
       - "tool/**"
       - "data/processed/**"
       - "data/manual/**"
+      - "data/qualifier/**"
+      - "app/site_index.html"
       - "app/build_pages.sh"
       - "app/build_feeds.py"
       - "app/job.R"

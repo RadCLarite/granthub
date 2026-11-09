@@ -1,7 +1,7 @@
 #!/bin/sh
 # build_pages.sh: assemble the GitHub Pages site. Replaces the Azure Container App (deploy_azure.sh).
-#   <out>/                      qualifier site (QualifierChallenge/docs), URL unchanged
-#   <out>/matchmaker/           the Finals tool: index.html (tool/matchmaker.html) + payload.json + feeds/ (Atom, ICS)
+#   <out>/                      landing page (app/site_index.html) that forwards to matchmaker/
+#   <out>/matchmaker/           the tool: index.html (tool/matchmaker.html) + payload.json + feeds/ (Atom, ICS)
 # Usage: sh app/build_pages.sh <out_dir> [payload.json]
 # The payload is the daily-job output when given (see app/job.R), else the tracked data/processed/payload.json.
 # Checks the payload shape and that no secret-named file ends up in the site. Never prints key values.
@@ -15,7 +15,7 @@ PAYLOAD="${2:-$REPO/data/processed/payload.json}"
 grep -q '"agencies"' "$PAYLOAD" && grep -q '"data_as_of"' "$PAYLOAD" || { echo "FAIL: payload lacks agencies or data_as_of"; exit 1; }
 
 mkdir -p "$OUT/matchmaker"
-cp -R "$REPO/QualifierChallenge/docs/." "$OUT/"
+cp "$HERE/site_index.html" "$OUT/index.html"
 cp "$REPO/tool/matchmaker.html" "$OUT/matchmaker/index.html"
 cp "$PAYLOAD" "$OUT/matchmaker/payload.json"
 python3 "$HERE/build_feeds.py" "$PAYLOAD" "$OUT/matchmaker"
