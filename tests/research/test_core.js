@@ -67,4 +67,68 @@ t('big query fast', () => {
   assert(r.length <= 25 && r.length > 0);
   assert.strictEqual(RC.search(bi, 'stroke').length <= 50, true);
 });
+const TODAY = '2026-11-09';
+t('businessDaysBefore', () => {
+  assert.strictEqual(RC.businessDaysBefore('2026-11-20', 5), '2026-11-13');
+  assert.strictEqual(RC.businessDaysBefore('2026-11-12', 5), '2026-11-05');
+  assert.strictEqual(RC.businessDaysBefore('2026-11-20', 0), '2026-11-20');
+});
+t('daysUntil', () => {
+  assert.strictEqual(RC.daysUntil('2026-11-12', TODAY), 3);
+  assert.strictEqual(RC.daysUntil(TODAY, TODAY), 0);
+  assert.strictEqual(RC.daysUntil(null, TODAY), null);
+});
+t('timeWarning cases', () => {
+  const w = (mech, close, s) => RC.timeWarning({ mech: mech, close: close }, TODAY, s);
+  let r = w('R01', '2026-11-20');
+  assert.strictEqual(r.level, 'tight'); assert.strictEqual(r.daysToInstitution, 4); assert.strictEqual(r.needDays, 56);
+  r = w('R01', '2026-11-12');
+  assert.strictEqual(r.level, 'late'); assert.strictEqual(r.daysToInstitution, -4);
+  r = w('R01', '2027-03-01');
+  assert.strictEqual(r.level, 'ok'); assert.strictEqual(r.daysToInstitution, 105);
+  r = w('K99', '2027-03-01');
+  assert.strictEqual(r.level, 'ok'); assert.strictEqual(r.needDays, 56);
+  assert.strictEqual(w('R03', '2027-03-01').level, 'unknown');
+  r = w('R01', null);
+  assert.strictEqual(r.level, 'unknown'); assert(r.reason.indexOf('date not announced') >= 0);
+  assert.strictEqual(w('R01', TODAY).level, 'late');
+  assert.strictEqual(w('R01', '2026-11-20', { signoffBusinessDays: 0 }).daysToInstitution, 11);
+  assert.strictEqual(w('R21', '2026-12-20', { leadWeeks: { R21: 2 } }).needDays, 14);
+});
+t('filters', () => {
+  const R = [
+    { id: 'u', elig: '06|20', trial: 'required', ceil: 100000, floor: null, mech: 'R01' },
+    { id: 's', elig: '23', trial: 'optional', ceil: null, floor: null, mech: 'K99' },
+    { id: 'x', elig: '99', trial: null, ceil: 900000, floor: 600000, mech: null },
+    { id: 'e', elig: '', trial: 'not_allowed', ceil: 1000000, floor: null, mech: 'F31' },
+  ];
+  let r = RC.applyFilters(R, { institution: 'small_business' });
+  assert.deepStrictEqual(r.kept.map(x => x.id), ['s', 'x', 'e']);
+  assert.deepStrictEqual(r.unknown, { e: ['institution'] });
+  assert.deepStrictEqual(r.removedBy, { institution: 1 });
+  r = RC.applyFilters(R, { trial: 'no' });
+  assert.deepStrictEqual(r.kept.map(x => x.id), ['s', 'x', 'e']);
+  assert.strictEqual(r.removedBy.trial, 1);
+  assert.deepStrictEqual(r.unknown.x, ['trial']);
+  r = RC.applyFilters(R, { trial: 'yes' });
+  assert.deepStrictEqual(r.kept.map(x => x.id), ['u', 's', 'x']);
+  r = RC.applyFilters(R, { budgetMin: 500000 });
+  assert.deepStrictEqual(r.kept.map(x => x.id), ['s', 'x', 'e']);
+  assert.deepStrictEqual(r.unknown.s, ['budget']);
+  r = RC.applyFilters(R, { budgetMax: 500000 });
+  assert.deepStrictEqual(r.kept.map(x => x.id), ['u', 's', 'e']);
+  r = RC.applyFilters(R, { career: 'trainee' });
+  assert.deepStrictEqual(r.kept.map(x => x.id), ['s', 'x', 'e']);
+  assert.deepStrictEqual(r.removedBy, { career: 1 });
+  assert.deepStrictEqual(r.unknown.x, ['career']);
+  r = RC.applyFilters(R, { career: 'established' });
+  assert.deepStrictEqual(r.kept.map(x => x.id), ['u', 'x']);
+  r = RC.applyFilters(R, { career: 'early' });
+  assert.deepStrictEqual(r.kept.map(x => x.id), ['u', 's', 'x']);
+  r = RC.applyFilters(R, { mechs: ['R01'] });
+  assert.deepStrictEqual(r.kept.map(x => x.id), ['u', 'x']);
+  assert.strictEqual(r.removedBy.mechs, 2);
+  r = RC.applyFilters(R, {});
+  assert.strictEqual(r.kept.length, 4); assert.deepStrictEqual(r.unknown, {}); assert.deepStrictEqual(r.removedBy, {});
+});
 console.log(n + ' tests pass');

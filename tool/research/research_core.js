@@ -108,5 +108,126 @@
     return res.slice(0, limit);
   }
 
-  return { tokenize: tokenize, expandTerms: expandTerms, buildIndex: buildIndex, search: search };
+  /* ---- filters and time warnings (all date math is UTC, from YYYY-MM-DD only) ---- */
+  var DAY_MS = 86400000;
+  var INSTITUTION_CODES = { university: ['06', '20'], hospital_nonprofit: ['12', '13', '25'], small_business: ['23'] };
+  var CAREER_MECHS = { early: ['R01', 'R21', 'R03', 'R00'] };
+  var CAREER_FAMILIES = { trainee: ['K', 'F', 'T'], early: ['K'] };
+  var TRAINING_FAMILIES = ['K', 'F', 'T'];
+  var DEFAULT_LEAD_WEEKS = { R01: 8, R21: 6, K: 8 };
+  var DEFAULT_SIGNOFF_DAYS = 5;
+
+  function isoToUtcMs(iso) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(iso || ''));
+    return m ? Date.UTC(+m[1], +m[2] - 1, +m[3]) : null;
+  }
+  function utcMsToIso(ms) {
+    var d = new Date(ms), mo = d.getUTCMonth() + 1, da = d.getUTCDate();
+    return d.getUTCFullYear() + '-' + (mo < 10 ? '0' : '') + mo + '-' + (da < 10 ? '0' : '') + da;
+  }
+  function daysUntil(closeIso, todayIso) {
+    var a = isoToUtcMs(closeIso), b = isoToUtcMs(todayIso);
+    return a === null || b === null ? null : Math.round((a - b) / DAY_MS);
+  }
+  function businessDaysBefore(isoDate, n) {
+    var ms = isoToUtcMs(isoDate);
+    if (ms === null) return isoDate;
+    var left = n;
+    while (left > 0) {
+      ms -= DAY_MS;
+      var dow = new Date(ms).getUTCDay();
+      if (dow !== 0 && dow !== 6) left--;
+    }
+    return utcMsToIso(ms);
+  }
+  function leadWeeksFor(mech, table) {
+    if (!mech) return null;
+    var code = String(mech).toUpperCase();
+    if (table[code] != null) return table[code];
+    var fam = code.charAt(0);
+    if (TRAINING_FAMILIES.indexOf(fam) >= 0 && table[fam] != null) return table[fam];
+    return null;
+  }
+  function timeWarning(row, todayIso, settings) {
+    var st = settings || {};
+    var table = st.leadWeeks || DEFAULT_LEAD_WEEKS;
+    var signoff = st.signoffBusinessDays != null ? st.signoffBusinessDays : DEFAULT_SIGNOFF_DAYS;
+    var weeks = leadWeeksFor(row.mech, table);
+    var needDays = weeks == null ? null : weeks * 7;
+    if (!row.close) return { level: 'unknown', daysToInstitution: null, needDays: needDays, reason: 'Closing date not announced; date not announced yet.' };
+    var daysToInst = daysUntil(businessDaysBefore(row.close, signoff), todayIso);
+    if (daysToInst === null) return { level: 'unknown', daysToInstitution: null, needDays: needDays, reason: 'Date could not be read.' };
+    if (needDays === null) return { level: 'unknown', daysToInstitution: daysToInst, needDays: null, reason: 'No lead time set for this mechanism.' };
+    var level, reason;
+    if (daysToInst < 0) { level = 'late'; reason = 'The institutional deadline passed ' + (-daysToInst) + ' days ago.'; }
+    else if (daysToInst < needDays) { level = 'tight'; reason = daysToInst + ' days to the institutional deadline; ' + needDays + ' are usually needed.'; }
+    else { level = 'ok'; reason = daysToInst + ' days to the institutional deadline; ' + needDays + ' are usually needed.'; }
+    return { level: level, daysToInstitution: daysToInst, needDays: needDays, reason: reason };
+  }
+
+  /* Each check returns "remove", "unknown" or "keep". A row is removed only on a known conflict. */
+  function checkInstitution(row, kind) {
+    var codes = INSTITUTION_CODES[kind];
+    if (!codes) return 'keep';
+    var elig = String(row.elig || '');
+    if (!elig) return 'unknown';
+    var have = elig.split('|');
+    if (have.indexOf('99') >= 0) return 'keep';
+    for (var i = 0; i < codes.length; i++) if (have.indexOf(codes[i]) >= 0) return 'keep';
+    return 'remove';
+  }
+  function checkTrial(row, want) {
+    if (row.trial == null) return 'unknown';
+    if (want === 'yes') return row.trial === 'not_allowed' ? 'remove' : 'keep';
+    if (want === 'no') return row.trial === 'required' ? 'remove' : 'keep';
+    return 'keep';
+  }
+  function checkBudget(row, lo, hi) {
+    var hasLo = typeof lo === 'number', hasHi = typeof hi === 'number';
+    if (hasLo && row.ceil != null && row.ceil < lo) return 'remove';
+    if (hasHi && row.floor != null && row.floor > hi) return 'remove';
+    if ((hasLo && row.ceil == null) || (hasHi && row.floor == null)) return 'unknown';
+    return 'keep';
+  }
+  function checkCareer(row, career) {
+    if (!row.mech) return 'unknown';
+    var code = String(row.mech).toUpperCase(), fam = code.charAt(0);
+    var inTraining = TRAINING_FAMILIES.indexOf(fam) >= 0;
+    var ok;
+    if (career === 'trainee') ok = inTraining;
+    else if (career === 'early') ok = CAREER_MECHS.early.indexOf(code) >= 0 || CAREER_FAMILIES.early.indexOf(fam) >= 0;
+    else if (career === 'established') ok = !inTraining;
+    else return 'keep';
+    return ok ? 'keep' : 'remove';
+  }
+  function checkMechs(row, list) {
+    if (!row.mech) return 'unknown';
+    var code = String(row.mech).toUpperCase();
+    for (var i = 0; i < list.length; i++) if (String(list[i]).toUpperCase() === code) return 'keep';
+    return 'remove';
+  }
+  function applyFilters(rows, profile) {
+    var p = profile || {}, checks = [];
+    if (p.institution) checks.push(['institution', function (r) { return checkInstitution(r, p.institution); }]);
+    if (p.trial) checks.push(['trial', function (r) { return checkTrial(r, p.trial); }]);
+    if (typeof p.budgetMin === 'number' || typeof p.budgetMax === 'number') checks.push(['budget', function (r) { return checkBudget(r, p.budgetMin, p.budgetMax); }]);
+    if (p.career) checks.push(['career', function (r) { return checkCareer(r, p.career); }]);
+    if (p.mechs && p.mechs.length) checks.push(['mechs', function (r) { return checkMechs(r, p.mechs); }]);
+    var kept = [], unknown = {}, removedBy = {};
+    for (var i = 0; i < rows.length; i++) {
+      var row = rows[i], unk = [], gone = null;
+      for (var c = 0; c < checks.length; c++) {
+        var res = checks[c][1](row);
+        if (res === 'remove') { gone = checks[c][0]; break; }
+        if (res === 'unknown') unk.push(checks[c][0]);
+      }
+      if (gone) { removedBy[gone] = (removedBy[gone] || 0) + 1; continue; }
+      kept.push(row);
+      if (unk.length) unknown[row.id] = unk;
+    }
+    return { kept: kept, unknown: unknown, removedBy: removedBy };
+  }
+
+  return { tokenize: tokenize, expandTerms: expandTerms, buildIndex: buildIndex, search: search,
+    applyFilters: applyFilters, daysUntil: daysUntil, businessDaysBefore: businessDaysBefore, timeWarning: timeWarning };
 });
