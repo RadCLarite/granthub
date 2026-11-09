@@ -157,4 +157,32 @@ t('fix round 1', () => {
   o = RC.applyFilters(R, { budgetMin: 'abc', budgetMax: '' });
   assert.strictEqual(o.kept.length, 2);
 });
+
+const { scoreTestset } = require(path.join(__dirname, 'run_testset.js'));
+t('scoreTestset empty sample', () => {
+  const r = scoreTestset([{ id: 'a', title: 'x', sum: '', ic: 'NS', mech: 'R01' }], [], []);
+  assert.strictEqual(r.summary.awards, 0);
+  assert(r.summary.text.indexOf('0 awards') >= 0);
+});
+t('scoreTestset one hit and one not-testable', () => {
+  const pool = [
+    { id: 'p1', title: 'stroke perfusion imaging', sum: 'ct perfusion in acute stroke', ic: 'NS', mech: 'R01' },
+    { id: 'p2', title: 'grain subsidies', sum: '', ic: null, mech: null },
+  ];
+  const aw = [
+    { id: 'x1', ic: 'NS', mechanism: 'R01', title: 'stroke ct perfusion', abstract: 'imaging of acute stroke' },
+    { id: 'x2', ic: 'HL', mechanism: 'R01', title: 'stroke ct perfusion', abstract: 'imaging of acute stroke' },
+  ];
+  const r = scoreTestset(pool, aw, []);
+  assert.strictEqual(r.summary.awards, 2);
+  assert.strictEqual(r.perAward[0].ic_rank, 1); assert.strictEqual(r.perAward[0].mech_rank, 1);
+  assert.strictEqual(r.perAward[0].hit_both, true);
+  assert.strictEqual(r.perAward[1].ic_testable, false); assert.strictEqual(r.perAward[1].ic_rank, null);
+  assert.strictEqual(r.perAward[1].mech_testable, true);
+  assert.strictEqual(r.summary.ic_testable, 1); assert.strictEqual(r.summary.ic_hits, 1);
+  assert.strictEqual(r.summary.mech_testable, 2); assert.strictEqual(r.summary.mech_hits, 2);
+  assert.strictEqual(r.summary.ic_not_testable, 1);
+  assert.strictEqual(r.summary.funder_known, 0.5);
+  assert(r.summary.text.indexOf('1 of 1') >= 0);
+});
 console.log(n + ' tests pass');
