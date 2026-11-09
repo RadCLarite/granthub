@@ -8,7 +8,7 @@
 | Kent | Existing `R/*.R` (00 to 04, `score.R`, `10_run_ranking.R`, helpers), `data/manual/criteria.csv`, `data/manual/agency_map.csv`, `data/processed/payload.json`, `data/processed/rankings_backtest.csv`, `docs/fact_sheet.md`, `handoff.md`, `CLAUDE.md`, merges |
 | Marco | `app/`, `tool/`, Azure resources, new `R/30_notice_reader.R`, `archive/finalists/docs/azure_setup.md` |
 | Everett | New `R/20_backtest_awards.R`, `data/manual/agency_award_map.csv`, new `R/21_audit_clearinghouse.R`, backtest figures in `outs/figures/backtest_*` |
-| Noah | New `R/05a_county_need.R`, `R/05b_sam_listings.R`, `R/40_label_check.R`, `data/manual/label_holdout.csv`, `data/manual/reader_spotcheck.csv`, `drafts/claude/docs/` (field notes drafts) |
+| Noah | New `R/05a_county_need.R`, `R/05b_sam_listings.R`, `R/40_label_check.R`, `data/manual/label_holdout.csv`, `data/manual/reader_spotcheck.csv`, `data/label_check/` (field notes drafts) |
 | Matthew | `data/manual/sat_checks.csv`, `archive/finalists/saturday/mentor_log.md` |
 
 Shared and append-only: `AI_USAGE_LOG.md` (add rows at the bottom; on a conflict keep both rows).

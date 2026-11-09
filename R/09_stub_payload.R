@@ -1,5 +1,5 @@
 # 09_stub_payload.R: Merge 1 STUB of payload.json and rankings_backtest.csv.
-# Shapes follow saturday/03_contract.md so Marco (tool) and Everett (backtest) can build
+# Shapes follow docs/contract.md so Marco (tool) and Everett (backtest) can build
 # before the real ranking lands at Merge 2. Rows are real opportunities from
 # opportunities.csv; every computed field (fit_score, eligibility, goal match, signature
 # tier) is null because nothing is scored yet. Rank is close-date order, NOT a fit rank.

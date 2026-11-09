@@ -1,5 +1,5 @@
 # job.R: MODE=job. The daily refresh. Runs the scoring from cached data, checks the result against
-# saturday/03_contract.md, stamps "data as of", and writes payload.json (local file and/or Blob).
+# docs/contract.md, stamps "data as of", and writes payload.json (local file and/or Blob).
 # No model calls and no network calls except the Blob upload: the scoring reads only data/cache and
 # data/processed. Fetching new opportunities from Grants.gov (02a to 03) is NOT part of this job.
 #

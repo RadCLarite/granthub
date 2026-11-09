@@ -192,7 +192,7 @@ SAM_AL_BASE        <- "https://api.sam.gov/assistance-listings/v1"  # key: SAM_A
 USDOT_GRANTS_URL   <- "https://www.transportation.gov/grants"        # [uncertain] verify page before scraping
 
 # =============================================================================
-# Evaluation, refresh and feedback (plan review amendments, planning/08_product_decisions.md)
+# Evaluation, refresh and feedback (plan review amendments, archive/finalists/planning/08_product_decisions.md)
 # =============================================================================
 FLAG_TOP_N          <- 10L               # flagged items per agency per window (amendment D)
 WINDOW_WEEKS        <- c(2L, 4L, 6L)     # backtest windows for the recall curve (amendment E)

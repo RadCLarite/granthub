@@ -12,7 +12,7 @@
 suppressMessages(library(data.table))
 
 # ---- settings ---------------------------------------------------------------
-# Decision 12 (planning/08_product_decisions.md): 70% recall pass bar. Kent can change it.
+# Decision 12 (archive/finalists/planning/08_product_decisions.md): 70% recall pass bar. Kent can change it.
 PASS_RECALL_AT_N <- 0.70
 # N = the shortlist cap, counted in the agency's FULL ranked list (decision 3; the cap lives in
 # src/R/00_config.R). It is NOT the pool size. Kent must set it. NA = no primary number is computed.
