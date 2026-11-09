@@ -7,7 +7,7 @@ SITE_URL (env) is the public address of the tool; default is the assumed Pages U
 Numbers and dates come from the payload only; nothing is computed beyond filtering."""
 import html, json, os, sys, datetime as dt
 
-SITE = os.environ.get("SITE_URL", "https://kapollol.github.io/granthub/matchmaker/").rstrip("/") + "/"
+SITE = os.environ.get("SITE_URL", "https://radclarite.github.io/granthub/matchmaker/").rstrip("/") + "/"
 payload, out = sys.argv[1], os.path.join(sys.argv[2], "feeds")
 p = json.load(open(payload, encoding="utf-8"))
 os.makedirs(out, exist_ok=True)

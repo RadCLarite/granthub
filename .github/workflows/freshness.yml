@@ -17,7 +17,7 @@ jobs:
     steps:
       - name: Payload is recent
         env:
-          SITE_URL: ${{ vars.SITE_URL || 'https://kapollol.github.io/granthub/matchmaker/' }}
+          SITE_URL: ${{ vars.SITE_URL || 'https://radclarite.github.io/granthub/matchmaker/' }}
         run: |
           curl -fsS "${SITE_URL%/}/payload.json" -o payload.json
           python3 - <<'PY'

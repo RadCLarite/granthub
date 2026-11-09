@@ -2919,7 +2919,7 @@ body.proj .tour-card { font-size:1.2rem; }
   // ---- feedback: this site is static (GitHub Pages), so there is no server to receive it. Set FEEDBACK_ENDPOINT to a form or
   // webhook URL that accepts GET ?d=<json> to send answers to the team; empty keeps them in this browser only. ----
   var FEEDBACK_ENDPOINT = "";
-  var FEEDBACK_ISSUE = "https://github.com/KApolloL/granthub/issues/new"; // public; needs a GitHub account [repo address assumed, uncertain]
+  var FEEDBACK_ISSUE = "https://github.com/RadCLarite/granthub/issues/new"; // public; needs a GitHub account [repo address assumed, uncertain]
   function sendFeedback(item) {
     if (!FEEDBACK_ENDPOINT) return Promise.resolve(false);
     var j = JSON.stringify(item); if (j.length > 3500) j = j.slice(0, 3500);
