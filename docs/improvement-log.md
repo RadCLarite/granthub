@@ -1,5 +1,7 @@
 # Improvement log (orchestrator loop)
 
+Note (2026-11-08): entries below were written against the old layout (`Finalists/src/...`). Paths now: `R/`, `tool/`, `tests/`, `app/`, `data/`, `docs/`. See `docs/REPO_MAP.md`.
+
 Stop rule (assumed, 2026-11-08): all Me rows in `src/docs/real_app_criteria.md` pass (B2 is the open one) and no high-severity finding remains. Cap: 3 cycles per confirmation. Rules: no commit to main, no push of secrets, Azure untouched, no outside-service scripts, no PHI.
 Process: 3 read-only inspectors (UX/UI, performance and clean code, tests and edge cases) -> orchestrator picks one -> implementer -> independent qa-tester -> log. Reports from subagents are claims; the orchestrator checks the diff and the numbers.
 
@@ -87,3 +89,8 @@ Not done: presentation and doc quotes of the old figures (71, 64, 488, 73) were 
 Chosen: make the repo ready to be public without moving code or data paths. Added LICENSE (Apache-2.0), NOTICE, SECURITY.md, CODE_OF_CONDUCT.md; rewrote README.md for agency staff and CONTRIBUTING.md for outside contributors; untracked 212 internal files (team notes and vault, comms, per-person files, test transcripts, drafts except what 40_label_check.R reads, agent configs, handoff files) after a no-overwrite backup to C:\Code\granthub-internal-backup, and ignored them in .gitignore.
 Result: PASS. Tests 89 of 89, facts 49 of 49 (after rebuilding the 2026-11-07 snapshot per the runbook; payload.json unchanged), dupes ok, build_pages.sh builds 73 files, every path the workflows name still exists. Secret scan of the tracked tree found no key patterns; emails and names remain in tracked files (see PR text). Untracking does not remove anything from git history.
 Not done: history rewrite, moving files, setting a Pages URL or owner. AI_USAGE_LOG.md and this log stay tracked for the competition disclosure rule; decide later whether they move to a docs folder.
+
+## Cycle 12 (new public repository layout, local branches layout-a-code, layout-b-qualifier, layout-c-archive)
+Chosen: the owner's decision to publish a public repository for NC agency staff with a clean top-level layout. New local repository, fresh history, no remote. Three steps, each merged into local `main` only after checks passed: A moved `Finalists/src/{R,tests,tool}`, `app`, `data`, docs, the contract and the label-check sheets to the root (6,295 renames); B copied the two qualifier files the pipeline reads into `data/qualifier/` (2 renames) and replaced the qualifier site at the Pages root with a landing page; C moved everything else to `archive/` (17,572 renames).
+Result: PASS at every step. Tests 89 of 89, facts 49 of 49, `check_dupes.py` ok, `job.R` dry run exit 0, Pages build (73 files at A, 69 at B and C because the qualifier site left the root), site checked at 1280 and 375 px with 0 console errors, evidence card present, `?payload=` and feeds load, workflow YAML parses and every referenced path exists. `data/processed/payload.json` unmodified. The tier rule is `signature_tier()` in `R/helpers_rank.R`; older docs named a `tiering.js` that only exists in the qualifier tool.
+Not done: `R/05c_county_shapes.R` needs the `sf` package, which is not installed here, so it was not run (its input path was checked to exist). Nothing pushed; owner actions are in `docs/PUBLISHING_CHECKLIST.md`.

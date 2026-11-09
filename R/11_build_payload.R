@@ -1,5 +1,5 @@
 # 11_build_payload.R: items.csv + ranking.csv -> data/processed/payload.json (contract in
-# saturday/03_contract.md). Run 10_run_ranking.R first.
+# docs/contract.md). Run 10_run_ranking.R first.
 #
 # rows per agency, three groups:
 #   Top 10   posted and notice items that pass the filters, best first: rank 1..TOP10_N, in_top10 TRUE
@@ -210,7 +210,7 @@ evidence[["_note"]] <- NULL
 #  * rank_note and map_note are written for the audit trail but the tool never reads them: dropped.
 #  * Opportunity-level fields repeat on every row of an opp_id that sits under several agencies. Stored once in
 #    payload$opps[[opp_id]]; the tool copies them back onto each row when it loads (matchmaker.html, "join opps").
-#    The contract fields (saturday/03_contract.md, job.R need_r) stay on the rows, so job.R and the tests are unaffected.
+#    The contract fields (docs/contract.md, job.R need_r) stay on the rows, so job.R and the tests are unaffected.
 #    Only fields identical on every row of an opp_id may move; the check below stops the build otherwise.
 OPP_FIELDS <- intersect(c("tier_reason", "funder", "award_floor", "est_total_funding", "n_awards", "cost_sharing",
                           "applicant_types", "need_type", "reach", "fed_fy24", "fed_fy25", "fed_fy26", "ai_summary", "ai_quote"),

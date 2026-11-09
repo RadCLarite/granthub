@@ -1,5 +1,5 @@
 # 12_backtest.R: rank closed opportunities with the same scoring as payload.json and write
-# data/processed/rankings_backtest.csv (contract: saturday/03_contract.md).
+# data/processed/rankings_backtest.csv (contract: docs/contract.md).
 # Windows: non-overlapping, WINDOW_WEEKS long (2, 4, 6), the first starting at CLOSED_SINCE and the
 # last ending on or before REF_DATE [assumed grid; Everett may ask for another]. An item is in a
 # window if it was posted on or before window_end and closes on or after window_start. Top BACKTEST_TOP_N

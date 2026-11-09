@@ -120,7 +120,7 @@ for (r in seq_len(nrow(tc))) {
 if (!file.exists(PAYLOAD_JSON)) {
   check("R and JS agree", "payload.json exists (run R/10_run_ranking.R)", FALSE)
 } else if (!is.null(jsonlite::fromJSON(PAYLOAD_JSON)$rows)) {
-  # Contract-shape payload (saturday/03_contract.md): the shipped tool shows R's rank and fit_score as written and
+  # Contract-shape payload (docs/contract.md): the shipped tool shows R's rank and fit_score as written and
   # only re-sorts by fit_score x weight in the browser (tool/matchmaker.html). tool/ranker.js is for the toy shape.
   # So the agreement check is: the payload order is exactly the order of fit_score (ties by opp_id) within each agency.
   pl0 <- jsonlite::fromJSON(PAYLOAD_JSON)$rows; top0 <- pl0[pl0$in_top10, ]
@@ -137,7 +137,7 @@ if (!file.exists(PAYLOAD_JSON)) {
   for (k in seq_len(nrow(ag))) check("R and JS agree", ag$name[k], ag$ok[k], ag$got[k])
 }
 
-# ---- 5b. payload.json and rankings_backtest.csv follow saturday/03_contract.md ----------
+# ---- 5b. payload.json and rankings_backtest.csv follow docs/contract.md ----------
 if (file.exists(PAYLOAD_JSON) && file.exists(BACKTEST_CSV)) {
   pl <- jsonlite::fromJSON(PAYLOAD_JSON); pr <- pl$rows
   want <- c("agency_id","opp_id","opp_number","title","status","close_date","days_left","date_note","fit_score","rank",

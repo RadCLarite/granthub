@@ -7,7 +7,7 @@
 # see model output. stage=draw makes those blind sheets. Nothing here fills a label,
 # and the draw never looks at any model label.
 #
-# stage=draw   writes, in drafts/claude/docs/holdout/:
+# stage=draw   writes, in data/label_check/holdout/:
 #   holdout_labeler_A.csv, holdout_labeler_B.csv   same 30 items, different order; blind
 #   goals_for_labelers.md                          the agencies' plan goals, exact text
 #   holdout_key_DO_NOT_OPEN.csv                    item_no -> opp_id and how it was drawn
@@ -39,7 +39,7 @@ kappa_bin <- function(x, y) {
 
 # ---- stage=score: run ONLY after both labelers have finished. -------------------------
 # Reads the two filled sheets, the key, and the model labels (prompt evalpool-v3) of the
-# same agencies from drafts/claude/eval/model_labels/by_agency/ (that folder is on main).
+# same agencies from data/label_check/eval/model_labels/by_agency/ (that folder is on main).
 # Writes data/manual/label_holdout.csv (hand labels only) and a result report.
 # The combining rule for two labelers is Kent's call, so BOTH readings are reported:
 #   strict : hand "relevant" = both say relevant; yes/no (relevant+maybe vs not) is scored
