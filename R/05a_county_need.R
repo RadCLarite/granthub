@@ -7,7 +7,7 @@
 #   rule as dplyr::percent_rank, which the qualifier used in 05_export_tool_data.R.
 #   High percentile = higher value = more need. Display or score use is Kent's call.
 #
-# Indicator definitions copy QualifierChallenge/src/R/05_export_tool_data.R
+# Indicator definitions copy archive/qualifier/src/R/05_export_tool_data.R
 # (build_county_indicators and domain_indicators); change them there first.
 #
 # Sources and access dates: see data/cache/api/*.accessed (written by the qualifier pulls);

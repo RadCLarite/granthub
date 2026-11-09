@@ -1,14 +1,14 @@
 # 05c_county_shapes.R: simplified NC county outlines for the tool's need map.
-# CACHES ONLY: reads the qualifier's cached tigris county file, no outside call.
+# CACHES ONLY: reads the cached tigris county file (the same file the qualifier round used), no outside call.
 # Run from the repo root:   Rscript R/05c_county_shapes.R
 # Output: data/processed/county_shapes.csv  (fips, county, path)  path = SVG path in a 0..SVG_W box.
-# Source file: QualifierChallenge/data/cache/api/nc_counties_tigris.rds (US Census TIGER via tigris).
+# Source file: data/cache/api/nc_counties_tigris.rds (US Census TIGER via tigris).
 
 here::i_am("R/05c_county_shapes.R")
 source(here::here("R", "00_config.R"))
 suppressMessages(library(sf))
 
-SRC_FILE     <- here::here("QualifierChallenge", "data", "cache", "api", "nc_counties_tigris.rds")
+SRC_FILE     <- here::here("data", "cache", "api", "nc_counties_tigris.rds")
 OUT_FILE     <- file.path(DIR_PROCESSED, "county_shapes.csv")
 NC_CRS       <- 32119    # NC state plane, meters
 SIMPLIFY_M   <- 700      # outline simplification tolerance, meters (display only)

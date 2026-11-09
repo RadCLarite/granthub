@@ -12,7 +12,6 @@ on:
       - "tests/**"
       - "data/**"
       - "docs/**"
-      - "QualifierChallenge/docs/**"
       - ".github/workflows/**"
 
 permissions:

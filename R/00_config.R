@@ -139,13 +139,13 @@ CLOSING_SOON_DAYS <- 14L  # [assumed] a Top 10 row with this many days left or f
 PAYLOAD_JSON <- file.path(DIR_PROCESSED, "payload.json")
 COUNTY_NEED_FILE   <- file.path(DIR_PROCESSED, "county_need.csv")      # from 05a (qualifier caches)
 COUNTY_SHAPES_FILE <- file.path(DIR_PROCESSED, "county_shapes.csv")    # from 05c (qualifier tigris cache)
-CAPABILITIES_FILE  <- here("QualifierChallenge", "data", "manual", "agency_capabilities.csv")  # hand-built in the qualifier; DHHS and DMVA only
+CAPABILITIES_FILE  <- here("data", "qualifier", "agency_capabilities.csv")  # hand-built in the qualifier round; DHHS and DMVA only
 
 # Who a grant reaches (display only; never enters fit, rank, eligibility or tier).
 # Population geography (county, congressional district, rurality) comes from the qualifier's payload, built from
 # ACS 2023 5-year, CDC PLACES, HRSA and OpenFEMA caches. Tags are keyword rules on the title, then the summary;
 # each tag carries the sentence it matched as its quote. Ids match the qualifier's POPULATIONS.
-QUALIFIER_PAYLOAD <- here("QualifierChallenge", "data", "processed", "payload.json")
+QUALIFIER_PAYLOAD <- here("data", "qualifier", "payload.json")
 REACH_MAX_GROUPS  <- 2L     # at most this many groups per grant (title matches first)
 REACH_QUOTE_CHARS <- 220L   # quote length cap
 # Phrases removed before matching: agency boilerplate and non-population uses of a group word.
@@ -223,7 +223,7 @@ GENERIC_WORDS <- c("north","carolina","state","states","department","program","p
   "funding","award","awards","project","projects","applicants","application","information",
   "development","management","include","includes","including","based","their","which","through")
 
-# County need (Noah, 05a_county_need.R; copied from QualifierChallenge/src/R/00_config.R)
+# County need (Noah, 05a_county_need.R; copied from archive/qualifier/src/R/00_config.R)
 OVERDOSE_YEARS <- 2019:2021   # NCHS model-based drug poisoning death rates, averaged
 HPSA_AREA_TYPES <- c("Hpsa Geo", "Hpsa Geo HN", "Hpsa Pop")   # area designations only, not facilities
 

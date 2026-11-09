@@ -13,7 +13,7 @@ COPY tool /srv/granthub/tool
 COPY data/manual /srv/granthub/data/manual
 COPY data/example /srv/granthub/data/example
 COPY data/processed /srv/granthub/data/processed
-COPY QualifierChallenge/data/manual/agency_capabilities.csv /srv/granthub/QualifierChallenge/data/manual/agency_capabilities.csv
+COPY data/qualifier /srv/granthub/data/qualifier
 COPY app/job.R app/entrypoint.sh /srv/app/
 RUN chmod +x /srv/app/entrypoint.sh
 WORKDIR /srv/app
