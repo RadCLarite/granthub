@@ -1,0 +1,701 @@
+NOTE: using TOY EXAMPLE data (items_example.csv). Real file expected at data/processed/items.csv
+NOTE: using TOY EXAMPLE data (criteria_example.csv). Real file expected at data/manual/criteria.csv
+NOTE: using TOY EXAMPLE data (test_cases_example.csv). Real file expected at data/manual/test_cases.csv
+NOTE: using TOY EXAMPLE data (facts_example.csv). Real file expected at data/manual/facts.csv
+[Department of Adult Correction] 1/1576
+[Department of Adult Correction] 11/1576
+[Department of Adult Correction] 21/1576
+[Department of Adult Correction] 31/1576
+[Department of Adult Correction] 41/1576
+[Department of Adult Correction] 51/1576
+[Department of Adult Correction] 61/1576
+[Department of Adult Correction] 71/1576
+[Department of Adult Correction] 81/1576
+[Department of Adult Correction] 91/1576
+[Department of Adult Correction] 101/1576
+[Department of Adult Correction] 111/1576
+[Department of Adult Correction] 121/1576
+[Department of Adult Correction] 131/1576
+[Department of Adult Correction] 141/1576
+[Department of Adult Correction] 151/1576
+[Department of Adult Correction] 161/1576
+[Department of Adult Correction] 171/1576
+[Department of Adult Correction] 181/1576
+[Department of Adult Correction] 191/1576
+[Department of Adult Correction] 201/1576
+[Department of Adult Correction] 211/1576
+[Department of Adult Correction] 221/1576
+[Department of Adult Correction] 231/1576
+[Department of Adult Correction] 241/1576
+[Department of Adult Correction] 251/1576
+[Department of Adult Correction] 261/1576
+[Department of Adult Correction] 271/1576
+[Department of Adult Correction] 281/1576
+[Department of Adult Correction] 291/1576
+[Department of Adult Correction] 301/1576
+[Department of Adult Correction] 311/1576
+[Department of Adult Correction] 321/1576
+[Department of Adult Correction] 331/1576
+[Department of Adult Correction] 341/1576
+[Department of Adult Correction] 351/1576
+[Department of Adult Correction] 361/1576
+[Department of Adult Correction] 371/1576
+[Department of Adult Correction] 381/1576
+[Department of Adult Correction] 391/1576
+[Department of Adult Correction] 401/1576
+[Department of Adult Correction] 411/1576
+[Department of Adult Correction] 421/1576
+[Department of Adult Correction] 431/1576
+[Department of Adult Correction] 441/1576
+[Department of Adult Correction] 451/1576
+[Department of Adult Correction] 461/1576
+[Department of Adult Correction] 471/1576
+[Department of Adult Correction] 481/1576
+[Department of Adult Correction] 491/1576
+[Department of Adult Correction] 501/1576
+[Department of Adult Correction] 511/1576
+[Department of Adult Correction] 521/1576
+[Department of Adult Correction] 531/1576
+[Department of Adult Correction] 541/1576
+[Department of Adult Correction] 551/1576
+[Department of Adult Correction] 561/1576
+[Department of Adult Correction] 571/1576
+[Department of Adult Correction] 581/1576
+[Department of Adult Correction] 591/1576
+[Department of Adult Correction] 601/1576
+[Department of Adult Correction] 611/1576
+[Department of Adult Correction] 621/1576
+[Department of Adult Correction] 631/1576
+[Department of Adult Correction] 641/1576
+[Department of Adult Correction] 651/1576
+[Department of Adult Correction] 661/1576
+[Department of Adult Correction] 671/1576
+[Department of Adult Correction] 681/1576
+[Department of Adult Correction] 691/1576
+[Department of Adult Correction] 701/1576
+[Department of Adult Correction] 711/1576
+[Department of Adult Correction] 721/1576
+[Department of Adult Correction] 731/1576
+[Department of Adult Correction] 741/1576
+[Department of Adult Correction] 751/1576
+[Department of Adult Correction] 761/1576
+[Department of Adult Correction] 771/1576
+[Department of Adult Correction] 781/1576
+[Department of Adult Correction] 791/1576
+[Department of Adult Correction] 801/1576
+[Department of Adult Correction] 811/1576
+[Department of Adult Correction] 821/1576
+[Department of Adult Correction] 831/1576
+[Department of Adult Correction] 841/1576
+[Department of Adult Correction] 851/1576
+[Department of Adult Correction] 861/1576
+[Department of Adult Correction] 871/1576
+[Department of Adult Correction] 881/1576
+[Department of Adult Correction] 891/1576
+[Department of Adult Correction] 901/1576
+[Department of Adult Correction] 911/1576
+[Department of Adult Correction] 921/1576
+[Department of Adult Correction] 931/1576
+[Department of Adult Correction] 941/1576
+[Department of Adult Correction] 951/1576
+[Department of Adult Correction] 961/1576
+[Department of Adult Correction] 971/1576
+[Department of Adult Correction] 981/1576
+[Department of Adult Correction] 991/1576
+[Department of Adult Correction] 1001/1576
+[Department of Adult Correction] 1011/1576
+[Department of Adult Correction] 1021/1576
+[Department of Adult Correction] 1031/1576
+[Department of Adult Correction] 1041/1576
+[Department of Adult Correction] 1051/1576
+[Department of Adult Correction] 1061/1576
+[Department of Adult Correction] 1071/1576
+[Department of Adult Correction] 1081/1576
+[Department of Adult Correction] 1091/1576
+[Department of Adult Correction] 1101/1576
+[Department of Adult Correction] 1111/1576
+[Department of Adult Correction] 1121/1576
+[Department of Adult Correction] 1131/1576
+[Department of Adult Correction] 1141/1576
+[Department of Adult Correction] 1151/1576
+[Department of Adult Correction] 1161/1576
+[Department of Adult Correction] 1171/1576
+[Department of Adult Correction] 1181/1576
+[Department of Adult Correction] 1191/1576
+[Department of Adult Correction] 1201/1576
+[Department of Adult Correction] 1211/1576
+[Department of Adult Correction] 1221/1576
+[Department of Adult Correction] 1231/1576
+[Department of Adult Correction] 1241/1576
+[Department of Adult Correction] 1251/1576
+[Department of Adult Correction] 1261/1576
+[Department of Adult Correction] 1271/1576
+[Department of Adult Correction] 1281/1576
+[Department of Adult Correction] 1291/1576
+[Department of Adult Correction] 1301/1576
+[Department of Adult Correction] 1311/1576
+[Department of Adult Correction] 1321/1576
+[Department of Adult Correction] 1331/1576
+[Department of Adult Correction] 1341/1576
+[Department of Adult Correction] 1351/1576
+[Department of Adult Correction] 1361/1576
+[Department of Adult Correction] 1371/1576
+[Department of Adult Correction] 1381/1576
+[Department of Adult Correction] 1391/1576
+[Department of Adult Correction] 1401/1576
+[Department of Adult Correction] 1411/1576
+[Department of Adult Correction] 1421/1576
+[Department of Adult Correction] 1431/1576
+[Department of Adult Correction] 1441/1576
+[Department of Adult Correction] 1451/1576
+[Department of Adult Correction] 1461/1576
+[Department of Adult Correction] 1471/1576
+[Department of Adult Correction] 1481/1576
+[Department of Adult Correction] 1491/1576
+[Department of Adult Correction] 1501/1576
+[Department of Adult Correction] 1511/1576
+[Department of Adult Correction] 1521/1576
+[Department of Adult Correction] 1531/1576
+[Department of Adult Correction] 1541/1576
+[Department of Adult Correction] 1551/1576
+[Department of Adult Correction] 1561/1576
+[Department of Adult Correction] 1571/1576
+[Department of Adult Correction] 1576/1576
+DONE Department of Adult Correction
+[Department of Commerce] 1/1576
+[Department of Commerce] 11/1576
+[Department of Commerce] 21/1576
+[Department of Commerce] 31/1576
+[Department of Commerce] 41/1576
+[Department of Commerce] 51/1576
+[Department of Commerce] 61/1576
+[Department of Commerce] 71/1576
+[Department of Commerce] 81/1576
+[Department of Commerce] 91/1576
+[Department of Commerce] 101/1576
+[Department of Commerce] 111/1576
+[Department of Commerce] 121/1576
+[Department of Commerce] 131/1576
+[Department of Commerce] 141/1576
+[Department of Commerce] 151/1576
+[Department of Commerce] 161/1576
+[Department of Commerce] 171/1576
+[Department of Commerce] 181/1576
+[Department of Commerce] 191/1576
+[Department of Commerce] 201/1576
+[Department of Commerce] 211/1576
+[Department of Commerce] 221/1576
+[Department of Commerce] 231/1576
+[Department of Commerce] 241/1576
+[Department of Commerce] 251/1576
+[Department of Commerce] 261/1576
+[Department of Commerce] 271/1576
+[Department of Commerce] 281/1576
+[Department of Commerce] 291/1576
+[Department of Commerce] 301/1576
+[Department of Commerce] 311/1576
+[Department of Commerce] 321/1576
+[Department of Commerce] 331/1576
+[Department of Commerce] 341/1576
+[Department of Commerce] 351/1576
+[Department of Commerce] 361/1576
+[Department of Commerce] 371/1576
+[Department of Commerce] 381/1576
+[Department of Commerce] 391/1576
+[Department of Commerce] 401/1576
+[Department of Commerce] 411/1576
+[Department of Commerce] 421/1576
+[Department of Commerce] 431/1576
+[Department of Commerce] 441/1576
+[Department of Commerce] 451/1576
+[Department of Commerce] 461/1576
+[Department of Commerce] 471/1576
+[Department of Commerce] 481/1576
+[Department of Commerce] 491/1576
+[Department of Commerce] 501/1576
+[Department of Commerce] 511/1576
+[Department of Commerce] 521/1576
+[Department of Commerce] 531/1576
+[Department of Commerce] 541/1576
+[Department of Commerce] 551/1576
+[Department of Commerce] 561/1576
+[Department of Commerce] 571/1576
+[Department of Commerce] 581/1576
+[Department of Commerce] 591/1576
+[Department of Commerce] 601/1576
+[Department of Commerce] 611/1576
+[Department of Commerce] 621/1576
+[Department of Commerce] 631/1576
+[Department of Commerce] 641/1576
+[Department of Commerce] 651/1576
+[Department of Commerce] 661/1576
+[Department of Commerce] 671/1576
+[Department of Commerce] 681/1576
+[Department of Commerce] 691/1576
+[Department of Commerce] 701/1576
+[Department of Commerce] 711/1576
+[Department of Commerce] 721/1576
+[Department of Commerce] 731/1576
+[Department of Commerce] 741/1576
+[Department of Commerce] 751/1576
+[Department of Commerce] 761/1576
+[Department of Commerce] 771/1576
+[Department of Commerce] 781/1576
+[Department of Commerce] 791/1576
+[Department of Commerce] 801/1576
+[Department of Commerce] 811/1576
+[Department of Commerce] 821/1576
+[Department of Commerce] 831/1576
+[Department of Commerce] 841/1576
+[Department of Commerce] 851/1576
+[Department of Commerce] 861/1576
+[Department of Commerce] 871/1576
+[Department of Commerce] 881/1576
+[Department of Commerce] 891/1576
+[Department of Commerce] 901/1576
+[Department of Commerce] 911/1576
+[Department of Commerce] 921/1576
+[Department of Commerce] 931/1576
+[Department of Commerce] 941/1576
+[Department of Commerce] 951/1576
+[Department of Commerce] 961/1576
+[Department of Commerce] 971/1576
+[Department of Commerce] 981/1576
+[Department of Commerce] 991/1576
+[Department of Commerce] 1001/1576
+[Department of Commerce] 1011/1576
+[Department of Commerce] 1021/1576
+[Department of Commerce] 1031/1576
+[Department of Commerce] 1041/1576
+[Department of Commerce] 1051/1576
+[Department of Commerce] 1061/1576
+[Department of Commerce] 1071/1576
+[Department of Commerce] 1081/1576
+[Department of Commerce] 1091/1576
+[Department of Commerce] 1101/1576
+[Department of Commerce] 1111/1576
+[Department of Commerce] 1121/1576
+[Department of Commerce] 1131/1576
+[Department of Commerce] 1141/1576
+[Department of Commerce] 1151/1576
+[Department of Commerce] 1161/1576
+[Department of Commerce] 1171/1576
+[Department of Commerce] 1181/1576
+[Department of Commerce] 1191/1576
+[Department of Commerce] 1201/1576
+[Department of Commerce] 1211/1576
+[Department of Commerce] 1221/1576
+[Department of Commerce] 1231/1576
+[Department of Commerce] 1241/1576
+[Department of Commerce] 1251/1576
+[Department of Commerce] 1261/1576
+[Department of Commerce] 1271/1576
+[Department of Commerce] 1281/1576
+[Department of Commerce] 1291/1576
+[Department of Commerce] 1301/1576
+[Department of Commerce] 1311/1576
+[Department of Commerce] 1321/1576
+[Department of Commerce] 1331/1576
+[Department of Commerce] 1341/1576
+[Department of Commerce] 1351/1576
+[Department of Commerce] 1361/1576
+[Department of Commerce] 1371/1576
+[Department of Commerce] 1381/1576
+[Department of Commerce] 1391/1576
+[Department of Commerce] 1401/1576
+[Department of Commerce] 1411/1576
+[Department of Commerce] 1421/1576
+[Department of Commerce] 1431/1576
+[Department of Commerce] 1441/1576
+[Department of Commerce] 1451/1576
+[Department of Commerce] 1461/1576
+[Department of Commerce] 1471/1576
+[Department of Commerce] 1481/1576
+[Department of Commerce] 1491/1576
+[Department of Commerce] 1501/1576
+[Department of Commerce] 1511/1576
+[Department of Commerce] 1521/1576
+[Department of Commerce] 1531/1576
+[Department of Commerce] 1541/1576
+[Department of Commerce] 1551/1576
+[Department of Commerce] 1561/1576
+[Department of Commerce] 1571/1576
+[Department of Commerce] 1576/1576
+DONE Department of Commerce
+[Department of Insurance] 1/1576
+[Department of Insurance] 11/1576
+[Department of Insurance] 21/1576
+[Department of Insurance] 31/1576
+[Department of Insurance] 41/1576
+[Department of Insurance] 51/1576
+[Department of Insurance] 61/1576
+[Department of Insurance] 71/1576
+[Department of Insurance] 81/1576
+[Department of Insurance] 91/1576
+[Department of Insurance] 101/1576
+[Department of Insurance] 111/1576
+[Department of Insurance] 121/1576
+[Department of Insurance] 131/1576
+[Department of Insurance] 141/1576
+[Department of Insurance] 151/1576
+[Department of Insurance] 161/1576
+[Department of Insurance] 171/1576
+[Department of Insurance] 181/1576
+[Department of Insurance] 191/1576
+[Department of Insurance] 201/1576
+[Department of Insurance] 211/1576
+[Department of Insurance] 221/1576
+[Department of Insurance] 231/1576
+[Department of Insurance] 241/1576
+[Department of Insurance] 251/1576
+[Department of Insurance] 261/1576
+[Department of Insurance] 271/1576
+[Department of Insurance] 281/1576
+[Department of Insurance] 291/1576
+[Department of Insurance] 301/1576
+[Department of Insurance] 311/1576
+[Department of Insurance] 321/1576
+[Department of Insurance] 331/1576
+[Department of Insurance] 341/1576
+[Department of Insurance] 351/1576
+[Department of Insurance] 361/1576
+[Department of Insurance] 371/1576
+[Department of Insurance] 381/1576
+[Department of Insurance] 391/1576
+[Department of Insurance] 401/1576
+[Department of Insurance] 411/1576
+[Department of Insurance] 421/1576
+[Department of Insurance] 431/1576
+[Department of Insurance] 441/1576
+[Department of Insurance] 451/1576
+[Department of Insurance] 461/1576
+[Department of Insurance] 471/1576
+[Department of Insurance] 481/1576
+[Department of Insurance] 491/1576
+[Department of Insurance] 501/1576
+[Department of Insurance] 511/1576
+[Department of Insurance] 521/1576
+[Department of Insurance] 531/1576
+[Department of Insurance] 541/1576
+[Department of Insurance] 551/1576
+[Department of Insurance] 561/1576
+[Department of Insurance] 571/1576
+[Department of Insurance] 581/1576
+[Department of Insurance] 591/1576
+[Department of Insurance] 601/1576
+[Department of Insurance] 611/1576
+[Department of Insurance] 621/1576
+[Department of Insurance] 631/1576
+[Department of Insurance] 641/1576
+[Department of Insurance] 651/1576
+[Department of Insurance] 661/1576
+[Department of Insurance] 671/1576
+[Department of Insurance] 681/1576
+[Department of Insurance] 691/1576
+[Department of Insurance] 701/1576
+[Department of Insurance] 711/1576
+[Department of Insurance] 721/1576
+[Department of Insurance] 731/1576
+[Department of Insurance] 741/1576
+[Department of Insurance] 751/1576
+[Department of Insurance] 761/1576
+[Department of Insurance] 771/1576
+[Department of Insurance] 781/1576
+[Department of Insurance] 791/1576
+[Department of Insurance] 801/1576
+[Department of Insurance] 811/1576
+[Department of Insurance] 821/1576
+[Department of Insurance] 831/1576
+[Department of Insurance] 841/1576
+[Department of Insurance] 851/1576
+[Department of Insurance] 861/1576
+[Department of Insurance] 871/1576
+[Department of Insurance] 881/1576
+[Department of Insurance] 891/1576
+[Department of Insurance] 901/1576
+[Department of Insurance] 911/1576
+[Department of Insurance] 921/1576
+[Department of Insurance] 931/1576
+[Department of Insurance] 941/1576
+[Department of Insurance] 951/1576
+[Department of Insurance] 961/1576
+[Department of Insurance] 971/1576
+[Department of Insurance] 981/1576
+[Department of Insurance] 991/1576
+[Department of Insurance] 1001/1576
+[Department of Insurance] 1011/1576
+[Department of Insurance] 1021/1576
+[Department of Insurance] 1031/1576
+[Department of Insurance] 1041/1576
+[Department of Insurance] 1051/1576
+[Department of Insurance] 1061/1576
+[Department of Insurance] 1071/1576
+[Department of Insurance] 1081/1576
+[Department of Insurance] 1091/1576
+[Department of Insurance] 1101/1576
+[Department of Insurance] 1111/1576
+[Department of Insurance] 1121/1576
+[Department of Insurance] 1131/1576
+[Department of Insurance] 1141/1576
+[Department of Insurance] 1151/1576
+[Department of Insurance] 1161/1576
+[Department of Insurance] 1171/1576
+[Department of Insurance] 1181/1576
+[Department of Insurance] 1191/1576
+[Department of Insurance] 1201/1576
+[Department of Insurance] 1211/1576
+[Department of Insurance] 1221/1576
+[Department of Insurance] 1231/1576
+[Department of Insurance] 1241/1576
+[Department of Insurance] 1251/1576
+[Department of Insurance] 1261/1576
+[Department of Insurance] 1271/1576
+[Department of Insurance] 1281/1576
+[Department of Insurance] 1291/1576
+[Department of Insurance] 1301/1576
+[Department of Insurance] 1311/1576
+[Department of Insurance] 1321/1576
+[Department of Insurance] 1331/1576
+[Department of Insurance] 1341/1576
+[Department of Insurance] 1351/1576
+[Department of Insurance] 1361/1576
+[Department of Insurance] 1371/1576
+[Department of Insurance] 1381/1576
+[Department of Insurance] 1391/1576
+[Department of Insurance] 1401/1576
+[Department of Insurance] 1411/1576
+[Department of Insurance] 1421/1576
+[Department of Insurance] 1431/1576
+[Department of Insurance] 1441/1576
+[Department of Insurance] 1451/1576
+[Department of Insurance] 1461/1576
+[Department of Insurance] 1471/1576
+[Department of Insurance] 1481/1576
+[Department of Insurance] 1491/1576
+[Department of Insurance] 1501/1576
+[Department of Insurance] 1511/1576
+[Department of Insurance] 1521/1576
+[Department of Insurance] 1531/1576
+[Department of Insurance] 1541/1576
+[Department of Insurance] 1551/1576
+[Department of Insurance] 1561/1576
+[Department of Insurance] 1571/1576
+[Department of Insurance] 1576/1576
+DONE Department of Insurance
+[Department of Labor] 1/1576
+[Department of Labor] 11/1576
+[Department of Labor] 21/1576
+[Department of Labor] 31/1576
+[Department of Labor] 41/1576
+[Department of Labor] 51/1576
+[Department of Labor] 61/1576
+[Department of Labor] 71/1576
+[Department of Labor] 81/1576
+[Department of Labor] 91/1576
+[Department of Labor] 101/1576
+[Department of Labor] 111/1576
+[Department of Labor] 121/1576
+[Department of Labor] 131/1576
+[Department of Labor] 141/1576
+[Department of Labor] 151/1576
+[Department of Labor] 161/1576
+[Department of Labor] 171/1576
+[Department of Labor] 181/1576
+[Department of Labor] 191/1576
+[Department of Labor] 201/1576
+[Department of Labor] 211/1576
+[Department of Labor] 221/1576
+[Department of Labor] 231/1576
+[Department of Labor] 241/1576
+[Department of Labor] 251/1576
+[Department of Labor] 261/1576
+[Department of Labor] 271/1576
+[Department of Labor] 281/1576
+[Department of Labor] 291/1576
+[Department of Labor] 301/1576
+[Department of Labor] 311/1576
+[Department of Labor] 321/1576
+[Department of Labor] 331/1576
+[Department of Labor] 341/1576
+[Department of Labor] 351/1576
+[Department of Labor] 361/1576
+[Department of Labor] 371/1576
+[Department of Labor] 381/1576
+[Department of Labor] 391/1576
+[Department of Labor] 401/1576
+[Department of Labor] 411/1576
+[Department of Labor] 421/1576
+[Department of Labor] 431/1576
+[Department of Labor] 441/1576
+[Department of Labor] 451/1576
+[Department of Labor] 461/1576
+[Department of Labor] 471/1576
+[Department of Labor] 481/1576
+[Department of Labor] 491/1576
+[Department of Labor] 501/1576
+[Department of Labor] 511/1576
+[Department of Labor] 521/1576
+[Department of Labor] 531/1576
+[Department of Labor] 541/1576
+[Department of Labor] 551/1576
+[Department of Labor] 561/1576
+[Department of Labor] 571/1576
+[Department of Labor] 581/1576
+[Department of Labor] 591/1576
+[Department of Labor] 601/1576
+[Department of Labor] 611/1576
+[Department of Labor] 621/1576
+[Department of Labor] 631/1576
+[Department of Labor] 641/1576
+[Department of Labor] 651/1576
+[Department of Labor] 661/1576
+[Department of Labor] 671/1576
+[Department of Labor] 681/1576
+[Department of Labor] 691/1576
+[Department of Labor] 701/1576
+[Department of Labor] 711/1576
+[Department of Labor] 721/1576
+[Department of Labor] 731/1576
+[Department of Labor] 741/1576
+[Department of Labor] 751/1576
+[Department of Labor] 761/1576
+[Department of Labor] 771/1576
+[Department of Labor] 781/1576
+[Department of Labor] 791/1576
+[Department of Labor] 801/1576
+[Department of Labor] 811/1576
+[Department of Labor] 821/1576
+[Department of Labor] 831/1576
+[Department of Labor] 841/1576
+[Department of Labor] 851/1576
+[Department of Labor] 861/1576
+[Department of Labor] 871/1576
+[Department of Labor] 881/1576
+[Department of Labor] 891/1576
+[Department of Labor] 901/1576
+[Department of Labor] 911/1576
+[Department of Labor] 921/1576
+[Department of Labor] 931/1576
+[Department of Labor] 941/1576
+[Department of Labor] 951/1576
+[Department of Labor] 961/1576
+[Department of Labor] 971/1576
+[Department of Labor] 981/1576
+[Department of Labor] 991/1576
+[Department of Labor] 1001/1576
+[Department of Labor] 1011/1576
+[Department of Labor] 1021/1576
+[Department of Labor] 1031/1576
+[Department of Labor] 1041/1576
+[Department of Labor] 1051/1576
+[Department of Labor] 1061/1576
+[Department of Labor] 1071/1576
+[Department of Labor] 1081/1576
+[Department of Labor] 1091/1576
+[Department of Labor] 1101/1576
+[Department of Labor] 1111/1576
+[Department of Labor] 1121/1576
+[Department of Labor] 1131/1576
+[Department of Labor] 1141/1576
+[Department of Labor] 1151/1576
+[Department of Labor] 1161/1576
+[Department of Labor] 1171/1576
+[Department of Labor] 1181/1576
+[Department of Labor] 1191/1576
+[Department of Labor] 1201/1576
+[Department of Labor] 1211/1576
+[Department of Labor] 1221/1576
+[Department of Labor] 1231/1576
+[Department of Labor] 1241/1576
+[Department of Labor] 1251/1576
+[Department of Labor] 1261/1576
+[Department of Labor] 1271/1576
+[Department of Labor] 1281/1576
+[Department of Labor] 1291/1576
+[Department of Labor] 1301/1576
+[Department of Labor] 1311/1576
+[Department of Labor] 1321/1576
+[Department of Labor] 1331/1576
+[Department of Labor] 1341/1576
+[Department of Labor] 1351/1576
+[Department of Labor] 1361/1576
+[Department of Labor] 1371/1576
+[Department of Labor] 1381/1576
+[Department of Labor] 1391/1576
+[Department of Labor] 1401/1576
+[Department of Labor] 1411/1576
+[Department of Labor] 1421/1576
+[Department of Labor] 1431/1576
+[Department of Labor] 1441/1576
+[Department of Labor] 1451/1576
+[Department of Labor] 1461/1576
+[Department of Labor] 1471/1576
+[Department of Labor] 1481/1576
+[Department of Labor] 1491/1576
+[Department of Labor] 1501/1576
+[Department of Labor] 1511/1576
+[Department of Labor] 1521/1576
+[Department of Labor] 1531/1576
+[Department of Labor] 1541/1576
+[Department of Labor] 1551/1576
+[Department of Labor] 1561/1576
+[Department of Labor] 1571/1576
+[Department of Labor] 1576/1576
+DONE Department of Labor
+[Department of Natural and Cultural Resources] 1/1576
+[Department of Natural and Cultural Resources] 11/1576
+[Department of Natural and Cultural Resources] 21/1576
+[Department of Natural and Cultural Resources] 31/1576
+[Department of Natural and Cultural Resources] 41/1576
+[Department of Natural and Cultural Resources] 51/1576
+[Department of Natural and Cultural Resources] 61/1576
+[Department of Natural and Cultural Resources] 71/1576
+[Department of Natural and Cultural Resources] 81/1576
+[Department of Natural and Cultural Resources] 91/1576
+[Department of Natural and Cultural Resources] 101/1576
+[Department of Natural and Cultural Resources] 111/1576
+[Department of Natural and Cultural Resources] 121/1576
+[Department of Natural and Cultural Resources] 131/1576
+[Department of Natural and Cultural Resources] 141/1576
+[Department of Natural and Cultural Resources] 151/1576
+[Department of Natural and Cultural Resources] 161/1576
+[Department of Natural and Cultural Resources] 171/1576
+[Department of Natural and Cultural Resources] 181/1576
+[Department of Natural and Cultural Resources] 191/1576
+[Department of Natural and Cultural Resources] 201/1576
+[Department of Natural and Cultural Resources] 211/1576
+[Department of Natural and Cultural Resources] 221/1576
+[Department of Natural and Cultural Resources] 231/1576
+[Department of Natural and Cultural Resources] 241/1576
+[Department of Natural and Cultural Resources] 251/1576
+[Department of Natural and Cultural Resources] 261/1576
+[Department of Natural and Cultural Resources] 271/1576
+[Department of Natural and Cultural Resources] 281/1576
+[Department of Natural and Cultural Resources] 291/1576
+[Department of Natural and Cultural Resources] 301/1576
+[Department of Natural and Cultural Resources] 311/1576
+[Department of Natural and Cultural Resources] 321/1576
+[Department of Natural and Cultural Resources] 331/1576
+[Department of Natural and Cultural Resources] 341/1576
+[Department of Natural and Cultural Resources] 351/1576
+[Department of Natural and Cultural Resources] 361/1576
+[Department of Natural and Cultural Resources] 371/1576
+[Department of Natural and Cultural Resources] 381/1576
+[Department of Natural and Cultural Resources] 391/1576
+[Department of Natural and Cultural Resources] 401/1576
+[Department of Natural and Cultural Resources] 411/1576
+[Department of Natural and Cultural Resources] 421/1576
+[Department of Natural and Cultural Resources] 431/1576
+[Department of Natural and Cultural Resources] 441/1576
+[Department of Natural and Cultural Resources] 451/1576
+[Department of Natural and Cultural Resources] 461/1576
+[Department of Natural and Cultural Resources] 471/1576
+[Department of Natural and Cultural Resources] 481/1576
+[Department of Natural and Cultural Resources] 491/1576
+[Department of Natural and Cultural Resources] 501/1576
+[Department of Natural and Cultural Resources] 511/1576
+[Department of Natural and Cultural Resources] 521/1576
+[Department of Natural and Cultural Resources] 531/1576
+[Department of Natural and Cultural Resources] 541/1576
+[Department of Natural and Cultural Resources] 551/1576
+[Department of Natural and Cultural Resources] 561/1576

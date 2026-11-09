@@ -1,0 +1,263 @@
+===== PAGE 1 =====
+
+NC Department of Administration
+
+
+Strategic Plan
+FY 2026-2029
+
+
+===== PAGE 2 =====
+
+Greetings,
+
+As the business manager for state government, the NC Department
+of Administration’s mission is to provide foundational support that
+enables all state agencies to serve North Carolinians with excellence.
+This means managing public resources responsibly, streamlining
+operations to maximize value, and ensuring our services are timely,
+accessible, and transparent while supporting everything from
+building construction and facility maintenance to procurement, ﬂeet
+management, and the stewardship of state property.
+
+Guided by a spirit of innovation, the department continuously seeks
+ways to embrace new technologies, reﬁne processes, and empower
+our talented workforce with cutting-edge training—including in areas
+such as artiﬁcial intelligence.
+
+Our mission-driven approach centers on accountability, competence,
+and a deep pride in service. We champion equity by serving as
+a voice for traditionally underserved communities across North
+Carolina, and we advocate for small businesses, youth, women, and
+our American Indian communities through dedicated programs and
+outreach.
+
+With the goals and initiatives outlined in this strategic plan, we will
+adapt to a changing landscape, testing bold solutions, expediting
+improvements where possible, and proactively seeking opportunities
+for support. Our guiding promise is to deliver quality and value in all
+we do, ensuring North Carolina’s government is truly working for the
+people.
+
+With pp
+    appreciation,
+
+
+
+
+Gabriel J. Esparza
+
+
+===== PAGE 3 =====
+
+Guilding Mission and Values
+Mission
+To enhance the lives of North Carolinians
+by providing foundational support to state
+government through asset management, service
+operations, and constituent advocacy.
+
+Vision
+In a North Carolina where every resident can
+access the public services they need quickly,
+securely, and at the lowest possible cost, the
+NC Department of Administration will set the
+standard for innovative, efﬁcient, and high-
+quality service that empowers North Carolina’s
+agencies, advances operational excellence, and
+fosters public trust.
+
+Values
+Innovation: We are creative in developing,
+cultivating, and implementing new idea.
+
+Mission-driven: We take pride in delivering
+exceptional service.
+
+Perseverance: We view challenges as an
+opportunity for growth and knowledge
+acquisition
+
+Accountability: Each of us is responsible for our
+words, our actions, and our results.
+
+Competency: We continually develop a highly
+capable workforce.
+
+Transparency: We create a positive workplace
+culture of trust through open and honest
+communication.
+
+
+===== PAGE 4 =====
+
+Goal 1:      Optimize Government Operations to Maximize Resources
+             and Reduce Redundancy
+Future Outlook
+DOA is committed to eliminating redundant processes and optimizing resource allocation, which
+can result in more impactful solutions. In doing so, it guarantees divisions prioritize projects
+with the highest value, while efﬁciently managing resources and mitigating risks. Promoting
+interdepartmental collaboration dismantles silos, enhances communication, and fosters a
+more comprehensive approach to solving problems. By leveraging data, divisions can
+share insights and data-driven ﬁndings, leading to more informed decision-making
+and innovative solutions. Leveraging AI for data analysis and decision-making in
+predicting future trends and outcomes enhances the quality of decisions made.
+
+Objective 1.1: By Q2, FY’26 identify and assess relevant division performance
+      metrics (both quantitative and qualitative) with related data sources,
+      standardized collection processes, and presentation templates to
+      inform operational decision making.
+
+Objective 1.2: By Q4, FY’26 recommend and prioritize a set of
+      transformation projects that will lower costs by 10%, drive
+      an incremental 10% revenue by the end of Q2, FY’27
+
+Objective 1.3: Execute on the prioritized projects in
+      Objective 1.2 by identifying the relevant project
+      leaders, deﬁning speciﬁc deliverables, and
+      time-bounding the initiatives. (Ongoing
+      FY’26 – FY’28)
+
+
+===== PAGE 5 =====
+
+Goal 2:      Foster Culture of Innovation to Modernize
+             State Government Services
+Future Outlook
+DOA is committed to embracing a culture of innovation that attracts creative thinkers
+while empowering employees at all levels to share ideas and take ownership of projects.
+It allows for the testing of new ideas, technologies, and processes and can act as
+incubators for pilot projects and prototypes. In addition to fostering innovation within
+the agency, investing in continuous learning opportunities ensures that employees
+have the skills needed to adapt to new technologies, changing needs and restructured
+processes. Adopting change management strategies can facilitate a smooth transition to
+new processes and technologies, ultimately leading to a more modern, agile, and citizen-
+focused government.
+
+Objective 2.1: Establish a NCDOA Innovation Task Force by Q2, FY’26 to work in tandem
+      with the policy director to identify two plus business transformation projects per
+      division by Q4,FY’26, while also creating methods and channels for employees to
+      offer recommendations, solutions or proposed innovation projects.
+
+Objective 2.2: Lead a culture of innovation by example through the deployment of three
+      AI use-case initiatives by 2026
+
+Objective 2.3: Using both existing and new training platforms, division directors shall be
+      responsible for identifying ways in which their teams can participate in continuous
+      education opportunities with a focus on technology, process improvement, or other
+      job-speciﬁc material – with all division directors trained in the basics of AI by 2026.
+
+
+===== PAGE 6 =====
+
+Goal 3:      Deliver Client and People-Centered Services That Are Timely,
+             Accessible and Transparent
+Future Outlook
+DOA is committed to a structured approach to interacting with clients, aiming to create positive
+experiences that shape their overall perception of the agency, while enhancing credibility and
+cultivating a positive reputation. Creating services with a focus on the client can enhance both
+satisfaction and engagement. Constant and systematic feedback processes boost engagement from
+employees and partners, promoting a culture of constant improvement. DOA aims to modernize the
+agency’s operations, improve accessibility, and enhance efﬁciency by automating routine tasks which
+reduce operational costs and enable more efﬁcient resource allocation.
+
+Objective 3.1: To provide clients and constituents with an immediate way to contact the department
+      for information (24/7) and improve constituent communications, NCDOA shall train and
+      deploy at least 2 chatbots in division operations by 2026 to reduce inbound call/email volume
+      by 20% for the divisions where the technology is deployed and the high volume set of
+      standard inquiries are handled by the chatbots.
+
+Objective 3.2: Update and transform the methods through which the department collects agency
+      and partner performance feedback by 2026.
+
+  Objective 3.3: To make records more accessible internally and to the public, NCDOA shall
+          digitize any remaining hard-copy records of the organization by 2028 and transition any
+            signature requirements to a uniﬁed agency electronic signature protocol by 2026,
+               pending any necessary statutory changes.
+
+
+
+
+                    NC DOA Priority Questions
+                         1. Are we using our ﬁnancial, human, and technological resources
+                           efﬁciently across divisions in order to deliver on the priorities of state
+                             government agencies and the people of North Carolina?
+
+                                  2. Are employees empowered and encouraged to operate in
+                                    a culture of innovation and propose new ideas and solutions
+                                      to create a more modern, agile, and citizen-focused
+                                         government?
+
+                                              3. Where is the department falling short of meeting
+                                                the service-level expectations of our various
+                                                  stakeholders, and what could we do differently?
+
+
+===== PAGE 7 =====
+
+                                                     HUB OFFICE
+                                                     6,700+ BUSINESSES
+  CONSTRUCTION                                       ARE HUB CERTIFIED
+
+~8,000                         SURPLUS PROPERTY      2,500+ CERTIFIED AS
+PROJECTS                                             SMALL BUSINESS ENTERPRISE
+UNDERWAY                               $18.6M        $186.1M (20%)
+                                        IN SALES
+$17B                                                 CONSTRUCTION
+BILLION IN                              $2.1M        $702.8M (6%)
+CURRENT                             AGENCY EARNED    GOODS & SERVICES
+PORTFOLIO                             FROM SALES
+
+
+ STATE PROPERTY                                          INDIAN AFFAIRS
+                                    PURCHASE &
+                                     CONTRACT        8 TRIBES 130K+ RESIDENTS
+             12K
+         BUILDINGS                                   622 DOMESTIC VIOLENCE
+                                                     VICTIMS SERVED
+             1.3M                    $7.2B
+         ACRES OF
+                                     BILLION IN
+                                                     1,700+    HOUSING
+    STATE-OWNED LAND                                 RENTAL VOUCHERS
+                                    STATE SPEND
+                                                     PROGRAMS
+                                     ~141K           ECONOMIC & WORKFORCE
+                                 PURCHASE ORDERS     DEVELOPMENT, ENERGY
+                                    PROCESSED        ASSISTANCE & MORE
+
+
+
+
+   STATE PARKING                  MOTOR FLEET          WOMEN & YOUTH
+        ~8,800                                            $28M     TO FIGHT
+    PARKING SPACES IN          7,800+                    DOMESTIC VIOLENCE &
+  GOVERNMENT COMPLEX           STATE-OWNED                  SEX ASSAULT
+                               VEHICLES DRIVE
+             26                                      70K SURVIVORS OF
+        DECKS/LOTS             1,700 EVs & HYBRIDS   HUMAN TRAFFICKING,
+                               (22% OF FLEET)           FAMILY & SEX
+                                                      VIOLENCE HELPED
+                               96M MILES ANNUALLY
+                                                           86 INTERNSHIPS
+
+       FACILITIES                  MAIL SERVICE        NON-PUBLIC EDU
+
+          150+                       7M+              ~1000
+  STATE-OWNED BUILDINGS         LETTERS/PACKAGES       PRIVATE
+        MAINTAINED             DELIVERED ANNUALLY     SCHOOLS
+   (7M+ sq feet of property)
+                                      36              165K+
+                                  DAILY ROUTES        STUDENTS
+                                    26K+                              136K+
+                                TRIPS BY MEDICAL
+                                COURIER SERVICE                  HOME SCHOOL
+                                                                  STUDENTS
+
+                                                                       Updated October 2025
+
+
+===== PAGE 8 [OCR] =====
+
+NC*DOA
+Department of Administration

@@ -1,0 +1,39 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "Eligible applicant types: state_governments, county_governments",
+    "program_domain": "none",
+    "owning_division": "Other state agency",
+    "required_capabilities": [
+      "capital_construction"
+    ],
+    "requires_subrecipient_network": false,
+    "evaluation_required": false,
+    "is_capital_project": true,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "none",
+    "target_population": "system_level",
+    "alignment_dhhs": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity focuses on construction and real property acquisition activities in the Gulf Coast region, which does not directly align with any of the DHHS strategic plan objectives."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity focuses on construction and real property acquisition activities in the Gulf Coast region, which does not directly align with any of the DMVA strategic plan objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v2",
+    "created": "2026-09-29T13:10:58-0400",
+    "prompt_tokens": 2750,
+    "output_tokens": 289,
+    "seconds": 30.1
+  }
+}

@@ -1,0 +1,2842 @@
+---
+title: "Solve-A-Thon 2026: NC DHHS Federal Grant Opportunity Analysis"
+author: "Kent Lee"
+date: today
+format:
+  html:
+    self-contained: true
+    toc: true
+    toc-location: left
+    toc-depth: 3
+    code-fold: true
+    code-tools: true
+    theme: cosmo
+    smooth-scroll: true
+    page-layout: full
+execute:
+  warning: false
+  message: false
+  echo: false
+params:
+  project_dir: "/Users/kentalee/Documents/KALProjects/UNCProjects/SolveAThon_2026"
+  data_dir: "data"
+  results_dir: "outs"
+  cache_dir: "cache"
+  grants_file: "grants-search-202608182008.csv"
+  ref_date: "2026-09-30"
+  min_runway_days: 45
+  award_floor_usd: 250000
+  target_agencies: "DHHS"
+  nc_fips: "37"
+  boundary_year: 2023
+  date_min: "2000-01-01"
+  date_max: "2035-12-31"
+---
+
+
+<style>
+:root {
+  --blue:#2166AC; --blue-light:#D9EAF7; --purple:#756BB1;
+  --orange:#E08214; --red:#B2182B; --green:#1B7837;
+  --gray:#667085; --dark:#1D2939; --light:#F4F6F8;
+}
+body { color:var(--dark); }
+h1,h2 { border-bottom:2px solid var(--blue-light); padding-bottom:.35rem; margin-top:2rem; }
+h3 { margin-top:1.5rem; }
+.kpi-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:14px; margin:18px 0 28px 0; }
+.kpi-card { background:white; border:1px solid #E4E7EC; border-left:5px solid var(--blue); border-radius:8px; padding:16px; min-height:100px; box-shadow:0 2px 7px rgba(16,24,40,.06); }
+.kpi-card.warning { border-left-color:var(--orange); }
+.kpi-card.danger  { border-left-color:var(--red); }
+.kpi-card.success { border-left-color:var(--green); }
+.kpi-label { color:var(--gray); font-size:.82rem; text-transform:uppercase; letter-spacing:.04em; }
+.kpi-value { color:var(--dark); font-size:1.8rem; font-weight:700; margin-top:5px; }
+.kpi-note  { color:var(--gray); font-size:.78rem; margin-top:5px; }
+.callout { background:#F8FAFC; border-left:5px solid var(--blue); padding:14px 18px; margin:18px 0; border-radius:4px; }
+.callout-warning { border-left-color:var(--orange); background:#FFFAEB; }
+.callout-green   { border-left-color:var(--green);  background:#EDF7ED; }
+.data-source-box { background:#F0F7F0; border-left:5px solid var(--green); padding:12px 16px; margin:14px 0; border-radius:4px; font-size:.88em; }
+.dataTables_wrapper { font-size:.88em; margin-top:15px; margin-bottom:30px; }
+table.dataTable thead th { background-color:#EEF4FA; }
+pre { border-radius:6px; }
+</style>
+
+
+```{r setup}
+knitr::opts_chunk$set(
+  echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE,
+  fig.align="center", dpi=150, out.width="100%"
+)
+project_dir <- params$project_dir
+data_dir    <- file.path(project_dir, params$data_dir)
+results_dir <- file.path(project_dir, params$results_dir)
+cache_dir   <- file.path(data_dir,    params$cache_dir)
+knitr::opts_knit$set(root.dir = project_dir)
+for (d in c(results_dir, cache_dir,
+            file.path(cache_dir, "api"),
+            file.path(data_dir, "raw", "boundaries"),
+            file.path(data_dir, "raw", "acs"),
+            file.path(data_dir, "raw", "hrsa"),
+            file.path(data_dir, "raw", "cdc_places"),
+            file.path(data_dir, "raw", "cdc_wonder"),
+            file.path(data_dir, "raw", "fema"),
+            file.path(data_dir, "raw", "usaspending"),
+            file.path(data_dir, "raw", "samhsa"),
+            file.path(data_dir, "processed"),
+            file.path(project_dir, "docs"),
+            file.path(project_dir, "outputs", "tables"))) {
+  dir.create(d, showWarnings=FALSE, recursive=TRUE)
+}
+options(bitmapType="cairo", tigris_use_cache=TRUE)
+```
+
+
+```{r libraries}
+suppressPackageStartupMessages({
+  library(dplyr); library(tidyr); library(readr); library(stringr)
+  library(lubridate); library(janitor); library(purrr)
+  library(ggplot2); library(scales); library(DT)
+  library(plotly); library(forcats); library(htmltools)
+  library(sf); library(tigris); library(tidycensus)
+  library(httr2); library(jsonlite)
+  library(leaflet); library(htmlwidgets)
+})
+# arrow: optional — used for optional parquet output
+arrow_available <- requireNamespace("arrow", quietly = TRUE)
+if (arrow_available) suppressPackageStartupMessages(library(arrow))
+```
+
+
+```{r config}
+ref_date_input                  <- params$ref_date
+min_runway_days                 <- params$min_runway_days
+award_floor_usd                 <- params$award_floor_usd
+target_agencies                 <- params$target_agencies
+include_forecasts               <- FALSE
+exclude_research_mechanisms     <- TRUE
+exclude_restricted_competitions <- TRUE
+keep_forecasts                  <- include_forecasts
+
+
+ref_date       <- ymd(ref_date_input)
+earliest_close <- ref_date + days(min_runway_days)
+
+# Plotting limits prevent extreme dates and award values from distorting figures.
+# The 400-day runway limit follows the project's documented application-window
+# screening range. It affects visualization only, not the underlying data.
+plot_max_runway_days <- 400L
+
+# Use a data-driven award cap for visualizations.
+# The full data remain available in tables and screening results.
+plot_award_quantile <- 0.99
+
+nc_fips <- params$nc_fips
+# The rendered HTML controls the visible geographic overlay. Keep a county default
+# only for county-level source maps and backward-compatible calculations.
+default_map_geography <- "county"
+boundary_year <- as.integer(params$boundary_year)
+date_min         <- ymd(params$date_min)
+date_max         <- ymd(params$date_max)
+peer_fips <- c("13","51","45","47")
+peer_abbr <- c("GA","VA","SC","TN")
+
+
+if (nzchar(Sys.getenv("CENSUS_API_KEY")))
+  tidycensus::census_api_key(Sys.getenv("CENSUS_API_KEY"), install=FALSE)
+
+
+pal <- list(
+  blue="#2166AC", blue_light="#D9EAF7", purple="#756BB1",
+  orange="#E08214", red="#B2182B", green="#1B7837",
+  gray="#667085", dark="#1D2939", light="#F4F6F8"
+)
+
+
+theme_g <- function(base_size=12) {
+  theme_minimal(base_size=base_size) +
+    theme(
+      plot.title    = element_text(face="bold", size=base_size+3, color=pal$dark),
+      plot.subtitle = element_text(color=pal$gray, margin=margin(b=12)),
+      plot.caption  = element_text(color=pal$gray, size=base_size-2, hjust=0),
+      axis.title    = element_text(color=pal$dark),
+      axis.text     = element_text(color="#475467"),
+      panel.grid.minor   = element_blank(),
+      panel.grid.major.y = element_blank(),
+      plot.margin   = margin(12,20,12,12)
+    )
+}
+theme_set(theme_g())
+```
+
+
+```{r helper-functions, include=FALSE}
+is_unset <- function(x) {
+  is.null(x) || length(x) == 0L || all(is.na(x))
+}
+
+parse_logical_safe <- function(x) {
+  y <- str_to_lower(str_squish(as.character(x)))
+  out <- rep(NA, length(y))
+  out[y %in% c("true", "t", "yes", "y", "1")] <- TRUE
+  out[y %in% c("false", "f", "no", "n", "0")] <- FALSE
+  out
+}
+
+safe_false <- function(x) {
+  dplyr::coalesce(parse_logical_safe(x), FALSE)
+}
+
+
+get_cached <- function(path, fetch_fn) {
+  if (file.exists(path)) {
+    cached <- tryCatch(
+      readRDS(path),
+      error = function(e) {
+        message("Cached file unreadable; refreshing: ", path)
+        NULL
+      }
+    )
+    if (!is.null(cached)) return(cached)
+  }
+
+  result <- tryCatch(
+    fetch_fn(),
+    error = function(e) {
+      message("Fetch failed: ", conditionMessage(e))
+      NULL
+    }
+  )
+
+  if (!is.null(result)) {
+    dir.create(dirname(path), showWarnings = FALSE, recursive = TRUE)
+    saveRDS(result, path)
+  }
+
+  result
+}
+```
+
+
+```{r load-and-clean}
+input_file <- file.path(data_dir, "raw", "grants", params$grants_file)
+if (!file.exists(input_file)) input_file <- file.path(data_dir, params$grants_file)
+if (!file.exists(input_file)) stop("Grants file not found: ", input_file)
+
+
+grants_raw <- readr::read_csv(
+  input_file,
+  show_col_types = FALSE,
+  na = c("", "NA", "N/A", "NULL")
+) |>
+  janitor::clean_names()
+
+# Normalize optional Grants.gov fields so the rest of the report can run even
+# when a snapshot omits a column.
+required_character_cols <- c(
+  "post_date", "close_date", "archive_date",
+  "forecasted_post_date", "forecasted_close_date",
+  "forecasted_award_date", "forecasted_project_start_date",
+  "opportunity_title", "agency_name", "top_level_agency_name",
+  "summary_description", "applicant_types", "funding_instruments",
+  "funding_categories", "applicant_eligibility_description",
+  "category", "category_explanation", "opportunity_status",
+  "opportunity_number", "opportunity_assistance_listings",
+  "additional_info_url"
+)
+
+for (nm in setdiff(required_character_cols, names(grants_raw))) {
+  grants_raw[[nm]] <- NA_character_
+}
+
+if (!"is_forecast" %in% names(grants_raw)) {
+  grants_raw$is_forecast <- FALSE
+}
+
+parse_date_safe <- function(x) {
+  x <- trimws(as.character(x))
+  x[x %in% c("", "NA", "N/A", "NULL", "null", "NaN")] <- NA_character_
+  x <- sub("T.*$", "", x, perl = TRUE)
+  x <- sub(" .*$", "", x, perl = TRUE)
+  result <- suppressWarnings(as.Date(x))
+  for (fmt in c("%m/%d/%Y", "%m/%d/%y", "%Y/%m/%d", "%d/%m/%Y")) {
+    miss <- is.na(result) & !is.na(x)
+    if (!any(miss)) break
+    result[miss] <- suppressWarnings(as.Date(x[miss], format = fmt))
+  }
+  result
+}
+
+# Date outliers are retained in the raw data but excluded from analytical date fields.
+# This prevents sentinel values such as 2099-01-01 and malformed historical dates
+# from distorting runway calculations and plots.
+clean_date_outliers <- function(x, min_date = date_min, max_date = date_max) {
+  x <- as.Date(x)
+  x[x < min_date | x > max_date] <- as.Date(NA)
+  x
+}
+
+
+parse_numeric_safe <- function(x)
+  suppressWarnings(as.numeric(str_replace_all(as.character(x), "[$,]", "")))
+
+
+research_pattern <- paste(c(
+  "investigator initiated","investigator-initiated","research project grant",
+  "clinical trial","research grant","\\br01\\b","\\br03\\b","\\br21\\b",
+  "\\br34\\b","\\bu01\\b","\\bp01\\b","\\bp20\\b","\\bp30\\b","\\bp50\\b",
+  "\\bk01\\b","\\bk08\\b","\\bk23\\b","\\bt32\\b","\\bf31\\b","\\bf32\\b"),
+  collapse="|")
+
+
+restricted_pattern <- regex(paste(c(
+  "only the following applicant","only the following entit",
+  "single source","sole source","invited applicant","not a competitive"),
+  collapse="|"), ignore_case=TRUE)
+
+
+date_cols <- intersect(
+  c("post_date", "close_date", "archive_date", "forecasted_post_date",
+    "forecasted_close_date", "forecasted_award_date",
+    "forecasted_project_start_date"),
+  names(grants_raw)
+)
+
+num_cols <- intersect(
+  c("award_floor", "award_ceiling", "estimated_total_program_funding",
+    "expected_number_of_awards"),
+  names(grants_raw)
+)
+
+# Numeric fields may also be absent from some Grants.gov exports.
+for (nm in setdiff(
+  c("award_floor", "award_ceiling",
+    "estimated_total_program_funding", "expected_number_of_awards"),
+  names(grants_raw)
+)) {
+  grants_raw[[nm]] <- NA_real_
+}
+
+
+grants_parsed <- grants_raw |>
+  mutate(across(all_of(date_cols), parse_date_safe),
+         across(all_of(num_cols), parse_numeric_safe))
+
+if (length(date_cols) > 0) {
+  date_outlier_matrix <- sapply(
+    date_cols,
+    function(nm) !is.na(grants_parsed[[nm]]) &
+      (grants_parsed[[nm]] < date_min | grants_parsed[[nm]] > date_max)
+  )
+  date_outlier_flag <- rowSums(as.matrix(date_outlier_matrix)) > 0
+} else {
+  date_outlier_flag <- rep(FALSE, nrow(grants_parsed))
+}
+
+grants <- grants_parsed |>
+  mutate(
+    date_outlier_flag = date_outlier_flag,
+    across(all_of(date_cols), clean_date_outliers),
+    is_forecast = safe_false(is_forecast),
+    across(any_of(c("opportunity_title","agency_name","top_level_agency_name",
+                    "summary_description","applicant_types","funding_instruments",
+                    "funding_categories","applicant_eligibility_description")),
+           ~ str_squish(as.character(.x))),
+
+
+    status_group = case_when(
+      is_forecast                        ~ "Forecasted",
+      str_to_lower(coalesce(opportunity_status, "")) == "forecasted" ~ "Forecasted",
+      TRUE                               ~ "Posted"),
+
+
+    agency_group = case_when(
+      str_to_lower(str_squish(top_level_agency_name)) ==
+        "department of health and human services" ~ "DHHS",
+      str_to_lower(str_squish(top_level_agency_name)) ==
+        "u.s. national science foundation" ~ "NSF",
+      str_to_lower(str_squish(top_level_agency_name)) ==
+        "department of defense" ~ "DOD",
+      str_to_lower(str_squish(top_level_agency_name)) ==
+        "department of agriculture" ~ "USDA",
+      str_to_lower(str_squish(top_level_agency_name)) ==
+        "department of labor" ~ "DOL",
+      str_to_lower(str_squish(top_level_agency_name)) ==
+        "department of homeland security" ~ "DHS",
+      str_to_lower(str_squish(top_level_agency_name)) ==
+        "department of transportation" ~ "DOT",
+      TRUE ~ coalesce(top_level_agency_name, "Unknown")
+    ),
+
+
+    applicant_types_text = str_to_lower(coalesce(applicant_types,"")),
+    funding_text = str_to_lower(str_c(
+      coalesce(opportunity_title,""), coalesce(summary_description,""),
+      coalesce(applicant_eligibility_description,""),
+      coalesce(category,""), coalesce(category_explanation,""), sep=" | ")),
+
+
+    state_eligible = str_detect(applicant_types_text, fixed("state_governments")),
+    is_nih = str_detect(coalesce(agency_code, ""), "^HHS-NIH"),
+    is_research_mechanism     = str_detect(funding_text, research_pattern),
+    is_restricted_competition = str_detect(funding_text, restricted_pattern),
+
+
+    days_to_close = as.numeric(close_date - ref_date),
+    date_order_valid = is.na(post_date) | is.na(close_date) | close_date >= post_date,
+    has_sufficient_runway = is.na(close_date) | days_to_close >= min_runway_days,
+    closes_soon = !is.na(days_to_close) & days_to_close >= 0 & days_to_close <= 30,
+
+
+    close_window = case_when(
+      is.na(close_date)    ~ "No stated deadline",
+      days_to_close < 0    ~ "Already closed",
+      days_to_close <= 30  ~ "0-30 days",
+      days_to_close <= 60  ~ "31-60 days",
+      days_to_close <= 120 ~ "61-120 days",
+      TRUE                 ~ "More than 120 days"),
+
+
+    award_size = coalesce(award_ceiling, award_floor),
+    award_size_group = case_when(
+      is.na(award_size)     ~ "Not reported",
+      award_size < 250000   ~ "Under $250K",
+      award_size < 1000000  ~ "250K-1M",
+      award_size < 5000000  ~ "1M-5M",
+      award_size < 25000000 ~ "5M-25M",
+      TRUE                  ~ "$25M+")
+  )
+
+
+# is_cost_sharing is already a boolean column in this export.
+grants <- grants |> mutate(is_cost_sharing = safe_false(is_cost_sharing))
+```
+
+```{r date-outlier-audit}
+date_outlier_audit <- tibble(
+  measure = c(
+    "Posted rows with close date before reference date",
+    "Posted rows with 0-400 days remaining",
+    "Posted rows with more than 400 days remaining",
+    "Posted rows with no close date",
+    "Rows with close date before post date",
+    "Rows with invalid date order or out-of-range analytical dates"
+  ),
+  n = c(
+    sum(
+      grants$status_group == "Posted" &
+        !is.na(grants$close_date) &
+        grants$close_date < ref_date,
+      na.rm = TRUE
+    ),
+
+    sum(
+      grants$status_group == "Posted" &
+        !is.na(grants$days_to_close) &
+        dplyr::between(
+          grants$days_to_close,
+          0,
+          plot_max_runway_days
+        ),
+      na.rm = TRUE
+    ),
+
+    sum(
+      grants$status_group == "Posted" &
+        !is.na(grants$days_to_close) &
+        grants$days_to_close > plot_max_runway_days,
+      na.rm = TRUE
+    ),
+
+    sum(
+      grants$status_group == "Posted" &
+        is.na(grants$close_date),
+      na.rm = TRUE
+    ),
+
+    sum(
+      !is.na(grants$post_date) &
+        !is.na(grants$close_date) &
+        grants$close_date < grants$post_date,
+      na.rm = TRUE
+    ),
+
+    sum(
+      safe_false(grants$date_outlier_flag) |
+        !safe_false(grants$date_order_valid),
+      na.rm = TRUE
+    )
+  )
+)
+
+date_outlier_audit |>
+  DT::datatable(
+    rownames = FALSE,
+    options = list(
+      dom = "t",
+      pageLength = 10
+    ),
+    class = "cell-border stripe hover"
+  )
+```
+
+## Data quality
+
+
+```{r data-quality}
+tibble(
+  measure = c("Rows","Columns","Posted","Forecasted",
+              "With close date","With award ceiling",
+              "With applicant eligibility","With summary"),
+  value   = c(nrow(grants), ncol(grants),
+              sum(grants$status_group=="Posted",    na.rm=TRUE),
+              sum(grants$status_group=="Forecasted",na.rm=TRUE),
+              sum(!is.na(grants$close_date)),
+              sum(!is.na(grants$award_ceiling)),
+              sum(!is.na(grants$applicant_eligibility_description)),
+              sum(!is.na(grants$summary_description)))
+) |>
+  DT::datatable(rownames=FALSE, options=list(dom="t", pageLength=10))
+```
+
+
+# 1. Executive Summary
+
+
+```{r exec-summary, results='asis'}
+candidate_data <- grants |>
+  filter(
+    status_group == "Posted",
+    if (is_unset(target_agencies)) TRUE
+    else agency_group %in% target_agencies,
+    state_eligible,
+    !is_research_mechanism,
+    !is_restricted_competition,
+    is.na(close_date) | close_date >= earliest_close,
+    is.na(award_size) | award_size >= award_floor_usd
+  )
+
+candidate_count <- nrow(candidate_data)
+
+
+cat('<div class="kpi-grid">',
+  '<div class="kpi-card"><div class="kpi-label">Total opportunities</div>',
+  '<div class="kpi-value">',comma(nrow(grants)),'</div>',
+  '<div class="kpi-note">Posted and forecasted</div></div>',
+  '<div class="kpi-card"><div class="kpi-label">Posted</div>',
+  '<div class="kpi-value">',comma(sum(grants$status_group=="Posted",na.rm=TRUE)),'</div>',
+  '<div class="kpi-note">In snapshot</div></div>',
+  '<div class="kpi-card success"><div class="kpi-label">State-eligible</div>',
+  '<div class="kpi-value">',comma(sum(grants$state_eligible,na.rm=TRUE)),'</div>',
+  '<div class="kpi-note">Initial screen only</div></div>',
+  '<div class="kpi-card danger"><div class="kpi-label">NIH tagged</div>',
+  '<div class="kpi-value">',comma(sum(grants$is_nih,na.rm=TRUE)),'</div>',
+  '<div class="kpi-note">Research-noise source</div></div>',
+  '<div class="kpi-card warning"><div class="kpi-label">Screened candidates</div>',
+  '<div class="kpi-value">',comma(candidate_count),'</div>',
+  '<div class="kpi-note">After all filters</div></div>',
+  '</div>')
+```
+
+
+<div class="callout">
+This dashboard is an initial screening view. Eligibility tags are broad; the
+research-mechanism screen is text-based and must be validated on a random sample
+before excluding any opportunity from a final shortlist.
+</div>
+
+
+# 2. Screening Funnel
+
+
+Each stage is applied only to rows that passed every previous stage.
+
+
+```{r funnel-prep}
+agency_pass <- if (is_unset(target_agencies)) {
+  rep(TRUE, nrow(grants))
+} else {
+  grants$agency_group %in% target_agencies |
+    grants$top_level_agency_name %in% target_agencies
+}
+status_pass      <- if (keep_forecasts) rep(TRUE,nrow(grants)) else grants$status_group=="Posted"
+eligibility_pass <- safe_false(grants$state_eligible)
+research_pass    <- if (isTRUE(exclude_research_mechanisms))
+                      !safe_false(grants$is_research_mechanism) else rep(TRUE,nrow(grants))
+restricted_pass  <- if (isTRUE(exclude_restricted_competitions))
+                      !safe_false(grants$is_restricted_competition) else rep(TRUE,nrow(grants))
+runway_pass <- if (is.null(min_runway_days)) {
+  rep(TRUE, nrow(grants))
+} else {
+  is.na(grants$close_date) |
+    (!is.na(grants$days_to_close) &
+       grants$days_to_close >= min_runway_days)
+}
+award_pass       <- if (is.null(award_floor_usd)) rep(TRUE,nrow(grants)) else
+                    is.na(grants$award_size) | grants$award_size >= award_floor_usd
+
+
+funnel_rules <- list(
+  `All opportunities`      = rep(TRUE,nrow(grants)),
+  `Selected agency`        = agency_pass,
+  `Posted`                 = status_pass,
+  `State eligible`         = eligibility_pass,
+  `Not research mechanism` = research_pass,
+  `Open competition`       = restricted_pass,
+  `Enough runway`          = runway_pass,
+  `Above award threshold`  = award_pass)
+
+
+survivors <- rep(TRUE, nrow(grants))
+funnel_data <- purrr::imap_dfr(funnel_rules, function(rule, name) {
+  survivors <<- survivors & rule
+  tibble(stage=name, n=sum(survivors, na.rm=TRUE))
+}) |>
+  mutate(
+    dropped = c(0, head(n,-1) - tail(n,-1)),
+    pct_all = n / first(n),
+    stage   = factor(stage, levels=rev(stage)),
+    label   = paste0(comma(n)," (",percent(pct_all, accuracy=0.1),")")
+  )
+funnel_data
+```
+
+
+```{r funnel-chart, fig.width=11, fig.height=7}
+ggplot(funnel_data, aes(x=n, y=stage)) +
+  geom_col(fill=pal$blue, width=.68) +
+  geom_text(aes(label=label), hjust=-.08, size=4, color=pal$dark) +
+  scale_x_continuous(labels=comma, expand=expansion(mult=c(0,.18))) +
+  labs(title="Sequential Screening Funnel",
+       subtitle=paste("Reference date:", format(ref_date,"%B %d, %Y"),
+                      "| Minimum runway:", min_runway_days, "days"),
+       x="Opportunities remaining", y=NULL) +
+  theme(axis.text.y=element_text(face="bold"), panel.grid.major.y=element_blank())
+```
+
+
+```{r funnel-table}
+funnel_data |>
+  mutate(across(c(n,dropped), comma),
+         pct_all=percent(pct_all, accuracy=0.1),
+         stage=as.character(stage)) |>
+  select(stage, n, dropped, pct_all) |>
+  DT::datatable(rownames=FALSE,
+    colnames=c("Stage","Remaining","Removed at stage","% of original"),
+    options=list(dom="t", pageLength=10, ordering=FALSE),
+    class="cell-border stripe hover")
+```
+
+
+# 3. Opportunity Volume by Agency
+
+
+```{r agency-vol, fig.width=11, fig.height=8}
+agency_dat <- grants |>
+  count(agency_group, status_group, name="n") |>
+  group_by(agency_group) |> mutate(total=sum(n)) |> ungroup() |>
+  filter(total >= 5) |>
+  mutate(agency_group=fct_reorder(agency_group, total))
+
+
+ggplot(agency_dat, aes(x=n, y=agency_group, fill=status_group)) +
+  geom_col(position="stack", width=.72) +
+  geom_text(data=agency_dat |> group_by(agency_group) |>
+              summarise(total=first(total),.groups="drop"),
+            aes(x=total, y=agency_group, label=comma(total)),
+            inherit.aes=FALSE, hjust=-.12, size=3.5, color=pal$dark) +
+  scale_fill_manual(values=c(Posted=pal$blue,Forecasted=pal$purple)) +
+  scale_x_continuous(labels=comma, expand=expansion(mult=c(0,.14))) +
+  labs(title="Federal Opportunity Volume by Agency",
+       subtitle="Agencies with < 5 opportunities omitted",
+       x="Opportunities", y=NULL, fill=NULL) +
+  theme(legend.position="top", panel.grid.major.y=element_blank())
+```
+
+
+# 4. Application Deadline Urgency
+
+
+```{r deadline-urgency-data}
+deadline_dat <- grants |>
+  filter(
+    status_group == "Posted",
+    !is.na(close_date),
+    !is.na(days_to_close),
+    days_to_close >= 0
+  ) |>
+  mutate(
+    close_window = factor(
+      case_when(
+        days_to_close <= 30 ~ "0–30 days",
+        days_to_close <= 60 ~ "31–60 days",
+        days_to_close <= 120 ~ "61–120 days",
+        days_to_close <= plot_max_runway_days ~
+          "121–400 days",
+        TRUE ~
+          "More than 400 days"
+      ),
+      levels = c(
+        "0–30 days",
+        "31–60 days",
+        "61–120 days",
+        "121–400 days",
+        "More than 400 days"
+      )
+    )
+  ) |>
+  count(close_window)
+```
+
+
+```{r deadline-urgency-plot, fig.width=10, fig.height=6}
+ggplot(
+  deadline_dat,
+  aes(
+    x = close_window,
+    y = n,
+    fill = close_window
+  )
+) +
+  geom_col(
+    width = 0.7,
+    show.legend = FALSE
+  ) +
+  geom_text(
+    aes(label = comma(n)),
+    vjust = -0.35,
+    size = 4
+  ) +
+  scale_fill_manual(
+    values = c(
+      "0–30 days" = pal$red,
+      "31–60 days" = pal$orange,
+      "61–120 days" = pal$blue,
+      "121–400 days" = pal$green,
+      "More than 400 days" = pal$gray
+    )
+  ) +
+  scale_y_continuous(
+    labels = comma,
+    expand = expansion(mult = c(0, 0.12))
+  ) +
+  labs(
+    title = "Posted Opportunities by Remaining Application Window",
+    subtitle = paste(
+      "From",
+      format(ref_date, "%B %d, %Y"),
+      "| Dates are shown through",
+      plot_max_runway_days,
+      "days"
+    ),
+    x = NULL,
+    y = "Opportunities"
+  ) +
+  theme(
+    axis.text.x = element_text(
+      angle = 20,
+      hjust = 1
+    ),
+    panel.grid.major.x = element_blank()
+  )
+
+```
+
+
+# 5. Award Amount Distribution
+
+
+Award values span orders of magnitude; the x-axis is logarithmic. A national program
+ceiling is **not** the amount North Carolina would receive — it is a total across all
+awardees nationwide.
+
+
+```{r award-dist, fig.width=11, fig.height=6}
+award_dist_dat <- grants |> filter(status_group=="Posted", !is.na(award_size), award_size > 0)
+
+
+ggplot(award_dist_dat, aes(x=award_size)) +
+  geom_histogram(bins=35, fill=pal$blue, color="white", alpha=.9) +
+  geom_vline(xintercept=award_floor_usd, color=pal$red, linetype="dashed", linewidth=1) +
+  annotate("text", x=award_floor_usd, y=Inf,
+           label=paste0("Threshold: ",dollar(award_floor_usd)),
+           hjust=-.05, vjust=1.5, color=pal$red, size=3.5) +
+  scale_x_log10(labels=dollar_format(scale_cut=cut_short_scale())) +
+  scale_y_continuous(labels=comma) +
+  labs(title="Distribution of Reported Award Amounts (Posted)",
+       subtitle="Uses award ceiling when available; award floor otherwise",
+       x="Award amount (log scale)", y="Opportunities") +
+  theme(panel.grid.minor.x=element_blank())
+```
+
+
+# 6. Funding Instruments
+
+
+A **cooperative agreement** carries ongoing federal involvement and is an early
+signal of higher administrative burden compared to a standard grant.
+
+
+```{r instruments, fig.width=10, fig.height=6}
+grants |>
+  filter(status_group=="Posted") |>
+  mutate(instrument = case_when(
+    str_detect(str_to_lower(coalesce(funding_instruments,"")), "cooperative") ~ "Cooperative agreement",
+    str_detect(str_to_lower(coalesce(funding_instruments,"")), "\\bgrant\\b")  ~ "Grant",
+    str_detect(str_to_lower(coalesce(funding_instruments,"")), "procurement|contract") ~ "Procurement contract",
+    str_detect(str_to_lower(coalesce(funding_instruments,"")), "other") ~ "Other",
+    TRUE ~ "Not reported")) |>
+  count(instrument, sort=TRUE) |>
+  mutate(instrument=fct_reorder(instrument,n)) |>
+  ggplot(aes(x=n, y=instrument, fill=instrument)) +
+  geom_col(width=.7, show.legend=FALSE) +
+  geom_text(aes(label=comma(n)), hjust=-.12, size=4) +
+  scale_x_continuous(labels=comma, expand=expansion(mult=c(0,.14))) +
+  labs(title="Posted Opportunities by Funding Instrument",
+       subtitle="Cooperative agreements imply ongoing federal oversight",
+       x="Posted opportunities", y=NULL) +
+  theme(panel.grid.major.y=element_blank())
+```
+
+
+# 7. State Eligibility and Research Noise
+
+
+<div class="callout callout-green">
+**What does "state_governments" eligibility mean?**
+Grants.gov uses a controlled vocabulary for applicant types. The code
+`state_governments` indicates that the posting explicitly lists state government
+entities as eligible applicants. This is one of approximately 15 applicant-type
+codes in the schema. **It does not mean the state is the sole or even primary
+intended recipient.** Most postings also include universities, hospitals,
+nonprofits, tribes, and for-profits — making eligibility alone a very weak
+discriminator. The research-mechanism screen below is needed to separate
+administrative grants from investigator-initiated research.
+</div>
+
+
+```{r eligibility-research-data}
+elig_res <- grants |>
+  mutate(
+    elig_grp     = if_else(safe_false(state_eligible), "State eligible","Not state eligible"),
+    research_grp = if_else(safe_false(is_research_mechanism),"Research screen","Not research screen")
+  ) |>
+  count(elig_grp, research_grp) |>
+  group_by(elig_grp) |> mutate(pct=n/sum(n)) |> ungroup()
+```
+
+
+```{r eligibility-research-plot, fig.width=10, fig.height=6}
+ggplot(elig_res, aes(x=elig_grp, y=n, fill=research_grp)) +
+  geom_col(position="stack", width=.68) +
+  geom_text(aes(label=paste0(comma(n),"\n",percent(pct,accuracy=0.1))),
+            position=position_stack(vjust=.5), color="white", fontface="bold", size=3.5) +
+  scale_fill_manual(values=c(
+    "Research screen" = pal$red,
+    "Not research screen" = pal$blue
+  )) +
+  scale_y_continuous(labels=comma) +
+  labs(title="State Eligibility Does Not Identify Administrative Fit",
+       subtitle="Research mechanism screen is preliminary and text-based only",
+       x=NULL, y="Opportunities", fill=NULL) +
+  theme(legend.position="top", panel.grid.major.x=element_blank())
+```
+
+
+<div class="callout callout-warning">
+Validate the research screen on a random hand-labelled sample of at least 60
+rows before using it to exclude opportunities from the final shortlist.
+</div>
+
+
+# 8. Shortlist After Screening
+
+
+```{r shortlist-data}
+shortlist <- grants |>
+  mutate(passed = survivors) |>
+  filter(passed) |>
+  mutate(
+    urgency = case_when(
+      is.na(days_to_close) ~ "No stated deadline",
+      days_to_close <= 30  ~ "Urgent: 0-30 days",
+      days_to_close <= 60  ~ "Near-term: 31-60 days",
+      days_to_close <= 120 ~ "Medium-term: 61-120 days",
+      TRUE                 ~ "Longer runway"),
+    award_display = case_when(
+      !is.na(award_ceiling) ~ paste0("Ceiling: ",dollar(award_ceiling)),
+      !is.na(award_floor)   ~ paste0("Floor: ",  dollar(award_floor)),
+      TRUE                  ~ "Not reported"),
+    desc_trunc = str_trunc(coalesce(summary_description,"No summary"), 280)
+  ) |>
+  arrange(days_to_close, desc(award_size)) |>
+  select(opportunity_number, opportunity_title, agency_group,
+         urgency, close_date, days_to_close, award_display,
+         state_eligible, is_nih, is_research_mechanism,
+         opportunity_assistance_listings, desc_trunc, additional_info_url)
+```
+
+
+```{r shortlist-table}
+shortlist |>
+  mutate(close_date=if_else(is.na(close_date),"No deadline",format(close_date,"%Y-%m-%d"))) |>
+  DT::datatable(rownames=FALSE, escape=FALSE, filter="top",
+    extensions=c("Buttons","FixedHeader"),
+    options=list(pageLength=15, scrollX=TRUE, fixedHeader=TRUE,
+                 dom="Bfrtip", buttons=c("copy","csv","excel"),
+                 searchHighlight=TRUE),
+    class="cell-border stripe hover") |>
+  DT::formatStyle("urgency", backgroundColor=DT::styleEqual(
+    c("Urgent: 0-30 days","Near-term: 31-60 days",
+      "Medium-term: 61-120 days","Longer runway","No stated deadline"),
+    c("#FDE2E2","#FFF0D5","#E7F0FA","#E6F4EA","#F2F4F7")))
+```
+
+
+# 9. Opportunities Closing Soon
+
+
+All posted opportunities closing within 30 days — regardless of whether they
+pass the full screening funnel.
+
+
+```{r urgent-table}
+grants |>
+  filter(status_group=="Posted", !is.na(close_date),
+         close_date >= ref_date, days_to_close <= 30) |>
+  mutate(
+    award_display = case_when(
+      !is.na(award_ceiling) ~ dollar(award_ceiling),
+      !is.na(award_floor)   ~ dollar(award_floor),
+      TRUE ~ "Not reported"),
+    desc_trunc = str_trunc(coalesce(summary_description,"No summary"), 220)
+  ) |>
+  arrange(days_to_close) |>
+  select(opportunity_number, opportunity_title, agency_group,
+         close_date, days_to_close, state_eligible, is_nih,
+         is_research_mechanism, award_display, desc_trunc) |>
+  DT::datatable(rownames=FALSE, filter="top",
+    extensions=c("Buttons","FixedHeader"),
+    options=list(pageLength=15, scrollX=TRUE, fixedHeader=TRUE,
+                 dom="Bfrtip", buttons=c("copy","csv","excel")),
+    class="cell-border stripe hover")
+```
+
+
+# 10. Close-Date vs Award Size
+
+
+Outliers above the 95th percentile of award size (mostly large national NIH and
+SAMHSA program totals) are removed to keep the scale informative for
+state-administrable grants.
+
+
+```{r runway-award-data}
+runway_award_dat <- grants |>
+  filter(
+    status_group == "Posted",
+    !is.na(close_date),
+    !is.na(days_to_close),
+    days_to_close >= 0,
+    days_to_close <= plot_max_runway_days,
+    !is.na(award_size),
+    award_size > 0
+  ) |>
+  mutate(
+    elig_disp = if_else(
+      safe_false(state_eligible),
+      "State eligible",
+      "Not state eligible"
+    ),
+
+    res_disp = if_else(
+      safe_false(is_research_mechanism),
+      "Research screen",
+      "Not research screen"
+    )
+  )
+
+p95 <- quantile(
+  runway_award_dat$award_size,
+  plot_award_quantile,
+  na.rm = TRUE
+)
+
+runway_award_trim <- runway_award_dat |>
+  filter(
+    award_size <= p95
+  )
+```
+
+
+```{r runway-award-plot, fig.width=11, fig.height=7}
+ra_plot <- ggplot(runway_award_trim,
+  aes(x=days_to_close, y=award_size,
+      color=elig_disp, shape=res_disp, text=opportunity_title)) +
+  geom_point(alpha=.7, size=2.5) +
+  geom_vline(xintercept=min_runway_days,
+             linetype="dashed", color=pal$red, linewidth=.9) +
+  annotate("text", x=min_runway_days, y=Inf,
+           label=paste0(min_runway_days,"-day runway"),
+           hjust=1.05, vjust=1.5, color=pal$red, size=3.2) +
+  scale_x_continuous(
+  labels = comma,
+  limits = c(0, plot_max_runway_days),
+  breaks = c(0, 30, 60, 120, 180, 270, 365, 400)
+  ) +
+  scale_y_continuous(labels=dollar_format(scale_cut=cut_short_scale())) +
+  scale_color_manual(values=c(
+    "State eligible" = pal$green,
+    "Not state eligible" = pal$gray
+  )) +
+  scale_shape_manual(values=c("Research screen"=17,"Not research screen"=16)) +
+  labs(title="Remaining Runway vs Award Size (outliers removed)",
+       subtitle = paste0(
+  "Runway limited to 0–",
+  plot_max_runway_days,
+  " days; award amounts above the ",
+  plot_award_quantile * 100,
+  "th percentile were omitted"
+)
+,
+       x="Days until close date", y="Award size", color=NULL, shape=NULL) +
+  theme(legend.position="top")
+
+
+ggplotly(ra_plot, tooltip=c("x","y","colour","shape","text"))
+```
+
+
+# 11. Most Frequent Assistance Listings
+
+
+Assistance listings (CFDA numbers) are the join key for USAspending award history.
+Programs appearing repeatedly in the snapshot are the highest-priority lookup targets.
+
+
+```{r cfda-plot, fig.width=11, fig.height=9}
+grants |>
+  filter(!is.na(opportunity_assistance_listings),
+         str_squish(opportunity_assistance_listings) != "") |>
+  separate_rows(opportunity_assistance_listings, sep="\\s*;\\s*") |>
+  mutate(opportunity_assistance_listings=str_squish(opportunity_assistance_listings)) |>
+  filter(opportunity_assistance_listings != "") |>
+  count(opportunity_assistance_listings, sort=TRUE, name="n") |>
+  slice_head(n=25) |>
+  mutate(opportunity_assistance_listings=fct_reorder(opportunity_assistance_listings,n)) |>
+  ggplot(aes(x=n, y=opportunity_assistance_listings)) +
+  geom_col(fill=pal$purple, width=.7) +
+  geom_text(aes(label=comma(n)), hjust=-.12, size=3.3) +
+  scale_x_continuous(labels=comma, expand=expansion(mult=c(0,.15))) +
+  labs(title="Most Frequent Assistance Listings (top 25)",
+       subtitle="These CFDA numbers are the priority set for USAspending joins",
+       x="Opportunities in snapshot", y=NULL) +
+  theme(panel.grid.major.y=element_blank())
+```
+
+
+# 12. Preliminary Triage Quadrants
+
+
+This view plots every posted opportunity with a stated deadline and reported award
+amount against two observable axes: **days of runway** and **award size**. It is a
+workload and prioritisation diagnostic — not a measure of need, fit, or probability
+of winning.
+
+
+**How to read the quadrants:**
+
+
+| Quadrant | Description | Suggested action |
+|---|---|---|
+| Large award, sufficient runway | High potential value, time to prepare | Assign owner; begin fit assessment |
+| Large award, short runway | High value but fast-closing | Leadership decision this week: pursue or formally decline |
+| Smaller award, sufficient runway | Lower ceiling; adequate time | Route to relevant division for optional review |
+| Smaller award, short runway | Limited time and ceiling | Only pursue if strong existing relationship with program |
+
+
+```{r quadrant-data}
+quad_dat <- grants |>
+  filter(status_group=="Posted", !is.na(close_date), close_date >= ref_date,
+         !is.na(award_size), award_size > 0) |>
+  mutate(
+    fit = case_when(
+      safe_false(state_eligible) & !safe_false(is_research_mechanism) ~ "Initial fit screen",
+      safe_false(state_eligible) &  safe_false(is_research_mechanism) ~ "Eligible; research screen",
+     !safe_false(state_eligible)                                       ~ "Not state eligible"),
+    quadrant = case_when(
+      days_to_close <= min_runway_days & award_size >= award_floor_usd ~ "Large award, short runway",
+      days_to_close >  min_runway_days & award_size >= award_floor_usd ~ "Large award, sufficient runway",
+      days_to_close <= min_runway_days & award_size <  award_floor_usd ~ "Smaller award, short runway",
+      TRUE                                                              ~ "Smaller award, sufficient runway")
+  )
+
+
+p95q <- quantile(quad_dat$award_size, .95, na.rm=TRUE)
+quad_trim <- quad_dat |> filter(award_size <= p95q)
+```
+
+
+```{r quadrant-plot, fig.width=11, fig.height=7}
+qp <- ggplot(quad_trim,
+  aes(x=days_to_close, y=award_size,
+      color=fit, shape=quadrant, text=opportunity_title)) +
+  geom_point(alpha=.7, size=2.5) +
+  geom_vline(xintercept=min_runway_days, linetype="dashed", linewidth=.9, color=pal$red) +
+  geom_hline(yintercept=award_floor_usd,  linetype="dashed", linewidth=.9, color=pal$orange) +
+  annotate("text", x=min_runway_days, y=Inf,
+           label=paste0(min_runway_days,"-day runway"),
+           hjust=1.05, vjust=1.5, color=pal$red, size=3.0) +
+  annotate("text", x=Inf, y=award_floor_usd,
+           label=paste0("Floor: ",dollar(award_floor_usd)),
+           hjust=1.05, vjust=-.5, color=pal$orange, size=3.0) +
+  scale_x_continuous(labels=comma, expand=expansion(mult=c(.02,.06))) +
+  scale_y_continuous(labels=dollar_format(scale_cut=cut_short_scale())) +
+  scale_color_manual(values=c("Initial fit screen"=pal$green,
+                               "Eligible; research screen"=pal$red,
+                               "Not state eligible"=pal$gray)) +
+  labs(title="Preliminary Triage: Runway vs Award Size (outliers removed)",
+       subtitle=paste("Reference date:", format(ref_date,"%B %d, %Y"),
+                      "| 95th pct cap:", dollar(round(p95q))),
+       x="Days until close date", y="Award size",
+       color="Initial screen", shape="Quadrant") +
+  theme(legend.position="bottom", legend.box="vertical")
+
+
+ggplotly(qp, tooltip=c("x","y","colour","shape","text"))
+```
+
+
+```{r quadrant-counts}
+quad_dat |> count(quadrant, fit, sort=TRUE) |>
+  mutate(pct=percent(n/sum(n), accuracy=0.1)) |>
+  DT::datatable(rownames=FALSE,
+    colnames=c("Quadrant","Screen result","Opportunities","Share"),
+    options=list(dom="t", pageLength=15),
+    class="cell-border stripe hover")
+```
+
+
+<div class="callout callout-warning">
+This chart does not measure need, capacity, or probability of success. It is a
+workload-planning tool only. Do not use award ceilings as estimates of what North
+Carolina would receive.
+</div>
+
+
+# 13. Forecasted Opportunity Pipeline
+
+
+Forecasted opportunities are not open for application. They support calendar
+planning and allow early internal review of likely requirements.
+
+
+```{r forecast-pipeline, fig.width=11, fig.height=6}
+grants |>
+  filter(status_group=="Forecasted") |>
+  mutate(
+    fd = coalesce(forecasted_post_date, forecasted_close_date),
+    fq = if_else(!is.na(fd), paste0(year(fd)," Q",quarter(fd)), "Date missing")
+  ) |>
+  count(fq) |>
+  mutate(fq=factor(fq, levels=unique(fq))) |>
+  ggplot(aes(x=fq, y=n)) +
+  geom_col(fill=pal$purple, width=.7) +
+  geom_text(aes(label=comma(n)), vjust=-.35, size=4) +
+  scale_y_continuous(labels=comma, expand=expansion(mult=c(0,.12))) +
+  labs(title="Forecasted Opportunity Pipeline by Quarter",
+       subtitle="Forecasts support calendar planning before an opportunity posts",
+       x="Expected posting quarter", y="Forecasted opportunities") +
+  theme(axis.text.x=element_text(angle=35, hjust=1),
+        panel.grid.major.x=element_blank())
+```
+
+
+# 14. NCDHHS-Relevant Domain Classification
+
+
+Each opportunity may match more than one domain. Unmatched rows should be reviewed,
+not assumed irrelevant.
+
+
+```{r domain-patterns}
+domain_patterns <- c(
+  "Behavioral health and crisis"          = "behavioral health|mental health|suicide|988|crisis|psychiatric|trauma",
+  "Opioid and substance use"              = "opioid|substance use|overdose|naloxone|addiction|recovery|syringe",
+  "Maternal, infant, reproductive health" = "maternal|infant|pregnan|prenatal|reproductive|family planning|title x",
+  "Child and family well-being"           = "child welfare|children|family|foster|early childhood|parenting|child care",
+  "Food and nutrition security"           = "food security|nutrition|wic|snap|fns|hunger|food insecurity",
+  "Health and direct-care workforce"      = "health workforce|workforce|nursing|direct care|recruitment|retention",
+  "Rural access and telehealth"           = "rural|telehealth|telemedicine|underserved|health access",
+  "Disaster recovery and resilience"      = "disaster|resilience|recovery|emergency|hurricane|flood|hazard"
+)
+```
+
+
+```{r domain-classification}
+domain_text_vec <- str_to_lower(str_c(
+  coalesce(grants$opportunity_title,""),
+  coalesce(grants$summary_description,""),
+  coalesce(grants$applicant_eligibility_description,""),
+  coalesce(grants$category, ""), coalesce(grants$category_explanation, ""),
+  sep=" | "))
+
+
+domain_flags <- as.data.frame(purrr::map_dfc(
+  domain_patterns,
+  ~ str_detect(domain_text_vec, regex(.x, ignore_case=TRUE))
+))
+names(domain_flags) <- names(domain_patterns)
+
+
+matched_domains_vec <- apply(domain_flags, 1, function(row) {
+  m <- names(domain_patterns)[as.logical(row)]
+  if (length(m)==0) "No keyword match" else paste(m, collapse="; ")
+})
+
+
+grants_domains <- grants |>
+  bind_cols(domain_flags) |>
+  mutate(
+    n_domain_matches   = rowSums(across(all_of(names(domain_patterns))), na.rm=TRUE),
+    matched_domains    = matched_domains_vec,
+    domain_match_group = case_when(
+      n_domain_matches == 0 ~ "No keyword match",
+      n_domain_matches == 1 ~ "One domain match",
+      TRUE                  ~ "Multiple domain matches")
+  )
+```
+
+
+```{r domain-volume, fig.width=11, fig.height=8}
+purrr::map_dfr(names(domain_patterns), function(dn) {
+  tibble(domain=dn,
+         Posted     = sum(grants_domains$status_group=="Posted"     & safe_false(grants_domains[[dn]])),
+         Forecasted = sum(grants_domains$status_group=="Forecasted" & safe_false(grants_domains[[dn]])))
+}) |>
+  pivot_longer(c(Posted,Forecasted), names_to="status_group", values_to="n") |>
+  mutate(domain=fct_reorder(domain, n, .fun=sum)) |>
+  ggplot(aes(x=n, y=domain, fill=status_group)) +
+  geom_col(position="stack", width=.7) +
+  geom_text(data=~group_by(.,domain)|>summarise(total=sum(n),.groups="drop"),
+            aes(x=total,y=domain,label=comma(total)),
+            inherit.aes=FALSE, hjust=-.12, size=3.4) +
+  scale_fill_manual(values=c(Posted=pal$blue,Forecasted=pal$purple)) +
+  scale_x_continuous(labels=comma, expand=expansion(mult=c(0,.14))) +
+  labs(title="Keyword Match Volume by NCDHHS-Relevant Domain",
+       subtitle="An opportunity may match more than one domain",
+       x="Keyword matches", y=NULL, fill=NULL) +
+  theme(legend.position="top", panel.grid.major.y=element_blank())
+```
+
+
+# 22. NCDHHS 2023–2025 Strategic Plan Alignment (Phase 2)
+
+
+<div class="callout callout-warning">
+<strong>Temporal limitation:</strong> The available NCDHHS strategic plan covers 2023–2025,
+while the Grants.gov snapshot concerns 2026 opportunities. The plan is therefore used as a
+documented historical alignment framework rather than definitive evidence of current 2026
+policy. The table below is a <strong>scaffold requiring manual verification</strong> against the
+source PDF at <code>data/raw/strategic_plan/ncdhhs-strategic-plan-2023-25.pdf</code>.
+All goal, objective, and strategy text must be confirmed by a human reviewer before use.
+</div>
+
+
+<div class="data-source-box">
+<strong>Source:</strong> NCDHHS Strategic Plan 2023–2025 (PDF).<br>
+<strong>Expected path:</strong> <code>data/raw/strategic_plan/ncdhhs-strategic-plan-2023-25.pdf</code><br>
+<strong>Processed output:</strong> <code>data/processed/ncdhhs_priorities.csv</code><br>
+<strong>Status:</strong> Scaffold rows generated; human verification required. Set
+<code>human_verified = TRUE</code> and add reviewer initials in <code>reviewer_notes</code>
+when each row is confirmed against the source PDF.
+</div>
+
+
+```{r strategic-plan-load}
+priorities_path <- file.path(data_dir, "processed", "ncdhhs_priorities.csv")
+
+
+if (!file.exists(priorities_path)) {
+  scaffold <- purrr::map_dfr(paste0("G", 1:5), function(gid) {
+    purrr::map_dfr(1:2, function(oi) {
+      purrr::map_dfr(1:2, function(si) {
+        tibble(
+          goal_id        = gid,
+          goal_text      = "HUMAN VERIFICATION REQUIRED — populate from source PDF",
+          objective_id   = paste0(gid, ".", oi),
+          objective_text = "HUMAN VERIFICATION REQUIRED",
+          strategy_id    = paste0(gid, ".", oi, ".", si),
+          strategy_text  = "HUMAN VERIFICATION REQUIRED",
+          source_page    = NA_character_,
+          source_document = "ncdhhs-strategic-plan-2023-25.pdf",
+          human_verified  = "FALSE",
+          reviewer_notes  = paste(
+            "Scaffold — populate all text and page references from source PDF.",
+            "Set human_verified=TRUE with reviewer initials when complete."),
+          priority_domain = NA_character_
+        )
+      })
+    })
+  })
+  readr::write_csv(scaffold, priorities_path)
+  message("Wrote scaffold ncdhhs_priorities.csv — manual verification required.")
+}
+
+
+ncdhhs_priorities <- readr::read_csv(priorities_path, show_col_types=FALSE)
+priorities_available <- nrow(ncdhhs_priorities) > 0
+```
+
+
+```{r strategic-plan-table, eval=priorities_available}
+ncdhhs_priorities |>
+  mutate(
+    human_verified  = if_else(safe_false(as.logical(human_verified)),
+                               "✓ Verified", "⚠ Needs review"),
+    priority_domain = coalesce(priority_domain, "—")
+  ) |>
+  select(goal_id, objective_id, strategy_id, goal_text,
+         objective_text, strategy_text, source_page,
+         human_verified, priority_domain, reviewer_notes) |>
+  DT::datatable(
+    rownames=FALSE, filter="top",
+    extensions=c("Buttons","FixedHeader"),
+    options=list(pageLength=10, scrollX=TRUE, fixedHeader=TRUE,
+                 dom="Bfrtip", buttons=c("copy","csv","excel")),
+    class="cell-border stripe hover"
+  ) |>
+  DT::formatStyle("human_verified",
+    color=DT::styleEqual(c("✓ Verified","⚠ Needs review"), c("green","orange")),
+    fontWeight="bold")
+```
+
+
+# 23. Program-Domain Taxonomy Reference (Phase 3)
+
+
+The eight program domains connect NCDHHS strategic priorities to Grants.gov
+opportunity text, county-level need, county-level capacity, and the final shortlist.
+The full taxonomy — including inclusion rules, exclusion rules, need indicators,
+capacity indicators, division ownership, and known overlaps — is maintained in
+`docs/domain_taxonomy.md`.
+
+
+<div class="data-source-box">
+<strong>Taxonomy document:</strong> <code>docs/domain_taxonomy.md</code><br>
+<strong>Status:</strong> Draft v1.0 — pending Phase 2 manual verification and keyword validation.<br>
+<strong>Key disambiguation rule:</strong> <code>recovery</code> alone → substance-use (D01).
+Requires <code>hurricane</code>, <code>flood</code>, <code>disaster</code>, <code>FEMA</code>,
+or <code>hazard mitigation</code> to be classified as disaster recovery (D08).
+</div>
+
+
+```{r domain-taxonomy-display}
+tibble(
+  ID      = paste0("D0", 1:8),
+  Domain  = c(
+    "Opioid and substance-use response",
+    "Behavioral health and crisis services",
+    "Maternal, infant, and reproductive health",
+    "Child welfare and family well-being",
+    "Food and nutrition security",
+    "Health and direct-care workforce",
+    "Rural access and telehealth",
+    "Disaster recovery and resilience"),
+  `Primary division` = c(
+    "Behavioral Health (DMH/DD/SUS)",
+    "Behavioral Health (DMH/DD/SUS)",
+    "Public Health — Women's & Children's Health",
+    "Social Services (DSS)",
+    "Social Services / Public Health",
+    "Office of Rural Health / Health Workforce",
+    "Office of Rural Health / Cross-division",
+    "Emergency Management / Public Health"),
+  `Key need indicators` = c(
+    "Overdose mortality, treatment-access gaps",
+    "Frequent mental distress, MH HPSA count",
+    "Maternal mortality, infant mortality, prenatal access",
+    "Child poverty, children uninsured, foster burden",
+    "Food insecurity rate, poverty, vehicle access",
+    "HPSA count, provider density, disability prevalence",
+    "Rural %, broadband gaps, vehicle access, poverty",
+    "FEMA declarations, housing vulnerability, rural isolation"),
+  `Known overlaps` = c(
+    "D02, D07", "D01, D07", "D04, D07", "D03, D05",
+    "D04, D03", "D02, D07", "D01–D06", "D01, D02, D07")
+) |>
+  DT::datatable(
+    rownames=FALSE,
+    options=list(dom="t", pageLength=10, ordering=FALSE, scrollX=TRUE),
+    class="cell-border stripe hover"
+  )
+```
+
+
+<div class="callout">
+Domain keyword rules are transparent screening rules and should be reviewed before operational use.
+</div>
+
+
+```{r boundary-data}
+boundary_cache_dir <- file.path(cache_dir, "boundaries")
+dir.create(boundary_cache_dir, showWarnings = FALSE, recursive = TRUE)
+
+clean_boundary_name <- function(x) {
+  x <- as.character(x)
+  x[is.na(x)] <- NA_character_
+  x <- str_remove(x, regex(",?\\s*(North Carolina|NC)$", ignore_case = TRUE))
+  x <- str_remove(x, regex("\\s+(County|Parish|Borough|Census Area|Municipality)$", ignore_case = TRUE))
+  x <- str_remove(x, regex("\\s*\\(.*\\)$", ignore_case = TRUE))
+  x <- str_replace_all(x, "[^A-Za-z0-9 ]", " ")
+  x <- str_squish(x)
+  str_to_upper(x)
+}
+
+get_nc_boundaries <- function(geography, year = boundary_year, resolution = "500k") {
+  valid <- c("county", "congressional_district", "tract", "place")
+  geography <- tolower(str_squish(geography))
+  if (!geography %in% valid) {
+    stop("Unsupported geography: ", geography, ". Choose one of: ", paste(valid, collapse = ", "))
+  }
+
+  cache_path <- file.path(boundary_cache_dir, paste0("nc_", geography, "_", year, ".rds"))
+
+  get_cached(cache_path, function() {
+    tryCatch({
+      result <- switch(
+        geography,
+        county = tigris::counties(
+          state = "NC", cb = TRUE, resolution = resolution,
+          year = year, progress_bar = FALSE
+        ),
+        congressional_district = tigris::congressional_districts(
+          state = "NC", cb = TRUE, resolution = resolution,
+          year = year, progress_bar = FALSE
+        ),
+        tract = tigris::tracts(
+          state = "NC", cb = TRUE, year = year,
+          progress_bar = FALSE
+        ),
+        place = tigris::places(
+          state = "NC", cb = TRUE, year = year,
+          progress_bar = FALSE
+        )
+      )
+      sf::st_transform(result, 4326)
+    }, error = function(e) {
+      message("Boundary download failed for ", geography, ": ", conditionMessage(e))
+      NULL
+    })
+  })
+}
+
+valid_overlay_geographies <- c("county", "congressional_district", "tract", "place")
+
+nc_county_boundaries <- get_nc_boundaries("county")
+nc_cd_boundaries <- get_nc_boundaries("congressional_district")
+nc_tract_boundaries <- get_nc_boundaries("tract")
+nc_place_boundaries <- get_nc_boundaries("place")
+
+add_boundary_metadata <- function(b, geography) {
+  if (is.null(b) || nrow(b) == 0) {
+    return(NULL)
+  }
+
+  district_field <- intersect(c("CD119FP", "CD118FP", "GEOID"), names(b))
+  if (length(district_field) == 0) {
+    district_field <- NA_character_
+  } else {
+    district_field <- district_field[[1]]
+  }
+
+  if (is.na(district_field)) {
+    district_values <- rep(NA_character_, nrow(b))
+  } else {
+    district_values <- as.character(b[[district_field]])
+  }
+
+  if ("NAME" %in% names(b)) {
+    name_values <- as.character(b[["NAME"]])
+  } else {
+    name_values <- rep(NA_character_, nrow(b))
+  }
+
+  if ("GEOID" %in% names(b)) {
+    geoid_values <- as.character(b[["GEOID"]])
+  } else {
+    geoid_values <- rep(NA_character_, nrow(b))
+  }
+
+  boundary_label <- ifelse(
+    geography == "county" & !is.na(name_values),
+    paste0(name_values, " County"),
+    ifelse(
+      geography == "congressional_district" & !is.na(district_values),
+      paste0("Congressional District ", district_values),
+      ifelse(
+        geography == "tract" & !is.na(geoid_values),
+        paste0("Census tract ", geoid_values),
+        ifelse(
+          geography == "place" & !is.na(name_values),
+          name_values,
+          ifelse(!is.na(geoid_values), geoid_values, "NC geography")
+        )
+      )
+    )
+  )
+
+  b$boundary_label <- boundary_label
+  b$county_join <- if ("NAME" %in% names(b)) clean_boundary_name(b[["NAME"]]) else NA_character_
+  b$map_popup <- boundary_label
+  b$overlay_geography <- geography
+  b
+}
+
+nc_county_boundaries <- add_boundary_metadata(nc_county_boundaries, "county")
+nc_cd_boundaries <- add_boundary_metadata(nc_cd_boundaries, "congressional_district")
+nc_tract_boundaries <- add_boundary_metadata(nc_tract_boundaries, "tract")
+nc_place_boundaries <- add_boundary_metadata(nc_place_boundaries, "place")
+
+nc_counties_sf <- nc_county_boundaries
+geo_available <- !is.null(nc_counties_sf) && nrow(nc_counties_sf) > 0
+
+get_map_overlay_name <- function(map_name = NULL) "county"
+
+get_overlay_boundaries <- function(geography = "county") {
+  geography <- tolower(str_squish(geography))
+  if (!geography %in% valid_overlay_geographies) {
+    return(NULL)
+  }
+  switch(
+    geography,
+    county = nc_county_boundaries,
+    congressional_district = nc_cd_boundaries,
+    tract = nc_tract_boundaries,
+    place = nc_place_boundaries
+  )
+}
+
+map_overlay_layer <- function(map_name, color = "#FFFFFF", linewidth = NULL) {
+  b <- get_overlay_boundaries("county")
+  if (is.null(b) || nrow(b) == 0) {
+    return(NULL)
+  }
+  if (is.null(linewidth)) {
+    linewidth <- 0.45
+  }
+  geom_sf(
+    data = b,
+    inherit.aes = FALSE,
+    fill = NA,
+    color = color,
+    linewidth = linewidth,
+    alpha = 0.95
+  )
+}
+
+map_overlay_configuration <- tibble(
+  geography = c("county", "congressional_district", "tract", "place"),
+  description = c(
+    "100 county boundaries",
+    "NC congressional districts",
+    "Census tracts",
+    "Census places"
+  ),
+  available = c(
+    !is.null(nc_county_boundaries),
+    !is.null(nc_cd_boundaries),
+    !is.null(nc_tract_boundaries),
+    !is.null(nc_place_boundaries)
+  ),
+  rows = c(
+    if (is.null(nc_county_boundaries)) 0L else nrow(nc_county_boundaries),
+    if (is.null(nc_cd_boundaries)) 0L else nrow(nc_cd_boundaries),
+    if (is.null(nc_tract_boundaries)) 0L else nrow(nc_tract_boundaries),
+    if (is.null(nc_place_boundaries)) 0L else nrow(nc_place_boundaries)
+  )
+)
+```
+
+
+```{r interactive-map-helper}
+# Browser-side map helper. Every thematic map uses county-level source geometry when
+# the source data are county-level, while the selector changes only the boundary layer.
+make_interactive_thematic_map <- function(data, value_col, label_col, title,
+                                          subtitle, palette, legend_title,
+                                          control_id, popup_note = NULL) {
+  if (is.null(data) || nrow(data) == 0 || !value_col %in% names(data)) return(NULL)
+
+  boundary_layers <- list(
+    county = nc_county_boundaries,
+    congressional_district = nc_cd_boundaries,
+    tract = nc_tract_boundaries,
+    place = nc_place_boundaries
+  )
+  boundary_layers <- boundary_layers[!vapply(boundary_layers, is.null, logical(1))]
+  boundary_layers <- boundary_layers[vapply(boundary_layers, nrow, integer(1)) > 0]
+  if (length(boundary_layers) == 0) return(NULL)
+
+  vals <- suppressWarnings(as.numeric(data[[value_col]]))
+  data <- data |>
+    mutate(
+      .map_value = vals,
+      .map_label = as.character(.data[[label_col]]),
+      .map_popup = paste0(
+        "<strong>", htmltools::htmlEscape(.map_label), "</strong><br/>",
+        htmltools::htmlEscape(legend_title), ": ",
+        ifelse(is.na(.map_value), "Not available", format(round(.map_value, 2), big.mark = ",")),
+        if (!is.null(popup_note)) paste0("<br/><em>", htmltools::htmlEscape(popup_note), "</em>") else ""
+      )
+    )
+
+  pal_fun <- leaflet::colorBin(
+    palette = palette,
+    domain = vals,
+    bins = 6,
+    na.color = "#D9D9D9"
+  )
+
+  map <- leaflet::leaflet(options = leafletOptions(minZoom = 5, maxZoom = 12)) |>
+    leaflet::setView(lng = -79.5, lat = 35.5, zoom = 7) |>
+    leaflet::addPolygons(
+      data = data,
+      fillColor = ~pal_fun(.map_value),
+      fillOpacity = 0.78,
+      color = "#FFFFFF",
+      weight = 0.5,
+      opacity = 1,
+      label = ~.map_label,
+      popup = ~.map_popup,
+      group = paste0(control_id, ": data")
+    ) |>
+    leaflet::addLegend(
+      position = "bottomright",
+      pal = pal_fun,
+      values = vals,
+      title = htmltools::htmlEscape(legend_title),
+      opacity = 0.9
+    ) |>
+    leaflet::addScaleBar(position = "bottomleft")
+
+  for (geography in names(boundary_layers)) {
+    b <- boundary_layers[[geography]]
+    line_weight <- if (geography == "tract") 0.3 else if (geography == "place") 0.55 else 1
+    map <- map |>
+      leaflet::addPolygons(
+        data = b,
+        fill = FALSE,
+        color = "#2166AC",
+        weight = line_weight,
+        opacity = 0,
+        label = ~boundary_label,
+        popup = ~paste0("<strong>", htmltools::htmlEscape(boundary_label), "</strong>"),
+        group = paste0(control_id, ": overlay: ", geography),
+        options = leaflet::pathOptions(interactive = TRUE)
+      )
+  }
+
+  selector_html <- htmltools::HTML(paste0(
+    '<div id="', control_id, '-control" style="background:white;padding:10px 12px;border-radius:6px;box-shadow:0 1px 5px rgba(0,0,0,.35);font-family:Arial,sans-serif;min-width:210px;">',
+    '<div style="font-weight:700;margin-bottom:5px;">', htmltools::htmlEscape(title), '</div>',
+    '<label for="', control_id, '-select" style="display:block;font-size:.82rem;margin-bottom:4px;">Geographic overlay</label>',
+    '<select id="', control_id, '-select" style="width:100%;padding:5px;">',
+    '<option value="county">County</option>',
+    '<option value="congressional_district">Congressional district</option>',
+    '<option value="tract">Census tract</option>',
+    '<option value="place">Census place</option>',
+    '</select>',
+    '<div style="font-size:.76rem;color:#667085;margin-top:6px;line-height:1.3;">',
+    htmltools::htmlEscape(subtitle),
+    '</div></div>'
+  ))
+
+  group_names <- vapply(names(boundary_layers), function(g) paste0(control_id, ": overlay: ", g), character(1))
+  initial_group <- paste0(control_id, ": overlay: county")
+
+  js_code <- sprintf(
+    paste0(
+      "function(el, x) {\n",
+      "  var map = this;\n",
+      "  var groups = %s;\n",
+      "  function setOverlay(value) {\n",
+      "    Object.keys(groups).forEach(function(key) {\n",
+      "      var group = groups[key];\n",
+      "      var layerGroup = map.layerManager.getLayerGroup(group);\n",
+      "      if (!layerGroup) return;\n",
+      "      if (key === value) {\n",
+      "        map.addLayer(layerGroup);\n",
+      "        layerGroup.eachLayer(function(layer) {\n",
+      "          if (layer.setStyle) layer.setStyle({opacity: 0.9});\n",
+      "        });\n",
+      "      } else {\n",
+      "        map.removeLayer(layerGroup);\n",
+      "      }\n",
+      "    });\n",
+      "  }\n",
+      "  var select = document.getElementById(\"%s-select\");\n",
+      "  if (select) {\n",
+      "    select.value = \"county\";\n",
+      "    select.addEventListener(\"change\", function() { setOverlay(this.value); });\n",
+      "  }\n",
+      "  setOverlay(\"county\");\n",
+      "}\n"
+    ),
+    jsonlite::toJSON(setNames(group_names, names(boundary_layers)), auto_unbox = TRUE),
+    control_id
+  )
+
+  map |>
+    leaflet::addControl(html = selector_html, position = "topright") |>
+    htmlwidgets::onRender(js_code)
+}
+
+```
+
+# 15. County-Level Need: ACS Indicators
+
+
+ACS 2019-2023 5-year estimates provide the demographic and socioeconomic baseline
+for the need axis. County boundaries come from the Census TIGER/Line 2023 vintage
+via the `tigris` package.
+
+
+<div class="data-source-box">
+**Source:** U.S. Census Bureau, American Community Survey 5-year estimates (2023 vintage).
+Requires a free Census API key — set `CENSUS_API_KEY` in `.Renviron` or run
+`tidycensus::census_api_key("YOUR_KEY")` before rendering.
+**Access:** `tidycensus::get_acs()`
+**Cached to:** `data/cache/api/acs_nc_county.rds`
+</div>
+
+
+```{r acs-download}
+acs_cache         <- file.path(cache_dir, "api", "acs_nc_county.rds")
+nc_counties_cache <- file.path(cache_dir, "api", "nc_counties_tigris.rds")
+
+
+acs_vars <- c(
+  total_pop        = "B01003_001",
+  poverty_below    = "B17001_002",
+  poverty_universe = "B17001_001",
+  median_income    = "B19013_001",
+  no_internet      = "B28002_013",
+  pop_under18      = "B09001_001",
+  uninsured_male   = "B27001_006",
+  disability_total = "B18101_001"
+)
+
+
+acs_county <- get_cached(
+  acs_cache,
+  function() {
+    if (!nzchar(Sys.getenv("CENSUS_API_KEY"))) {
+      message(
+        "No Census API key provided — skipping ACS download."
+      )
+      return(NULL)
+    }
+
+    tidycensus::get_acs(
+      geography = "county",
+      state = "NC",
+      variables = acs_vars,
+      year = 2023,
+      survey = "acs5",
+      output = "wide",
+      geometry = FALSE,
+      progress_bar = FALSE
+    ) |>
+      janitor::clean_names() |>
+      mutate(
+        county_name = str_remove(
+          name,
+          ", North Carolina"
+        ),
+
+        county_join = clean_boundary_name(
+          county_name
+        ),
+
+        poverty_rate = case_when(
+          poverty_universe_e > 0 ~
+            poverty_below_e / poverty_universe_e,
+
+          TRUE ~ NA_real_
+        ),
+
+        med_income = median_income_e,
+        no_internet_n = no_internet_e,
+        pop = total_pop_e
+      ) |>
+      filter(
+        !is.na(poverty_rate)
+      )
+  }
+)
+
+
+acs_available <- !is.null(acs_county) && nrow(acs_county) > 0
+```
+
+
+```{r acs-bar, fig.width=11, fig.height=7, eval=acs_available}
+acs_county |>
+  slice_max(poverty_rate, n=20) |>
+  mutate(county_name=fct_reorder(county_name, poverty_rate)) |>
+  ggplot(aes(x=poverty_rate, y=county_name)) +
+  geom_col(fill=pal$red, width=.72) +
+  geom_text(aes(label=percent(poverty_rate, accuracy=0.1)), hjust=-.1, size=3.5) +
+  geom_vline(xintercept=mean(acs_county$poverty_rate, na.rm=TRUE),
+             linetype="dashed", color=pal$dark, linewidth=.8) +
+  scale_x_continuous(labels=percent_format(), expand=expansion(mult=c(0,.15))) +
+  labs(title="Top 20 NC Counties by Poverty Rate (ACS 2023)",
+       subtitle="Dashed line = statewide average. Source: ACS 2019-2023 5-year.",
+       x="Population below poverty level", y=NULL) +
+  theme(panel.grid.major.y=element_blank())
+```
+
+
+```{r acs-map, eval=acs_available && geo_available}
+map_dat <- nc_counties_sf |>
+  left_join(acs_county |> select(geoid, poverty_rate, med_income),
+            by=c("GEOID"="geoid"))
+
+make_interactive_thematic_map(
+  data = map_dat,
+  value_col = "poverty_rate",
+  label_col = "NAME",
+  title = "ACS County Poverty Rate",
+  subtitle = "County estimates remain county estimates; only the boundary overlay changes.",
+  palette = "YlOrRd",
+  legend_title = "Poverty rate",
+  control_id = "acs-map",
+  popup_note = "Source: Census ACS 2019-2023 5-year."
+)
+```
+
+
+```{r acs-unavailable, results='asis', eval=!acs_available}
+cat('<div class="callout callout-warning">ACS data not yet downloaded.
+Set <code>CENSUS_API_KEY</code> in <code>.Renviron</code> and re-render.</div>')
+```
+
+
+# 16. Provider Shortage Areas: HRSA HPSA
+
+
+HRSA Health Professional Shortage Areas (HPSAs) are the federal government's own
+designation of inadequate delivery capacity. They are difficult to dispute in a
+grant application narrative.
+
+
+<div class="data-source-box">
+**Source:** HRSA Bureau of Health Workforce — HPSA Find / Data Downloads.
+**Access:** Direct CSV from `data.hrsa.gov`
+**Disciplines downloaded:** Mental health, primary care
+**Cached to:** `data/cache/api/hrsa_mh.rds`, `hrsa_pc.rds`
+</div>
+
+
+```{r hrsa-download}
+hrsa_dl <- function(discipline_code, cache_name) {
+  get_cached(file.path(cache_dir, "api", cache_name), function() {
+    url <- paste0("https://data.hrsa.gov/DataDownload/DD_Files/",
+                  "BCD_HPSA_FCT_DET_", discipline_code, ".csv")
+    tryCatch(
+      readr::read_csv(url, show_col_types=FALSE, progress=FALSE) |>
+        janitor::clean_names(),
+      error = function(e) { message("HRSA download failed: ", e$message); NULL }
+    )
+  })
+}
+
+
+# ── Robust process_hrsa: resolves column names dynamically across HRSA schema versions ──
+# FIX: replaces hard-coded hpsa_county_equivalent_name reference that caused crash
+process_hrsa <- function(df, discipline) {
+  if (is.null(df) || nrow(df) == 0) return(NULL)
+
+
+  find_col <- function(data, exact = character(), patterns = character()) {
+    exact_hit <- intersect(exact, names(data))[1]
+    if (length(exact_hit) == 1 && !is.na(exact_hit)) return(exact_hit)
+    if (length(patterns) == 0) return(NA_character_)
+    hits <- names(data)[purrr::map_lgl(names(data), function(n)
+      any(str_detect(str_to_lower(n), patterns)))]
+    if (length(hits) > 0) hits[1] else NA_character_
+  }
+
+
+  county_col <- find_col(
+    df,
+    exact = c("hpsa_county_equivalent_name", "county_equivalent",
+              "hpsa_county", "county_name", "county"),
+    patterns = c("county_equivalent", "hpsa_county", "county_name", "county")
+  )
+  status_col <- find_col(df, "hpsa_status")
+  state_col  <- find_col(df, c("common_state_name", "state_name", "state_abbr"))
+  type_col   <- find_col(df, c("hpsa_type_name", "type_name"))
+  rural_col  <- find_col(df, c("rural_status_name", "rural_status"))
+  score_col  <- find_col(df, "hpsa_score")
+  id_col     <- find_col(df, "hpsa_id")
+  desig_col  <- find_col(df, c("designation_date", "hpsa_designation_date"))
+  withd_col  <- find_col(df, c("withdrawal_date",  "hpsa_withdrawal_date"))
+
+
+  df_filt <- df
+  if (!is.na(status_col))
+    df_filt <- df_filt |> filter(str_to_upper(.data[[status_col]]) == "DESIGNATED")
+  if (!is.na(state_col)) {
+    state_values <- str_to_upper(str_squish(as.character(df_filt[[state_col]])))
+    df_filt <- df_filt |>
+      filter(state_values %in% c("NORTH CAROLINA", "NC"))
+  }
+  if (nrow(df_filt) == 0) return(NULL)
+
+
+  df_filt |>
+    mutate(
+      discipline       = discipline,
+      hpsa_score       = if (!is.na(score_col))
+                           suppressWarnings(as.numeric(.data[[score_col]])) else NA_real_,
+      county_name      = if (!is.na(county_col))
+                           str_squish(as.character(.data[[county_col]]))
+                         else NA_character_,
+      county_join      = if (!is.na(county_col))
+                           clean_boundary_name(.data[[county_col]])
+                         else NA_character_,
+      shortage_type    = if (!is.na(type_col))  coalesce(.data[[type_col]], "Unknown") else "Unknown",
+      rural_status     = if (!is.na(rural_col)) coalesce(.data[[rural_col]], "Unknown") else "Unknown",
+      hpsa_id          = if (!is.na(id_col))    as.character(.data[[id_col]])           else NA_character_,
+      designation_date = if (!is.na(desig_col)) as.character(.data[[desig_col]])        else NA_character_,
+      withdrawal_date  = if (!is.na(withd_col)) as.character(.data[[withd_col]])        else NA_character_
+    ) |>
+    select(discipline, hpsa_id, county_name, shortage_type,
+           rural_status, hpsa_score, designation_date, withdrawal_date)
+}
+
+
+hrsa_mh <- hrsa_dl("MH", "hrsa_mh.rds")
+hrsa_pc <- hrsa_dl("PC", "hrsa_pc.rds")
+
+
+hrsa_nc <- bind_rows(
+  process_hrsa(hrsa_mh, "Mental health"),
+  process_hrsa(hrsa_pc, "Primary care")
+)
+hrsa_available <- !is.null(hrsa_nc) && nrow(hrsa_nc) > 0
+```
+
+
+```{r hrsa-county-bar, fig.width=11, fig.height=7, eval=hrsa_available}
+hrsa_county_summary <- hrsa_nc |>
+  group_by(county_name, discipline) |>
+  summarise(
+    n_hpsa = n(),
+    max_score = if (all(is.na(hpsa_score))) NA_real_
+                else max(hpsa_score, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+
+hrsa_county_summary |>
+  group_by(county_name) |>
+  mutate(total=sum(n_hpsa)) |> ungroup() |>
+  slice_max(total, n=40, with_ties=FALSE) |>
+  mutate(county_name=fct_reorder(county_name, total)) |>
+  ggplot(aes(x=n_hpsa, y=county_name, fill=discipline)) +
+  geom_col(position="stack", width=.72) +
+  scale_fill_manual(values=c("Mental health"=pal$purple,"Primary care"=pal$blue)) +
+  scale_x_continuous(labels=comma, expand=expansion(mult=c(0,.12))) +
+  labs(title="HRSA Shortage Area Designations by NC County (top 40)",
+       subtitle="Each row is one HPSA designation; a county may have several",
+       x="HPSA designations", y=NULL, fill="Discipline") +
+  theme(panel.grid.major.y=element_blank(), legend.position="top")
+```
+
+
+```{r hrsa-map, eval=hrsa_available && geo_available}
+hrsa_map_dat <- hrsa_nc |>
+  filter(discipline == "Mental health") |>
+  mutate(county_join = clean_boundary_name(county_name)) |>
+  filter(!is.na(county_join), county_join != "") |>
+  count(county_join, name = "mh_hpsa_count")
+
+nc_map_hrsa <- nc_counties_sf |>
+  left_join(hrsa_map_dat, by = "county_join")
+
+make_interactive_thematic_map(
+  data = nc_map_hrsa,
+  value_col = "mh_hpsa_count",
+  label_col = "NAME",
+  title = "Mental Health HPSA Designations",
+  subtitle = "County HPSA counts remain county-level; choose a boundary overlay below.",
+  palette = "Purples",
+  legend_title = "MH HPSA designations",
+  control_id = "hrsa-map",
+  popup_note = "Source: HRSA HPSA data."
+)
+```
+
+
+```{r hrsa-table, eval=hrsa_available}
+hrsa_nc |>
+  arrange(discipline, desc(hpsa_score)) |>
+  DT::datatable(rownames=FALSE, filter="top",
+    options=list(pageLength=15, scrollX=TRUE, dom="Bfrtip", buttons=c("copy","csv")),
+    class="cell-border stripe hover")
+```
+
+
+```{r hrsa-unavailable, results='asis', eval=!hrsa_available}
+cat('<div class="callout callout-warning">HRSA data could not be downloaded.
+Check network access to <code>data.hrsa.gov</code> and re-render.</div>')
+```
+
+
+# 17. Local Health Outcomes: CDC PLACES
+
+
+CDC PLACES provides model-based estimates of health outcomes at county, place,
+tract, and ZCTA level. These are **modelled estimates**, not direct survey counts.
+
+
+<div class="data-source-box">
+**Source:** CDC PLACES 2025 release — County GIS-Friendly Format.
+**Access:** CDC Open Data Portal (Socrata API), dataset ID `i46a-9kgh`
+**Key measures used:** Frequent mental distress, depression prevalence
+**Cached to:** `data/cache/api/places_nc_county.rds`
+</div>
+
+
+```{r places-download}
+places_cache <- file.path(cache_dir, "api", "places_nc_county.rds")
+
+
+places_nc <- get_cached(places_cache, function() {
+  base_url <- "https://data.cdc.gov/resource/i46a-9kgh.csv"
+  query    <- "?StateDesc=North+Carolina&$limit=200"
+  tryCatch(
+    readr::read_csv(paste0(base_url, query), show_col_types=FALSE, progress=FALSE) |>
+      janitor::clean_names(),
+    error=function(e) { message("PLACES download failed: ", e$message); NULL }
+  )
+})
+
+
+places_available <- !is.null(places_nc) && nrow(places_nc) > 0
+
+
+if (places_available) {
+  key_measures <- c("mhlth", "depression", "binge", "csmoking", "access2", "bphigh")
+
+  # PLACES column names can vary between releases/API exports. Normalize the
+  # county identifier first instead of assuming that clean_names() produced
+  # exactly `county_name`.
+  county_candidates <- c(
+    "county_name", "countyname", "county", "locationname", "location_name",
+    "name"
+  )
+  county_col <- county_candidates[county_candidates %in% names(places_nc)][1]
+
+  crude_cols <- names(places_nc)[
+    str_detect(
+      names(places_nc),
+      paste0("^(", paste(key_measures, collapse="|"), ")_(crudeprev|crude_prev)$")
+    )
+  ]
+
+  if (length(county_col) == 1 && length(crude_cols) > 0) {
+    places_nc <- places_nc |>
+      rename(county_name = all_of(county_col))
+
+    places_long <- places_nc |>
+      select(county_name, any_of(crude_cols)) |>
+      pivot_longer(
+        cols = -county_name,
+        names_to = "measure",
+        values_to = "value"
+      ) |>
+      mutate(value=suppressWarnings(as.numeric(as.character(value)))) |>
+      filter(!is.na(value))
+  } else {
+    message("PLACES county or crude prevalence columns not found; skipping PLACES reshaping.")
+    places_available <- FALSE
+    places_long <- tibble()
+  }
+}
+```
+
+
+```{r places-mental-bar, fig.width=11, fig.height=7, eval=places_available}
+mhlth_col <- names(places_nc)[
+  str_detect(str_to_lower(names(places_nc)), "mhlth") &
+  str_detect(str_to_lower(names(places_nc)), "crude")
+][1]
+
+
+if (length(mhlth_col) == 1 && !is.na(mhlth_col)) {
+  places_nc |>
+    rename(mhlth_val=all_of(mhlth_col)) |>
+    mutate(mhlth_val=suppressWarnings(as.numeric(as.character(mhlth_val)))) |>
+    filter(!is.na(mhlth_val)) |>
+    slice_max(mhlth_val, n=20) |>
+    mutate(county_name=fct_reorder(county_name, mhlth_val)) |>
+    ggplot(aes(x=mhlth_val, y=county_name)) +
+    geom_col(fill=pal$purple, width=.72) +
+    geom_text(aes(label=paste0(round(mhlth_val,1),"%")), hjust=-.1, size=3.5) +
+    scale_x_continuous(expand=expansion(mult=c(0,.15))) +
+    labs(title="Top 20 NC Counties: Frequent Mental Distress Prevalence",
+         subtitle="CDC PLACES 2025 model-based estimate. These are smoothed estimates, not direct observations.",
+         x="% adults reporting frequent mental distress", y=NULL) +
+    theme(panel.grid.major.y=element_blank())
+} else {
+  message("Mental distress column not found in PLACES data — check column names.")
+}
+```
+
+
+```{r places-map, eval=places_available && geo_available && length(mhlth_col) == 1 && !is.na(mhlth_col)}
+places_county_col <- names(places_nc)[
+  str_detect(str_to_lower(names(places_nc)), "county|locationname|location_name")
+][1]
+
+places_map <- if (
+  length(mhlth_col) == 1 && !is.na(mhlth_col) &&
+  length(places_county_col) == 1 && !is.na(places_county_col)
+) {
+  places_join <- places_nc |>
+    transmute(
+      locationname = as.character(.data[[places_county_col]]),
+      mhlth_val = suppressWarnings(as.numeric(as.character(.data[[mhlth_col]])))
+    ) |>
+    mutate(county_join = clean_boundary_name(locationname))
+
+  nc_counties_sf |>
+    left_join(places_join |> select(county_join, mhlth_val), by = "county_join")
+} else {
+  NULL
+}
+
+if (!is.null(places_map)) {
+  make_interactive_thematic_map(
+    data = places_map,
+    value_col = "mhlth_val",
+    label_col = "NAME",
+    title = "CDC PLACES Mental Distress",
+    subtitle = "County estimate with selectable geographic boundary overlay.",
+    palette = "Purples",
+    legend_title = "% frequent mental distress",
+    control_id = "places-map",
+    popup_note = "Source: CDC PLACES 2025."
+  )
+}
+```
+
+
+```{r places-unavailable, results='asis', eval=!places_available}
+cat('<div class="callout callout-warning">CDC PLACES data could not be downloaded.
+Check network access to <code>data.cdc.gov</code> and re-render.</div>')
+```
+
+
+# 18. Disaster Exposure: FEMA Declarations
+
+
+Federal disaster declarations identify counties with accumulated disaster exposure.
+Hurricane Helene (2024) and other recent events directly affect the disaster-recovery
+program domain.
+
+
+<div class="data-source-box">
+**Source:** FEMA OpenFEMA Disaster Declarations Summaries v2.
+**Access:** `https://www.fema.gov/api/open/v2/disasterDeclarationsSummaries`
+**Scope:** North Carolina, declarations since 2000
+**Cached to:** `data/cache/api/fema_nc.rds`
+</div>
+
+
+```{r fema-download}
+fema_cache <- file.path(cache_dir, "api", "fema_nc.rds")
+
+
+fema_nc <- get_cached(fema_cache, function() {
+  url <- paste0(
+    "https://www.fema.gov/api/open/v2/disasterDeclarationsSummaries",
+    "?$filter=state%20eq%20'NC'%20and%20declarationDate%20ge%20'2000-01-01'",
+    "&orderby=declarationDate%20desc&format=json&$top=2000"
+  )
+  resp <- tryCatch(
+    httr2::request(url) |>
+      httr2::req_timeout(30) |>
+      httr2::req_error(is_error=function(r) FALSE) |>
+      httr2::req_perform(),
+    error=function(e) { message("FEMA request failed: ", e$message); NULL }
+  )
+  if (is.null(resp) || httr2::resp_status(resp) != 200) return(NULL)
+  parsed <- httr2::resp_body_json(resp, simplifyVector=TRUE)
+  if (is.null(parsed[["DisasterDeclarationsSummaries"]])) return(NULL)
+  as_tibble(parsed[["DisasterDeclarationsSummaries"]]) |>
+    janitor::clean_names() |>
+    mutate(declaration_date=parse_date_safe(declaration_date),
+           decl_year=year(declaration_date))
+})
+
+
+fema_available <- !is.null(fema_nc) && nrow(fema_nc) > 0
+```
+
+
+```{r fema-by-year, fig.width=11, fig.height=6, eval=fema_available}
+fema_nc |>
+  filter(!is.na(decl_year), decl_year >= 2000) |>
+  count(decl_year, declaration_type) |>
+  ggplot(aes(x=decl_year, y=n, fill=declaration_type)) +
+  geom_col(width=.8, position="stack") +
+  scale_fill_manual(values=c(DR=pal$red,EM=pal$orange, FM=pal$blue),na.value=pal$gray) +
+  scale_x_continuous(breaks=seq(2000,2030,2)) +
+  scale_y_continuous(labels=comma, expand=expansion(mult=c(0,.12))) +
+  labs(title="Federal Disaster Declarations in NC by Year",
+       subtitle="DR = Major Disaster; EM = Emergency; FM = Fire Management",
+       x=NULL, y="Declarations", fill="Type") +
+  theme(panel.grid.major.x=element_blank(), legend.position="top",
+        axis.text.x=element_text(angle=35, hjust=1))
+```
+
+
+```{r fema-county-map, eval=fema_available && geo_available}
+fema_county <- fema_nc |>
+  filter(declaration_type == "DR", !is.na(decl_year), decl_year >= 2015,
+         !is.na(designated_area)) |>
+  mutate(county_join = clean_boundary_name(designated_area)) |>
+  count(county_join, name = "dr_count")
+
+nc_fema_map <- nc_counties_sf |>
+  left_join(fema_county, by = "county_join")
+
+make_interactive_thematic_map(
+  data = nc_fema_map,
+  value_col = "dr_count",
+  label_col = "NAME",
+  title = "FEMA Major Disaster Declarations",
+  subtitle = "County declaration counts remain county-level; boundary overlay is selectable.",
+  palette = "OrRd",
+  legend_title = "Major disaster declarations",
+  control_id = "fema-map",
+  popup_note = "Source: FEMA OpenFEMA v2, 2015-present."
+)
+```
+
+
+```{r fema-recent-table, eval=fema_available}
+fema_nc |>
+  filter(!is.na(decl_year)) |>
+  arrange(desc(declaration_date)) |>
+  slice_head(n=50) |>
+  select(disaster_number, declaration_date, declaration_type,
+         incident_type, designated_area, fy_declared) |>
+  DT::datatable(rownames=FALSE, filter="top",
+    options=list(pageLength=15, scrollX=TRUE, dom="Bfrtip", buttons=c("copy","csv")),
+    class="cell-border stripe hover")
+```
+
+
+```{r fema-unavailable, results='asis', eval=!fema_available}
+cat('<div class="callout callout-warning">FEMA data could not be downloaded.
+Check network access to <code>www.fema.gov</code> and re-render.</div>')
+```
+
+
+# 19. Federal Award History: USAspending Peer-State Comparison
+
+
+For each CFDA program appearing in the grants snapshot, this section queries
+USAspending to find which states have received awards in the last five years.
+Programs where peer states (GA, VA, SC, TN) received funding but North Carolina
+did not are the highest-priority gap candidates.
+
+
+**Important caveat:** Award history reflects past applications, not eligibility.
+A gap may mean NC never applied, applied unsuccessfully, or is ineligible by
+practice but not by rule. Treat gaps as conversation starters, not proof of
+missed money.
+
+
+<div class="data-source-box">
+**Source:** USAspending.gov API v2 — `spending_by_geography` endpoint.
+**Access:** No authentication required.
+**Scope:** Top 30 CFDAs by frequency in grants snapshot; FY2021-2025; grants and cooperative agreements.
+**Cached to:** `data/cache/api/usa_cfda_*.rds`
+</div>
+
+
+```{r usaspending-download}
+top_cfdas <- grants |>
+  filter(!is.na(opportunity_assistance_listings),
+         str_squish(opportunity_assistance_listings) != "") |>
+  separate_rows(opportunity_assistance_listings, sep="\\s*;\\s*") |>
+  mutate(cfda=str_extract(str_squish(opportunity_assistance_listings), "^[0-9]+\\.[0-9]+")) |>
+  filter(!is.na(cfda)) |>
+  count(cfda, sort=TRUE) |>
+  slice_head(n=30)
+
+
+fetch_cfda_states <- function(cfda_num) {
+  cache_path <- file.path(cache_dir, "api",
+                           paste0("usa_", gsub("\\.","_",cfda_num), ".rds"))
+  get_cached(cache_path, function() {
+    body <- list(
+      scope="place_of_performance", geo_layer="state",
+      filters=list(
+        award_type_codes=list("02","03","04","05"),
+        time_period=list(list(start_date="2021-01-01", end_date="2025-12-31")),
+        program_numbers=list(cfda_num)))
+    resp <- tryCatch(
+      httr2::request("https://api.usaspending.gov/api/v2/search/spending_by_geography/") |>
+        httr2::req_body_json(body) |>
+        httr2::req_timeout(25) |>
+        httr2::req_error(is_error=function(r) FALSE) |>
+        httr2::req_perform(),
+      error=function(e) NULL)
+    if (is.null(resp) || httr2::resp_status(resp) != 200) return(NULL)
+    parsed <- httr2::resp_body_json(resp, simplifyVector=TRUE)
+    results <- parsed[["results"]]
+    if (is.null(results) || length(results) == 0) return(NULL)
+
+    result_tbl <- as_tibble(results)
+
+    required_result_cols <- c(
+      "shape_code", "display_name", "aggregated_amount"
+    )
+    if (!all(required_result_cols %in% names(result_tbl))) return(NULL)
+
+    result_tbl |>
+      transmute(
+        cfda = cfda_num,
+        state_code = as.character(shape_code),
+        state_name = as.character(display_name),
+        total_awards = suppressWarnings(as.numeric(aggregated_amount))
+      )
+  })
+}
+
+
+usa_results <- purrr::map(top_cfdas$cfda, function(c) { Sys.sleep(.25); fetch_cfda_states(c) })
+usa_df       <- bind_rows(Filter(Negate(is.null), usa_results))
+usa_available <- nrow(usa_df) > 0
+```
+
+
+```{r usaspending-gap-analysis, eval=usa_available}
+focus_states <- c("NC","GA","VA","SC","TN")
+
+
+usa_pivot <- usa_df |>
+  filter(state_code %in% focus_states) |>
+  mutate(received=total_awards > 0) |>
+  select(cfda, state_code, received) |>
+  pivot_wider(names_from=state_code, values_from=received, values_fill=FALSE)
+
+
+nc_gaps <- usa_pivot |>
+  filter(!coalesce(NC, FALSE)) |>
+  rowwise() |>
+  mutate(n_peers_received=sum(c_across(any_of(c("GA","VA","SC","TN"))), na.rm=TRUE)) |>
+  ungroup() |>
+  filter(n_peers_received >= 1) |>
+  arrange(desc(n_peers_received)) |>
+  left_join(top_cfdas, by="cfda") |>
+  rename(snapshot_count=n)
+```
+
+
+```{r usaspending-heatmap, fig.width=11, fig.height=8, eval=usa_available}
+heat_dat <- usa_df |>
+  filter(state_code %in% focus_states) |>
+  mutate(has_awards=if_else(total_awards > 0, "Received", "Not received"),
+         cfda=factor(cfda, levels=rev(sort(unique(cfda)))))
+
+
+ggplot(heat_dat, aes(x=state_code, y=cfda, fill=has_awards)) +
+  geom_tile(color="white", linewidth=.4) +
+  scale_fill_manual(values=c(
+    "Received" = pal$green,
+    "Not received" = pal$light
+  ), na.value=pal$light) +
+  labs(title="Federal Award Receipt by State and CFDA Program (FY 2021-2025)",
+       subtitle="Green = at least one award received. Top 30 CFDAs by frequency in snapshot.",
+       x="State", y="CFDA number", fill=NULL) +
+  theme(panel.grid=element_blank(), legend.position="top", axis.text.y=element_text(size=8))
+```
+
+
+```{r usaspending-gap-table, eval=usa_available && nrow(nc_gaps) > 0}
+nc_gaps |>
+  select(cfda, n_peers_received, GA, VA, SC, TN, snapshot_count) |>
+  mutate(across(c(GA,VA,SC,TN), ~ if_else(.x, "Yes", "No"))) |>
+  DT::datatable(rownames=FALSE, filter="top",
+    colnames=c("CFDA","Peer states w/ award","GA","VA","SC","TN","In snapshot"),
+    options=list(pageLength=15, dom="Bfrtip", buttons=c("copy","csv")),
+    class="cell-border stripe hover")
+```
+
+
+```{r usaspending-unavailable, results='asis', eval=!usa_available}
+cat('<div class="callout callout-warning">USAspending data could not be retrieved.
+Check network access to <code>api.usaspending.gov</code> and re-render.</div>')
+```
+
+
+# 20. Behavioral Health Capacity: SAMHSA Facilities
+
+
+SAMHSA's N-SUMHSS survey provides facility-level counts of substance-use and
+mental-health treatment capacity. Missing facilities should not be interpreted
+as proof that no services exist — survey participation is voluntary.
+
+
+<div class="data-source-box">
+**Source:** SAMHSA National Survey of Substance Abuse Treatment Services (N-SUMHSS / NSSATS).
+**Download:** Visit `samhsa.gov/data` > N-SUMHSS > Download most recent public-use file.
+**Expected local path:** `data/raw/samhsa/nsumhss-latest.csv`
+**Note:** No unauthenticated public bulk download API exists. File must be downloaded manually.
+</div>
+
+
+```{r samhsa-load}
+samhsa_dir <- file.path(data_dir, "raw", "samhsa")
+dir.create(samhsa_dir, showWarnings=FALSE, recursive=TRUE)
+samhsa_paths <- c(
+  file.path(samhsa_dir, "nsumhss-latest.csv"),
+  file.path(samhsa_dir, "nsumhss-2024.csv"),
+  file.path(samhsa_dir, "nsumhss-2023.csv"),
+  file.path(samhsa_dir, "nsumhss-2022.csv")
+)
+
+# SAMHSA publishes public-use files through its official datafiles page rather
+# than a stable bulk API. Discover the current delimited download automatically.
+samhsa_discover_download <- function() {
+  if (!requireNamespace("rvest", quietly=TRUE)) return(NULL)
+  pages <- c(
+    "https://www.samhsa.gov/data/data-we-collect/n-sumhss-national-substance-use-and-mental-health-services-survey/datafiles?year=2024",
+    "https://www.samhsa.gov/data/data-we-collect/n-sumhss-national-substance-use-and-mental-health-services-survey/datafiles?year=2023"
+  )
+  for (page_url in pages) {
+    hit <- tryCatch({
+      hrefs <- rvest::read_html(page_url) |>
+        rvest::html_elements("a") |>
+        rvest::html_attr("href") |>
+        na.omit() |>
+        as.character()
+      hrefs <- hrefs[str_detect(str_to_lower(hrefs), "(csv|delimited|ascii|txt)")]
+      if (length(hrefs)) url_absolute(hrefs[1], page_url) else NULL
+    }, error=function(e) NULL)
+    if (!is.null(hit)) return(hit)
+  }
+  NULL
+}
+
+samhsa_download_url <- tryCatch(samhsa_discover_download(), error=function(e) NULL)
+samhsa_file <- NA_character_
+if (length(samhsa_download_url) == 1 && nzchar(samhsa_download_url)) {
+  dest <- file.path(samhsa_dir, "nsumhss-latest.csv")
+  ok <- tryCatch({
+    raw <- httr2::request(samhsa_download_url) |>
+      httr2::req_timeout(60) |>
+      httr2::req_perform() |>
+      httr2::resp_body_raw()
+    writeBin(raw, dest)
+    file.exists(dest) && file.info(dest)$size > 1000
+  }, error=function(e) FALSE)
+  if (ok) samhsa_file <- dest
+}
+if (is.na(samhsa_file)) {
+  samhsa_candidates <- unname(Filter(file.exists, samhsa_paths))
+  if (length(samhsa_candidates) > 0) samhsa_file <- samhsa_candidates[[1]]
+}
+samhsa_available <- !is.na(samhsa_file) && nzchar(samhsa_file)
+
+samhsa_nc <- if (samhsa_available) {
+  tryCatch({
+    dat <- readr::read_csv(samhsa_file, show_col_types = FALSE) |>
+      janitor::clean_names()
+
+    state_col <- names(dat)[
+      str_detect(str_to_lower(names(dat)), "^state$|state_")
+    ][1]
+
+    if (is.na(state_col)) {
+      stop("SAMHSA file does not contain a recognizable state column.")
+    }
+
+    dat |>
+      filter(str_to_upper(str_squish(as.character(.data[[state_col]]))) %in%
+               c("NC", "NORTH CAROLINA"))
+  }, error = function(e) {
+    message("SAMHSA load failed: ", conditionMessage(e))
+    samhsa_available <<- FALSE
+    NULL
+  })
+} else NULL
+```
+
+
+```{r samhsa-bar, fig.width=11, fig.height=7, eval=samhsa_available && !is.null(samhsa_nc) && nrow(samhsa_nc)>0}
+county_col <- names(samhsa_nc)[str_detect(str_to_lower(names(samhsa_nc)), "county")][1]
+if (!is.na(county_col)) {
+  samhsa_nc |>
+    rename(county=all_of(county_col)) |>
+    count(county, sort=TRUE) |>
+    slice_head(n=20) |>
+    mutate(county=fct_reorder(county,n)) |>
+    ggplot(aes(x=n, y=county)) +
+    geom_col(fill=pal$purple, width=.72) +
+    geom_text(aes(label=comma(n)), hjust=-.1, size=3.5) +
+    scale_x_continuous(labels=comma, expand=expansion(mult=c(0,.14))) +
+    labs(title="SAMHSA Treatment Facilities by NC County (top 20)",
+         subtitle="Source: SAMHSA N-SUMHSS. Survey-based; absence does not equal no service.",
+         x="Facilities in dataset", y=NULL) +
+    theme(panel.grid.major.y=element_blank())
+}
+```
+
+
+```{r samhsa-unavailable, results='asis', eval=!samhsa_available}
+cat('<div class="callout callout-warning">
+SAMHSA N-SUMHSS could not be auto-discovered/downloaded from the official datafiles page. The report also checks local cached files under <code>data/raw/samhsa/</code>.<br>
+Download the most recent public-use file from
+<a href="https://www.samhsa.gov/data/data-we-collect/n-sumhss-national-substance-use-and-mental-health-services-survey/datafiles" target="_blank">samhsa.gov/data</a>
+and save it to that path, then re-render.
+</div>')
+```
+
+
+# 21. Overdose Mortality: CDC WONDER
+
+
+County-level drug overdose death rates require a manual query from CDC WONDER
+because the system does not expose a public REST API. Small-county values are
+suppressed by NCHS and must remain missing — do not recode suppressed values as zero.
+
+
+<div class="data-source-box">
+**Source:** CDC WONDER Underlying Cause of Death (ICD-10 codes X40-X44, X60-X64, X85, Y10-Y14).
+**Download:** `wonder.cdc.gov` — Underlying Cause of Death 1999-2022, group by county, NC only.
+**Expected local path:** `data/raw/cdc_wonder/overdose-mortality-county.txt` or `.csv`
+</div>
+
+
+```{r wonder-load}
+wonder_paths <- c(
+  file.path(data_dir, "raw", "cdc_wonder", "overdose-mortality-county.txt"),
+  file.path(data_dir, "raw", "cdc_wonder", "overdose-mortality-county.csv")
+)
+wonder_candidates <- unname(Filter(file.exists, wonder_paths))
+wonder_file <- if (length(wonder_candidates) > 0) wonder_candidates[[1]] else NA_character_
+wonder_available <- !is.na(wonder_file) && nzchar(wonder_file)
+
+
+wonder_nc <- if (wonder_available) {
+  tryCatch({
+    raw <- if (grepl("\\.csv$", wonder_file[1], ignore.case = TRUE)) {
+      readr::read_csv(wonder_file[1], show_col_types = FALSE)
+    } else {
+      readr::read_tsv(wonder_file[1], show_col_types = FALSE, comment = "---")
+    } |>
+      janitor::clean_names()
+    if (!"county" %in% names(raw) && "county_1" %in% names(raw))
+      raw <- rename(raw, county=county_1)
+    raw |>
+      filter(!is.na(county), county != "Total") |>
+      mutate(
+        county_name = str_remove(
+          str_squish(county),
+          ",?\\s*(NC|North Carolina)$"
+        ),
+        deaths      = suppressWarnings(as.numeric(deaths)),
+        crude_rate  = suppressWarnings(as.numeric(crude_rate))
+      )
+  }, error=function(e) { wonder_available <<- FALSE; NULL })
+} else NULL
+```
+
+
+```{r wonder-map, eval=wonder_available && geo_available && !is.null(wonder_nc)}
+wonder_map_dat <- nc_counties_sf |>
+  left_join(
+    wonder_nc |> mutate(county_join = clean_boundary_name(county_name)) |>
+      select(county_join, crude_rate),
+    by = "county_join"
+  )
+
+make_interactive_thematic_map(
+  data = wonder_map_dat,
+  value_col = "crude_rate",
+  label_col = "NAME",
+  title = "CDC WONDER Overdose Mortality",
+  subtitle = "County mortality estimates remain county-level; boundary overlay is selectable.",
+  palette = "Reds",
+  legend_title = "Crude rate per 100k",
+  control_id = "wonder-map",
+  popup_note = "Source: CDC WONDER."
+)
+```
+
+
+```{r wonder-bar, fig.width=11, fig.height=7, eval=wonder_available && !is.null(wonder_nc)}
+wonder_nc |>
+  filter(!is.na(crude_rate)) |>
+  slice_max(crude_rate, n=20) |>
+  mutate(county_name=fct_reorder(county_name, crude_rate)) |>
+  ggplot(aes(x=crude_rate, y=county_name)) +
+  geom_col(fill=pal$red, width=.72) +
+  geom_text(aes(label=round(crude_rate,1)), hjust=-.1, size=3.5) +
+  scale_x_continuous(expand=expansion(mult=c(0,.14))) +
+  labs(title="Top 20 NC Counties by Drug Overdose Crude Mortality Rate",
+       subtitle="Source: CDC WONDER. Suppressed counties (< 10 deaths) excluded.",
+       x="Crude rate per 100,000", y=NULL) +
+  theme(panel.grid.major.y=element_blank())
+```
+
+
+```{r wonder-unavailable, results='asis', eval=!wonder_available}
+cat('<div class="callout callout-warning">
+CDC WONDER file not found. CDC WONDER does not expose a public API.<br>
+<strong>To download:</strong>
+<ol>
+<li>Go to <a href="https://wonder.cdc.gov" target="_blank">wonder.cdc.gov</a></li>
+<li>Select <em>Underlying Cause of Death 1999-2020</em></li>
+<li>Group by: State (NC only), County</li>
+<li>ICD-10 codes: X40-X44, X60-X64, X85, Y10-Y14</li>
+<li>Export as Tab-delimited text and save to
+<code>data/raw/cdc_wonder/overdose-mortality-county.txt</code></li>
+</ol>
+</div>')
+```
+
+
+
+# 22. Interactive North Carolina Geographic Overlay Selector
+
+The geographic selector below is part of the rendered HTML. It changes the visible
+boundary layer in the browser without changing the underlying source data or
+requiring the QMD to be edited and re-rendered.
+
+The available overlays are:
+
+- County
+- Congressional district
+- Census tract
+- Census place
+
+Each source dataset retains its native geography. The selector changes boundaries,
+not the geographic resolution of the data values.
+
+```{r interactive-boundary-map}
+boundary_layers <- list(
+  county = nc_county_boundaries,
+  congressional_district = nc_cd_boundaries,
+  tract = nc_tract_boundaries,
+  place = nc_place_boundaries
+)
+
+boundary_layers <- boundary_layers[!vapply(boundary_layers, is.null, logical(1))]
+boundary_layers <- boundary_layers[vapply(boundary_layers, nrow, integer(1)) > 0]
+
+if (length(boundary_layers) > 0) {
+  initial_geography <- "county"
+  group_for <- function(x) paste0("NC overlay: ", x)
+
+  m <- leaflet::leaflet(
+    options = leafletOptions(minZoom = 5, maxZoom = 12)
+  ) |>
+    leaflet::setView(lng = -79.5, lat = 35.5, zoom = 7)
+
+  for (geography in names(boundary_layers)) {
+    b <- boundary_layers[[geography]]
+    is_initial <- identical(geography, initial_geography)
+    line_weight <- if (geography == "tract") 0.35 else if (geography == "place") 0.6 else 1
+    fill_opacity <- if (is_initial) 0.06 else 0
+
+    m <- m |>
+      leaflet::addPolygons(
+        data = b,
+        fillColor = "#2166AC",
+        fillOpacity = fill_opacity,
+        color = "#2166AC",
+        weight = line_weight,
+        opacity = if (is_initial) 0.9 else 0,
+        label = ~boundary_label,
+        popup = ~paste0("<strong>", boundary_label, "</strong>"),
+        group = group_for(geography),
+        options = leaflet::pathOptions(
+          interactive = TRUE
+        )
+      )
+  }
+
+  selector_html <- htmltools::HTML(paste0(
+    '<div id="nc-geography-selector" style="background:white;padding:10px 12px;border-radius:6px;box-shadow:0 1px 5px rgba(0,0,0,.35);font-family:Arial,sans-serif;min-width:210px;">',
+    '<label for="nc-geography-select" style="display:block;font-weight:700;margin-bottom:5px;">Geographic overlay</label>',
+    '<select id="nc-geography-select" style="width:100%;padding:5px;">',
+    '<option value="county">County</option>',
+    '<option value="congressional_district">Congressional district</option>',
+    '<option value="tract">Census tract</option>',
+    '<option value="place">Census place</option>',
+    '</select>',
+    '<div style="font-size:.78rem;color:#667085;margin-top:6px;line-height:1.3;">Changes boundaries only. Source data remain at their native geography.</div>',
+    '</div>'
+  ))
+
+  js_code <- paste0(
+    'function(el, x) {\n',
+    '  var map = this;\n',
+    '  var groups = {\n',
+    '    county: "NC overlay: county",\n',
+    '    congressional_district: "NC overlay: congressional_district",\n',
+    '    tract: "NC overlay: tract",\n',
+    '    place: "NC overlay: place"\n',
+    '  };\n',
+    '\n',
+    '  function setOverlay(value) {\n',
+    '    Object.keys(groups).forEach(function(key) {\n',
+    '      var layer = map.layerManager.getLayerGroup(groups[key]);\n',
+    '      if (!layer) return;\n',
+    '      if (key === value) {\n',
+    '        if (!map.hasLayer(layer)) map.addLayer(layer);\n',
+    '        layer.eachLayer(function(feature) {\n',
+    '          if (feature.setStyle) {\n',
+    '            feature.setStyle({opacity: 0.9, fillOpacity: key === "county" ? 0.06 : 0});\n',
+    '          }\n',
+    '        });\n',
+    '      } else {\n',
+    '        if (map.hasLayer(layer)) map.removeLayer(layer);\n',
+    '      }\n',
+    '    });\n',
+    '  }\n',
+    '\n',
+    '  var select = document.getElementById("nc-geography-select");\n',
+    '  if (select) {\n',
+    '    select.value = "county";\n',
+    '    select.addEventListener("change", function() {\n',
+    '      setOverlay(this.value);\n',
+    '    });\n',
+    '  }\n',
+    '  setOverlay("county");\n',
+    '}\n'
+  )
+
+  m <- m |>
+    leaflet::addControl(
+      html = selector_html,
+      position = "topright"
+    ) |>
+    leaflet::addScaleBar(position = "bottomleft") |>
+    htmlwidgets::onRender(js_code)
+
+  m
+} else {
+  htmltools::div(class = "callout callout-warning",
+    "No NC boundary datasets were available. Check the tigris download/cache and render again.")
+}
+```
+
+## Boundary availability
+
+```{r boundary-availability}
+boundary_availability <- tibble(
+  boundary_type = c("County", "Congressional district", "Census tract", "Place"),
+  available = c(
+    !is.null(nc_county_boundaries) && nrow(nc_county_boundaries) > 0,
+    !is.null(nc_cd_boundaries) && nrow(nc_cd_boundaries) > 0,
+    !is.null(nc_tract_boundaries) && nrow(nc_tract_boundaries) > 0,
+    !is.null(nc_place_boundaries) && nrow(nc_place_boundaries) > 0
+  ),
+  rows = c(
+    if (is.null(nc_county_boundaries)) 0L else nrow(nc_county_boundaries),
+    if (is.null(nc_cd_boundaries)) 0L else nrow(nc_cd_boundaries),
+    if (is.null(nc_tract_boundaries)) 0L else nrow(nc_tract_boundaries),
+    if (is.null(nc_place_boundaries)) 0L else nrow(nc_place_boundaries)
+  )
+) |>
+  mutate(status = if_else(available, "Available", "Unavailable"))
+
+boundary_availability |>
+  DT::datatable(
+    rownames = FALSE,
+    options = list(dom = "t", pageLength = 10),
+    class = "cell-border stripe hover"
+  )
+```
+
+## Overlay data configuration
+
+The selector above is the interactive control. This table documents the four
+boundary datasets embedded in the report and is not a code-level configuration.
+
+```{r map-overlay-configuration}
+map_overlay_configuration |>
+  DT::datatable(
+    rownames = FALSE,
+    options = list(dom = "t", pageLength = 10),
+    class = "cell-border stripe hover"
+  )
+```
+
+## Geographic join diagnostics
+
+These diagnostics are retained for county-level datasets because those datasets can
+be joined to county boundaries without changing their geographic meaning.
+
+```{r county-join-diagnostics}
+county_join_diagnostics <- tibble(
+  dataset = character(),
+  source_rows = integer(),
+  matched_counties = integer(),
+  unmatched_rows = integer(),
+  match_rate = numeric()
+)
+
+if (exists("acs_county") && !is.null(acs_county) && nrow(acs_county) > 0 &&
+    exists("nc_county_boundaries") && !is.null(nc_county_boundaries)) {
+  acs_join_result <- acs_county |>
+    mutate(county_join = clean_boundary_name(county_name))
+
+  matched <- acs_join_result$county_join %in% nc_county_boundaries$county_join
+  county_join_diagnostics <- bind_rows(
+    county_join_diagnostics,
+    tibble(
+      dataset = "ACS",
+      source_rows = nrow(acs_join_result),
+      matched_counties = sum(matched, na.rm = TRUE),
+      unmatched_rows = sum(!matched, na.rm = TRUE),
+      match_rate = if (length(matched)) mean(matched, na.rm = TRUE) else NA_real_
+    )
+  )
+}
+
+if (exists("hrsa_nc") && !is.null(hrsa_nc) && nrow(hrsa_nc) > 0 &&
+    exists("nc_county_boundaries") && !is.null(nc_county_boundaries)) {
+  hrsa_join_result <- hrsa_nc |>
+    mutate(county_join = clean_boundary_name(county_name))
+
+  matched <- hrsa_join_result$county_join %in% nc_county_boundaries$county_join
+  county_join_diagnostics <- bind_rows(
+    county_join_diagnostics,
+    tibble(
+      dataset = "HRSA",
+      source_rows = nrow(hrsa_join_result),
+      matched_counties = sum(matched, na.rm = TRUE),
+      unmatched_rows = sum(!matched, na.rm = TRUE),
+      match_rate = if (length(matched)) mean(matched, na.rm = TRUE) else NA_real_
+    )
+  )
+}
+
+county_join_diagnostics |>
+  mutate(match_rate = percent(match_rate, accuracy = 0.1)) |>
+  DT::datatable(
+    rownames = FALSE,
+    options = list(dom = "t", pageLength = 10),
+    class = "cell-border stripe hover"
+  )
+```

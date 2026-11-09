@@ -1,0 +1,7 @@
+id,type,label,field,rule,value,weight,if_missing,why,source
+open,filter,Still open,close_date,date_gte_days,0,,pass,An opportunity that already closed cannot be applied for,Toy example
+eligible,filter,State can apply,eligible_state,is_true,,,fail,The agency cannot apply if state governments are not eligible,Toy example
+time,score,Enough time (30+ days),close_date,date_gte_days,30,2,half,The writer needs about a month to apply,Toy example
+award,score,Award size,award_usd,scale,100000|2000000,2,zero,Bigger awards are worth more of the writer's limited time,Toy example
+rural,score,Serves rural counties,county_focus,eq,rural,1,zero,Rural access is a stated agency priority,Toy example
+health,score,Health topic,summary,contains,health|clinic|behavioral|opioid|prenatal,1,zero,Topic must match a health goal in the agency plan,Toy example

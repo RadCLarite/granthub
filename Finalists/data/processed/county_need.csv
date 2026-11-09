@@ -1,0 +1,1801 @@
+"county","fips","indicator","label","value","percentile"
+"Alamance","37001","access2","Adults 18-64 without insurance (CDC PLACES, %)",11.7,0.6162
+"Alexander","37003","access2","Adults 18-64 without insurance (CDC PLACES, %)",11.1,0.4949
+"Alleghany","37005","access2","Adults 18-64 without insurance (CDC PLACES, %)",12.4,0.7576
+"Anson","37007","access2","Adults 18-64 without insurance (CDC PLACES, %)",14,0.9394
+"Ashe","37009","access2","Adults 18-64 without insurance (CDC PLACES, %)",10.2,0.3535
+"Avery","37011","access2","Adults 18-64 without insurance (CDC PLACES, %)",10.8,0.4141
+"Beaufort","37013","access2","Adults 18-64 without insurance (CDC PLACES, %)",10.9,0.4444
+"Bertie","37015","access2","Adults 18-64 without insurance (CDC PLACES, %)",13.2,0.8485
+"Bladen","37017","access2","Adults 18-64 without insurance (CDC PLACES, %)",12,0.7273
+"Brunswick","37019","access2","Adults 18-64 without insurance (CDC PLACES, %)",7.9,0.0202
+"Buncombe","37021","access2","Adults 18-64 without insurance (CDC PLACES, %)",9,0.1414
+"Burke","37023","access2","Adults 18-64 without insurance (CDC PLACES, %)",11.6,0.5859
+"Cabarrus","37025","access2","Adults 18-64 without insurance (CDC PLACES, %)",9.9,0.2828
+"Caldwell","37027","access2","Adults 18-64 without insurance (CDC PLACES, %)",11.3,0.5556
+"Camden","37029","access2","Adults 18-64 without insurance (CDC PLACES, %)",8.2,0.0707
+"Carteret","37031","access2","Adults 18-64 without insurance (CDC PLACES, %)",8,0.0505
+"Caswell","37033","access2","Adults 18-64 without insurance (CDC PLACES, %)",11.8,0.6667
+"Catawba","37035","access2","Adults 18-64 without insurance (CDC PLACES, %)",10.9,0.4444
+"Chatham","37037","access2","Adults 18-64 without insurance (CDC PLACES, %)",9.3,0.1818
+"Cherokee","37039","access2","Adults 18-64 without insurance (CDC PLACES, %)",9.2,0.1717
+"Chowan","37041","access2","Adults 18-64 without insurance (CDC PLACES, %)",11.2,0.5253
+"Clay","37043","access2","Adults 18-64 without insurance (CDC PLACES, %)",8.5,0.101
+"Cleveland","37045","access2","Adults 18-64 without insurance (CDC PLACES, %)",10.9,0.4444
+"Columbus","37047","access2","Adults 18-64 without insurance (CDC PLACES, %)",12.3,0.7475
+"Craven","37049","access2","Adults 18-64 without insurance (CDC PLACES, %)",10.2,0.3535
+"Cumberland","37051","access2","Adults 18-64 without insurance (CDC PLACES, %)",11.8,0.6667
+"Currituck","37053","access2","Adults 18-64 without insurance (CDC PLACES, %)",8.1,0.0606
+"Dare","37055","access2","Adults 18-64 without insurance (CDC PLACES, %)",7.3,0
+"Davidson","37057","access2","Adults 18-64 without insurance (CDC PLACES, %)",11.1,0.4949
+"Davie","37059","access2","Adults 18-64 without insurance (CDC PLACES, %)",9.4,0.2121
+"Duplin","37061","access2","Adults 18-64 without insurance (CDC PLACES, %)",15.8,0.9798
+"Durham","37063","access2","Adults 18-64 without insurance (CDC PLACES, %)",9.6,0.2323
+"Edgecombe","37065","access2","Adults 18-64 without insurance (CDC PLACES, %)",13,0.8081
+"Forsyth","37067","access2","Adults 18-64 without insurance (CDC PLACES, %)",10.9,0.4444
+"Franklin","37069","access2","Adults 18-64 without insurance (CDC PLACES, %)",11.1,0.4949
+"Gaston","37071","access2","Adults 18-64 without insurance (CDC PLACES, %)",10.9,0.4444
+"Gates","37073","access2","Adults 18-64 without insurance (CDC PLACES, %)",10.1,0.3333
+"Graham","37075","access2","Adults 18-64 without insurance (CDC PLACES, %)",9.9,0.2828
+"Granville","37077","access2","Adults 18-64 without insurance (CDC PLACES, %)",11.6,0.5859
+"Greene","37079","access2","Adults 18-64 without insurance (CDC PLACES, %)",16.9,1
+"Guilford","37081","access2","Adults 18-64 without insurance (CDC PLACES, %)",10.3,0.3838
+"Halifax","37083","access2","Adults 18-64 without insurance (CDC PLACES, %)",13.6,0.8889
+"Harnett","37085","access2","Adults 18-64 without insurance (CDC PLACES, %)",12.1,0.7374
+"Haywood","37087","access2","Adults 18-64 without insurance (CDC PLACES, %)",9,0.1414
+"Henderson","37089","access2","Adults 18-64 without insurance (CDC PLACES, %)",9.9,0.2828
+"Hertford","37091","access2","Adults 18-64 without insurance (CDC PLACES, %)",12.9,0.798
+"Hoke","37093","access2","Adults 18-64 without insurance (CDC PLACES, %)",13,0.8081
+"Hyde","37095","access2","Adults 18-64 without insurance (CDC PLACES, %)",13.7,0.899
+"Iredell","37097","access2","Adults 18-64 without insurance (CDC PLACES, %)",9.1,0.1616
+"Jackson","37099","access2","Adults 18-64 without insurance (CDC PLACES, %)",9.8,0.2626
+"Johnston","37101","access2","Adults 18-64 without insurance (CDC PLACES, %)",11.4,0.5657
+"Jones","37103","access2","Adults 18-64 without insurance (CDC PLACES, %)",11.8,0.6667
+"Lee","37105","access2","Adults 18-64 without insurance (CDC PLACES, %)",13.8,0.9091
+"Lenoir","37107","access2","Adults 18-64 without insurance (CDC PLACES, %)",13.9,0.9293
+"Lincoln","37109","access2","Adults 18-64 without insurance (CDC PLACES, %)",9.4,0.2121
+"McDowell","37111","access2","Adults 18-64 without insurance (CDC PLACES, %)",11.2,0.5253
+"Macon","37113","access2","Adults 18-64 without insurance (CDC PLACES, %)",10.4,0.3939
+"Madison","37115","access2","Adults 18-64 without insurance (CDC PLACES, %)",8.8,0.1111
+"Martin","37117","access2","Adults 18-64 without insurance (CDC PLACES, %)",11.8,0.6667
+"Mecklenburg","37119","access2","Adults 18-64 without insurance (CDC PLACES, %)",10.1,0.3333
+"Mitchell","37121","access2","Adults 18-64 without insurance (CDC PLACES, %)",9.3,0.1818
+"Montgomery","37123","access2","Adults 18-64 without insurance (CDC PLACES, %)",13.5,0.8788
+"Moore","37125","access2","Adults 18-64 without insurance (CDC PLACES, %)",8.4,0.0808
+"Nash","37127","access2","Adults 18-64 without insurance (CDC PLACES, %)",11.6,0.5859
+"New Hanover","37129","access2","Adults 18-64 without insurance (CDC PLACES, %)",8.4,0.0808
+"Northampton","37131","access2","Adults 18-64 without insurance (CDC PLACES, %)",11.7,0.6162
+"Onslow","37133","access2","Adults 18-64 without insurance (CDC PLACES, %)",11.7,0.6162
+"Orange","37135","access2","Adults 18-64 without insurance (CDC PLACES, %)",7.5,0.0101
+"Pamlico","37137","access2","Adults 18-64 without insurance (CDC PLACES, %)",9.6,0.2323
+"Pasquotank","37139","access2","Adults 18-64 without insurance (CDC PLACES, %)",10,0.3232
+"Pender","37141","access2","Adults 18-64 without insurance (CDC PLACES, %)",9.6,0.2323
+"Perquimans","37143","access2","Adults 18-64 without insurance (CDC PLACES, %)",9.9,0.2828
+"Person","37145","access2","Adults 18-64 without insurance (CDC PLACES, %)",10.8,0.4141
+"Pitt","37147","access2","Adults 18-64 without insurance (CDC PLACES, %)",10.2,0.3535
+"Polk","37149","access2","Adults 18-64 without insurance (CDC PLACES, %)",8.8,0.1111
+"Randolph","37151","access2","Adults 18-64 without insurance (CDC PLACES, %)",13,0.8081
+"Richmond","37153","access2","Adults 18-64 without insurance (CDC PLACES, %)",13.4,0.8687
+"Robeson","37155","access2","Adults 18-64 without insurance (CDC PLACES, %)",16.2,0.9899
+"Rockingham","37157","access2","Adults 18-64 without insurance (CDC PLACES, %)",11.7,0.6162
+"Rowan","37159","access2","Adults 18-64 without insurance (CDC PLACES, %)",11.7,0.6162
+"Rutherford","37161","access2","Adults 18-64 without insurance (CDC PLACES, %)",11.2,0.5253
+"Sampson","37163","access2","Adults 18-64 without insurance (CDC PLACES, %)",15.4,0.9697
+"Scotland","37165","access2","Adults 18-64 without insurance (CDC PLACES, %)",14.2,0.9596
+"Stanly","37167","access2","Adults 18-64 without insurance (CDC PLACES, %)",10.8,0.4141
+"Stokes","37169","access2","Adults 18-64 without insurance (CDC PLACES, %)",9.8,0.2626
+"Surry","37171","access2","Adults 18-64 without insurance (CDC PLACES, %)",12.5,0.7677
+"Swain","37173","access2","Adults 18-64 without insurance (CDC PLACES, %)",11.4,0.5657
+"Transylvania","37175","access2","Adults 18-64 without insurance (CDC PLACES, %)",7.9,0.0202
+"Tyrrell","37177","access2","Adults 18-64 without insurance (CDC PLACES, %)",14.1,0.9495
+"Union","37179","access2","Adults 18-64 without insurance (CDC PLACES, %)",9.3,0.1818
+"Vance","37181","access2","Adults 18-64 without insurance (CDC PLACES, %)",13.2,0.8485
+"Wake","37183","access2","Adults 18-64 without insurance (CDC PLACES, %)",7.9,0.0202
+"Warren","37185","access2","Adults 18-64 without insurance (CDC PLACES, %)",12.7,0.7778
+"Washington","37187","access2","Adults 18-64 without insurance (CDC PLACES, %)",12.8,0.7879
+"Watauga","37189","access2","Adults 18-64 without insurance (CDC PLACES, %)",8.8,0.1111
+"Wayne","37191","access2","Adults 18-64 without insurance (CDC PLACES, %)",13,0.8081
+"Wilkes","37193","access2","Adults 18-64 without insurance (CDC PLACES, %)",11.8,0.6667
+"Wilson","37195","access2","Adults 18-64 without insurance (CDC PLACES, %)",13.8,0.9091
+"Yadkin","37197","access2","Adults 18-64 without insurance (CDC PLACES, %)",11.9,0.7172
+"Yancey","37199","access2","Adults 18-64 without insurance (CDC PLACES, %)",10.4,0.3939
+"Alamance","37001","age65_share","Share aged 65+ (ACS 2023)",0.1693,0.2121
+"Alexander","37003","age65_share","Share aged 65+ (ACS 2023)",0.2058,0.4949
+"Alleghany","37005","age65_share","Share aged 65+ (ACS 2023)",0.2972,0.9394
+"Anson","37007","age65_share","Share aged 65+ (ACS 2023)",0.1992,0.4444
+"Ashe","37009","age65_share","Share aged 65+ (ACS 2023)",0.2697,0.8788
+"Avery","37011","age65_share","Share aged 65+ (ACS 2023)",0.2301,0.697
+"Beaufort","37013","age65_share","Share aged 65+ (ACS 2023)",0.2496,0.7879
+"Bertie","37015","age65_share","Share aged 65+ (ACS 2023)",0.2428,0.7576
+"Bladen","37017","age65_share","Share aged 65+ (ACS 2023)",0.2318,0.7172
+"Brunswick","37019","age65_share","Share aged 65+ (ACS 2023)",0.3326,1
+"Buncombe","37021","age65_share","Share aged 65+ (ACS 2023)",0.2081,0.5455
+"Burke","37023","age65_share","Share aged 65+ (ACS 2023)",0.2124,0.5859
+"Cabarrus","37025","age65_share","Share aged 65+ (ACS 2023)",0.134,0.0606
+"Caldwell","37027","age65_share","Share aged 65+ (ACS 2023)",0.2116,0.5758
+"Camden","37029","age65_share","Share aged 65+ (ACS 2023)",0.1595,0.1414
+"Carteret","37031","age65_share","Share aged 65+ (ACS 2023)",0.2629,0.8485
+"Caswell","37033","age65_share","Share aged 65+ (ACS 2023)",0.2246,0.6566
+"Catawba","37035","age65_share","Share aged 65+ (ACS 2023)",0.1842,0.3333
+"Chatham","37037","age65_share","Share aged 65+ (ACS 2023)",0.2494,0.7778
+"Cherokee","37039","age65_share","Share aged 65+ (ACS 2023)",0.3126,0.9697
+"Chowan","37041","age65_share","Share aged 65+ (ACS 2023)",0.2729,0.8889
+"Clay","37043","age65_share","Share aged 65+ (ACS 2023)",0.323,0.9899
+"Cleveland","37045","age65_share","Share aged 65+ (ACS 2023)",0.1874,0.3636
+"Columbus","37047","age65_share","Share aged 65+ (ACS 2023)",0.2043,0.4646
+"Craven","37049","age65_share","Share aged 65+ (ACS 2023)",0.2046,0.4747
+"Cumberland","37051","age65_share","Share aged 65+ (ACS 2023)",0.1269,0.0404
+"Currituck","37053","age65_share","Share aged 65+ (ACS 2023)",0.1724,0.2424
+"Dare","37055","age65_share","Share aged 65+ (ACS 2023)",0.2427,0.7475
+"Davidson","37057","age65_share","Share aged 65+ (ACS 2023)",0.1861,0.3434
+"Davie","37059","age65_share","Share aged 65+ (ACS 2023)",0.2176,0.6162
+"Duplin","37061","age65_share","Share aged 65+ (ACS 2023)",0.1965,0.4242
+"Durham","37063","age65_share","Share aged 65+ (ACS 2023)",0.1404,0.0909
+"Edgecombe","37065","age65_share","Share aged 65+ (ACS 2023)",0.2046,0.4848
+"Forsyth","37067","age65_share","Share aged 65+ (ACS 2023)",0.1661,0.1717
+"Franklin","37069","age65_share","Share aged 65+ (ACS 2023)",0.1706,0.2323
+"Gaston","37071","age65_share","Share aged 65+ (ACS 2023)",0.1631,0.1515
+"Gates","37073","age65_share","Share aged 65+ (ACS 2023)",0.22,0.6364
+"Graham","37075","age65_share","Share aged 65+ (ACS 2023)",0.2482,0.7677
+"Granville","37077","age65_share","Share aged 65+ (ACS 2023)",0.1728,0.2525
+"Greene","37079","age65_share","Share aged 65+ (ACS 2023)",0.1694,0.2222
+"Guilford","37081","age65_share","Share aged 65+ (ACS 2023)",0.1562,0.1111
+"Halifax","37083","age65_share","Share aged 65+ (ACS 2023)",0.2162,0.6061
+"Harnett","37085","age65_share","Share aged 65+ (ACS 2023)",0.1341,0.0707
+"Haywood","37087","age65_share","Share aged 65+ (ACS 2023)",0.2535,0.8081
+"Henderson","37089","age65_share","Share aged 65+ (ACS 2023)",0.2603,0.8384
+"Hertford","37091","age65_share","Share aged 65+ (ACS 2023)",0.2131,0.596
+"Hoke","37093","age65_share","Share aged 65+ (ACS 2023)",0.114,0.0101
+"Hyde","37095","age65_share","Share aged 65+ (ACS 2023)",0.2279,0.6869
+"Iredell","37097","age65_share","Share aged 65+ (ACS 2023)",0.1645,0.1616
+"Jackson","37099","age65_share","Share aged 65+ (ACS 2023)",0.2042,0.4545
+"Johnston","37101","age65_share","Share aged 65+ (ACS 2023)",0.1351,0.0808
+"Jones","37103","age65_share","Share aged 65+ (ACS 2023)",0.2382,0.7273
+"Lee","37105","age65_share","Share aged 65+ (ACS 2023)",0.1688,0.202
+"Lenoir","37107","age65_share","Share aged 65+ (ACS 2023)",0.2108,0.5657
+"Lincoln","37109","age65_share","Share aged 65+ (ACS 2023)",0.19,0.404
+"McDowell","37111","age65_share","Share aged 65+ (ACS 2023)",0.2072,0.5152
+"Macon","37113","age65_share","Share aged 65+ (ACS 2023)",0.2886,0.9293
+"Madison","37115","age65_share","Share aged 65+ (ACS 2023)",0.2313,0.7071
+"Martin","37117","age65_share","Share aged 65+ (ACS 2023)",0.25,0.798
+"Mecklenburg","37119","age65_share","Share aged 65+ (ACS 2023)",0.117,0.0202
+"Mitchell","37121","age65_share","Share aged 65+ (ACS 2023)",0.2546,0.8182
+"Montgomery","37123","age65_share","Share aged 65+ (ACS 2023)",0.2182,0.6263
+"Moore","37125","age65_share","Share aged 65+ (ACS 2023)",0.2405,0.7374
+"Nash","37127","age65_share","Share aged 65+ (ACS 2023)",0.1895,0.3838
+"New Hanover","37129","age65_share","Share aged 65+ (ACS 2023)",0.187,0.3535
+"Northampton","37131","age65_share","Share aged 65+ (ACS 2023)",0.2852,0.9192
+"Onslow","37133","age65_share","Share aged 65+ (ACS 2023)",0.0974,0
+"Orange","37135","age65_share","Share aged 65+ (ACS 2023)",0.1568,0.1212
+"Pamlico","37137","age65_share","Share aged 65+ (ACS 2023)",0.3065,0.9495
+"Pasquotank","37139","age65_share","Share aged 65+ (ACS 2023)",0.1808,0.3131
+"Pender","37141","age65_share","Share aged 65+ (ACS 2023)",0.1804,0.303
+"Perquimans","37143","age65_share","Share aged 65+ (ACS 2023)",0.2839,0.9091
+"Person","37145","age65_share","Share aged 65+ (ACS 2023)",0.2101,0.5556
+"Pitt","37147","age65_share","Share aged 65+ (ACS 2023)",0.1429,0.101
+"Polk","37149","age65_share","Share aged 65+ (ACS 2023)",0.3206,0.9798
+"Randolph","37151","age65_share","Share aged 65+ (ACS 2023)",0.1815,0.3232
+"Richmond","37153","age65_share","Share aged 65+ (ACS 2023)",0.1786,0.2828
+"Robeson","37155","age65_share","Share aged 65+ (ACS 2023)",0.1582,0.1313
+"Rockingham","37157","age65_share","Share aged 65+ (ACS 2023)",0.2075,0.5354
+"Rowan","37159","age65_share","Share aged 65+ (ACS 2023)",0.1751,0.2626
+"Rutherford","37161","age65_share","Share aged 65+ (ACS 2023)",0.221,0.6465
+"Sampson","37163","age65_share","Share aged 65+ (ACS 2023)",0.1795,0.2929
+"Scotland","37165","age65_share","Share aged 65+ (ACS 2023)",0.1786,0.2727
+"Stanly","37167","age65_share","Share aged 65+ (ACS 2023)",0.1904,0.4141
+"Stokes","37169","age65_share","Share aged 65+ (ACS 2023)",0.225,0.6667
+"Surry","37171","age65_share","Share aged 65+ (ACS 2023)",0.2061,0.5051
+"Swain","37173","age65_share","Share aged 65+ (ACS 2023)",0.197,0.4343
+"Transylvania","37175","age65_share","Share aged 65+ (ACS 2023)",0.3082,0.9596
+"Tyrrell","37177","age65_share","Share aged 65+ (ACS 2023)",0.2553,0.8283
+"Union","37179","age65_share","Share aged 65+ (ACS 2023)",0.1323,0.0505
+"Vance","37181","age65_share","Share aged 65+ (ACS 2023)",0.1879,0.3737
+"Wake","37183","age65_share","Share aged 65+ (ACS 2023)",0.1252,0.0303
+"Warren","37185","age65_share","Share aged 65+ (ACS 2023)",0.2692,0.8687
+"Washington","37187","age65_share","Share aged 65+ (ACS 2023)",0.2736,0.899
+"Watauga","37189","age65_share","Share aged 65+ (ACS 2023)",0.1673,0.1818
+"Wayne","37191","age65_share","Share aged 65+ (ACS 2023)",0.1674,0.1919
+"Wilkes","37193","age65_share","Share aged 65+ (ACS 2023)",0.227,0.6768
+"Wilson","37195","age65_share","Share aged 65+ (ACS 2023)",0.1899,0.3939
+"Yadkin","37197","age65_share","Share aged 65+ (ACS 2023)",0.2073,0.5253
+"Yancey","37199","age65_share","Share aged 65+ (ACS 2023)",0.2648,0.8586
+"Alamance","37001","binge","Binge drinking (CDC PLACES, %)",14.1,0.5051
+"Alexander","37003","binge","Binge drinking (CDC PLACES, %)",15,0.798
+"Alleghany","37005","binge","Binge drinking (CDC PLACES, %)",12.8,0.2222
+"Anson","37007","binge","Binge drinking (CDC PLACES, %)",12.3,0.1313
+"Ashe","37009","binge","Binge drinking (CDC PLACES, %)",13.5,0.3737
+"Avery","37011","binge","Binge drinking (CDC PLACES, %)",15.1,0.8182
+"Beaufort","37013","binge","Binge drinking (CDC PLACES, %)",12.9,0.2525
+"Bertie","37015","binge","Binge drinking (CDC PLACES, %)",11.3,0.0404
+"Bladen","37017","binge","Binge drinking (CDC PLACES, %)",12.4,0.1414
+"Brunswick","37019","binge","Binge drinking (CDC PLACES, %)",12.9,0.2525
+"Buncombe","37021","binge","Binge drinking (CDC PLACES, %)",15.3,0.8384
+"Burke","37023","binge","Binge drinking (CDC PLACES, %)",14.2,0.5354
+"Cabarrus","37025","binge","Binge drinking (CDC PLACES, %)",15,0.798
+"Caldwell","37027","binge","Binge drinking (CDC PLACES, %)",14.7,0.7172
+"Camden","37029","binge","Binge drinking (CDC PLACES, %)",16.1,0.9495
+"Carteret","37031","binge","Binge drinking (CDC PLACES, %)",14.3,0.5859
+"Caswell","37033","binge","Binge drinking (CDC PLACES, %)",13.2,0.303
+"Catawba","37035","binge","Binge drinking (CDC PLACES, %)",14.8,0.7374
+"Chatham","37037","binge","Binge drinking (CDC PLACES, %)",13.9,0.4343
+"Cherokee","37039","binge","Binge drinking (CDC PLACES, %)",12.8,0.2222
+"Chowan","37041","binge","Binge drinking (CDC PLACES, %)",11.9,0.0909
+"Clay","37043","binge","Binge drinking (CDC PLACES, %)",12.6,0.1818
+"Cleveland","37045","binge","Binge drinking (CDC PLACES, %)",14,0.4646
+"Columbus","37047","binge","Binge drinking (CDC PLACES, %)",13,0.2828
+"Craven","37049","binge","Binge drinking (CDC PLACES, %)",14.6,0.6566
+"Cumberland","37051","binge","Binge drinking (CDC PLACES, %)",15.8,0.9192
+"Currituck","37053","binge","Binge drinking (CDC PLACES, %)",16.4,0.9697
+"Dare","37055","binge","Binge drinking (CDC PLACES, %)",14.4,0.596
+"Davidson","37057","binge","Binge drinking (CDC PLACES, %)",14,0.4646
+"Davie","37059","binge","Binge drinking (CDC PLACES, %)",14.6,0.6566
+"Duplin","37061","binge","Binge drinking (CDC PLACES, %)",13.2,0.303
+"Durham","37063","binge","Binge drinking (CDC PLACES, %)",15.4,0.8687
+"Edgecombe","37065","binge","Binge drinking (CDC PLACES, %)",11.4,0.0505
+"Forsyth","37067","binge","Binge drinking (CDC PLACES, %)",14.6,0.6566
+"Franklin","37069","binge","Binge drinking (CDC PLACES, %)",14.5,0.6263
+"Gaston","37071","binge","Binge drinking (CDC PLACES, %)",15.3,0.8384
+"Gates","37073","binge","Binge drinking (CDC PLACES, %)",12.9,0.2525
+"Graham","37075","binge","Binge drinking (CDC PLACES, %)",14.6,0.6566
+"Granville","37077","binge","Binge drinking (CDC PLACES, %)",13.9,0.4343
+"Greene","37079","binge","Binge drinking (CDC PLACES, %)",14,0.4646
+"Guilford","37081","binge","Binge drinking (CDC PLACES, %)",13.7,0.3939
+"Halifax","37083","binge","Binge drinking (CDC PLACES, %)",11.5,0.0707
+"Harnett","37085","binge","Binge drinking (CDC PLACES, %)",16,0.9394
+"Haywood","37087","binge","Binge drinking (CDC PLACES, %)",14.5,0.6263
+"Henderson","37089","binge","Binge drinking (CDC PLACES, %)",13.4,0.3535
+"Hertford","37091","binge","Binge drinking (CDC PLACES, %)",11.1,0.0303
+"Hoke","37093","binge","Binge drinking (CDC PLACES, %)",14.5,0.6263
+"Hyde","37095","binge","Binge drinking (CDC PLACES, %)",13.2,0.303
+"Iredell","37097","binge","Binge drinking (CDC PLACES, %)",15.6,0.8788
+"Jackson","37099","binge","Binge drinking (CDC PLACES, %)",15.6,0.8788
+"Johnston","37101","binge","Binge drinking (CDC PLACES, %)",15.2,0.8283
+"Jones","37103","binge","Binge drinking (CDC PLACES, %)",12.4,0.1414
+"Lee","37105","binge","Binge drinking (CDC PLACES, %)",14.9,0.7778
+"Lenoir","37107","binge","Binge drinking (CDC PLACES, %)",11.9,0.0909
+"Lincoln","37109","binge","Binge drinking (CDC PLACES, %)",15.7,0.9091
+"McDowell","37111","binge","Binge drinking (CDC PLACES, %)",14.6,0.6566
+"Macon","37113","binge","Binge drinking (CDC PLACES, %)",13.2,0.303
+"Madison","37115","binge","Binge drinking (CDC PLACES, %)",14.9,0.7778
+"Martin","37117","binge","Binge drinking (CDC PLACES, %)",11.5,0.0707
+"Mecklenburg","37119","binge","Binge drinking (CDC PLACES, %)",15.3,0.8384
+"Mitchell","37121","binge","Binge drinking (CDC PLACES, %)",14.4,0.596
+"Montgomery","37123","binge","Binge drinking (CDC PLACES, %)",13.1,0.2929
+"Moore","37125","binge","Binge drinking (CDC PLACES, %)",14.1,0.5051
+"Nash","37127","binge","Binge drinking (CDC PLACES, %)",13.2,0.303
+"New Hanover","37129","binge","Binge drinking (CDC PLACES, %)",17.6,0.9798
+"Northampton","37131","binge","Binge drinking (CDC PLACES, %)",10.2,0
+"Onslow","37133","binge","Binge drinking (CDC PLACES, %)",17.8,1
+"Orange","37135","binge","Binge drinking (CDC PLACES, %)",15.8,0.9192
+"Pamlico","37137","binge","Binge drinking (CDC PLACES, %)",12.4,0.1414
+"Pasquotank","37139","binge","Binge drinking (CDC PLACES, %)",14.2,0.5354
+"Pender","37141","binge","Binge drinking (CDC PLACES, %)",16.1,0.9495
+"Perquimans","37143","binge","Binge drinking (CDC PLACES, %)",12.7,0.202
+"Person","37145","binge","Binge drinking (CDC PLACES, %)",13.8,0.4141
+"Pitt","37147","binge","Binge drinking (CDC PLACES, %)",14.8,0.7374
+"Polk","37149","binge","Binge drinking (CDC PLACES, %)",12.6,0.1818
+"Randolph","37151","binge","Binge drinking (CDC PLACES, %)",14.7,0.7172
+"Richmond","37153","binge","Binge drinking (CDC PLACES, %)",12.7,0.202
+"Robeson","37155","binge","Binge drinking (CDC PLACES, %)",11.4,0.0505
+"Rockingham","37157","binge","Binge drinking (CDC PLACES, %)",14,0.4646
+"Rowan","37159","binge","Binge drinking (CDC PLACES, %)",14.6,0.6566
+"Rutherford","37161","binge","Binge drinking (CDC PLACES, %)",13.7,0.3939
+"Sampson","37163","binge","Binge drinking (CDC PLACES, %)",13.6,0.3838
+"Scotland","37165","binge","Binge drinking (CDC PLACES, %)",12.8,0.2222
+"Stanly","37167","binge","Binge drinking (CDC PLACES, %)",14.8,0.7374
+"Stokes","37169","binge","Binge drinking (CDC PLACES, %)",14.2,0.5354
+"Surry","37171","binge","Binge drinking (CDC PLACES, %)",13.8,0.4141
+"Swain","37173","binge","Binge drinking (CDC PLACES, %)",14.2,0.5354
+"Transylvania","37175","binge","Binge drinking (CDC PLACES, %)",13.4,0.3535
+"Tyrrell","37177","binge","Binge drinking (CDC PLACES, %)",12.4,0.1414
+"Union","37179","binge","Binge drinking (CDC PLACES, %)",15.6,0.8788
+"Vance","37181","binge","Binge drinking (CDC PLACES, %)",11.9,0.0909
+"Wake","37183","binge","Binge drinking (CDC PLACES, %)",14.8,0.7374
+"Warren","37185","binge","Binge drinking (CDC PLACES, %)",10.8,0.0202
+"Washington","37187","binge","Binge drinking (CDC PLACES, %)",10.4,0.0101
+"Watauga","37189","binge","Binge drinking (CDC PLACES, %)",17.7,0.9899
+"Wayne","37191","binge","Binge drinking (CDC PLACES, %)",14.4,0.596
+"Wilkes","37193","binge","Binge drinking (CDC PLACES, %)",14.1,0.5051
+"Wilson","37195","binge","Binge drinking (CDC PLACES, %)",12.2,0.1212
+"Yadkin","37197","binge","Binge drinking (CDC PLACES, %)",14.2,0.5354
+"Yancey","37199","binge","Binge drinking (CDC PLACES, %)",13.9,0.4343
+"Alamance","37001","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0559,0.596
+"Alexander","37003","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0389,0.2121
+"Alleghany","37005","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0852,0.9495
+"Anson","37007","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0779,0.9293
+"Ashe","37009","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0752,0.9091
+"Avery","37011","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0358,0.1515
+"Beaufort","37013","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.041,0.2525
+"Bertie","37015","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0793,0.9394
+"Bladen","37017","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0517,0.4444
+"Brunswick","37019","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0631,0.7374
+"Buncombe","37021","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0355,0.1313
+"Burke","37023","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0595,0.6465
+"Cabarrus","37025","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0425,0.2626
+"Caldwell","37027","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0395,0.2222
+"Camden","37029","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0904,0.9697
+"Carteret","37031","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0376,0.1818
+"Caswell","37033","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0503,0.4242
+"Catawba","37035","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0553,0.5556
+"Chatham","37037","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0648,0.7576
+"Cherokee","37039","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0722,0.8889
+"Chowan","37041","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0608,0.6566
+"Clay","37043","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.052,0.4646
+"Cleveland","37045","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0666,0.8182
+"Columbus","37047","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.047,0.3232
+"Craven","37049","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.067,0.8384
+"Cumberland","37051","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0614,0.6869
+"Currituck","37053","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.067,0.8283
+"Dare","37055","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0498,0.3939
+"Davidson","37057","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0578,0.6162
+"Davie","37059","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0478,0.3434
+"Duplin","37061","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0611,0.6667
+"Durham","37063","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.033,0.101
+"Edgecombe","37065","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0651,0.7778
+"Forsyth","37067","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0461,0.303
+"Franklin","37069","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0612,0.6768
+"Gaston","37071","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0558,0.5859
+"Gates","37073","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0307,0.0909
+"Graham","37075","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0306,0.0808
+"Granville","37077","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.059,0.6364
+"Greene","37079","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.064,0.7475
+"Guilford","37081","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0499,0.404
+"Halifax","37083","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0491,0.3737
+"Harnett","37085","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0522,0.4747
+"Haywood","37087","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0274,0.0505
+"Henderson","37089","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0687,0.8687
+"Hertford","37091","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0671,0.8485
+"Hoke","37093","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.063,0.7273
+"Hyde","37095","birth_rate","Births per woman aged 15-50 (ACS 2023)",0,0
+"Iredell","37097","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0711,0.8788
+"Jackson","37099","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.017,0.0101
+"Johnston","37101","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0649,0.7677
+"Jones","37103","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0363,0.1616
+"Lee","37105","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0442,0.2828
+"Lenoir","37107","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0854,0.9596
+"Lincoln","37109","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0661,0.8081
+"McDowell","37111","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0623,0.7172
+"Macon","37113","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0301,0.0707
+"Madison","37115","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0546,0.5253
+"Martin","37117","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0368,0.1717
+"Mecklenburg","37119","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0489,0.3636
+"Mitchell","37121","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0557,0.5758
+"Montgomery","37123","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0342,0.1212
+"Moore","37125","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0543,0.5051
+"Nash","37127","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.034,0.1111
+"New Hanover","37129","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0356,0.1414
+"Northampton","37131","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.1143,1
+"Onslow","37133","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0907,0.9798
+"Orange","37135","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0238,0.0404
+"Pamlico","37137","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0407,0.2323
+"Pasquotank","37139","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.053,0.4848
+"Pender","37141","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0548,0.5354
+"Perquimans","37143","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0236,0.0303
+"Person","37145","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.041,0.2424
+"Pitt","37147","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0382,0.202
+"Polk","37149","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0293,0.0606
+"Randolph","37151","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0514,0.4343
+"Richmond","37153","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.046,0.2929
+"Robeson","37155","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0463,0.3131
+"Rockingham","37157","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0583,0.6263
+"Rowan","37159","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0655,0.7879
+"Rutherford","37161","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0614,0.697
+"Sampson","37163","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0656,0.798
+"Scotland","37165","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0556,0.5657
+"Stanly","37167","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0546,0.5152
+"Stokes","37169","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0492,0.3838
+"Surry","37171","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0563,0.6061
+"Swain","37173","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0676,0.8586
+"Transylvania","37175","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0502,0.4141
+"Tyrrell","37177","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0943,0.9899
+"Union","37179","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0474,0.3333
+"Vance","37181","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0377,0.1919
+"Wake","37183","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0485,0.3535
+"Warren","37185","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0728,0.899
+"Washington","37187","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0543,0.4949
+"Watauga","37189","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0202,0.0202
+"Wayne","37191","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0553,0.5455
+"Wilkes","37193","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0615,0.7071
+"Wilson","37195","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0429,0.2727
+"Yadkin","37197","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0519,0.4545
+"Yancey","37199","birth_rate","Births per woman aged 15-50 (ACS 2023)",0.0758,0.9192
+"Alamance","37001","child_poverty_rate","Children below poverty (ACS 2023, share)",0.1853,0.4242
+"Alexander","37003","child_poverty_rate","Children below poverty (ACS 2023, share)",0.1929,0.4646
+"Alleghany","37005","child_poverty_rate","Children below poverty (ACS 2023, share)",0.333,0.8687
+"Anson","37007","child_poverty_rate","Children below poverty (ACS 2023, share)",0.3496,0.8889
+"Ashe","37009","child_poverty_rate","Children below poverty (ACS 2023, share)",0.1432,0.2424
+"Avery","37011","child_poverty_rate","Children below poverty (ACS 2023, share)",0.1152,0.1414
+"Beaufort","37013","child_poverty_rate","Children below poverty (ACS 2023, share)",0.3131,0.8182
+"Bertie","37015","child_poverty_rate","Children below poverty (ACS 2023, share)",0.262,0.7273
+"Bladen","37017","child_poverty_rate","Children below poverty (ACS 2023, share)",0.347,0.8788
+"Brunswick","37019","child_poverty_rate","Children below poverty (ACS 2023, share)",0.1288,0.202
+"Buncombe","37021","child_poverty_rate","Children below poverty (ACS 2023, share)",0.1493,0.2626
+"Burke","37023","child_poverty_rate","Children below poverty (ACS 2023, share)",0.301,0.7677
+"Cabarrus","37025","child_poverty_rate","Children below poverty (ACS 2023, share)",0.1171,0.1515
+"Caldwell","37027","child_poverty_rate","Children below poverty (ACS 2023, share)",0.1813,0.4141
+"Camden","37029","child_poverty_rate","Children below poverty (ACS 2023, share)",0.0579,0.0101
+"Carteret","37031","child_poverty_rate","Children below poverty (ACS 2023, share)",0.1245,0.1717
+"Caswell","37033","child_poverty_rate","Children below poverty (ACS 2023, share)",0.1723,0.3838
+"Catawba","37035","child_poverty_rate","Children below poverty (ACS 2023, share)",0.172,0.3737
+"Chatham","37037","child_poverty_rate","Children below poverty (ACS 2023, share)",0.1606,0.3333
+"Cherokee","37039","child_poverty_rate","Children below poverty (ACS 2023, share)",0.2258,0.6263
+"Chowan","37041","child_poverty_rate","Children below poverty (ACS 2023, share)",0.377,0.9394
+"Clay","37043","child_poverty_rate","Children below poverty (ACS 2023, share)",0.0579,0.0202
+"Cleveland","37045","child_poverty_rate","Children below poverty (ACS 2023, share)",0.2661,0.7374
+"Columbus","37047","child_poverty_rate","Children below poverty (ACS 2023, share)",0.2568,0.7071
+"Craven","37049","child_poverty_rate","Children below poverty (ACS 2023, share)",0.1925,0.4343
+"Cumberland","37051","child_poverty_rate","Children below poverty (ACS 2023, share)",0.2287,0.6465
+"Currituck","37053","child_poverty_rate","Children below poverty (ACS 2023, share)",0.1063,0.1111
+"Dare","37055","child_poverty_rate","Children below poverty (ACS 2023, share)",0.122,0.1616
+"Davidson","37057","child_poverty_rate","Children below poverty (ACS 2023, share)",0.2086,0.5556
+"Davie","37059","child_poverty_rate","Children below poverty (ACS 2023, share)",0.1521,0.2929
+"Duplin","37061","child_poverty_rate","Children below poverty (ACS 2023, share)",0.2939,0.7576
+"Durham","37063","child_poverty_rate","Children below poverty (ACS 2023, share)",0.1656,0.3434
+"Edgecombe","37065","child_poverty_rate","Children below poverty (ACS 2023, share)",0.3733,0.9192
+"Forsyth","37067","child_poverty_rate","Children below poverty (ACS 2023, share)",0.2229,0.6162
+"Franklin","37069","child_poverty_rate","Children below poverty (ACS 2023, share)",0.1281,0.1919
+"Gaston","37071","child_poverty_rate","Children below poverty (ACS 2023, share)",0.1586,0.3131
+"Gates","37073","child_poverty_rate","Children below poverty (ACS 2023, share)",0.1047,0.101
+"Graham","37075","child_poverty_rate","Children below poverty (ACS 2023, share)",0.0406,0
+"Granville","37077","child_poverty_rate","Children below poverty (ACS 2023, share)",0.1689,0.3535
+"Greene","37079","child_poverty_rate","Children below poverty (ACS 2023, share)",0.3952,0.9697
+"Guilford","37081","child_poverty_rate","Children below poverty (ACS 2023, share)",0.2084,0.5455
+"Halifax","37083","child_poverty_rate","Children below poverty (ACS 2023, share)",0.3845,0.9495
+"Harnett","37085","child_poverty_rate","Children below poverty (ACS 2023, share)",0.1988,0.4949
+"Haywood","37087","child_poverty_rate","Children below poverty (ACS 2023, share)",0.1599,0.3232
+"Henderson","37089","child_poverty_rate","Children below poverty (ACS 2023, share)",0.1927,0.4545
+"Hertford","37091","child_poverty_rate","Children below poverty (ACS 2023, share)",0.3051,0.798
+"Hoke","37093","child_poverty_rate","Children below poverty (ACS 2023, share)",0.1993,0.5051
+"Hyde","37095","child_poverty_rate","Children below poverty (ACS 2023, share)",0.3609,0.9091
+"Iredell","37097","child_poverty_rate","Children below poverty (ACS 2023, share)",0.1138,0.1313
+"Jackson","37099","child_poverty_rate","Children below poverty (ACS 2023, share)",0.2618,0.7172
+"Johnston","37101","child_poverty_rate","Children below poverty (ACS 2023, share)",0.1566,0.303
+"Jones","37103","child_poverty_rate","Children below poverty (ACS 2023, share)",0.2488,0.6869
+"Lee","37105","child_poverty_rate","Children below poverty (ACS 2023, share)",0.2319,0.6566
+"Lenoir","37107","child_poverty_rate","Children below poverty (ACS 2023, share)",0.3143,0.8283
+"Lincoln","37109","child_poverty_rate","Children below poverty (ACS 2023, share)",0.0923,0.0505
+"McDowell","37111","child_poverty_rate","Children below poverty (ACS 2023, share)",0.1728,0.3939
+"Macon","37113","child_poverty_rate","Children below poverty (ACS 2023, share)",0.1809,0.404
+"Madison","37115","child_poverty_rate","Children below poverty (ACS 2023, share)",0.1118,0.1212
+"Martin","37117","child_poverty_rate","Children below poverty (ACS 2023, share)",0.3046,0.7879
+"Mecklenburg","37119","child_poverty_rate","Children below poverty (ACS 2023, share)",0.1466,0.2525
+"Mitchell","37121","child_poverty_rate","Children below poverty (ACS 2023, share)",0.1042,0.0909
+"Montgomery","37123","child_poverty_rate","Children below poverty (ACS 2023, share)",0.2134,0.5758
+"Moore","37125","child_poverty_rate","Children below poverty (ACS 2023, share)",0.1377,0.2222
+"Nash","37127","child_poverty_rate","Children below poverty (ACS 2023, share)",0.1979,0.4848
+"New Hanover","37129","child_poverty_rate","Children below poverty (ACS 2023, share)",0.1427,0.2323
+"Northampton","37131","child_poverty_rate","Children below poverty (ACS 2023, share)",0.317,0.8586
+"Onslow","37133","child_poverty_rate","Children below poverty (ACS 2023, share)",0.1496,0.2727
+"Orange","37135","child_poverty_rate","Children below poverty (ACS 2023, share)",0.1039,0.0808
+"Pamlico","37137","child_poverty_rate","Children below poverty (ACS 2023, share)",0.1695,0.3636
+"Pasquotank","37139","child_poverty_rate","Children below poverty (ACS 2023, share)",0.0906,0.0404
+"Pender","37141","child_poverty_rate","Children below poverty (ACS 2023, share)",0.1332,0.2121
+"Perquimans","37143","child_poverty_rate","Children below poverty (ACS 2023, share)",0.126,0.1818
+"Person","37145","child_poverty_rate","Children below poverty (ACS 2023, share)",0.3123,0.8081
+"Pitt","37147","child_poverty_rate","Children below poverty (ACS 2023, share)",0.2184,0.6061
+"Polk","37149","child_poverty_rate","Children below poverty (ACS 2023, share)",0.2123,0.5657
+"Randolph","37151","child_poverty_rate","Children below poverty (ACS 2023, share)",0.194,0.4747
+"Richmond","37153","child_poverty_rate","Children below poverty (ACS 2023, share)",0.3911,0.9596
+"Robeson","37155","child_poverty_rate","Children below poverty (ACS 2023, share)",0.3983,0.9798
+"Rockingham","37157","child_poverty_rate","Children below poverty (ACS 2023, share)",0.2391,0.6667
+"Rowan","37159","child_poverty_rate","Children below poverty (ACS 2023, share)",0.2281,0.6364
+"Rutherford","37161","child_poverty_rate","Children below poverty (ACS 2023, share)",0.215,0.596
+"Sampson","37163","child_poverty_rate","Children below poverty (ACS 2023, share)",0.303,0.7778
+"Scotland","37165","child_poverty_rate","Children below poverty (ACS 2023, share)",0.4007,0.9899
+"Stanly","37167","child_poverty_rate","Children below poverty (ACS 2023, share)",0.2055,0.5354
+"Stokes","37169","child_poverty_rate","Children below poverty (ACS 2023, share)",0.1514,0.2828
+"Surry","37171","child_poverty_rate","Children below poverty (ACS 2023, share)",0.1926,0.4444
+"Swain","37173","child_poverty_rate","Children below poverty (ACS 2023, share)",0.3552,0.899
+"Transylvania","37175","child_poverty_rate","Children below poverty (ACS 2023, share)",0.2148,0.5859
+"Tyrrell","37177","child_poverty_rate","Children below poverty (ACS 2023, share)",0.4268,1
+"Union","37179","child_poverty_rate","Children below poverty (ACS 2023, share)",0.098,0.0606
+"Vance","37181","child_poverty_rate","Children below poverty (ACS 2023, share)",0.287,0.7475
+"Wake","37183","child_poverty_rate","Children below poverty (ACS 2023, share)",0.0891,0.0303
+"Warren","37185","child_poverty_rate","Children below poverty (ACS 2023, share)",0.3742,0.9293
+"Washington","37187","child_poverty_rate","Children below poverty (ACS 2023, share)",0.3157,0.8485
+"Watauga","37189","child_poverty_rate","Children below poverty (ACS 2023, share)",0.1039,0.0707
+"Wayne","37191","child_poverty_rate","Children below poverty (ACS 2023, share)",0.2536,0.697
+"Wilkes","37193","child_poverty_rate","Children below poverty (ACS 2023, share)",0.2454,0.6768
+"Wilson","37195","child_poverty_rate","Children below poverty (ACS 2023, share)",0.3153,0.8384
+"Yadkin","37197","child_poverty_rate","Children below poverty (ACS 2023, share)",0.2038,0.5152
+"Yancey","37199","child_poverty_rate","Children below poverty (ACS 2023, share)",0.2053,0.5253
+"Alamance","37001","cognition","Cognitive disability (CDC PLACES, %)",15.7,0.3838
+"Alexander","37003","cognition","Cognitive disability (CDC PLACES, %)",16.4,0.5152
+"Alleghany","37005","cognition","Cognitive disability (CDC PLACES, %)",16.5,0.5455
+"Anson","37007","cognition","Cognitive disability (CDC PLACES, %)",18.9,0.9495
+"Ashe","37009","cognition","Cognitive disability (CDC PLACES, %)",15.3,0.3333
+"Avery","37011","cognition","Cognitive disability (CDC PLACES, %)",15.8,0.4141
+"Beaufort","37013","cognition","Cognitive disability (CDC PLACES, %)",15.9,0.4545
+"Bertie","37015","cognition","Cognitive disability (CDC PLACES, %)",17.7,0.8586
+"Bladen","37017","cognition","Cognitive disability (CDC PLACES, %)",16.8,0.6667
+"Brunswick","37019","cognition","Cognitive disability (CDC PLACES, %)",12.5,0.0202
+"Buncombe","37021","cognition","Cognitive disability (CDC PLACES, %)",13.6,0.1515
+"Burke","37023","cognition","Cognitive disability (CDC PLACES, %)",16.7,0.6162
+"Cabarrus","37025","cognition","Cognitive disability (CDC PLACES, %)",13.8,0.1616
+"Caldwell","37027","cognition","Cognitive disability (CDC PLACES, %)",16.7,0.6162
+"Camden","37029","cognition","Cognitive disability (CDC PLACES, %)",13.5,0.1212
+"Carteret","37031","cognition","Cognitive disability (CDC PLACES, %)",13,0.0606
+"Caswell","37033","cognition","Cognitive disability (CDC PLACES, %)",16.6,0.596
+"Catawba","37035","cognition","Cognitive disability (CDC PLACES, %)",15.3,0.3333
+"Chatham","37037","cognition","Cognitive disability (CDC PLACES, %)",12.5,0.0202
+"Cherokee","37039","cognition","Cognitive disability (CDC PLACES, %)",14.9,0.2626
+"Chowan","37041","cognition","Cognitive disability (CDC PLACES, %)",16.4,0.5152
+"Clay","37043","cognition","Cognitive disability (CDC PLACES, %)",13.8,0.1616
+"Cleveland","37045","cognition","Cognitive disability (CDC PLACES, %)",16.8,0.6667
+"Columbus","37047","cognition","Cognitive disability (CDC PLACES, %)",17.9,0.8687
+"Craven","37049","cognition","Cognitive disability (CDC PLACES, %)",15.3,0.3333
+"Cumberland","37051","cognition","Cognitive disability (CDC PLACES, %)",16.7,0.6162
+"Currituck","37053","cognition","Cognitive disability (CDC PLACES, %)",13.4,0.1111
+"Dare","37055","cognition","Cognitive disability (CDC PLACES, %)",11.9,0
+"Davidson","37057","cognition","Cognitive disability (CDC PLACES, %)",16.3,0.5051
+"Davie","37059","cognition","Cognitive disability (CDC PLACES, %)",14.3,0.2121
+"Duplin","37061","cognition","Cognitive disability (CDC PLACES, %)",17.4,0.8081
+"Durham","37063","cognition","Cognitive disability (CDC PLACES, %)",13.2,0.0808
+"Edgecombe","37065","cognition","Cognitive disability (CDC PLACES, %)",17.9,0.8687
+"Forsyth","37067","cognition","Cognitive disability (CDC PLACES, %)",15.1,0.2929
+"Franklin","37069","cognition","Cognitive disability (CDC PLACES, %)",15.4,0.3737
+"Gaston","37071","cognition","Cognitive disability (CDC PLACES, %)",15.8,0.4141
+"Gates","37073","cognition","Cognitive disability (CDC PLACES, %)",16.1,0.4747
+"Graham","37075","cognition","Cognitive disability (CDC PLACES, %)",15.8,0.4141
+"Granville","37077","cognition","Cognitive disability (CDC PLACES, %)",15.7,0.3838
+"Greene","37079","cognition","Cognitive disability (CDC PLACES, %)",19,0.9596
+"Guilford","37081","cognition","Cognitive disability (CDC PLACES, %)",15.1,0.2929
+"Halifax","37083","cognition","Cognitive disability (CDC PLACES, %)",19,0.9596
+"Harnett","37085","cognition","Cognitive disability (CDC PLACES, %)",16.4,0.5152
+"Haywood","37087","cognition","Cognitive disability (CDC PLACES, %)",14.4,0.2222
+"Henderson","37089","cognition","Cognitive disability (CDC PLACES, %)",13.5,0.1212
+"Hertford","37091","cognition","Cognitive disability (CDC PLACES, %)",18,0.899
+"Hoke","37093","cognition","Cognitive disability (CDC PLACES, %)",17.5,0.8283
+"Hyde","37095","cognition","Cognitive disability (CDC PLACES, %)",17.3,0.7879
+"Iredell","37097","cognition","Cognitive disability (CDC PLACES, %)",13.9,0.1818
+"Jackson","37099","cognition","Cognitive disability (CDC PLACES, %)",16.7,0.6162
+"Johnston","37101","cognition","Cognitive disability (CDC PLACES, %)",15.1,0.2929
+"Jones","37103","cognition","Cognitive disability (CDC PLACES, %)",17.2,0.7677
+"Lee","37105","cognition","Cognitive disability (CDC PLACES, %)",16.6,0.596
+"Lenoir","37107","cognition","Cognitive disability (CDC PLACES, %)",18.8,0.9394
+"Lincoln","37109","cognition","Cognitive disability (CDC PLACES, %)",14.4,0.2222
+"McDowell","37111","cognition","Cognitive disability (CDC PLACES, %)",16.5,0.5455
+"Macon","37113","cognition","Cognitive disability (CDC PLACES, %)",15.1,0.2929
+"Madison","37115","cognition","Cognitive disability (CDC PLACES, %)",14.9,0.2626
+"Martin","37117","cognition","Cognitive disability (CDC PLACES, %)",17.1,0.7172
+"Mecklenburg","37119","cognition","Cognitive disability (CDC PLACES, %)",13.3,0.0909
+"Mitchell","37121","cognition","Cognitive disability (CDC PLACES, %)",14.7,0.2525
+"Montgomery","37123","cognition","Cognitive disability (CDC PLACES, %)",16.8,0.6667
+"Moore","37125","cognition","Cognitive disability (CDC PLACES, %)",12.9,0.0505
+"Nash","37127","cognition","Cognitive disability (CDC PLACES, %)",16,0.4646
+"New Hanover","37129","cognition","Cognitive disability (CDC PLACES, %)",13.9,0.1818
+"Northampton","37131","cognition","Cognitive disability (CDC PLACES, %)",16.7,0.6162
+"Onslow","37133","cognition","Cognitive disability (CDC PLACES, %)",17.3,0.7879
+"Orange","37135","cognition","Cognitive disability (CDC PLACES, %)",12.6,0.0404
+"Pamlico","37137","cognition","Cognitive disability (CDC PLACES, %)",14.2,0.202
+"Pasquotank","37139","cognition","Cognitive disability (CDC PLACES, %)",15.3,0.3333
+"Pender","37141","cognition","Cognitive disability (CDC PLACES, %)",14.5,0.2424
+"Perquimans","37143","cognition","Cognitive disability (CDC PLACES, %)",15,0.2828
+"Person","37145","cognition","Cognitive disability (CDC PLACES, %)",16.2,0.4848
+"Pitt","37147","cognition","Cognitive disability (CDC PLACES, %)",16.5,0.5455
+"Polk","37149","cognition","Cognitive disability (CDC PLACES, %)",13.5,0.1212
+"Randolph","37151","cognition","Cognitive disability (CDC PLACES, %)",17.1,0.7172
+"Richmond","37153","cognition","Cognitive disability (CDC PLACES, %)",19,0.9596
+"Robeson","37155","cognition","Cognitive disability (CDC PLACES, %)",21.3,1
+"Rockingham","37157","cognition","Cognitive disability (CDC PLACES, %)",17.1,0.7172
+"Rowan","37159","cognition","Cognitive disability (CDC PLACES, %)",16.5,0.5455
+"Rutherford","37161","cognition","Cognitive disability (CDC PLACES, %)",16.9,0.697
+"Sampson","37163","cognition","Cognitive disability (CDC PLACES, %)",17.9,0.8687
+"Scotland","37165","cognition","Cognitive disability (CDC PLACES, %)",20.1,0.9899
+"Stanly","37167","cognition","Cognitive disability (CDC PLACES, %)",16.2,0.4848
+"Stokes","37169","cognition","Cognitive disability (CDC PLACES, %)",15.8,0.4141
+"Surry","37171","cognition","Cognitive disability (CDC PLACES, %)",17.2,0.7677
+"Swain","37173","cognition","Cognitive disability (CDC PLACES, %)",18.5,0.9293
+"Transylvania","37175","cognition","Cognitive disability (CDC PLACES, %)",13,0.0606
+"Tyrrell","37177","cognition","Cognitive disability (CDC PLACES, %)",17.4,0.8081
+"Union","37179","cognition","Cognitive disability (CDC PLACES, %)",13.3,0.0909
+"Vance","37181","cognition","Cognitive disability (CDC PLACES, %)",17.6,0.8384
+"Wake","37183","cognition","Cognitive disability (CDC PLACES, %)",11.9,0
+"Warren","37185","cognition","Cognitive disability (CDC PLACES, %)",17.6,0.8384
+"Washington","37187","cognition","Cognitive disability (CDC PLACES, %)",18,0.899
+"Watauga","37189","cognition","Cognitive disability (CDC PLACES, %)",17.1,0.7172
+"Wayne","37191","cognition","Cognitive disability (CDC PLACES, %)",17.1,0.7172
+"Wilkes","37193","cognition","Cognitive disability (CDC PLACES, %)",17,0.7071
+"Wilson","37195","cognition","Cognitive disability (CDC PLACES, %)",18,0.899
+"Yadkin","37197","cognition","Cognitive disability (CDC PLACES, %)",16.5,0.5455
+"Yancey","37199","cognition","Cognitive disability (CDC PLACES, %)",15.7,0.3838
+"Alamance","37001","depression","Adults with depression (CDC PLACES, %)",24,0.3434
+"Alexander","37003","depression","Adults with depression (CDC PLACES, %)",25.8,0.8182
+"Alleghany","37005","depression","Adults with depression (CDC PLACES, %)",25.3,0.7273
+"Anson","37007","depression","Adults with depression (CDC PLACES, %)",23.4,0.1616
+"Ashe","37009","depression","Adults with depression (CDC PLACES, %)",25.2,0.6869
+"Avery","37011","depression","Adults with depression (CDC PLACES, %)",25.2,0.6869
+"Beaufort","37013","depression","Adults with depression (CDC PLACES, %)",23.9,0.3333
+"Bertie","37015","depression","Adults with depression (CDC PLACES, %)",21.7,0
+"Bladen","37017","depression","Adults with depression (CDC PLACES, %)",24.2,0.3838
+"Brunswick","37019","depression","Adults with depression (CDC PLACES, %)",23.4,0.1616
+"Buncombe","37021","depression","Adults with depression (CDC PLACES, %)",24.7,0.5657
+"Burke","37023","depression","Adults with depression (CDC PLACES, %)",26.1,0.8687
+"Cabarrus","37025","depression","Adults with depression (CDC PLACES, %)",23.4,0.1616
+"Caldwell","37027","depression","Adults with depression (CDC PLACES, %)",26.3,0.899
+"Camden","37029","depression","Adults with depression (CDC PLACES, %)",24.6,0.5556
+"Carteret","37031","depression","Adults with depression (CDC PLACES, %)",24.1,0.3535
+"Caswell","37033","depression","Adults with depression (CDC PLACES, %)",23.5,0.2424
+"Catawba","37035","depression","Adults with depression (CDC PLACES, %)",25.7,0.798
+"Chatham","37037","depression","Adults with depression (CDC PLACES, %)",22.1,0.0202
+"Cherokee","37039","depression","Adults with depression (CDC PLACES, %)",25.4,0.7475
+"Chowan","37041","depression","Adults with depression (CDC PLACES, %)",23.5,0.2424
+"Clay","37043","depression","Adults with depression (CDC PLACES, %)",24.7,0.5657
+"Cleveland","37045","depression","Adults with depression (CDC PLACES, %)",25.9,0.8384
+"Columbus","37047","depression","Adults with depression (CDC PLACES, %)",24.4,0.4747
+"Craven","37049","depression","Adults with depression (CDC PLACES, %)",24.3,0.4444
+"Cumberland","37051","depression","Adults with depression (CDC PLACES, %)",25,0.6566
+"Currituck","37053","depression","Adults with depression (CDC PLACES, %)",24.7,0.5657
+"Dare","37055","depression","Adults with depression (CDC PLACES, %)",24.1,0.3535
+"Davidson","37057","depression","Adults with depression (CDC PLACES, %)",25.6,0.7778
+"Davie","37059","depression","Adults with depression (CDC PLACES, %)",24.8,0.6263
+"Duplin","37061","depression","Adults with depression (CDC PLACES, %)",23.4,0.1616
+"Durham","37063","depression","Adults with depression (CDC PLACES, %)",22.9,0.0909
+"Edgecombe","37065","depression","Adults with depression (CDC PLACES, %)",22.7,0.0606
+"Forsyth","37067","depression","Adults with depression (CDC PLACES, %)",23.4,0.1616
+"Franklin","37069","depression","Adults with depression (CDC PLACES, %)",24.5,0.5253
+"Gaston","37071","depression","Adults with depression (CDC PLACES, %)",25.3,0.7273
+"Gates","37073","depression","Adults with depression (CDC PLACES, %)",24.2,0.3838
+"Graham","37075","depression","Adults with depression (CDC PLACES, %)",25.4,0.7475
+"Granville","37077","depression","Adults with depression (CDC PLACES, %)",23.4,0.1616
+"Greene","37079","depression","Adults with depression (CDC PLACES, %)",23.4,0.1616
+"Guilford","37081","depression","Adults with depression (CDC PLACES, %)",24.2,0.3838
+"Halifax","37083","depression","Adults with depression (CDC PLACES, %)",22.5,0.0404
+"Harnett","37085","depression","Adults with depression (CDC PLACES, %)",26,0.8586
+"Haywood","37087","depression","Adults with depression (CDC PLACES, %)",26.4,0.9293
+"Henderson","37089","depression","Adults with depression (CDC PLACES, %)",23.8,0.2929
+"Hertford","37091","depression","Adults with depression (CDC PLACES, %)",22.6,0.0505
+"Hoke","37093","depression","Adults with depression (CDC PLACES, %)",24.7,0.5657
+"Hyde","37095","depression","Adults with depression (CDC PLACES, %)",23.2,0.1515
+"Iredell","37097","depression","Adults with depression (CDC PLACES, %)",24.4,0.4747
+"Jackson","37099","depression","Adults with depression (CDC PLACES, %)",27.2,0.9899
+"Johnston","37101","depression","Adults with depression (CDC PLACES, %)",24.3,0.4444
+"Jones","37103","depression","Adults with depression (CDC PLACES, %)",24.7,0.5657
+"Lee","37105","depression","Adults with depression (CDC PLACES, %)",24.4,0.4747
+"Lenoir","37107","depression","Adults with depression (CDC PLACES, %)",24.2,0.3838
+"Lincoln","37109","depression","Adults with depression (CDC PLACES, %)",25.1,0.6768
+"McDowell","37111","depression","Adults with depression (CDC PLACES, %)",26.1,0.8687
+"Macon","37113","depression","Adults with depression (CDC PLACES, %)",25.4,0.7475
+"Madison","37115","depression","Adults with depression (CDC PLACES, %)",25.8,0.8182
+"Martin","37117","depression","Adults with depression (CDC PLACES, %)",23.8,0.2929
+"Mecklenburg","37119","depression","Adults with depression (CDC PLACES, %)",22.7,0.0606
+"Mitchell","37121","depression","Adults with depression (CDC PLACES, %)",25.6,0.7778
+"Montgomery","37123","depression","Adults with depression (CDC PLACES, %)",24.5,0.5253
+"Moore","37125","depression","Adults with depression (CDC PLACES, %)",23.5,0.2424
+"Nash","37127","depression","Adults with depression (CDC PLACES, %)",22.8,0.0808
+"New Hanover","37129","depression","Adults with depression (CDC PLACES, %)",25,0.6566
+"Northampton","37131","depression","Adults with depression (CDC PLACES, %)",21.9,0.0101
+"Onslow","37133","depression","Adults with depression (CDC PLACES, %)",24.4,0.4747
+"Orange","37135","depression","Adults with depression (CDC PLACES, %)",24.4,0.4747
+"Pamlico","37137","depression","Adults with depression (CDC PLACES, %)",23,0.1212
+"Pasquotank","37139","depression","Adults with depression (CDC PLACES, %)",23.7,0.2727
+"Pender","37141","depression","Adults with depression (CDC PLACES, %)",24.8,0.6263
+"Perquimans","37143","depression","Adults with depression (CDC PLACES, %)",23.7,0.2727
+"Person","37145","depression","Adults with depression (CDC PLACES, %)",24.8,0.6263
+"Pitt","37147","depression","Adults with depression (CDC PLACES, %)",25.2,0.6869
+"Polk","37149","depression","Adults with depression (CDC PLACES, %)",23.8,0.2929
+"Randolph","37151","depression","Adults with depression (CDC PLACES, %)",26.5,0.9394
+"Richmond","37153","depression","Adults with depression (CDC PLACES, %)",25.9,0.8384
+"Robeson","37155","depression","Adults with depression (CDC PLACES, %)",22.9,0.0909
+"Rockingham","37157","depression","Adults with depression (CDC PLACES, %)",25.2,0.6869
+"Rowan","37159","depression","Adults with depression (CDC PLACES, %)",24.7,0.5657
+"Rutherford","37161","depression","Adults with depression (CDC PLACES, %)",26.7,0.9495
+"Sampson","37163","depression","Adults with depression (CDC PLACES, %)",24.5,0.5253
+"Scotland","37165","depression","Adults with depression (CDC PLACES, %)",24.3,0.4444
+"Stanly","37167","depression","Adults with depression (CDC PLACES, %)",25.7,0.798
+"Stokes","37169","depression","Adults with depression (CDC PLACES, %)",26.3,0.899
+"Surry","37171","depression","Adults with depression (CDC PLACES, %)",27,0.9798
+"Swain","37173","depression","Adults with depression (CDC PLACES, %)",26.7,0.9495
+"Transylvania","37175","depression","Adults with depression (CDC PLACES, %)",24.2,0.3838
+"Tyrrell","37177","depression","Adults with depression (CDC PLACES, %)",22.9,0.0909
+"Union","37179","depression","Adults with depression (CDC PLACES, %)",24.1,0.3535
+"Vance","37181","depression","Adults with depression (CDC PLACES, %)",23.1,0.1313
+"Wake","37183","depression","Adults with depression (CDC PLACES, %)",23.1,0.1313
+"Warren","37185","depression","Adults with depression (CDC PLACES, %)",22.2,0.0303
+"Washington","37187","depression","Adults with depression (CDC PLACES, %)",23.4,0.1616
+"Watauga","37189","depression","Adults with depression (CDC PLACES, %)",28.5,1
+"Wayne","37191","depression","Adults with depression (CDC PLACES, %)",24.2,0.3838
+"Wilkes","37193","depression","Adults with depression (CDC PLACES, %)",26.8,0.9697
+"Wilson","37195","depression","Adults with depression (CDC PLACES, %)",23.8,0.2929
+"Yadkin","37197","depression","Adults with depression (CDC PLACES, %)",26.3,0.899
+"Yancey","37199","depression","Adults with depression (CDC PLACES, %)",26.1,0.8687
+"Alamance","37001","disability","Any disability (CDC PLACES, %)",33,0.2424
+"Alexander","37003","disability","Any disability (CDC PLACES, %)",35.9,0.4848
+"Alleghany","37005","disability","Any disability (CDC PLACES, %)",39.8,0.8081
+"Anson","37007","disability","Any disability (CDC PLACES, %)",41.1,0.9192
+"Ashe","37009","disability","Any disability (CDC PLACES, %)",36.9,0.6162
+"Avery","37011","disability","Any disability (CDC PLACES, %)",35.7,0.4545
+"Beaufort","37013","disability","Any disability (CDC PLACES, %)",37.5,0.6566
+"Bertie","37015","disability","Any disability (CDC PLACES, %)",41.6,0.9293
+"Bladen","37017","disability","Any disability (CDC PLACES, %)",39.1,0.7879
+"Brunswick","37019","disability","Any disability (CDC PLACES, %)",33.1,0.2626
+"Buncombe","37021","disability","Any disability (CDC PLACES, %)",30.5,0.0909
+"Burke","37023","disability","Any disability (CDC PLACES, %)",36.9,0.6162
+"Cabarrus","37025","disability","Any disability (CDC PLACES, %)",29.2,0.0606
+"Caldwell","37027","disability","Any disability (CDC PLACES, %)",35.7,0.4545
+"Camden","37029","disability","Any disability (CDC PLACES, %)",29.4,0.0707
+"Carteret","37031","disability","Any disability (CDC PLACES, %)",31.9,0.1717
+"Caswell","37033","disability","Any disability (CDC PLACES, %)",37.8,0.6869
+"Catawba","37035","disability","Any disability (CDC PLACES, %)",32.9,0.2121
+"Chatham","37037","disability","Any disability (CDC PLACES, %)",30.9,0.1212
+"Cherokee","37039","disability","Any disability (CDC PLACES, %)",37.6,0.6667
+"Chowan","37041","disability","Any disability (CDC PLACES, %)",39.3,0.798
+"Clay","37043","disability","Any disability (CDC PLACES, %)",36.3,0.5354
+"Cleveland","37045","disability","Any disability (CDC PLACES, %)",36.5,0.5455
+"Columbus","37047","disability","Any disability (CDC PLACES, %)",38.8,0.7475
+"Craven","37049","disability","Any disability (CDC PLACES, %)",34,0.3434
+"Cumberland","37051","disability","Any disability (CDC PLACES, %)",35.4,0.4242
+"Currituck","37053","disability","Any disability (CDC PLACES, %)",29.7,0.0808
+"Dare","37055","disability","Any disability (CDC PLACES, %)",29,0.0505
+"Davidson","37057","disability","Any disability (CDC PLACES, %)",34.5,0.3636
+"Davie","37059","disability","Any disability (CDC PLACES, %)",33.3,0.2828
+"Duplin","37061","disability","Any disability (CDC PLACES, %)",38.9,0.7576
+"Durham","37063","disability","Any disability (CDC PLACES, %)",28,0.0404
+"Edgecombe","37065","disability","Any disability (CDC PLACES, %)",40.3,0.8485
+"Forsyth","37067","disability","Any disability (CDC PLACES, %)",32.8,0.202
+"Franklin","37069","disability","Any disability (CDC PLACES, %)",33.9,0.3333
+"Gaston","37071","disability","Any disability (CDC PLACES, %)",33,0.2424
+"Gates","37073","disability","Any disability (CDC PLACES, %)",37.6,0.6667
+"Graham","37075","disability","Any disability (CDC PLACES, %)",36.1,0.5051
+"Granville","37077","disability","Any disability (CDC PLACES, %)",34.1,0.3535
+"Greene","37079","disability","Any disability (CDC PLACES, %)",39.9,0.8283
+"Guilford","37081","disability","Any disability (CDC PLACES, %)",33.1,0.2626
+"Halifax","37083","disability","Any disability (CDC PLACES, %)",42,0.9495
+"Harnett","37085","disability","Any disability (CDC PLACES, %)",33.8,0.3131
+"Haywood","37087","disability","Any disability (CDC PLACES, %)",35.3,0.404
+"Henderson","37089","disability","Any disability (CDC PLACES, %)",32.9,0.2121
+"Hertford","37091","disability","Any disability (CDC PLACES, %)",40.9,0.9091
+"Hoke","37093","disability","Any disability (CDC PLACES, %)",34.8,0.3939
+"Hyde","37095","disability","Any disability (CDC PLACES, %)",40.2,0.8384
+"Iredell","37097","disability","Any disability (CDC PLACES, %)",30.8,0.1111
+"Jackson","37099","disability","Any disability (CDC PLACES, %)",35.3,0.404
+"Johnston","37101","disability","Any disability (CDC PLACES, %)",32.1,0.1818
+"Jones","37103","disability","Any disability (CDC PLACES, %)",39.8,0.8081
+"Lee","37105","disability","Any disability (CDC PLACES, %)",35.6,0.4444
+"Lenoir","37107","disability","Any disability (CDC PLACES, %)",41.8,0.9394
+"Lincoln","37109","disability","Any disability (CDC PLACES, %)",31.5,0.1313
+"McDowell","37111","disability","Any disability (CDC PLACES, %)",36.2,0.5152
+"Macon","37113","disability","Any disability (CDC PLACES, %)",37.4,0.6465
+"Madison","37115","disability","Any disability (CDC PLACES, %)",33.8,0.3131
+"Martin","37117","disability","Any disability (CDC PLACES, %)",40.8,0.8889
+"Mecklenburg","37119","disability","Any disability (CDC PLACES, %)",27.4,0.0202
+"Mitchell","37121","disability","Any disability (CDC PLACES, %)",34.5,0.3636
+"Montgomery","37123","disability","Any disability (CDC PLACES, %)",38,0.7071
+"Moore","37125","disability","Any disability (CDC PLACES, %)",31.5,0.1313
+"Nash","37127","disability","Any disability (CDC PLACES, %)",35.5,0.4343
+"New Hanover","37129","disability","Any disability (CDC PLACES, %)",30.7,0.101
+"Northampton","37131","disability","Any disability (CDC PLACES, %)",42.5,0.9697
+"Onslow","37133","disability","Any disability (CDC PLACES, %)",31.7,0.1616
+"Orange","37135","disability","Any disability (CDC PLACES, %)",26.4,0.0101
+"Pamlico","37137","disability","Any disability (CDC PLACES, %)",36.7,0.596
+"Pasquotank","37139","disability","Any disability (CDC PLACES, %)",33.4,0.2929
+"Pender","37141","disability","Any disability (CDC PLACES, %)",31.5,0.1313
+"Perquimans","37143","disability","Any disability (CDC PLACES, %)",36.6,0.5758
+"Person","37145","disability","Any disability (CDC PLACES, %)",36.5,0.5455
+"Pitt","37147","disability","Any disability (CDC PLACES, %)",32.6,0.1919
+"Polk","37149","disability","Any disability (CDC PLACES, %)",35.9,0.4848
+"Randolph","37151","disability","Any disability (CDC PLACES, %)",36.6,0.5758
+"Richmond","37153","disability","Any disability (CDC PLACES, %)",40.8,0.8889
+"Robeson","37155","disability","Any disability (CDC PLACES, %)",42.4,0.9596
+"Rockingham","37157","disability","Any disability (CDC PLACES, %)",38.4,0.7273
+"Rowan","37159","disability","Any disability (CDC PLACES, %)",36.2,0.5152
+"Rutherford","37161","disability","Any disability (CDC PLACES, %)",38.2,0.7172
+"Sampson","37163","disability","Any disability (CDC PLACES, %)",38.9,0.7576
+"Scotland","37165","disability","Any disability (CDC PLACES, %)",42.5,0.9697
+"Stanly","37167","disability","Any disability (CDC PLACES, %)",34.6,0.3838
+"Stokes","37169","disability","Any disability (CDC PLACES, %)",35.8,0.4747
+"Surry","37171","disability","Any disability (CDC PLACES, %)",38.9,0.7576
+"Swain","37173","disability","Any disability (CDC PLACES, %)",40.5,0.8586
+"Transylvania","37175","disability","Any disability (CDC PLACES, %)",33.5,0.303
+"Tyrrell","37177","disability","Any disability (CDC PLACES, %)",40.6,0.8788
+"Union","37179","disability","Any disability (CDC PLACES, %)",27.8,0.0303
+"Vance","37181","disability","Any disability (CDC PLACES, %)",38.7,0.7374
+"Wake","37183","disability","Any disability (CDC PLACES, %)",24,0
+"Warren","37185","disability","Any disability (CDC PLACES, %)",42.8,0.9899
+"Washington","37187","disability","Any disability (CDC PLACES, %)",44.3,1
+"Watauga","37189","disability","Any disability (CDC PLACES, %)",32.9,0.2121
+"Wayne","37191","disability","Any disability (CDC PLACES, %)",36.7,0.596
+"Wilkes","37193","disability","Any disability (CDC PLACES, %)",37.9,0.697
+"Wilson","37195","disability","Any disability (CDC PLACES, %)",40.5,0.8586
+"Yadkin","37197","disability","Any disability (CDC PLACES, %)",36.5,0.5455
+"Yancey","37199","disability","Any disability (CDC PLACES, %)",36.9,0.6162
+"Alamance","37001","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",13,0.6162
+"Alexander","37003","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",11,0.1414
+"Alleghany","37005","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",12,0.3333
+"Anson","37007","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",12,0.3333
+"Ashe","37009","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",13,0.6162
+"Avery","37011","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",10,0.0404
+"Beaufort","37013","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",15,0.9293
+"Bertie","37015","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",13,0.6162
+"Bladen","37017","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",13,0.6162
+"Brunswick","37019","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",17,1
+"Buncombe","37021","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",11,0.1414
+"Burke","37023","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",11,0.1414
+"Cabarrus","37025","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",11,0.1414
+"Caldwell","37027","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",10,0.0404
+"Camden","37029","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",12,0.3333
+"Carteret","37031","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",15,0.9293
+"Caswell","37033","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",12,0.3333
+"Catawba","37035","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",9,0
+"Chatham","37037","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",14,0.798
+"Cherokee","37039","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",10,0.0404
+"Chowan","37041","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",13,0.6162
+"Clay","37043","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",9,0
+"Cleveland","37045","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",10,0.0404
+"Columbus","37047","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",14,0.798
+"Craven","37049","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",14,0.798
+"Cumberland","37051","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",12,0.3333
+"Currituck","37053","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",12,0.3333
+"Dare","37055","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",15,0.9293
+"Davidson","37057","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",13,0.6162
+"Davie","37059","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",12,0.3333
+"Duplin","37061","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",14,0.798
+"Durham","37063","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",12,0.3333
+"Edgecombe","37065","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",12,0.3333
+"Forsyth","37067","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",12,0.3333
+"Franklin","37069","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",11,0.1414
+"Gaston","37071","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",10,0.0404
+"Gates","37073","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",11,0.1414
+"Graham","37075","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",11,0.1414
+"Granville","37077","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",12,0.3333
+"Greene","37079","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",13,0.6162
+"Guilford","37081","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",12,0.3333
+"Halifax","37083","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",11,0.1414
+"Harnett","37085","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",12,0.3333
+"Haywood","37087","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",10,0.0404
+"Henderson","37089","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",10,0.0404
+"Hertford","37091","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",13,0.6162
+"Hoke","37093","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",13,0.6162
+"Hyde","37095","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",15,0.9293
+"Iredell","37097","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",12,0.3333
+"Jackson","37099","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",10,0.0404
+"Johnston","37101","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",12,0.3333
+"Jones","37103","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",14,0.798
+"Lee","37105","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",13,0.6162
+"Lenoir","37107","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",14,0.798
+"Lincoln","37109","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",9,0
+"McDowell","37111","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",11,0.1414
+"Macon","37113","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",9,0
+"Madison","37115","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",12,0.3333
+"Martin","37117","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",11,0.1414
+"Mecklenburg","37119","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",10,0.0404
+"Mitchell","37121","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",11,0.1414
+"Montgomery","37123","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",13,0.6162
+"Moore","37125","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",13,0.6162
+"Nash","37127","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",12,0.3333
+"New Hanover","37129","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",15,0.9293
+"Northampton","37131","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",11,0.1414
+"Onslow","37133","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",15,0.9293
+"Orange","37135","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",13,0.6162
+"Pamlico","37137","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",14,0.798
+"Pasquotank","37139","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",12,0.3333
+"Pender","37141","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",15,0.9293
+"Perquimans","37143","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",13,0.6162
+"Person","37145","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",13,0.6162
+"Pitt","37147","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",14,0.798
+"Polk","37149","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",12,0.3333
+"Randolph","37151","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",13,0.6162
+"Richmond","37153","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",12,0.3333
+"Robeson","37155","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",14,0.798
+"Rockingham","37157","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",12,0.3333
+"Rowan","37159","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",12,0.3333
+"Rutherford","37161","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",11,0.1414
+"Sampson","37163","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",14,0.798
+"Scotland","37165","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",12,0.3333
+"Stanly","37167","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",12,0.3333
+"Stokes","37169","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",14,0.798
+"Surry","37171","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",12,0.3333
+"Swain","37173","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",12,0.3333
+"Transylvania","37175","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",11,0.1414
+"Tyrrell","37177","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",13,0.6162
+"Union","37179","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",11,0.1414
+"Vance","37181","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",11,0.1414
+"Wake","37183","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",11,0.1414
+"Warren","37185","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",11,0.1414
+"Washington","37187","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",12,0.3333
+"Watauga","37189","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",10,0.0404
+"Wayne","37191","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",14,0.798
+"Wilkes","37193","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",11,0.1414
+"Wilson","37195","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",13,0.6162
+"Yadkin","37197","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",14,0.798
+"Yancey","37199","fema_declarations","FEMA disaster declarations since 2016 (OpenFEMA, count)",12,0.3333
+"Alamance","37001","foodinsecu","Food insecurity (CDC PLACES, %)",16.4,0.5152
+"Alexander","37003","foodinsecu","Food insecurity (CDC PLACES, %)",14.8,0.3737
+"Alleghany","37005","foodinsecu","Food insecurity (CDC PLACES, %)",16.4,0.5152
+"Anson","37007","foodinsecu","Food insecurity (CDC PLACES, %)",27,0.9697
+"Ashe","37009","foodinsecu","Food insecurity (CDC PLACES, %)",13.1,0.2424
+"Avery","37011","foodinsecu","Food insecurity (CDC PLACES, %)",13.9,0.3232
+"Beaufort","37013","foodinsecu","Food insecurity (CDC PLACES, %)",17.4,0.6162
+"Bertie","37015","foodinsecu","Food insecurity (CDC PLACES, %)",26.7,0.9495
+"Bladen","37017","foodinsecu","Food insecurity (CDC PLACES, %)",20.8,0.7576
+"Brunswick","37019","foodinsecu","Food insecurity (CDC PLACES, %)",10.1,0.0303
+"Buncombe","37021","foodinsecu","Food insecurity (CDC PLACES, %)",11.4,0.1313
+"Burke","37023","foodinsecu","Food insecurity (CDC PLACES, %)",16.2,0.5051
+"Cabarrus","37025","foodinsecu","Food insecurity (CDC PLACES, %)",13.5,0.2929
+"Caldwell","37027","foodinsecu","Food insecurity (CDC PLACES, %)",15.5,0.4444
+"Camden","37029","foodinsecu","Food insecurity (CDC PLACES, %)",10.6,0.0808
+"Carteret","37031","foodinsecu","Food insecurity (CDC PLACES, %)",10.1,0.0303
+"Caswell","37033","foodinsecu","Food insecurity (CDC PLACES, %)",19.1,0.7071
+"Catawba","37035","foodinsecu","Food insecurity (CDC PLACES, %)",14.3,0.3434
+"Chatham","37037","foodinsecu","Food insecurity (CDC PLACES, %)",11.3,0.1212
+"Cherokee","37039","foodinsecu","Food insecurity (CDC PLACES, %)",13,0.2323
+"Chowan","37041","foodinsecu","Food insecurity (CDC PLACES, %)",19.5,0.7172
+"Clay","37043","foodinsecu","Food insecurity (CDC PLACES, %)",11,0.0909
+"Cleveland","37045","foodinsecu","Food insecurity (CDC PLACES, %)",17.6,0.6263
+"Columbus","37047","foodinsecu","Food insecurity (CDC PLACES, %)",21.5,0.798
+"Craven","37049","foodinsecu","Food insecurity (CDC PLACES, %)",14.8,0.3737
+"Cumberland","37051","foodinsecu","Food insecurity (CDC PLACES, %)",20.3,0.7374
+"Currituck","37053","foodinsecu","Food insecurity (CDC PLACES, %)",10.2,0.0505
+"Dare","37055","foodinsecu","Food insecurity (CDC PLACES, %)",8.6,0
+"Davidson","37057","foodinsecu","Food insecurity (CDC PLACES, %)",15.6,0.4545
+"Davie","37059","foodinsecu","Food insecurity (CDC PLACES, %)",11.7,0.1616
+"Duplin","37061","foodinsecu","Food insecurity (CDC PLACES, %)",21.4,0.7879
+"Durham","37063","foodinsecu","Food insecurity (CDC PLACES, %)",14.2,0.3333
+"Edgecombe","37065","foodinsecu","Food insecurity (CDC PLACES, %)",26.2,0.9394
+"Forsyth","37067","foodinsecu","Food insecurity (CDC PLACES, %)",16.1,0.4747
+"Franklin","37069","foodinsecu","Food insecurity (CDC PLACES, %)",16.4,0.5152
+"Gaston","37071","foodinsecu","Food insecurity (CDC PLACES, %)",16.1,0.4747
+"Gates","37073","foodinsecu","Food insecurity (CDC PLACES, %)",17.9,0.6566
+"Graham","37075","foodinsecu","Food insecurity (CDC PLACES, %)",13.2,0.2626
+"Granville","37077","foodinsecu","Food insecurity (CDC PLACES, %)",18,0.6667
+"Greene","37079","foodinsecu","Food insecurity (CDC PLACES, %)",26.1,0.9293
+"Guilford","37081","foodinsecu","Food insecurity (CDC PLACES, %)",16.9,0.5859
+"Halifax","37083","foodinsecu","Food insecurity (CDC PLACES, %)",29.1,0.9899
+"Harnett","37085","foodinsecu","Food insecurity (CDC PLACES, %)",17.2,0.6061
+"Haywood","37087","foodinsecu","Food insecurity (CDC PLACES, %)",11.7,0.1616
+"Henderson","37089","foodinsecu","Food insecurity (CDC PLACES, %)",11.4,0.1313
+"Hertford","37091","foodinsecu","Food insecurity (CDC PLACES, %)",26.8,0.9596
+"Hoke","37093","foodinsecu","Food insecurity (CDC PLACES, %)",22.6,0.8485
+"Hyde","37095","foodinsecu","Food insecurity (CDC PLACES, %)",21.8,0.8081
+"Iredell","37097","foodinsecu","Food insecurity (CDC PLACES, %)",12.1,0.2121
+"Jackson","37099","foodinsecu","Food insecurity (CDC PLACES, %)",14.5,0.3535
+"Johnston","37101","foodinsecu","Food insecurity (CDC PLACES, %)",15.2,0.4141
+"Jones","37103","foodinsecu","Food insecurity (CDC PLACES, %)",20.9,0.7677
+"Lee","37105","foodinsecu","Food insecurity (CDC PLACES, %)",18.4,0.6869
+"Lenoir","37107","foodinsecu","Food insecurity (CDC PLACES, %)",25.6,0.899
+"Lincoln","37109","foodinsecu","Food insecurity (CDC PLACES, %)",11.9,0.1919
+"McDowell","37111","foodinsecu","Food insecurity (CDC PLACES, %)",15,0.3939
+"Macon","37113","foodinsecu","Food insecurity (CDC PLACES, %)",13.3,0.2727
+"Madison","37115","foodinsecu","Food insecurity (CDC PLACES, %)",11.4,0.1313
+"Martin","37117","foodinsecu","Food insecurity (CDC PLACES, %)",22,0.8182
+"Mecklenburg","37119","foodinsecu","Food insecurity (CDC PLACES, %)",14.6,0.3636
+"Mitchell","37121","foodinsecu","Food insecurity (CDC PLACES, %)",11.7,0.1616
+"Montgomery","37123","foodinsecu","Food insecurity (CDC PLACES, %)",18.8,0.697
+"Moore","37125","foodinsecu","Food insecurity (CDC PLACES, %)",10.5,0.0707
+"Nash","37127","foodinsecu","Food insecurity (CDC PLACES, %)",20.1,0.7273
+"New Hanover","37129","foodinsecu","Food insecurity (CDC PLACES, %)",11.2,0.1111
+"Northampton","37131","foodinsecu","Food insecurity (CDC PLACES, %)",23.9,0.8586
+"Onslow","37133","foodinsecu","Food insecurity (CDC PLACES, %)",15.6,0.4545
+"Orange","37135","foodinsecu","Food insecurity (CDC PLACES, %)",9.9,0.0101
+"Pamlico","37137","foodinsecu","Food insecurity (CDC PLACES, %)",13.5,0.2929
+"Pasquotank","37139","foodinsecu","Food insecurity (CDC PLACES, %)",16.6,0.5455
+"Pender","37141","foodinsecu","Food insecurity (CDC PLACES, %)",12.9,0.2222
+"Perquimans","37143","foodinsecu","Food insecurity (CDC PLACES, %)",15,0.3939
+"Person","37145","foodinsecu","Food insecurity (CDC PLACES, %)",17.8,0.6364
+"Pitt","37147","foodinsecu","Food insecurity (CDC PLACES, %)",18.3,0.6768
+"Polk","37149","foodinsecu","Food insecurity (CDC PLACES, %)",11,0.0909
+"Randolph","37151","foodinsecu","Food insecurity (CDC PLACES, %)",17,0.596
+"Richmond","37153","foodinsecu","Food insecurity (CDC PLACES, %)",24.8,0.8687
+"Robeson","37155","foodinsecu","Food insecurity (CDC PLACES, %)",30.3,1
+"Rockingham","37157","foodinsecu","Food insecurity (CDC PLACES, %)",17.8,0.6364
+"Rowan","37159","foodinsecu","Food insecurity (CDC PLACES, %)",16.6,0.5455
+"Rutherford","37161","foodinsecu","Food insecurity (CDC PLACES, %)",16.8,0.5657
+"Sampson","37163","foodinsecu","Food insecurity (CDC PLACES, %)",22.3,0.8384
+"Scotland","37165","foodinsecu","Food insecurity (CDC PLACES, %)",28.3,0.9798
+"Stanly","37167","foodinsecu","Food insecurity (CDC PLACES, %)",15.4,0.4343
+"Stokes","37169","foodinsecu","Food insecurity (CDC PLACES, %)",13.4,0.2828
+"Surry","37171","foodinsecu","Food insecurity (CDC PLACES, %)",16.8,0.5657
+"Swain","37173","foodinsecu","Food insecurity (CDC PLACES, %)",20.6,0.7475
+"Transylvania","37175","foodinsecu","Food insecurity (CDC PLACES, %)",9.9,0.0101
+"Tyrrell","37177","foodinsecu","Food insecurity (CDC PLACES, %)",22,0.8182
+"Union","37179","foodinsecu","Food insecurity (CDC PLACES, %)",12,0.202
+"Vance","37181","foodinsecu","Food insecurity (CDC PLACES, %)",24.8,0.8687
+"Wake","37183","foodinsecu","Food insecurity (CDC PLACES, %)",10.3,0.0606
+"Warren","37185","foodinsecu","Food insecurity (CDC PLACES, %)",25.7,0.9091
+"Washington","37187","foodinsecu","Food insecurity (CDC PLACES, %)",25.8,0.9192
+"Watauga","37189","foodinsecu","Food insecurity (CDC PLACES, %)",13.1,0.2424
+"Wayne","37191","foodinsecu","Food insecurity (CDC PLACES, %)",20.9,0.7677
+"Wilkes","37193","foodinsecu","Food insecurity (CDC PLACES, %)",16.1,0.4747
+"Wilson","37195","foodinsecu","Food insecurity (CDC PLACES, %)",24.9,0.8889
+"Yadkin","37197","foodinsecu","Food insecurity (CDC PLACES, %)",15.2,0.4141
+"Yancey","37199","foodinsecu","Food insecurity (CDC PLACES, %)",13.5,0.2929
+"Alamance","37001","foodstamp","Received SNAP (CDC PLACES, %)",13.3,0.4949
+"Alexander","37003","foodstamp","Received SNAP (CDC PLACES, %)",12,0.3939
+"Alleghany","37005","foodstamp","Received SNAP (CDC PLACES, %)",14.3,0.596
+"Anson","37007","foodstamp","Received SNAP (CDC PLACES, %)",25.5,0.9697
+"Ashe","37009","foodstamp","Received SNAP (CDC PLACES, %)",11,0.2828
+"Avery","37011","foodstamp","Received SNAP (CDC PLACES, %)",11.3,0.3434
+"Beaufort","37013","foodstamp","Received SNAP (CDC PLACES, %)",15.1,0.6364
+"Bertie","37015","foodstamp","Received SNAP (CDC PLACES, %)",24.9,0.9394
+"Bladen","37017","foodstamp","Received SNAP (CDC PLACES, %)",19,0.7778
+"Brunswick","37019","foodstamp","Received SNAP (CDC PLACES, %)",7.9,0.0505
+"Buncombe","37021","foodstamp","Received SNAP (CDC PLACES, %)",9.1,0.1515
+"Burke","37023","foodstamp","Received SNAP (CDC PLACES, %)",13.6,0.5152
+"Cabarrus","37025","foodstamp","Received SNAP (CDC PLACES, %)",10.2,0.2323
+"Caldwell","37027","foodstamp","Received SNAP (CDC PLACES, %)",13,0.4646
+"Camden","37029","foodstamp","Received SNAP (CDC PLACES, %)",7.9,0.0505
+"Carteret","37031","foodstamp","Received SNAP (CDC PLACES, %)",7.8,0.0404
+"Caswell","37033","foodstamp","Received SNAP (CDC PLACES, %)",16.4,0.7071
+"Catawba","37035","foodstamp","Received SNAP (CDC PLACES, %)",11.1,0.303
+"Chatham","37037","foodstamp","Received SNAP (CDC PLACES, %)",8.4,0.0909
+"Cherokee","37039","foodstamp","Received SNAP (CDC PLACES, %)",11.2,0.3131
+"Chowan","37041","foodstamp","Received SNAP (CDC PLACES, %)",17.9,0.7475
+"Clay","37043","foodstamp","Received SNAP (CDC PLACES, %)",9.1,0.1515
+"Cleveland","37045","foodstamp","Received SNAP (CDC PLACES, %)",15.3,0.6465
+"Columbus","37047","foodstamp","Received SNAP (CDC PLACES, %)",19.6,0.8182
+"Craven","37049","foodstamp","Received SNAP (CDC PLACES, %)",12,0.3939
+"Cumberland","37051","foodstamp","Received SNAP (CDC PLACES, %)",17,0.7172
+"Currituck","37053","foodstamp","Received SNAP (CDC PLACES, %)",7.7,0.0303
+"Dare","37055","foodstamp","Received SNAP (CDC PLACES, %)",6.4,0
+"Davidson","37057","foodstamp","Received SNAP (CDC PLACES, %)",12.8,0.4444
+"Davie","37059","foodstamp","Received SNAP (CDC PLACES, %)",9,0.1313
+"Duplin","37061","foodstamp","Received SNAP (CDC PLACES, %)",18.2,0.7677
+"Durham","37063","foodstamp","Received SNAP (CDC PLACES, %)",11,0.2828
+"Edgecombe","37065","foodstamp","Received SNAP (CDC PLACES, %)",24.8,0.9293
+"Forsyth","37067","foodstamp","Received SNAP (CDC PLACES, %)",13.2,0.4747
+"Franklin","37069","foodstamp","Received SNAP (CDC PLACES, %)",13.2,0.4747
+"Gaston","37071","foodstamp","Received SNAP (CDC PLACES, %)",13.3,0.4949
+"Gates","37073","foodstamp","Received SNAP (CDC PLACES, %)",15.6,0.6667
+"Graham","37075","foodstamp","Received SNAP (CDC PLACES, %)",10.1,0.2222
+"Granville","37077","foodstamp","Received SNAP (CDC PLACES, %)",14.8,0.6263
+"Greene","37079","foodstamp","Received SNAP (CDC PLACES, %)",23.1,0.8889
+"Guilford","37081","foodstamp","Received SNAP (CDC PLACES, %)",13.9,0.5455
+"Halifax","37083","foodstamp","Received SNAP (CDC PLACES, %)",27.8,0.9899
+"Harnett","37085","foodstamp","Received SNAP (CDC PLACES, %)",14.2,0.5859
+"Haywood","37087","foodstamp","Received SNAP (CDC PLACES, %)",9.3,0.202
+"Henderson","37089","foodstamp","Received SNAP (CDC PLACES, %)",8.8,0.1111
+"Hertford","37091","foodstamp","Received SNAP (CDC PLACES, %)",25.3,0.9495
+"Hoke","37093","foodstamp","Received SNAP (CDC PLACES, %)",19.1,0.798
+"Hyde","37095","foodstamp","Received SNAP (CDC PLACES, %)",19.9,0.8384
+"Iredell","37097","foodstamp","Received SNAP (CDC PLACES, %)",9.1,0.1515
+"Jackson","37099","foodstamp","Received SNAP (CDC PLACES, %)",11.5,0.3636
+"Johnston","37101","foodstamp","Received SNAP (CDC PLACES, %)",11.7,0.3737
+"Jones","37103","foodstamp","Received SNAP (CDC PLACES, %)",19.5,0.8081
+"Lee","37105","foodstamp","Received SNAP (CDC PLACES, %)",14.7,0.6061
+"Lenoir","37107","foodstamp","Received SNAP (CDC PLACES, %)",24.5,0.9192
+"Lincoln","37109","foodstamp","Received SNAP (CDC PLACES, %)",9.2,0.1818
+"McDowell","37111","foodstamp","Received SNAP (CDC PLACES, %)",12.5,0.4141
+"Macon","37113","foodstamp","Received SNAP (CDC PLACES, %)",10.9,0.2727
+"Madison","37115","foodstamp","Received SNAP (CDC PLACES, %)",9.2,0.1818
+"Martin","37117","foodstamp","Received SNAP (CDC PLACES, %)",19.9,0.8384
+"Mecklenburg","37119","foodstamp","Received SNAP (CDC PLACES, %)",10.8,0.2626
+"Mitchell","37121","foodstamp","Received SNAP (CDC PLACES, %)",9.4,0.2121
+"Montgomery","37123","foodstamp","Received SNAP (CDC PLACES, %)",15.8,0.6869
+"Moore","37125","foodstamp","Received SNAP (CDC PLACES, %)",8,0.0808
+"Nash","37127","foodstamp","Received SNAP (CDC PLACES, %)",17.1,0.7273
+"New Hanover","37129","foodstamp","Received SNAP (CDC PLACES, %)",9,0.1313
+"Northampton","37131","foodstamp","Received SNAP (CDC PLACES, %)",22.4,0.8586
+"Onslow","37133","foodstamp","Received SNAP (CDC PLACES, %)",11.9,0.3838
+"Orange","37135","foodstamp","Received SNAP (CDC PLACES, %)",6.9,0.0101
+"Pamlico","37137","foodstamp","Received SNAP (CDC PLACES, %)",11.2,0.3131
+"Pasquotank","37139","foodstamp","Received SNAP (CDC PLACES, %)",13.8,0.5354
+"Pender","37141","foodstamp","Received SNAP (CDC PLACES, %)",10.3,0.2424
+"Perquimans","37143","foodstamp","Received SNAP (CDC PLACES, %)",12.7,0.4343
+"Person","37145","foodstamp","Received SNAP (CDC PLACES, %)",15.4,0.6566
+"Pitt","37147","foodstamp","Received SNAP (CDC PLACES, %)",15.8,0.6869
+"Polk","37149","foodstamp","Received SNAP (CDC PLACES, %)",8.8,0.1111
+"Randolph","37151","foodstamp","Received SNAP (CDC PLACES, %)",13.9,0.5455
+"Richmond","37153","foodstamp","Received SNAP (CDC PLACES, %)",23.3,0.899
+"Robeson","37155","foodstamp","Received SNAP (CDC PLACES, %)",29.8,1
+"Rockingham","37157","foodstamp","Received SNAP (CDC PLACES, %)",15.6,0.6667
+"Rowan","37159","foodstamp","Received SNAP (CDC PLACES, %)",14.1,0.5657
+"Rutherford","37161","foodstamp","Received SNAP (CDC PLACES, %)",14.7,0.6061
+"Sampson","37163","foodstamp","Received SNAP (CDC PLACES, %)",19,0.7778
+"Scotland","37165","foodstamp","Received SNAP (CDC PLACES, %)",27.4,0.9798
+"Stanly","37167","foodstamp","Received SNAP (CDC PLACES, %)",12.8,0.4444
+"Stokes","37169","foodstamp","Received SNAP (CDC PLACES, %)",11.2,0.3131
+"Surry","37171","foodstamp","Received SNAP (CDC PLACES, %)",14.1,0.5657
+"Swain","37173","foodstamp","Received SNAP (CDC PLACES, %)",17.2,0.7374
+"Transylvania","37175","foodstamp","Received SNAP (CDC PLACES, %)",7.9,0.0505
+"Tyrrell","37177","foodstamp","Received SNAP (CDC PLACES, %)",19.6,0.8182
+"Union","37179","foodstamp","Received SNAP (CDC PLACES, %)",8.5,0.101
+"Vance","37181","foodstamp","Received SNAP (CDC PLACES, %)",22.9,0.8687
+"Wake","37183","foodstamp","Received SNAP (CDC PLACES, %)",7.4,0.0202
+"Warren","37185","foodstamp","Received SNAP (CDC PLACES, %)",24.2,0.9091
+"Washington","37187","foodstamp","Received SNAP (CDC PLACES, %)",25.3,0.9495
+"Watauga","37189","foodstamp","Received SNAP (CDC PLACES, %)",10.7,0.2525
+"Wayne","37191","foodstamp","Received SNAP (CDC PLACES, %)",18,0.7576
+"Wilkes","37193","foodstamp","Received SNAP (CDC PLACES, %)",13.6,0.5152
+"Wilson","37195","foodstamp","Received SNAP (CDC PLACES, %)",23,0.8788
+"Yadkin","37197","foodstamp","Received SNAP (CDC PLACES, %)",12.5,0.4141
+"Yancey","37199","foodstamp","Received SNAP (CDC PLACES, %)",11.4,0.3535
+"Alamance","37001","housinsecu","Housing insecurity (CDC PLACES, %)",13.1,0.5556
+"Alexander","37003","housinsecu","Housing insecurity (CDC PLACES, %)",11.2,0.3535
+"Alleghany","37005","housinsecu","Housing insecurity (CDC PLACES, %)",11.2,0.3535
+"Anson","37007","housinsecu","Housing insecurity (CDC PLACES, %)",19.8,0.9697
+"Ashe","37009","housinsecu","Housing insecurity (CDC PLACES, %)",9.5,0.202
+"Avery","37011","housinsecu","Housing insecurity (CDC PLACES, %)",10.4,0.303
+"Beaufort","37013","housinsecu","Housing insecurity (CDC PLACES, %)",12.8,0.5253
+"Bertie","37015","housinsecu","Housing insecurity (CDC PLACES, %)",19.2,0.9293
+"Bladen","37017","housinsecu","Housing insecurity (CDC PLACES, %)",15.4,0.7475
+"Brunswick","37019","housinsecu","Housing insecurity (CDC PLACES, %)",7.8,0.0202
+"Buncombe","37021","housinsecu","Housing insecurity (CDC PLACES, %)",9.1,0.1515
+"Burke","37023","housinsecu","Housing insecurity (CDC PLACES, %)",11.8,0.4343
+"Cabarrus","37025","housinsecu","Housing insecurity (CDC PLACES, %)",11.5,0.3939
+"Caldwell","37027","housinsecu","Housing insecurity (CDC PLACES, %)",11.3,0.3737
+"Camden","37029","housinsecu","Housing insecurity (CDC PLACES, %)",9.2,0.1717
+"Carteret","37031","housinsecu","Housing insecurity (CDC PLACES, %)",8,0.0303
+"Caswell","37033","housinsecu","Housing insecurity (CDC PLACES, %)",14.3,0.697
+"Catawba","37035","housinsecu","Housing insecurity (CDC PLACES, %)",11.1,0.3434
+"Chatham","37037","housinsecu","Housing insecurity (CDC PLACES, %)",8.9,0.101
+"Cherokee","37039","housinsecu","Housing insecurity (CDC PLACES, %)",9.1,0.1515
+"Chowan","37041","housinsecu","Housing insecurity (CDC PLACES, %)",13.9,0.6465
+"Clay","37043","housinsecu","Housing insecurity (CDC PLACES, %)",8,0.0303
+"Cleveland","37045","housinsecu","Housing insecurity (CDC PLACES, %)",13.3,0.596
+"Columbus","37047","housinsecu","Housing insecurity (CDC PLACES, %)",16,0.7879
+"Craven","37049","housinsecu","Housing insecurity (CDC PLACES, %)",11.6,0.4242
+"Cumberland","37051","housinsecu","Housing insecurity (CDC PLACES, %)",16.4,0.8283
+"Currituck","37053","housinsecu","Housing insecurity (CDC PLACES, %)",8.8,0.0808
+"Dare","37055","housinsecu","Housing insecurity (CDC PLACES, %)",7.1,0
+"Davidson","37057","housinsecu","Housing insecurity (CDC PLACES, %)",11.8,0.4343
+"Davie","37059","housinsecu","Housing insecurity (CDC PLACES, %)",9.4,0.1919
+"Duplin","37061","housinsecu","Housing insecurity (CDC PLACES, %)",16.2,0.8182
+"Durham","37063","housinsecu","Housing insecurity (CDC PLACES, %)",12.1,0.4646
+"Edgecombe","37065","housinsecu","Housing insecurity (CDC PLACES, %)",19.5,0.9394
+"Forsyth","37067","housinsecu","Housing insecurity (CDC PLACES, %)",13,0.5455
+"Franklin","37069","housinsecu","Housing insecurity (CDC PLACES, %)",13.2,0.5758
+"Gaston","37071","housinsecu","Housing insecurity (CDC PLACES, %)",13.2,0.5758
+"Gates","37073","housinsecu","Housing insecurity (CDC PLACES, %)",13.6,0.6162
+"Graham","37075","housinsecu","Housing insecurity (CDC PLACES, %)",9.9,0.2525
+"Granville","37077","housinsecu","Housing insecurity (CDC PLACES, %)",14.2,0.6869
+"Greene","37079","housinsecu","Housing insecurity (CDC PLACES, %)",19.6,0.9596
+"Guilford","37081","housinsecu","Housing insecurity (CDC PLACES, %)",14.1,0.6768
+"Halifax","37083","housinsecu","Housing insecurity (CDC PLACES, %)",20.8,0.9798
+"Harnett","37085","housinsecu","Housing insecurity (CDC PLACES, %)",14,0.6667
+"Haywood","37087","housinsecu","Housing insecurity (CDC PLACES, %)",8.9,0.101
+"Henderson","37089","housinsecu","Housing insecurity (CDC PLACES, %)",8.9,0.101
+"Hertford","37091","housinsecu","Housing insecurity (CDC PLACES, %)",19.5,0.9394
+"Hoke","37093","housinsecu","Housing insecurity (CDC PLACES, %)",18.3,0.8687
+"Hyde","37095","housinsecu","Housing insecurity (CDC PLACES, %)",15.8,0.7677
+"Iredell","37097","housinsecu","Housing insecurity (CDC PLACES, %)",10,0.2626
+"Jackson","37099","housinsecu","Housing insecurity (CDC PLACES, %)",10.7,0.3232
+"Johnston","37101","housinsecu","Housing insecurity (CDC PLACES, %)",12.7,0.5051
+"Jones","37103","housinsecu","Housing insecurity (CDC PLACES, %)",14.9,0.7273
+"Lee","37105","housinsecu","Housing insecurity (CDC PLACES, %)",14.7,0.7071
+"Lenoir","37107","housinsecu","Housing insecurity (CDC PLACES, %)",18.6,0.9091
+"Lincoln","37109","housinsecu","Housing insecurity (CDC PLACES, %)",9.7,0.2323
+"McDowell","37111","housinsecu","Housing insecurity (CDC PLACES, %)",11,0.3333
+"Macon","37113","housinsecu","Housing insecurity (CDC PLACES, %)",9.6,0.2121
+"Madison","37115","housinsecu","Housing insecurity (CDC PLACES, %)",8.8,0.0808
+"Martin","37117","housinsecu","Housing insecurity (CDC PLACES, %)",16,0.7879
+"Mecklenburg","37119","housinsecu","Housing insecurity (CDC PLACES, %)",12.6,0.4949
+"Mitchell","37121","housinsecu","Housing insecurity (CDC PLACES, %)",9,0.1313
+"Montgomery","37123","housinsecu","Housing insecurity (CDC PLACES, %)",13.9,0.6465
+"Moore","37125","housinsecu","Housing insecurity (CDC PLACES, %)",8.6,0.0707
+"Nash","37127","housinsecu","Housing insecurity (CDC PLACES, %)",16,0.7879
+"New Hanover","37129","housinsecu","Housing insecurity (CDC PLACES, %)",9.3,0.1818
+"Northampton","37131","housinsecu","Housing insecurity (CDC PLACES, %)",17.1,0.8485
+"Onslow","37133","housinsecu","Housing insecurity (CDC PLACES, %)",12.7,0.5051
+"Orange","37135","housinsecu","Housing insecurity (CDC PLACES, %)",8.1,0.0505
+"Pamlico","37137","housinsecu","Housing insecurity (CDC PLACES, %)",10.1,0.2828
+"Pasquotank","37139","housinsecu","Housing insecurity (CDC PLACES, %)",13.6,0.6162
+"Pender","37141","housinsecu","Housing insecurity (CDC PLACES, %)",10.6,0.3131
+"Perquimans","37143","housinsecu","Housing insecurity (CDC PLACES, %)",11.3,0.3737
+"Person","37145","housinsecu","Housing insecurity (CDC PLACES, %)",13.6,0.6162
+"Pitt","37147","housinsecu","Housing insecurity (CDC PLACES, %)",14.9,0.7273
+"Polk","37149","housinsecu","Housing insecurity (CDC PLACES, %)",8.1,0.0505
+"Randolph","37151","housinsecu","Housing insecurity (CDC PLACES, %)",12.9,0.5354
+"Richmond","37153","housinsecu","Housing insecurity (CDC PLACES, %)",18.3,0.8687
+"Robeson","37155","housinsecu","Housing insecurity (CDC PLACES, %)",21.6,1
+"Rockingham","37157","housinsecu","Housing insecurity (CDC PLACES, %)",13.3,0.596
+"Rowan","37159","housinsecu","Housing insecurity (CDC PLACES, %)",13.1,0.5556
+"Rutherford","37161","housinsecu","Housing insecurity (CDC PLACES, %)",12.2,0.4848
+"Sampson","37163","housinsecu","Housing insecurity (CDC PLACES, %)",16.7,0.8384
+"Scotland","37165","housinsecu","Housing insecurity (CDC PLACES, %)",20.8,0.9798
+"Stanly","37167","housinsecu","Housing insecurity (CDC PLACES, %)",11.8,0.4343
+"Stokes","37169","housinsecu","Housing insecurity (CDC PLACES, %)",10.1,0.2828
+"Surry","37171","housinsecu","Housing insecurity (CDC PLACES, %)",12.1,0.4646
+"Swain","37173","housinsecu","Housing insecurity (CDC PLACES, %)",14.7,0.7071
+"Transylvania","37175","housinsecu","Housing insecurity (CDC PLACES, %)",7.6,0.0101
+"Tyrrell","37177","housinsecu","Housing insecurity (CDC PLACES, %)",15.7,0.7576
+"Union","37179","housinsecu","Housing insecurity (CDC PLACES, %)",10,0.2626
+"Vance","37181","housinsecu","Housing insecurity (CDC PLACES, %)",18.8,0.9192
+"Wake","37183","housinsecu","Housing insecurity (CDC PLACES, %)",9,0.1313
+"Warren","37185","housinsecu","Housing insecurity (CDC PLACES, %)",18,0.8586
+"Washington","37187","housinsecu","Housing insecurity (CDC PLACES, %)",18.3,0.8687
+"Watauga","37189","housinsecu","Housing insecurity (CDC PLACES, %)",9.6,0.2121
+"Wayne","37191","housinsecu","Housing insecurity (CDC PLACES, %)",15.9,0.7778
+"Wilkes","37193","housinsecu","Housing insecurity (CDC PLACES, %)",11.5,0.3939
+"Wilson","37195","housinsecu","Housing insecurity (CDC PLACES, %)",18.4,0.899
+"Yadkin","37197","housinsecu","Housing insecurity (CDC PLACES, %)",11.5,0.3939
+"Yancey","37199","housinsecu","Housing insecurity (CDC PLACES, %)",9.8,0.2424
+"Alamance","37001","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",8.9,0.5354
+"Alexander","37003","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",8,0.3333
+"Alleghany","37005","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",8.5,0.4444
+"Anson","37007","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",13.6,0.9596
+"Ashe","37009","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",7.2,0.2323
+"Avery","37011","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",7.7,0.3131
+"Beaufort","37013","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",9,0.5657
+"Bertie","37015","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",13.2,0.9293
+"Bladen","37017","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",10.8,0.7475
+"Brunswick","37019","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",5.7,0.0101
+"Buncombe","37021","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",6.6,0.1313
+"Burke","37023","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",8.5,0.4444
+"Cabarrus","37025","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",7.5,0.303
+"Caldwell","37027","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",8.2,0.3838
+"Camden","37029","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",6.2,0.0707
+"Carteret","37031","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",5.9,0.0303
+"Caswell","37033","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",9.9,0.697
+"Catawba","37035","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",7.8,0.3232
+"Chatham","37037","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",6.3,0.1111
+"Cherokee","37039","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",7.1,0.2222
+"Chowan","37041","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",10,0.7071
+"Clay","37043","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",6.2,0.0707
+"Cleveland","37045","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",9.4,0.6162
+"Columbus","37047","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",11.2,0.8182
+"Craven","37049","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",8.3,0.404
+"Cumberland","37051","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",11,0.7576
+"Currituck","37053","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",6,0.0404
+"Dare","37055","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",5.1,0
+"Davidson","37057","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",8.4,0.4242
+"Davie","37059","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",6.6,0.1313
+"Duplin","37061","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",11,0.7576
+"Durham","37063","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",8.1,0.3636
+"Edgecombe","37065","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",13.2,0.9293
+"Forsyth","37067","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",8.8,0.5051
+"Franklin","37069","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",8.8,0.5051
+"Gaston","37071","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",8.7,0.4848
+"Gates","37073","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",9.4,0.6162
+"Graham","37075","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",7.4,0.2828
+"Granville","37077","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",9.5,0.6667
+"Greene","37079","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",13.3,0.9495
+"Guilford","37081","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",9.3,0.596
+"Halifax","37083","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",14.4,0.9798
+"Harnett","37085","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",9.4,0.6162
+"Haywood","37087","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",6.6,0.1313
+"Henderson","37089","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",6.4,0.1212
+"Hertford","37091","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",13.7,0.9697
+"Hoke","37093","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",11.9,0.8586
+"Hyde","37095","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",11.1,0.798
+"Iredell","37097","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",6.8,0.202
+"Jackson","37099","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",8.7,0.4848
+"Johnston","37101","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",8.3,0.404
+"Jones","37103","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",10.6,0.7374
+"Lee","37105","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",9.7,0.6768
+"Lenoir","37107","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",12.9,0.9091
+"Lincoln","37109","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",6.7,0.1717
+"McDowell","37111","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",8.1,0.3636
+"Macon","37113","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",7.2,0.2323
+"Madison","37115","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",6.6,0.1313
+"Martin","37117","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",11,0.7576
+"Mecklenburg","37119","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",8,0.3333
+"Mitchell","37121","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",6.7,0.1717
+"Montgomery","37123","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",9.7,0.6768
+"Moore","37125","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",6,0.0404
+"Nash","37127","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",10.4,0.7273
+"New Hanover","37129","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",6.9,0.2121
+"Northampton","37131","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",11.8,0.8485
+"Onslow","37133","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",9.3,0.596
+"Orange","37135","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",6.2,0.0707
+"Pamlico","37137","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",7.3,0.2626
+"Pasquotank","37139","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",9.1,0.5859
+"Pender","37141","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",7.2,0.2323
+"Perquimans","37143","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",8,0.3333
+"Person","37145","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",9.4,0.6162
+"Pitt","37147","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",10.3,0.7172
+"Polk","37149","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",6.2,0.0707
+"Randolph","37151","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",8.9,0.5354
+"Richmond","37153","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",12.8,0.8889
+"Robeson","37155","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",17,1
+"Rockingham","37157","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",9.4,0.6162
+"Rowan","37159","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",9,0.5657
+"Rutherford","37161","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",8.9,0.5354
+"Sampson","37163","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",11.4,0.8283
+"Scotland","37165","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",14.9,0.9899
+"Stanly","37167","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",8.4,0.4242
+"Stokes","37169","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",7.4,0.2828
+"Surry","37171","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",8.8,0.5051
+"Swain","37173","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",11.4,0.8283
+"Transylvania","37175","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",5.8,0.0202
+"Tyrrell","37177","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",11.1,0.798
+"Union","37179","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",6.7,0.1717
+"Vance","37181","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",12.6,0.8687
+"Wake","37183","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",6.1,0.0606
+"Warren","37185","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",12.8,0.8889
+"Washington","37187","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",12.9,0.9091
+"Watauga","37189","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",8.5,0.4444
+"Wayne","37191","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",11,0.7576
+"Wilkes","37193","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",8.5,0.4444
+"Wilson","37195","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",12.6,0.8687
+"Yadkin","37197","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",8.2,0.3838
+"Yancey","37199","lacktrpt","Lack of reliable transportation (CDC PLACES, %)",7.3,0.2626
+"Alamance","37001","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Alexander","37003","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Alleghany","37005","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Anson","37007","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Ashe","37009","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Avery","37011","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Beaufort","37013","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Bertie","37015","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Bladen","37017","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Brunswick","37019","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Buncombe","37021","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Burke","37023","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Cabarrus","37025","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Caldwell","37027","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Camden","37029","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Carteret","37031","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Caswell","37033","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Catawba","37035","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Chatham","37037","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Cherokee","37039","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Chowan","37041","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Clay","37043","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Cleveland","37045","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Columbus","37047","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Craven","37049","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Cumberland","37051","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Currituck","37053","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Dare","37055","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Davidson","37057","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Davie","37059","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Duplin","37061","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Durham","37063","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Edgecombe","37065","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Forsyth","37067","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Franklin","37069","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Gaston","37071","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Gates","37073","mh_hpsa_count","Mental health shortage areas (HRSA, count)",0,0
+"Graham","37075","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Granville","37077","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Greene","37079","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Guilford","37081","mh_hpsa_count","Mental health shortage areas (HRSA, count)",2,0.9495
+"Halifax","37083","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Harnett","37085","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Haywood","37087","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Henderson","37089","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Hertford","37091","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Hoke","37093","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Hyde","37095","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Iredell","37097","mh_hpsa_count","Mental health shortage areas (HRSA, count)",2,0.9495
+"Jackson","37099","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Johnston","37101","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Jones","37103","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Lee","37105","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Lenoir","37107","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Lincoln","37109","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"McDowell","37111","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Macon","37113","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Madison","37115","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Martin","37117","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Mecklenburg","37119","mh_hpsa_count","Mental health shortage areas (HRSA, count)",4,0.9899
+"Mitchell","37121","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Montgomery","37123","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Moore","37125","mh_hpsa_count","Mental health shortage areas (HRSA, count)",0,0
+"Nash","37127","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"New Hanover","37129","mh_hpsa_count","Mental health shortage areas (HRSA, count)",2,0.9495
+"Northampton","37131","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Onslow","37133","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Orange","37135","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Pamlico","37137","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Pasquotank","37139","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Pender","37141","mh_hpsa_count","Mental health shortage areas (HRSA, count)",4,0.9899
+"Perquimans","37143","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Person","37145","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Pitt","37147","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Polk","37149","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Randolph","37151","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Richmond","37153","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Robeson","37155","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Rockingham","37157","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Rowan","37159","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Rutherford","37161","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Sampson","37163","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Scotland","37165","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Stanly","37167","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Stokes","37169","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Surry","37171","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Swain","37173","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Transylvania","37175","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Tyrrell","37177","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Union","37179","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Vance","37181","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Wake","37183","mh_hpsa_count","Mental health shortage areas (HRSA, count)",2,0.9495
+"Warren","37185","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Washington","37187","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Watauga","37189","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Wayne","37191","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Wilkes","37193","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Wilson","37195","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Yadkin","37197","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Yancey","37199","mh_hpsa_count","Mental health shortage areas (HRSA, count)",1,0.0202
+"Alamance","37001","mhlth","Adults with frequent mental distress (CDC PLACES, %)",17.2,0.4949
+"Alexander","37003","mhlth","Adults with frequent mental distress (CDC PLACES, %)",17.5,0.6263
+"Alleghany","37005","mhlth","Adults with frequent mental distress (CDC PLACES, %)",16.4,0.303
+"Anson","37007","mhlth","Adults with frequent mental distress (CDC PLACES, %)",18.9,0.9293
+"Ashe","37009","mhlth","Adults with frequent mental distress (CDC PLACES, %)",16.2,0.2424
+"Avery","37011","mhlth","Adults with frequent mental distress (CDC PLACES, %)",16.8,0.3939
+"Beaufort","37013","mhlth","Adults with frequent mental distress (CDC PLACES, %)",16.5,0.3232
+"Bertie","37015","mhlth","Adults with frequent mental distress (CDC PLACES, %)",17.5,0.6263
+"Bladen","37017","mhlth","Adults with frequent mental distress (CDC PLACES, %)",17.4,0.596
+"Brunswick","37019","mhlth","Adults with frequent mental distress (CDC PLACES, %)",14,0.0101
+"Buncombe","37021","mhlth","Adults with frequent mental distress (CDC PLACES, %)",15.3,0.1111
+"Burke","37023","mhlth","Adults with frequent mental distress (CDC PLACES, %)",17.3,0.5455
+"Cabarrus","37025","mhlth","Adults with frequent mental distress (CDC PLACES, %)",16.2,0.2424
+"Caldwell","37027","mhlth","Adults with frequent mental distress (CDC PLACES, %)",17.6,0.697
+"Camden","37029","mhlth","Adults with frequent mental distress (CDC PLACES, %)",16.1,0.2323
+"Carteret","37031","mhlth","Adults with frequent mental distress (CDC PLACES, %)",14.7,0.0505
+"Caswell","37033","mhlth","Adults with frequent mental distress (CDC PLACES, %)",17.2,0.4949
+"Catawba","37035","mhlth","Adults with frequent mental distress (CDC PLACES, %)",16.7,0.3636
+"Chatham","37037","mhlth","Adults with frequent mental distress (CDC PLACES, %)",13.8,0
+"Cherokee","37039","mhlth","Adults with frequent mental distress (CDC PLACES, %)",15.7,0.1414
+"Chowan","37041","mhlth","Adults with frequent mental distress (CDC PLACES, %)",16.7,0.3636
+"Clay","37043","mhlth","Adults with frequent mental distress (CDC PLACES, %)",14.7,0.0505
+"Cleveland","37045","mhlth","Adults with frequent mental distress (CDC PLACES, %)",17.8,0.7576
+"Columbus","37047","mhlth","Adults with frequent mental distress (CDC PLACES, %)",18.3,0.8687
+"Craven","37049","mhlth","Adults with frequent mental distress (CDC PLACES, %)",16.7,0.3636
+"Cumberland","37051","mhlth","Adults with frequent mental distress (CDC PLACES, %)",18.4,0.8889
+"Currituck","37053","mhlth","Adults with frequent mental distress (CDC PLACES, %)",15.8,0.1616
+"Dare","37055","mhlth","Adults with frequent mental distress (CDC PLACES, %)",14.2,0.0202
+"Davidson","37057","mhlth","Adults with frequent mental distress (CDC PLACES, %)",17.5,0.6263
+"Davie","37059","mhlth","Adults with frequent mental distress (CDC PLACES, %)",15.8,0.1616
+"Duplin","37061","mhlth","Adults with frequent mental distress (CDC PLACES, %)",17.3,0.5455
+"Durham","37063","mhlth","Adults with frequent mental distress (CDC PLACES, %)",15.3,0.1111
+"Edgecombe","37065","mhlth","Adults with frequent mental distress (CDC PLACES, %)",18.2,0.8384
+"Forsyth","37067","mhlth","Adults with frequent mental distress (CDC PLACES, %)",16.4,0.303
+"Franklin","37069","mhlth","Adults with frequent mental distress (CDC PLACES, %)",16.8,0.3939
+"Gaston","37071","mhlth","Adults with frequent mental distress (CDC PLACES, %)",17.4,0.596
+"Gates","37073","mhlth","Adults with frequent mental distress (CDC PLACES, %)",17.3,0.5455
+"Graham","37075","mhlth","Adults with frequent mental distress (CDC PLACES, %)",16.8,0.3939
+"Granville","37077","mhlth","Adults with frequent mental distress (CDC PLACES, %)",17,0.4545
+"Greene","37079","mhlth","Adults with frequent mental distress (CDC PLACES, %)",18.7,0.9192
+"Guilford","37081","mhlth","Adults with frequent mental distress (CDC PLACES, %)",16.8,0.3939
+"Halifax","37083","mhlth","Adults with frequent mental distress (CDC PLACES, %)",18.4,0.8889
+"Harnett","37085","mhlth","Adults with frequent mental distress (CDC PLACES, %)",18.1,0.798
+"Haywood","37087","mhlth","Adults with frequent mental distress (CDC PLACES, %)",15.9,0.202
+"Henderson","37089","mhlth","Adults with frequent mental distress (CDC PLACES, %)",14.9,0.0909
+"Hertford","37091","mhlth","Adults with frequent mental distress (CDC PLACES, %)",18.2,0.8384
+"Hoke","37093","mhlth","Adults with frequent mental distress (CDC PLACES, %)",19,0.9495
+"Hyde","37095","mhlth","Adults with frequent mental distress (CDC PLACES, %)",17.2,0.4949
+"Iredell","37097","mhlth","Adults with frequent mental distress (CDC PLACES, %)",15.9,0.202
+"Jackson","37099","mhlth","Adults with frequent mental distress (CDC PLACES, %)",18.3,0.8687
+"Johnston","37101","mhlth","Adults with frequent mental distress (CDC PLACES, %)",16.9,0.4343
+"Jones","37103","mhlth","Adults with frequent mental distress (CDC PLACES, %)",17.6,0.697
+"Lee","37105","mhlth","Adults with frequent mental distress (CDC PLACES, %)",17.5,0.6263
+"Lenoir","37107","mhlth","Adults with frequent mental distress (CDC PLACES, %)",18.5,0.9091
+"Lincoln","37109","mhlth","Adults with frequent mental distress (CDC PLACES, %)",16.2,0.2424
+"McDowell","37111","mhlth","Adults with frequent mental distress (CDC PLACES, %)",17.4,0.596
+"Macon","37113","mhlth","Adults with frequent mental distress (CDC PLACES, %)",15.8,0.1616
+"Madison","37115","mhlth","Adults with frequent mental distress (CDC PLACES, %)",16.3,0.2828
+"Martin","37117","mhlth","Adults with frequent mental distress (CDC PLACES, %)",17.5,0.6263
+"Mecklenburg","37119","mhlth","Adults with frequent mental distress (CDC PLACES, %)",15.7,0.1414
+"Mitchell","37121","mhlth","Adults with frequent mental distress (CDC PLACES, %)",16.2,0.2424
+"Montgomery","37123","mhlth","Adults with frequent mental distress (CDC PLACES, %)",17.1,0.4747
+"Moore","37125","mhlth","Adults with frequent mental distress (CDC PLACES, %)",14.7,0.0505
+"Nash","37127","mhlth","Adults with frequent mental distress (CDC PLACES, %)",17.2,0.4949
+"New Hanover","37129","mhlth","Adults with frequent mental distress (CDC PLACES, %)",16.3,0.2828
+"Northampton","37131","mhlth","Adults with frequent mental distress (CDC PLACES, %)",16.5,0.3232
+"Onslow","37133","mhlth","Adults with frequent mental distress (CDC PLACES, %)",18.9,0.9293
+"Orange","37135","mhlth","Adults with frequent mental distress (CDC PLACES, %)",15.3,0.1111
+"Pamlico","37137","mhlth","Adults with frequent mental distress (CDC PLACES, %)",15,0.101
+"Pasquotank","37139","mhlth","Adults with frequent mental distress (CDC PLACES, %)",17.1,0.4747
+"Pender","37141","mhlth","Adults with frequent mental distress (CDC PLACES, %)",16.5,0.3232
+"Perquimans","37143","mhlth","Adults with frequent mental distress (CDC PLACES, %)",15.9,0.202
+"Person","37145","mhlth","Adults with frequent mental distress (CDC PLACES, %)",17.3,0.5455
+"Pitt","37147","mhlth","Adults with frequent mental distress (CDC PLACES, %)",18.2,0.8384
+"Polk","37149","mhlth","Adults with frequent mental distress (CDC PLACES, %)",14.5,0.0303
+"Randolph","37151","mhlth","Adults with frequent mental distress (CDC PLACES, %)",17.9,0.7778
+"Richmond","37153","mhlth","Adults with frequent mental distress (CDC PLACES, %)",19.1,0.9697
+"Robeson","37155","mhlth","Adults with frequent mental distress (CDC PLACES, %)",20.1,1
+"Rockingham","37157","mhlth","Adults with frequent mental distress (CDC PLACES, %)",17.8,0.7576
+"Rowan","37159","mhlth","Adults with frequent mental distress (CDC PLACES, %)",17.5,0.6263
+"Rutherford","37161","mhlth","Adults with frequent mental distress (CDC PLACES, %)",17.7,0.7273
+"Sampson","37163","mhlth","Adults with frequent mental distress (CDC PLACES, %)",18.1,0.798
+"Scotland","37165","mhlth","Adults with frequent mental distress (CDC PLACES, %)",19.7,0.9899
+"Stanly","37167","mhlth","Adults with frequent mental distress (CDC PLACES, %)",17.6,0.697
+"Stokes","37169","mhlth","Adults with frequent mental distress (CDC PLACES, %)",16.9,0.4343
+"Surry","37171","mhlth","Adults with frequent mental distress (CDC PLACES, %)",17.7,0.7273
+"Swain","37173","mhlth","Adults with frequent mental distress (CDC PLACES, %)",19.2,0.9798
+"Transylvania","37175","mhlth","Adults with frequent mental distress (CDC PLACES, %)",14.5,0.0303
+"Tyrrell","37177","mhlth","Adults with frequent mental distress (CDC PLACES, %)",17,0.4545
+"Union","37179","mhlth","Adults with frequent mental distress (CDC PLACES, %)",15.8,0.1616
+"Vance","37181","mhlth","Adults with frequent mental distress (CDC PLACES, %)",18.1,0.798
+"Wake","37183","mhlth","Adults with frequent mental distress (CDC PLACES, %)",14.7,0.0505
+"Warren","37185","mhlth","Adults with frequent mental distress (CDC PLACES, %)",17.2,0.4949
+"Washington","37187","mhlth","Adults with frequent mental distress (CDC PLACES, %)",17.7,0.7273
+"Watauga","37189","mhlth","Adults with frequent mental distress (CDC PLACES, %)",19,0.9495
+"Wayne","37191","mhlth","Adults with frequent mental distress (CDC PLACES, %)",17.9,0.7778
+"Wilkes","37193","mhlth","Adults with frequent mental distress (CDC PLACES, %)",17.5,0.6263
+"Wilson","37195","mhlth","Adults with frequent mental distress (CDC PLACES, %)",18.1,0.798
+"Yadkin","37197","mhlth","Adults with frequent mental distress (CDC PLACES, %)",17.3,0.5455
+"Yancey","37199","mhlth","Adults with frequent mental distress (CDC PLACES, %)",16.6,0.3535
+"Alamance","37001","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",26.3706,0.3434
+"Alexander","37003","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",33.4224,0.6465
+"Alleghany","37005","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",27.552,0.3939
+"Anson","37007","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",22.4838,0.1717
+"Ashe","37009","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",28.2467,0.4242
+"Avery","37011","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",30.5665,0.5455
+"Beaufort","37013","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",30.8582,0.5556
+"Bertie","37015","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",20.6357,0.1212
+"Bladen","37017","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",35.618,0.6667
+"Brunswick","37019","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",40.0941,0.8182
+"Buncombe","37021","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",36.3717,0.697
+"Burke","37023","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",49.9092,0.9798
+"Cabarrus","37025","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",30.2838,0.5253
+"Caldwell","37027","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",40.1422,0.8283
+"Camden","37029","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",24.2862,0.2424
+"Carteret","37031","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",42.1835,0.9091
+"Caswell","37033","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",24.8756,0.2525
+"Catawba","37035","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",33.9946,0.6566
+"Chatham","37037","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",19.0655,0.0909
+"Cherokee","37039","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",51.8838,1
+"Chowan","37041","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",22.3055,0.1616
+"Clay","37043","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",42.8569,0.9192
+"Cleveland","37045","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",29.1265,0.4646
+"Columbus","37047","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",38.1028,0.7475
+"Craven","37049","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",39.6291,0.7879
+"Cumberland","37051","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",32.7212,0.6263
+"Currituck","37053","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",28.5459,0.4545
+"Dare","37055","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",41.5017,0.8687
+"Davidson","37057","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",41.1274,0.8586
+"Davie","37059","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",32.0384,0.596
+"Duplin","37061","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",17.8538,0.0404
+"Durham","37063","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",20.1722,0.1111
+"Edgecombe","37065","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",28.4269,0.4444
+"Forsyth","37067","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",29.2354,0.4848
+"Franklin","37069","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",25.6443,0.3131
+"Gaston","37071","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",37.7858,0.7374
+"Gates","37073","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",22.5382,0.1919
+"Graham","37075","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",41.7099,0.8788
+"Granville","37077","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",22.2654,0.1515
+"Greene","37079","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",18.5423,0.0808
+"Guilford","37081","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",26.0186,0.3232
+"Halifax","37083","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",26.1638,0.3333
+"Harnett","37085","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",28.0066,0.4141
+"Haywood","37087","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",39.5155,0.7778
+"Henderson","37089","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",31.1284,0.5758
+"Hertford","37091","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",17.8935,0.0505
+"Hoke","37093","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",22.5004,0.1818
+"Hyde","37095","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",31.007,0.5657
+"Iredell","37097","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",27.2222,0.3535
+"Jackson","37099","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",39.1241,0.7677
+"Johnston","37101","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",22.229,0.1414
+"Jones","37103","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",29.8925,0.4949
+"Lee","37105","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",32.5603,0.6162
+"Lenoir","37107","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",23.8583,0.2222
+"Lincoln","37109","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",30.4292,0.5354
+"McDowell","37111","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",36.9483,0.7172
+"Macon","37113","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",36.0949,0.6768
+"Madison","37115","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",27.9471,0.404
+"Martin","37117","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",27.356,0.3838
+"Mecklenburg","37119","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",19.3251,0.101
+"Mitchell","37121","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",43.0256,0.9293
+"Montgomery","37123","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",24.8924,0.2626
+"Moore","37125","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",23.9653,0.2323
+"Nash","37127","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",25.0085,0.2727
+"New Hanover","37129","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",40.1988,0.8384
+"Northampton","37131","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",18.0849,0.0606
+"Onslow","37133","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",25.0529,0.2828
+"Orange","37135","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",17.4499,0.0303
+"Pamlico","37137","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",43.9057,0.9495
+"Pasquotank","37139","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",29.2294,0.4747
+"Pender","37141","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",30.0077,0.5051
+"Perquimans","37143","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",25.3764,0.2929
+"Person","37145","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",27.2734,0.3737
+"Pitt","37147","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",25.6125,0.303
+"Polk","37149","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",31.4967,0.5859
+"Randolph","37151","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",39.83,0.798
+"Richmond","37153","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",41.9789,0.899
+"Robeson","37155","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",36.3625,0.6869
+"Rockingham","37157","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",40.589,0.8485
+"Rowan","37159","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",45.9286,0.9596
+"Rutherford","37161","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",41.9493,0.8889
+"Sampson","37163","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",28.2874,0.4343
+"Scotland","37165","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",30.2096,0.5152
+"Stanly","37167","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",36.7755,0.7071
+"Stokes","37169","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",43.7684,0.9394
+"Surry","37171","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",37.0298,0.7273
+"Swain","37173","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",48.1756,0.9697
+"Transylvania","37175","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",33.072,0.6364
+"Tyrrell","37177","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",27.2728,0.3636
+"Union","37179","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",16.9564,0.0202
+"Vance","37181","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",32.5489,0.6061
+"Wake","37183","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",15.9561,0
+"Warren","37185","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",16.7399,0.0101
+"Washington","37187","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",18.1591,0.0707
+"Watauga","37189","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",20.8523,0.1313
+"Wayne","37191","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",23.3148,0.2121
+"Wilkes","37193","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",51.3669,0.9899
+"Wilson","37195","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",22.5384,0.202
+"Yadkin","37197","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",38.1472,0.7576
+"Yancey","37199","overdose_rate","Drug poisoning deaths per 100,000, 2019-2021 average (NCHS model-based)",39.9998,0.8081
+"Alamance","37001","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Alexander","37003","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Alleghany","37005","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Anson","37007","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Ashe","37009","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Avery","37011","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Beaufort","37013","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Bertie","37015","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Bladen","37017","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Brunswick","37019","pc_hpsa_count","Primary care shortage designations (HRSA, count)",3,0.9798
+"Buncombe","37021","pc_hpsa_count","Primary care shortage designations (HRSA, count)",2,0.9192
+"Burke","37023","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Cabarrus","37025","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Caldwell","37027","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Camden","37029","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Carteret","37031","pc_hpsa_count","Primary care shortage designations (HRSA, count)",2,0.9192
+"Caswell","37033","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Catawba","37035","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Chatham","37037","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Cherokee","37039","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Chowan","37041","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Clay","37043","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Cleveland","37045","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Columbus","37047","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Craven","37049","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Cumberland","37051","pc_hpsa_count","Primary care shortage designations (HRSA, count)",4,0.9899
+"Currituck","37053","pc_hpsa_count","Primary care shortage designations (HRSA, count)",0,0
+"Dare","37055","pc_hpsa_count","Primary care shortage designations (HRSA, count)",0,0
+"Davidson","37057","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Davie","37059","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Duplin","37061","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Durham","37063","pc_hpsa_count","Primary care shortage designations (HRSA, count)",0,0
+"Edgecombe","37065","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Forsyth","37067","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Franklin","37069","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Gaston","37071","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Gates","37073","pc_hpsa_count","Primary care shortage designations (HRSA, count)",0,0
+"Graham","37075","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Granville","37077","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Greene","37079","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Guilford","37081","pc_hpsa_count","Primary care shortage designations (HRSA, count)",2,0.9192
+"Halifax","37083","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Harnett","37085","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Haywood","37087","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Henderson","37089","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Hertford","37091","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Hoke","37093","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Hyde","37095","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Iredell","37097","pc_hpsa_count","Primary care shortage designations (HRSA, count)",2,0.9192
+"Jackson","37099","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Johnston","37101","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Jones","37103","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Lee","37105","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Lenoir","37107","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Lincoln","37109","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"McDowell","37111","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Macon","37113","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Madison","37115","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Martin","37117","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Mecklenburg","37119","pc_hpsa_count","Primary care shortage designations (HRSA, count)",4,0.9899
+"Mitchell","37121","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Montgomery","37123","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Moore","37125","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Nash","37127","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"New Hanover","37129","pc_hpsa_count","Primary care shortage designations (HRSA, count)",2,0.9192
+"Northampton","37131","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Onslow","37133","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Orange","37135","pc_hpsa_count","Primary care shortage designations (HRSA, count)",0,0
+"Pamlico","37137","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Pasquotank","37139","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Pender","37141","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Perquimans","37143","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Person","37145","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Pitt","37147","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Polk","37149","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Randolph","37151","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Richmond","37153","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Robeson","37155","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Rockingham","37157","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Rowan","37159","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Rutherford","37161","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Sampson","37163","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Scotland","37165","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Stanly","37167","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Stokes","37169","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Surry","37171","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Swain","37173","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Transylvania","37175","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Tyrrell","37177","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Union","37179","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Vance","37181","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Wake","37183","pc_hpsa_count","Primary care shortage designations (HRSA, count)",2,0.9192
+"Warren","37185","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Washington","37187","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Watauga","37189","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Wayne","37191","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Wilkes","37193","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Wilson","37195","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Yadkin","37197","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Yancey","37199","pc_hpsa_count","Primary care shortage designations (HRSA, count)",1,0.0505
+"Alamance","37001","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0694,0.3535
+"Alexander","37003","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0712,0.4343
+"Alleghany","37005","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0823,0.6566
+"Anson","37007","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0791,0.6162
+"Ashe","37009","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.065,0.202
+"Avery","37011","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0719,0.4747
+"Beaufort","37013","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0916,0.7677
+"Bertie","37015","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0745,0.5051
+"Bladen","37017","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0928,0.7778
+"Brunswick","37019","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.1121,0.8485
+"Buncombe","37021","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0673,0.2727
+"Burke","37023","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0639,0.1717
+"Cabarrus","37025","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.066,0.2323
+"Caldwell","37027","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0706,0.4141
+"Camden","37029","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.1564,0.9596
+"Carteret","37031","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.1198,0.9091
+"Caswell","37033","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0684,0.303
+"Catawba","37035","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0644,0.1818
+"Chatham","37037","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0698,0.3737
+"Cherokee","37039","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.1125,0.8586
+"Chowan","37041","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0962,0.7879
+"Clay","37043","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0899,0.7576
+"Cleveland","37045","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0736,0.4848
+"Columbus","37047","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0668,0.2525
+"Craven","37049","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.1482,0.9495
+"Cumberland","37051","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.1808,0.9899
+"Currituck","37053","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.1623,0.9697
+"Dare","37055","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0893,0.7374
+"Davidson","37057","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0739,0.4949
+"Davie","37059","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0862,0.697
+"Duplin","37061","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0768,0.5758
+"Durham","37063","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0531,0.0404
+"Edgecombe","37065","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0752,0.5253
+"Forsyth","37067","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0623,0.1111
+"Franklin","37069","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0796,0.6263
+"Gaston","37071","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0714,0.4444
+"Gates","37073","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.115,0.8788
+"Graham","37075","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0785,0.596
+"Granville","37077","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.07,0.3939
+"Greene","37079","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.051,0.0202
+"Guilford","37081","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0603,0.0909
+"Halifax","37083","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0611,0.101
+"Harnett","37085","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.1126,0.8687
+"Haywood","37087","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0966,0.798
+"Henderson","37089","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0821,0.6465
+"Hertford","37091","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0839,0.6768
+"Hoke","37093","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.1735,0.9798
+"Hyde","37095","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0632,0.1313
+"Iredell","37097","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0653,0.2121
+"Jackson","37099","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0851,0.6869
+"Johnston","37101","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0824,0.6667
+"Jones","37103","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.1209,0.9192
+"Lee","37105","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0703,0.404
+"Lenoir","37107","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0878,0.7071
+"Lincoln","37109","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0754,0.5455
+"McDowell","37111","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0775,0.5859
+"Macon","37113","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0975,0.8182
+"Madison","37115","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0754,0.5354
+"Martin","37117","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0697,0.3636
+"Mecklenburg","37119","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0527,0.0303
+"Mitchell","37121","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0788,0.6061
+"Montgomery","37123","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0626,0.1212
+"Moore","37125","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.1232,0.9394
+"Nash","37127","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0749,0.5152
+"New Hanover","37129","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0692,0.3434
+"Northampton","37131","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0676,0.2828
+"Onslow","37133","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.2183,1
+"Orange","37135","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0486,0.0101
+"Pamlico","37137","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.1225,0.9293
+"Pasquotank","37139","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.1154,0.8889
+"Pender","37141","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0968,0.8081
+"Perquimans","37143","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.1112,0.8283
+"Person","37145","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0699,0.3838
+"Pitt","37147","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0712,0.4242
+"Polk","37149","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.088,0.7172
+"Randolph","37151","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.067,0.2626
+"Richmond","37153","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0593,0.0707
+"Robeson","37155","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0654,0.2222
+"Rockingham","37157","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0715,0.4646
+"Rowan","37159","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0763,0.5556
+"Rutherford","37161","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0797,0.6364
+"Sampson","37163","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0715,0.4545
+"Scotland","37165","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.066,0.2424
+"Stanly","37167","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0677,0.2929
+"Stokes","37169","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0768,0.5657
+"Surry","37171","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0645,0.1919
+"Swain","37173","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0572,0.0606
+"Transylvania","37175","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.1116,0.8384
+"Tyrrell","37177","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0597,0.0808
+"Union","37179","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0638,0.1616
+"Vance","37181","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0687,0.3232
+"Wake","37183","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.057,0.0505
+"Warren","37185","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0889,0.7273
+"Washington","37187","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0893,0.7475
+"Watauga","37189","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.045,0
+"Wayne","37191","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.1197,0.899
+"Wilkes","37193","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0635,0.1515
+"Wilson","37195","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0633,0.1414
+"Yadkin","37197","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0685,0.3131
+"Yancey","37199","veteran_share","Veterans, share of civilian adults 18+ (ACS 2023)",0.0688,0.3333

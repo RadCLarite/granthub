@@ -1,0 +1,40 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "The program office will review all proposed projects to determine whether the application is an eligible activity under the NOFO and can proceed to merit review evaluation.",
+    "program_domain": "none",
+    "owning_division": "none",
+    "required_capabilities": [
+      "research_and_rigorous_evaluation",
+      "laboratory_services"
+    ],
+    "requires_subrecipient_network": false,
+    "evaluation_required": false,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "Non-Federal cost share is not required but is strongly encouraged.",
+    "target_population": "system_level",
+    "alignment_dhhs": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity focuses on water purification research and does not directly relate to any of the health and social service objectives in the NC DHHS Strategic Plan."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity focuses on water purification research and does not directly relate to any of the veteran services objectives in the NC DMVA Strategic Plan."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v2",
+    "created": "2026-09-29T09:53:34-0400",
+    "prompt_tokens": 3796,
+    "output_tokens": 317,
+    "seconds": 36.9
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "state_governments, nonprofits_non_higher_education_without_501c3, county_governments, federally_recognized_native_american_tribal_governments, independent_school_districts, public_and_state_institutions_of_higher_education, city_or_township_governments, private_institutions_of_higher_education, unrestricted, special_district_governments, nonprofits_non_higher_education_with_501c3",
+    "program_domain": "none",
+    "owning_division": "none",
+    "required_capabilities": [
+      "public_health_surveillance"
+    ],
+    "requires_subrecipient_network": false,
+    "evaluation_required": false,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "none",
+    "target_population": "system_level",
+    "alignment_dhhs": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The program focuses on public health surveillance for prion diseases, which does not align with any specific DHHS strategic plan objectives."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The program focuses on public health surveillance for prion diseases, which does not align with any specific DMVA strategic plan objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v3.1",
+    "created": "2026-09-29T15:40:51-0400",
+    "prompt_tokens": 3289,
+    "output_tokens": 348,
+    "seconds": 24.6
+  }
+}

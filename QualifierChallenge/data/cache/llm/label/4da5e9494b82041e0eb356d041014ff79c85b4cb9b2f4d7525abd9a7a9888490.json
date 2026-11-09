@@ -1,0 +1,39 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "state_governments, public_and_state_institutions_of_higher_education, nonprofits_non_higher_education_with_501c3, other_native_american_tribal_organizations, nonprofits_non_higher_education_without_501c3, federally_recognized_native_american_tribal_governments, county_governments, for_profit_organizations_other_than_small_businesses, special_district_governments, public_and_indian_housing_authorities, city_or_township_governments, independent_school_districts, private_institutions_of_higher_education, small_businesses",
+    "program_domain": "D03",
+    "owning_division": "DHHS: Health Service Regulation",
+    "required_capabilities": [
+      "research_and_rigorous_evaluation"
+    ],
+    "requires_subrecipient_network": false,
+    "evaluation_required": true,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "",
+    "target_population": "people_with_sud",
+    "alignment_dhhs": {
+      "level": "partial",
+      "plan_row": "G3.O4",
+      "rationale": "The program aims to evaluate rural behavioral health strategies, aligning with the objective to turn the tide on North Carolina's opioid and substance use crisis."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The program does not align with DMVA's strategic plan objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v3.1",
+    "created": "2026-09-29T15:54:34-0400",
+    "prompt_tokens": 3130,
+    "output_tokens": 383,
+    "seconds": 41.7
+  }
+}

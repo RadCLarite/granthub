@@ -1,0 +1,43 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "state_governments, small_businesses, nonprofits_non_higher_education_with_501c3, nonprofits_non_higher_education_without_501c3, public_and_indian_housing_authorities, county_governments, federally_recognized_native_american_tribal_governments, other_native_american_tribal_organizations",
+    "program_domain": "D03",
+    "owning_division": "DHHS: Health Service Regulation",
+    "required_capabilities": [
+      "clinical_service_delivery",
+      "behavioral_health_delivery",
+      "public_health_surveillance",
+      "data_systems_interoperability",
+      "research_and_rigorous_evaluation"
+    ],
+    "requires_subrecipient_network": true,
+    "evaluation_required": true,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "none",
+    "target_population": "adults_mental_distress",
+    "alignment_dhhs": {
+      "level": "partial",
+      "plan_row": "G1.O3",
+      "rationale": "The opportunity aims to improve access to HIV care and broader women's health services, which aligns with the objective to mitigate barriers to health services."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity does not align with DMVA's strategic plan objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v3.1",
+    "created": "2026-09-29T15:56:46-0400",
+    "prompt_tokens": 3465,
+    "output_tokens": 358,
+    "seconds": 45.5
+  }
+}

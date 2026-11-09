@@ -1,0 +1,40 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "Any public or private nonprofit entity is eligible to apply.",
+    "program_domain": "D03",
+    "owning_division": "DHHS: Health Service Regulation",
+    "required_capabilities": [
+      "clinical_service_delivery",
+      "subrecipient_network_management"
+    ],
+    "requires_subrecipient_network": true,
+    "evaluation_required": true,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": true,
+    "match_pct_stated": 0,
+    "match_evidence": "While there is not a fixed cost-sharing percentage or amount, projects must include financial support from sources other than Title X.",
+    "target_population": "uninsured",
+    "alignment_dhhs": {
+      "level": "strong",
+      "plan_row": "G1.O4",
+      "rationale": "The opportunity supports local capacity to overcome persistent health inequities by providing Title X services to uninsured individuals."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity does not directly align with any DMVA strategic plan objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v2",
+    "created": "2026-09-29T09:05:18-0400",
+    "prompt_tokens": 4417,
+    "output_tokens": 291,
+    "seconds": 33.8
+  }
+}

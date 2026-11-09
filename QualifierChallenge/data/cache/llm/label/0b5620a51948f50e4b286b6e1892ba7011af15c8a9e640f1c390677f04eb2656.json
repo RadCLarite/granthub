@@ -1,0 +1,37 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "The Competitive State Wildlife Grant (C-SWG) Program provides Federal cost-sharing awards that help the State, Territory, and District of Columbia fish and wildlife agencies and their regional associations design and implement proactive conservation programs benefiting wildlife and their habitats.",
+    "program_domain": "none",
+    "owning_division": "Other state agency",
+    "required_capabilities": [],
+    "requires_subrecipient_network": false,
+    "evaluation_required": false,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": true,
+    "match_pct_stated": 25,
+    "match_evidence": "The Federal share may not exceed 75 percent of the total project cost. The total project cost includes the requested Federal funds plus the required 25 percent non-federal cost share and any additional voluntary matching funds or other resources identified in the application.",
+    "target_population": "system_level",
+    "alignment_dhhs": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The grant focuses on wildlife conservation and does not directly relate to any of the health and human services objectives outlined in the NC DHHS Strategic Plan."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The grant focuses on wildlife conservation and does not directly relate to any of the veteran services objectives outlined in the NC DMVA Strategic Plan."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v2",
+    "created": "2026-09-29T09:42:05-0400",
+    "prompt_tokens": 3608,
+    "output_tokens": 357,
+    "seconds": 35.9
+  }
+}

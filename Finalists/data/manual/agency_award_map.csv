@@ -1,0 +1,36 @@
+recipient,agency_id,certainty,note
+NORTH CAROLINA DEPARTMENT OF PUBLIC INSTRUCTION,dpi,confirmed,Exact state agency name for DPI. Plan name is Department of Public Schools; USAspending name is Department of Public Instruction. Same agency.
+"PUBLIC INSTRUCTION, NORTH CAROLINA DEPARTMENT OF",dpi,confirmed,Same agency as line above; inverted name order. CFDA subset of line above (84.027 and 84.173 overlap).
+NORTH CAROLINA DEPARTMENT OF ENVIRONMENTAL QUALITY,deq,confirmed,Exact state agency name for DEQ. Only DEQ recipient in nc_awards_by_cfda.csv.
+NORTH CAROLINA DEPARTMENT OF HEALTH & HUMAN SERVICES,dhhs,confirmed,Exact state agency name for DHHS.
+"HEALTH & HUMAN SERVICES, NORTH CAROLINA DEPARTMENT OF",dhhs,confirmed,Same agency; inverted name order. CFDA already in line above.
+DEPARTMENT OF HEALTH & HUMAN SERVICES NORTH CAROLINA,dhhs,confirmed,Same agency; word order variant. CFDA already in line above.
+DHHS STATE PUBLIC HEALTH LAB,,uncertain,Unclassified in nc_awards_recipients.csv (2 awards); absent from nc_awards_by_cfda.csv. Possible DHHS division [uncertain]. Excluded from won set until verified. Not used in score.
+DURHAM PUBLIC SCHOOLS,,excluded,Local school district (local_or_other); not DPI state agency. Listed as near miss so DPI is not over counted.
+DEPARTMENT OF COMMERCE NORTH CAROLINA,commerce,confirmed,"Exact state agency name; recipient_class state_agency in nc_awards_recipients.csv. Claude assigned from the name, Kent to confirm."
+NORTH CAROLINA DEPARTMENT OF COMMERCE,commerce,confirmed,Same agency; word order variant.
+TRANSPORTATION NORTH CAROLINA DEPARTMENT,ncdot,confirmed,Exact state agency name; word order variant.
+NORTH CAROLINA DEPARTMENT OF TRANSPORTATION,ncdot,confirmed,Exact state agency name.
+NC DEPARTMENT TRANSPORTATION,ncdot,confirmed,Same agency; abbreviated variant.
+"TRANSPORTATION, NORTH CAROLINA DEPARTMENT OF",ncdot,confirmed,"Same agency; inverted order, $0 obligated."
+NORTH CAROLINA DEPARTMENT OF PUBLIC SAFETY,dps,confirmed,Exact state agency name.
+NORTH CAROLINA WILDLIFE RESOURCES COMMISSION,wrc,confirmed,Exact state agency name.
+NORTH CAROLINA DEPARTMENT OF NATURAL AND CULTURAL RESOURCES,dncr,confirmed,Exact state agency name.
+STATE OF NORTH CAROLINA DEPARTMENT OF CULTURAL RESOURCES,dncr,confirmed,"Earlier name of the same department (Cultural Resources became Natural and Cultural Resources) [uncertain on naming history, Kent to confirm]."
+"CULTURAL RESOURCES, NORTH CAROLINA DEPARTMENT OF",dncr,confirmed,"Earlier name of the same department; inverted order [uncertain on naming history, Kent to confirm]."
+NORTH CAROLINA DEPARTMENT OF AGRICULTURE & CONSUMER SERVICES,dacs,confirmed,Exact state agency name.
+STATE OF NORTH CAROLINA DEPT OF JUSTICE,doj,confirmed,Exact state agency name.
+NORTH CAROLINA COMMUNITY COLLEGE SYSTEM OFFICE,ncccs,confirmed,Exact state agency name.
+NC DEPARTMENT OF ADMINISTRATION,doa,confirmed,Exact state agency name.
+DEPARTMENT OF ADMINISTRATION NORTH CAROLINA,doa,confirmed,Same agency; word order variant.
+NORTH CAROLINA DEPARTMENT OF LABOR,dol,confirmed,Exact state agency name.
+NORTH CAROLINA STATE HIGHWAY PATROL,shp,confirmed,Exact state agency name.
+NORTH CAROLINA DEPARTMENT OF INSURANCE,doi,confirmed,Exact state agency name.
+NORTH CAROLINA STATE BUREAU OF INVESTIGATION,sbi,confirmed,Exact state agency name.
+NORTH CAROLINA SECRETARY OF STATE,sos,confirmed,Exact state agency name.
+NORTH CAROLINA STATE BOARD OF ELECTIONS,ncsbe,confirmed,Exact state agency name.
+DEPARTMENT OF INFORMATION TECHNOLOGY,,uncertain,State agency class but the name has no NC marker. Excluded from won set until verified.
+DEPARTMENT OF ADULT CORRECTION,dac,confirmed,Separate NC cabinet department since 2023-01-01 (S.L. 2021-180); has its own plan (dac). Name is NC-specific [unverified]. Promoted per Kent Sat Nov 7; see drafts/everett/award_map_open_checks.md.
+"VETERANS AFFAIRS, NORTH CAROLINA DIVISION OF",,uncertain,Division of Veterans Affairs; whether it belongs to the DMVA plan is not checked. Excluded.
+DIVISION OF EMPLOYMENT SECURITY,commerce,confirmed,Division inside Commerce (N.C.G.S. 96-3); counted as Commerce awards. Promoted per Kent Sat Nov 7.
+"MOTOR VEHICLES, NORTH CAROLINA DIVISION OF",ncdot,confirmed,Division inside NCDOT; counted as NCDOT awards. Promoted per Kent Sat Nov 7; official-page check pending.

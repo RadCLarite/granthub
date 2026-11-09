@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 560" role="img" aria-labelledby="t d">
+  <title id="t">How the Matchmaker works: read, score, show</title>
+  <desc id="d">Three steps. 1 Read each agency plan and each grant notice. 2 Score the match, drop what the agency cannot apply for, and lower grants that name another state. 3 Show the plan goal that matched, with its exact text.</desc>
+  <rect width="1600" height="560" fill="#FFFFFF"/>
+  <defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="30" markerHeight="30" refX="24" refY="15" orient="auto"><path d="M0,0 L30,15 L0,30 z" fill="#1F3A5F"/></marker></defs>
+  <g font-family="Helvetica, Arial, sans-serif" fill="#1F3A5F">
+    <g>
+      <rect x="40" y="80" width="440" height="400" rx="18" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="5"/>
+      <circle cx="110" cy="150" r="38" fill="#1F3A5F"/><text x="110" y="166" font-size="46" font-weight="700" fill="#FFFFFF" text-anchor="middle">1</text>
+      <text x="170" y="164" font-size="52" font-weight="700">Read</text>
+      <text x="70" y="250" font-size="34" fill="#222">Each agency's plan</text>
+      <text x="70" y="300" font-size="34" fill="#222">and each grant notice</text>
+      <text x="70" y="380" font-size="28" fill="#555">An AI model only reads</text>
+      <text x="70" y="418" font-size="28" fill="#555">and labels text.</text>
+    </g>
+    <line x1="490" y1="280" x2="560" y2="280" stroke="#1F3A5F" stroke-width="6" marker-end="url(#a)"/>
+    <g>
+      <rect x="580" y="80" width="440" height="400" rx="18" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="5"/>
+      <circle cx="650" cy="150" r="38" fill="#1F3A5F"/><text x="650" y="166" font-size="46" font-weight="700" fill="#FFFFFF" text-anchor="middle">2</text>
+      <text x="710" y="164" font-size="52" font-weight="700">Score</text>
+      <text x="610" y="245" font-size="34" fill="#222">How well words match</text>
+      <text x="610" y="305" font-size="34" fill="#222">Drop what the agency</text>
+      <text x="610" y="347" font-size="34" fill="#222">cannot apply for</text>
+      <text x="610" y="410" font-size="34" fill="#222">Lower grants naming</text>
+      <text x="610" y="452" font-size="34" fill="#222">another state</text>
+    </g>
+    <line x1="1030" y1="280" x2="1100" y2="280" stroke="#1F3A5F" stroke-width="6" marker-end="url(#a)"/>
+    <g>
+      <rect x="1120" y="80" width="440" height="400" rx="18" fill="#FFFFFF" stroke="#C8791B" stroke-width="5"/>
+      <circle cx="1190" cy="150" r="38" fill="#C8791B"/><text x="1190" y="166" font-size="46" font-weight="700" fill="#FFFFFF" text-anchor="middle">3</text>
+      <text x="1250" y="164" font-size="52" font-weight="700">Show</text>
+      <text x="1150" y="250" font-size="34" fill="#222">The plan goal that</text>
+      <text x="1150" y="300" font-size="34" fill="#222">matched, with its</text>
+      <text x="1150" y="350" font-size="34" fill="#222">exact text</text>
+      <text x="1150" y="430" font-size="28" fill="#555">A person decides.</text>
+    </g>
+  </g>
+</svg>

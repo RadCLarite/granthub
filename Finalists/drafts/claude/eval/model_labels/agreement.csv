@@ -1,0 +1,5 @@
+agency,n,hand_relevant,hand_rel_or_maybe,recall_relevant_by_model_relevant,recall_relevant_by_model_rel_or_maybe,kappa_binary,exact_agreement_3way
+Department of Environmental Quality,20,0,3,,,0,0.85
+Department of Health and Human Services,20,2,5,1,1,0.466666666666667,0.8
+Department of Public Schools,20,1,4,1,1,0.571428571428571,0.85
+ALL,60,3,12,1,1,0.444444444444444,0.833333333333333

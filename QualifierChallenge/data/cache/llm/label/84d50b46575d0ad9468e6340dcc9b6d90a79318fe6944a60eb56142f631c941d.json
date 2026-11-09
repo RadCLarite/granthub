@@ -1,0 +1,41 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "This opportunity supports state, local, and tribal governments to implement comprehensive and collaborative reentry strategies",
+    "program_domain": "D08",
+    "owning_division": "DHHS: Mental Health, Developmental Disabilities and Substance Use Services",
+    "required_capabilities": [
+      "behavioral_health_delivery",
+      "research_and_rigorous_evaluation",
+      "subrecipient_network_management"
+    ],
+    "requires_subrecipient_network": true,
+    "evaluation_required": true,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "none",
+    "target_population": "people_with_sud",
+    "alignment_dhhs": {
+      "level": "partial",
+      "plan_row": "G3.O4",
+      "rationale": "The opportunity aims to reduce recidivism by addressing substance use disorders, which aligns with the objective to turn the tide on North Carolina's opioid and substance use crisis."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity does not directly align with any DMVA strategic plan objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v2",
+    "created": "2026-09-29T09:47:17-0400",
+    "prompt_tokens": 2589,
+    "output_tokens": 300,
+    "seconds": 29.6
+  }
+}

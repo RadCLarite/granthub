@@ -1,0 +1,40 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "The COPS Office seeks to promote safe outcomes during police encounters through relevant training through this NOFO in the following three funding categories:",
+    "program_domain": "D01",
+    "owning_division": "DHHS: Mental Health, Developmental Disabilities and Substance Use Services",
+    "required_capabilities": [
+      "behavioral_health_delivery",
+      "workforce_training_credentialing"
+    ],
+    "requires_subrecipient_network": false,
+    "evaluation_required": false,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "none",
+    "target_population": "adults_mental_distress",
+    "alignment_dhhs": {
+      "level": "strong",
+      "plan_row": "G3.O2",
+      "rationale": "The opportunity supports expanding access to behavioral health supports for people involved in the justice system, which aligns with the strategic plan objective."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity does not directly align with any DMVA strategic plan objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v2",
+    "created": "2026-09-29T09:18:11-0400",
+    "prompt_tokens": 3384,
+    "output_tokens": 298,
+    "seconds": 29
+  }
+}

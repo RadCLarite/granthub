@@ -1,0 +1,501 @@
+=== PAGE 1 ===
+Office of The State Controller
+         Strategic Plan
+          2025 – 2029
+
+=== PAGE 2 ===
+This page intentionally left blank
+
+=== PAGE 3 ===
+Contents
+
+1.      Strategic Plan Executive Summary ............................................................................................................................. 2
+2.      Mission, Vision, and Values ........................................................................................................................................ 4
+3.      Goals, Objectives, and Performance Measures .......................................................................................................... 5
+     Goal 1.............................................................................................................................................................................. 5
+     Goal 2.............................................................................................................................................................................. 7
+     Goal 3............................................................................................................................................................................ 10
+     Goal 4............................................................................................................................................................................ 11
+     Goal 5............................................................................................................................................................................ 13
+4.      Highlights, Collaborative Opportunities, and Priority Questions ............................................................................. 15
+5.      Appendix 1 – The OSC Customer Service Code of Conduct ...................................................................................... 16
+
+=== PAGE 4 ===
+      1. Strategic Plan Executive Summary
+
+       The State Controller is responsible for overseeing State accounting, disbursing, payroll, internal control,
+       and financial reporting systems. He leads an independent office, with statewide scope and
+       responsibilities, which provides essential financial management services to all state agencies and
+       institutions. Our work must comply with state and federal laws, rules, and generally accepted
+       accounting principles.
+       Office of the State Controller (OSC) staff and core systems include:
+              •   Statewide Accounting ensures use of GAAP (Generally accepted accounting principles) and
+                  compliance with GASB (Governmental Accounting Standards Board). This team compiles and
+                  issues annual financial statement called the Annual Comprehensive Financial Report (ACFR),
+                  maintains a system of appropriations, allotments, expenditures, and revenues for use by state
+                  agencies and manages cash flow as well as reporting on the financial position for the State.
+              •   North Carolina Financial System (NCFS) – This team maintains the central state accounting
+                  system used by all state agencies and pays approximately 85,000 business partners and
+                  suppliers
+              •   Integrated HR-Payroll System – This team pays over 86,000 state employees while managing
+                  tax withholding, benefit payments and other payroll related employee services.
+              •   Audit, Risk, and Compliance Services (ARCS) This team oversees statewide training and
+                  assessments to improve internal business controls which eliminate or minimize fraud, waste
+                  and abuse. This team supports and improves compliance with financial management laws and
+                  regulations and recovers funds which benefit taxpayers.
+       All OSC initiatives provide statewide business solutions that promote operational efficiency, pair
+       business and IT using innovative technology, invest in security and minimize risk as well as enhance
+       service reliability and delivery.
+       Our overall strategic success is achieved through a professional atmosphere and through the
+       recruitment, retention and promotion of expert staff who utilize secure and robust information
+       systems.
+       Future planned initiatives to further the strategic mission of OSC includes, yet is not limited to:
+
+              x   Implementation of Oracle Analytics Cloud (OAC) for enhanced financial reporting
+              x   Expanding governmental accounting training to financial professionals in State Government
+              x   Future SAP HR-Payroll updates, enhancements, operational environment
+       OSC’s primary mission and vision are outlined in Section 2 of this document. The goals and objectives
+       of the agency are in Section 3. All OSC-managed enterprise systems and planned initiatives support
+       agencies statewide to become more effective and accountable. These goals also help sustain
+       government entities supporting accounting and cash business operations, payroll and benefits, internal
+       controls, tax compliance, and e-commerce operations.
+
+R 9/30/2025
+                                                                                         Office of the State Controller
+                                                                                                            2|Page
+
+=== PAGE 5 ===
+Office of The State Controller
+                   3|Page
+
+=== PAGE 6 ===
+2. Mission, Vision, and Values
+
+
+Agency Mission Statement
+OSC’s mission is to protect the financial integrity of the State and promote accountability in an
+objective and efficient manner.
+
+
+
+
+Agency Vision Statement
+The Vision of the Office of the State Controller is continual commitment to the best possible customer
+service.
+The continual commitment is maintained by:
+   x   Delivering cost-effective financial management, payroll and reporting services that are
+       efficient, accurate and promote collaboration
+   x   Processing financial transactions in an accurate, timely, and professional manner
+   x   Build, maintain, and continually improve our core statewide accounting and payroll systems.
+
+
+
+
+Agency Values
+OSC’s commitment to great customer service is reflected in its five core values:
+   •   Service (Customer Service Focus)
+   •   Education (Proactively develop and inform OSC staff and customers)
+   •   Results
+   •   Value (Deliver meaningful value)
+   •   Efficiency
+This spirit of service is further defined in Appendix 1 - The OSC Customer Service Code of Conduct which
+supports our Mission and Vision.
+
+
+
+
+                                                                                Office of The State Controller
+                                                                                                   4|Page
+
+=== PAGE 7 ===
+3. Goals, Objectives, and Performance Measures
+
+Goal 1
+
+Recruit and retain the highest quality employees each and every day.
+Objective 1.1 - Compensation                        Performance Measure or Milestone 1.1
+By October 1, 2025, develop a standardized report      x   Conduct Employee Salary Qualification metrics on
+for the Executive Team that outlines OSC’s                 recent hires/promotions
+compensation practices. This report will be            x   Comparison of current roles vs. other agencies vs.
+updated and shared bi-annually.                            market levels.
+                                                       x   Sign on/Retention bonus
+                                                       x   How often does a person qualify for more money
+                                                           than the budget allows?
+                                                       x   How far apart on average is the qualification salary
+                                                           than the budget? By section (IT, SWA, etc.)
+                                                       x   Salary adjustment impact
+                                                       x   What sections were not impacted during this
+                                                           reporting period?
+
+Objective 1.2 - Training                            Performance Measure or Milestone 1.2
+By October 1, 2025, develop standardized reports       x   Measure effectiveness of onboarding process in
+to measure the impact of internal agency training          each area
+and the connection to retention and recruitment.       x   Internal and External Training
+These reports, once developed, will be updated         x   Measure speed of job-related software training
+and shared quarterly.                                  x   Report on cross training in each section for growth
+                                                           and contingency
+                                                       x   Annual report on SOP documentation by each
+                                                           section
+
+
+Objective 1.3 - Hiring Process                      Performance Measure or Milestone 1.3
+Report on hiring process metrics quarterly to          x   Measure time to hire from selection
+ensure the process is streamlined and is easy and      x   Background Checks/Reference checks
+efficient.                                                 speed/efficiency
+                                                       x   Train managers in hiring process
+                                                       x   Impact of Senate Bill 124 – SL 2025-34 (2025-2026
+                                                           Session - State Hiring Accessibility and
+                                                           Modernization)
+
+
+
+                                                                                   Office of The State Controller
+                                                                                                      5|Page
+
+=== PAGE 8 ===
+Objective 1.4 – Work Environment                   Performance Measure or Milestone 1.4
+ Report quarterly on the quality of our work          x   Report any equipment upgrades and status of
+ environment and retention efforts                        effort. (Computers, work equipment, etc.)
+                                                      x   Report on employee rewards and recognition
+                                                          within sections so all sections are aware.
+                                                      x   Conduct SHORT quarterly engagement surveys and
+                                                          determine trends
+                                                              o Measure impact of remote working
+                                                                   environment
+                                                              o Work/life (Flex schedules, etc.)
+                                                              o Interaction with supervision
+                                                      x   Augment training of supervisors on leadership and
+                                                          impact (micro learning?)
+Objective 1.5 – Exit Interviews                    Performance Measure or Milestone 1.5
+ Report quarterly on examination of exit              x   Turnover rate metrics
+ interviews.                                          x   Trends in reasons employees separate
+                                                          (Quarterly/Annually)
+                                                      x   Creation of plans to correct issues
+
+Objective 1.6 - CPE Training                       Performance Measure or Milestone 1.6
+Provide professional development for internal      Prepare a curriculum annually to provide 40 hours of CPE
+and external staff.                                for OSC staff to promote professional development.
+
+
+Objective 1.7 – Minimize Vacancies and             Performance Measure or Milestone 1.7
+Turnover                                              x   Ensure ALL vacancies are filled within 90 days of
+Minimize vacancies and turnover to less than 10%          vacancy
+                                                      x   Summarize all metrics in Goal 1
+                                                      x   Implement meaningful, routine employee surveys
+                                                          to capture spirit and needs of the agency.
+                                                      x   Use those results to continuously adjust other
+                                                          objectives and strategies to achieve the stated
+                                                          objective.
+
+
+
+
+                                                                                  Office of The State Controller
+                                                                                                     6|Page
+
+=== PAGE 9 ===
+Goal 2
+
+Continuously improve enterprise systems to better serve customers and stakeholders
+
+Objective 2.1                                         Performance Measure or Milestone 2.1
+By 12/31/2030, extend vendor support of the              x   By 12/31/2025, create a 5-year strategic
+Integrated HR-Payroll System and BI reporting                roadmap for the comprehensive HR-
+solution through 2040. Modernize/Upgrade the                 Payroll system, including phases, if
+system software to maintain security, availability,          applicable, and estimated costs
+reliability, and integrity                               x    By 12/31/2030, complete technical
+                                                             upgrades for the ERP and reporting
+                                                             systems
+                                                                 o Upgrade the Integrated HR-Payroll
+                                                                     System from SAP ECC 6.0 to SAP
+                                                                     S/4 HANA.
+                                                                 o Upgrade the HR-Payroll reporting
+                                                                     solution to include more robust,
+                                                                     user focused analytics
+                                                                 o Continuously evaluate available
+                                                                     products/solutions and implement
+                                                                     strategic enhancements aligned
+                                                                     with the technical upgrades
+
+
+
+
+                                                                             Office of The State Controller
+                                                                                                7|Page
+
+=== PAGE 10 ===
+Objective 2.2                                          Performance Measure or Milestone 2.2
+Annual evaluation of enhancements,                        x   Weekly review of Early Watch reports
+performance, and system health metrics for the                (system availability and useability metrics)
+Integrated HR-Payroll System.                                 and remediation to align with SAP best
+                                                              practices and standards
+   x   Implement enhancements prescribed by
+       state and federal legislation and/or               x   Capture, review and chart trends each
+       policies                                               month for user tickets related to access
+                                                              and availability
+   x   Implement enhancements requested by
+       BEST Shared Services and agency                    x   Continue the established weekly Change
+       stakeholders                                           Control Board (CCB) process to ensure
+   x   Maximize system availability and usability             proper impact assessments and
+           o Minimize planned and unplanned                   prioritization of enhancement requests
+               system downtimes                           x   Apply for and receive SAP Customer
+           o Provide a web-based user interface               Center of Excellence (SAP CCE)
+               for HR Administrators to decrease              accreditation every two years – 2025,
+               dependencies on locally installed              2027, and 2029
+               software
+
+Objective 2.3                                          Performance Measure or Milestone 2.3
+Annual evaluation of enhancements and                     x   By 12/31/2025, implement manufacturing
+expansion of the North Carolina Financial System              functionality for Department of Adult
+(NCFS).                                                       Correction (DAC)
+   x   Implement additional functional scope              x   By 2/28/2026, implement Oracle Analytics
+       fulfilling the vision of the current solution          Cloud
+       serving as the backbone for more                   x   Champion and enforce the established
+       integrated and streamlined financial                   weekly Change Control Board (CCB)
+       processes across the state                             process to ensure proper impact
+            o Partner with OSBM on Integrated                 assessments and prioritization of
+                 Budget System (IBIS)                         enhancement requests
+   x   Improve system performance and                     x   For each quarterly release, review newly
+       reliability                                            introduced AI features and responsibly
+                                                              incorporate those that improve system
+                                                              usability or offer measurable efficiencies
+                                                          x   For each quarterly release, ensure each
+                                                              user of the system is properly informed
+                                                              and trained on those changes as
+                                                              warranted.
+
+
+
+
+                                                                                Office of The State Controller
+                                                                                                   8|Page
+
+=== PAGE 11 ===
+Objective 2.4                                       Performance Measure or Milestone 2.4
+In FY26, establish an agency Security and              x   By 12/31/2025, develop program plan and
+Compliance Program, encompassing all enterprise            implementation schedule
+systems and agency IT infrastructure. This             x   By 6/30/2026, develop and deliver
+Program will directly impact our enterprise                comprehensive cyber-security training to
+systems in the following ways:                             all staff
+                                                       x   By 12/31/2026, develop a comprehensive
+   x   Strengthen the security posture across the
+       organization                                        Incident Response Plan
+                                                       x   By 6/30/2027, conduct simulation and
+   x   Increase preparedness for cyber incident
+                                                           practice exercises
+       detection and response
+   x   Expand business continuity planning
+
+
+
+
+                                                                           Office of The State Controller
+                                                                                              9|Page
+
+=== PAGE 12 ===
+Goal 3
+
+Continually track statewide finances in an accurate timely manner
+
+
+Objective 3.1                                        Performance Measure or Milestone 3.1
+Continue to meet statutory deadlines for financial      x   Receive unqualified audit opinion from
+reporting through efficient allocation of                   OSA and receive GFOA award for financial
+resources, prudent scheduling and assignment                reporting excellence.
+tracking.                                               x   Progress on ACFR assignments tracked
+                                                            through the ACFR schedule developed by
+                                                            management.
+
+
+Objective 3.2                                        Performance Measure or Milestone 3.2
+Complete all financial system transactions in NCFS      x   Daily, monthly and annual reports,
+and Core Banking for General Fund cash with a               certifications and reconciliations reviewed
+99.5% accuracy rate.                                        for accuracy.
+
+
+Objective 3.3                                        Performance Measure or Milestone 3.3
+Reduce agency error rates and improve timeliness        x   Agency NCFS transaction reports, ACFR
+through outreach, training and professional                 package and noncompliance reviews.
+development opportunities. Achieve a 90%
+acceptance rate of reviewed agency ACFR
+packages.
+
+
+
+
+                                                                             Office of The State Controller
+                                                                                              10 | P a g e
+
+=== PAGE 13 ===
+Goal 4
+
+Ensure state employees are paid accurately and on time each payroll period.
+Objective 4.1                                    Performance Measure or Milestone 4.1
+Ensure 99.5% of transactions initiated in the      x    Number and dollar amount of direct deposits
+Integrated HR-Payroll System include the                processed.
+accurate and timely transfer of funds from         x    Number and dollar amount of paper checks
+Core Banking into Bank of America after each            created.
+pay period.                                        x    Number and dollar of funds transfers in Core
+                                                        Banking.
+                                                   x    Number and value of acknowledgement forms
+                                                        for BoA.
+Objective 4.2                                    Performance Measure or Milestone 4.2
+Ensure 99.5% accurate and timely submission         x   Number of IRS, DOR, Other State tax notices of
+of all Federal, State, and other state tax              delinquent filings and/or payments.
+payments and returns by the required                x   Number of payments processed.
+deadlines each payroll, through process             x   Number of returns processed.
+standardization, internal audits, and calendar      x   Number of 941 corrections and amendments
+management.                                             and reasons
+                                                    x   Number and amount of overpayments
+                                                    x   Number and amount of IRS payments
+
+Objective 4.3                                    Performance Measure or Milestone 4.3
+Process all ACH returns, W-4, NC-4, other           x   Percent of Payroll Incidents that result from
+State Tax Withholding forms, IRS Mandates,              Contact Center Master Data errors (ACH Return,
+Direct Deposit requests within 24 business              W-4, NC-4, other State Tax Withholding forms, IRS
+hours and with 99.5% accuracy.                          Mandate, Direct Deposit) errors. Measured as
+                                                        Total Number of Master Data related errors /
+                                                        Total Number of Master Data request Processed.
+                                                        Review date/time ticket is received and resolved.
+Objective 4.4                                    Performance Measure or Milestone 4.4
+Reconcile all NCFlex plans with 99.5% accuracy      x   Percent accuracy rate between BenefitFocus and
+during biannual (January & June)                        HRPY system data.
+audits/compares.
+
+
+
+
+                                                                               Office of The State Controller
+                                                                                                11 | P a g e
+
+=== PAGE 14 ===
+Objective 4.5                                        Performance Measure or Milestone 4.5
+Improve timeliness of leave entry/approval by           x   Percent reduction in late leave approvals or
+Agency Time Approvers by conducting monthly                 entries.
+audits and reducing late entries approvals by 10%
+of the previous month.
+Objective 4.6                                        Performance measure or Milestone 4.6
+Quarterly, the OSC Training Team will analyze           x   Number of tickets/incidents related to HR (Time,
+reports from OSC Contact Center and HR-PY                   BN, OM/PA) and/or Payroll.
+Operations, as well as meeting with the teams, to       x   Nature of those tickets/incidents.
+identify and prioritize educational opportunities       x   Cause and patterns of those tickets/incidents.
+for agency staff. Monthly, BEST will facilitate         x   Strategies employed.
+training and guidance during monthly all-agency
+HR/PY webinars, with additional focused training
+offered in “spotlight” information sessions. These
+approaches would lead to an increased
+accuracy/timeliness of payroll-related activities.
+
+
+
+
+                                                                                    Office of The State Controller
+                                                                                                     12 | P a g e
+
+=== PAGE 15 ===
+Goal 5
+Provide statewide accounting support that meets or exceeds agency needs
+
+Objective 5.1                                            Performance Measure or Milestone 5.1
+Monthly evaluation of metrics specific to North             x   Tracking and reporting of implemented
+Carolina Financial System user support                          change requests and user feedback
+                                                                suggestions through the Change Control
+                                                                Board and semi-annual NCFS satisfaction
+                                                                scores.
+                                                            x   Tracking and reporting of weekly ticket
+                                                                volume, average days open and month to
+                                                                month trends for each NCFS module
+
+Objective 5.2                                            Performance Measure or Milestone 5.3
+Provide ongoing agency support in financial reporting,      x   Engagement and feedback from state entities
+cash management and e-commerce.                                 from planning conferences, roundtable
+                                                                discussions and trainings. Provide one
+                                                                planning conference per year per agency for
+                                                                ACFR preparation.
+
+Objective 5.3                                            Performance Measure or Milestone 5.4
+Deliver ongoing internal control support to state           x   Achieve a 90% "meets or exceeds
+agencies in accordance with the requirements of                 expectations" rating from annually surveyed
+N.C.G.S. § 143D, promoting accountability,                      state entities receiving internal control
+compliance, and operational efficiency.                         support.
+
+
+
+Objective 5.4                                            Performance Measure or Milestone 5.5
+Develop a program offering governmental accounting          x   By October 31, 2025, have agreements signed
+education for state agency fiscal staff.                        with providers.
+                                                            x   By November 7, 2025, announce dates and
+                                                                students assigned to first training classes.
+                                                            x   By 1st Quarter of 2026, offer basic,
+                                                                intermediate and advanced accounting &
+                                                                financial training for agency staff
+                                                            x   By June 30, 2026, create a vision and plan for
+                                                                enhancement and expansion of the program.
+
+
+
+
+                                                                                   Office of The State Controller
+                                                                                                    13 | P a g e
+
+=== PAGE 16 ===
+Objective 5.5                                        Performance Measure or Milestone 5.6
+Ensure 100% compliance with all applicable federal      x   Annually, achieve and maintain 100% on-time
+and state reporting requirements and deadlines.             submission rate for all required federal and
+                                                            state compliance reports.
+                                                        x   By the end of FY2026, implement and
+                                                            maintain a centralized compliance calendar
+                                                            and conduct quarterly compliance checks.
+
+
+
+
+                                                                              Office of The State Controller
+                                                                                               14 | P a g e
+
+=== PAGE 17 ===
+4. Highlights, Collaborative Opportunities, and Priority Questions
+Collaborative Opportunities
+North Carolina Financial System Expansion Opportunities
+Build and expand upon the NCFS new financial architecture for additional business functions beyond
+the initial scope of the North Carolina Accounting System (NCAS) and Cash Management Control
+System (CMCS). As DIT’s EPMO reviews agency projects, they should consider any projects that could
+benefit from expanding on the new NCFS solution, such as inventory systems, rather than allowing
+agencies to purchase unrelated systems that would not be consistent with the state’s new ERP NCFS
+solution.
+
+
+The North Carolina Integrated Budget Information System (IBIS), which is used by state agencies and
+OSBM to perform budget planning, development, and execution activities, will be replaced soon by
+OSBM. Many teams within OSC (Payroll, NCFS, etc.) will have to collaborate with OSBM to make this a
+successful implementation/project as noted in Objective 2.3.
+
+
+
+
+Priority Questions
+1. What financial management functions can OSC embrace AI to improve efficiency or customer
+   service in state agencies? What are proven, secure and cost-effective AI tools available to further
+   these improvements?
+
+2. How can OSC restructure or re-align our teams to enhance, maximize, and leverage resources to
+   ensure flexibility in an ever-changing environment?
+
+3. How can OSC foster a positive culture of accounting accuracy and continuous learning among
+   agency staff?
+
+
+
+
+                                                                               Office of The State Controller
+                                                                                                15 | P a g e
+
+=== PAGE 18 ===
+5. Appendix 1 – The OSC Customer Service Code of Conduct
+
+
+
+
+                                              Office of The State Controller
+                                                               16 | P a g e
+

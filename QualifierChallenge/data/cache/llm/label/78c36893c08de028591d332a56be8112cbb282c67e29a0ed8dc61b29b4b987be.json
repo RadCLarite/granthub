@@ -1,0 +1,40 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "state_governments, other public entities",
+    "program_domain": "D08",
+    "owning_division": "DHHS: Public Health",
+    "required_capabilities": [
+      "public_health_surveillance",
+      "emergency_management"
+    ],
+    "requires_subrecipient_network": false,
+    "evaluation_required": true,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "none",
+    "target_population": "all_residents",
+    "alignment_dhhs": {
+      "level": "strong",
+      "plan_row": "G1.O3",
+      "rationale": "The opportunity aims to enhance public health emergency response, which aligns with the strategic objective to mitigate barriers to access of health services."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity focuses on public health emergency response, which does not align with the DMVA strategic plan objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v3.1",
+    "created": "2026-09-29T14:51:43-0400",
+    "prompt_tokens": 4686,
+    "output_tokens": 271,
+    "seconds": 39.3
+  }
+}

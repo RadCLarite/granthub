@@ -1,0 +1,40 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "Eligible applicants include: States (except Alabama)",
+    "program_domain": "none",
+    "owning_division": "Other state agency",
+    "required_capabilities": [
+      "emergency_management",
+      "subrecipient_network_management"
+    ],
+    "requires_subrecipient_network": true,
+    "evaluation_required": false,
+    "is_capital_project": false,
+    "needs_formal_designation": true,
+    "is_renewal": false,
+    "match_required": true,
+    "match_pct_stated": 35,
+    "match_evidence": "The non-federal cost share may consist of cash, donated or third-party in-kind services, materials, or any combination thereof",
+    "target_population": "hazard_exposed",
+    "alignment_dhhs": {
+      "level": "none",
+      "plan_row": "G1",
+      "rationale": "The opportunity focuses on dam safety and rehabilitation, which does not directly relate to health equity or access to health services."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "G1",
+      "rationale": "The opportunity is related to dam safety and rehabilitation, which does not align with DMVA's strategic goals focused on veterans and military affairs."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v2",
+    "created": "2026-09-29T09:26:27-0400",
+    "prompt_tokens": 3898,
+    "output_tokens": 298,
+    "seconds": 39.9
+  }
+}

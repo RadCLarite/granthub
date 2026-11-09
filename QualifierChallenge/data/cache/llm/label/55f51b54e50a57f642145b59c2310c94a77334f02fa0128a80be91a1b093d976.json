@@ -1,0 +1,40 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "The Center will support rigorous, policy-relevant research and build stronger connections between researchers and policymakers in human services programs.",
+    "program_domain": "D04",
+    "owning_division": "DHHS: Child and Family Well-Being",
+    "required_capabilities": [
+      "research_and_rigorous_evaluation",
+      "subrecipient_network_management"
+    ],
+    "requires_subrecipient_network": true,
+    "evaluation_required": true,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": true,
+    "match_pct_stated": 0,
+    "match_evidence": "A portion of this program’s statute requires recipients to pay part of the cost of the project.",
+    "target_population": "system_level",
+    "alignment_dhhs": {
+      "level": "partial",
+      "plan_row": "G2.O1",
+      "rationale": "The opportunity supports research and evaluation projects on the effectiveness of state Temporary Assistance for Needy Families (TANF) programs, which aligns with the goal of strengthening capacity to meet the behavioral and mental health needs of North Carolina children and families."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity does not directly align with any of the DMVA strategic plan objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v2",
+    "created": "2026-09-29T09:25:09-0400",
+    "prompt_tokens": 4344,
+    "output_tokens": 336,
+    "seconds": 42.5
+  }
+}

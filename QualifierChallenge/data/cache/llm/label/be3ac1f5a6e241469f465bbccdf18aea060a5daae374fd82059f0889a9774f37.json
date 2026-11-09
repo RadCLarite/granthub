@@ -1,0 +1,43 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "state_governments, for_profit_organizations_other_than_small_businesses, public_and_state_institutions_of_higher_education, federally_recognized_native_american_tribal_governments, unrestricted, nonprofits_non_higher_education_with_501c3, independent_school_districts, nonprofits_non_higher_education_without_501c3, other_native_american_tribal_organizations, public_and_indian_housing_authorities, small_businesses, city_or_township_governments, county_governments, special_district_governments, private_institutions_of_higher_education",
+    "program_domain": "D03",
+    "owning_division": "DHHS: Mental Health, Developmental Disabilities and Substance Use Services",
+    "required_capabilities": [
+      "behavioral_health_delivery",
+      "clinical_service_delivery",
+      "public_health_surveillance",
+      "data_systems_interoperability",
+      "subrecipient_network_management"
+    ],
+    "requires_subrecipient_network": true,
+    "evaluation_required": false,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "",
+    "target_population": "people_with_sud",
+    "alignment_dhhs": {
+      "level": "strong",
+      "plan_row": "G3.O4",
+      "rationale": "The opportunity aims to develop and expand behavioral health systems of care, which aligns with the objective to turn the tide on North Carolina's opioid and substance use crisis."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity does not specifically address veteran-focused initiatives or align with DMVA's strategic goals."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v3",
+    "created": "2026-09-29T14:21:44-0400",
+    "prompt_tokens": 3001,
+    "output_tokens": 424,
+    "seconds": 41.2
+  }
+}

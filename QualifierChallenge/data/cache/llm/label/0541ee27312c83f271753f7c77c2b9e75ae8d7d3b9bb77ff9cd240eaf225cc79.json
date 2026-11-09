@@ -1,0 +1,40 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "State IV-E agencies and Tribal IV-B/IV-E agencies.",
+    "program_domain": "D04",
+    "owning_division": "DHHS: Child and Family Well-Being",
+    "required_capabilities": [
+      "data_systems_interoperability",
+      "subrecipient_network_management"
+    ],
+    "requires_subrecipient_network": true,
+    "evaluation_required": false,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "This program has no cost-sharing requirement, meaning you do not need to contribute to the costs of this project.",
+    "target_population": "children",
+    "alignment_dhhs": {
+      "level": "strong",
+      "plan_row": "G2.O1",
+      "rationale": "The program supports state child welfare agencies in modernizing fingerprinting and background check infrastructure, which aligns with the objective to strengthen capacity to meet the behavioral and mental health needs of North Carolina children and families."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The program does not align with any DMVA strategic plan objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v3.1",
+    "created": "2026-09-29T15:02:14-0400",
+    "prompt_tokens": 4484,
+    "output_tokens": 315,
+    "seconds": 48.1
+  }
+}

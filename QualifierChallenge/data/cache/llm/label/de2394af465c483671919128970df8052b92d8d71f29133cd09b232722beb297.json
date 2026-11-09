@@ -1,0 +1,39 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "The opportunity is issued by the U.S. Department of Transportation (USDOT), Office of the Secretary (OST), Office of Small and Disadvantaged Business Utilization (OSDBU).",
+    "program_domain": "none",
+    "owning_division": "Other state agency",
+    "required_capabilities": [
+      "transportation_services"
+    ],
+    "requires_subrecipient_network": false,
+    "evaluation_required": true,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": true,
+    "match_pct_stated": 15,
+    "match_evidence": "The Recipient is responsible for a cost-sharing contribution Requirement totaling 15% of the Federal Award.",
+    "target_population": "system_level",
+    "alignment_dhhs": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity does not directly advance any of the listed DHHS plan objectives."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity does not directly advance any of the listed DMVA plan objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v2",
+    "created": "2026-09-29T09:22:00-0400",
+    "prompt_tokens": 4009,
+    "output_tokens": 298,
+    "seconds": 36.1
+  }
+}

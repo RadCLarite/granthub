@@ -1,0 +1,40 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "state_governments, public_and_state_institutions_of_higher_education, county_governments, city_or_township_governments, nonprofits_non_higher_education_with_501c3",
+    "program_domain": "none",
+    "owning_division": "none",
+    "required_capabilities": [
+      "data_systems_interoperability",
+      "workforce_training_credentialing"
+    ],
+    "requires_subrecipient_network": false,
+    "evaluation_required": true,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": true,
+    "match_pct_stated": 1,
+    "match_evidence": "Cost sharing is required for all proposals. All applicants must demonstrate a 1:1 match of federal funds to non-federal funds, which may be in the form of cash, services, or in-kind contributions.",
+    "target_population": "all_residents",
+    "alignment_dhhs": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The program focuses on urban and community forestry, which does not align with any specific health or human services objectives in the NC DHHS Strategic Plan."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The program focuses on urban and community forestry, which does not align with any specific veteran services objectives in the NC DMVA Strategic Plan."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v3.1",
+    "created": "2026-09-29T15:10:48-0400",
+    "prompt_tokens": 4255,
+    "output_tokens": 352,
+    "seconds": 25.2
+  }
+}

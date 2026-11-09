@@ -1,0 +1,40 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "State, local, and tribal governments and nonprofit organizations may apply for funding to provide family-based SUD treatment programs in jail, in prison, or as part of an alternative to incarceration to reduce recidivism and improve reentry and other related outcomes for the parent and for their children.",
+    "program_domain": "D02",
+    "owning_division": "DHHS: Mental Health, Developmental Disabilities and Substance Use Services",
+    "required_capabilities": [
+      "behavioral_health_delivery",
+      "subrecipient_network_management"
+    ],
+    "requires_subrecipient_network": true,
+    "evaluation_required": false,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "none",
+    "target_population": "people_with_sud",
+    "alignment_dhhs": {
+      "level": "strong",
+      "plan_row": "G3.O4",
+      "rationale": "The opportunity directly advances the objective to turn the tide on North Carolina's opioid and substance use crisis by providing treatment and recovery support services to parents with substance use disorders."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity does not directly relate to any of the DMVA strategic plan objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v2",
+    "created": "2026-09-29T09:46:48-0400",
+    "prompt_tokens": 2651,
+    "output_tokens": 331,
+    "seconds": 29.8
+  }
+}

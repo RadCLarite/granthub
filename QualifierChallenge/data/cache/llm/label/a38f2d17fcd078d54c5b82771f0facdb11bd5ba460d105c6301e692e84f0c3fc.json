@@ -1,0 +1,40 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "Any public or private nonprofit entity is eligible to apply.",
+    "program_domain": "D07",
+    "owning_division": "DHHS: Health Service Regulation",
+    "required_capabilities": [
+      "data_systems_interoperability",
+      "research_and_rigorous_evaluation"
+    ],
+    "requires_subrecipient_network": true,
+    "evaluation_required": true,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "none",
+    "target_population": "all_residents",
+    "alignment_dhhs": {
+      "level": "partial",
+      "plan_row": "G1.O3",
+      "rationale": "The program aims to improve access to health services, aligning with the goal of mitigating barriers to health service access."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The program does not align with DMVA's strategic plan objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v3.1",
+    "created": "2026-09-29T14:57:41-0400",
+    "prompt_tokens": 4087,
+    "output_tokens": 272,
+    "seconds": 45.3
+  }
+}

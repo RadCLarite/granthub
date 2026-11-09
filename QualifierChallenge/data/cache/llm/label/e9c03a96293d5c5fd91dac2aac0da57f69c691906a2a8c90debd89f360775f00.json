@@ -1,0 +1,42 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "Applicants will need to demonstrate that they will be able to fully implement their projects within the first six months of the award.",
+    "program_domain": "D03",
+    "owning_division": "DHHS: Health Benefits (NC Medicaid)",
+    "required_capabilities": [
+      "clinical_service_delivery",
+      "public_health_surveillance",
+      "data_systems_interoperability",
+      "research_and_rigorous_evaluation"
+    ],
+    "requires_subrecipient_network": false,
+    "evaluation_required": true,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "none",
+    "target_population": "recent_births",
+    "alignment_dhhs": {
+      "level": "partial",
+      "plan_row": "G1.O3",
+      "rationale": "The initiative aims to improve maternal and fetal outcomes, which aligns with the objective to mitigate barriers to access of health services."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity does not align with any DMVA strategic plan objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v3",
+    "created": "2026-09-29T14:11:56-0400",
+    "prompt_tokens": 3574,
+    "output_tokens": 300,
+    "seconds": 34.1
+  }
+}

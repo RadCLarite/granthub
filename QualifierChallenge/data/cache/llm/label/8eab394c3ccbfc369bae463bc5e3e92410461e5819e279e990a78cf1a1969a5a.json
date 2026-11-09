@@ -1,0 +1,39 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "You can apply if you are a domestic public or private, non-profit or for-profit entity.",
+    "program_domain": "D03",
+    "owning_division": "DHHS: Health Service Regulation",
+    "required_capabilities": [
+      "research_and_rigorous_evaluation"
+    ],
+    "requires_subrecipient_network": false,
+    "evaluation_required": true,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "none",
+    "target_population": "people_with_sud",
+    "alignment_dhhs": {
+      "level": "partial",
+      "plan_row": "G3.O4",
+      "rationale": "The opportunity aims to evaluate rural behavioral health strategies, aligning with the objective to turn the tide on North Carolina's opioid and substance use crisis."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity does not specifically address veteran-related issues or align with DMVA's strategic objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v3",
+    "created": "2026-09-29T14:32:31-0400",
+    "prompt_tokens": 2995,
+    "output_tokens": 284,
+    "seconds": 38.1
+  }
+}

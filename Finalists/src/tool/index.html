@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Criteria tool</title>
+<style>/*STYLES*/</style>
+</head>
+<body>
+<header>
+  <div><h1 id="title"></h1><div class="sub" id="sub"></div></div>
+  <div class="spacer"></div>
+  <button type="button" id="reset">Reset to defaults</button>
+  <button type="button" id="large" aria-pressed="false" title="Enlarge text for a projector or screen share">Larger text</button>
+</header>
+<main>
+  <section class="panel" aria-label="Criteria controls"><div id="controls"></div></section>
+  <section aria-label="Ranked results">
+    <p class="counts" id="counts" role="status"></p>
+    <ol class="results" id="results"></ol>
+    <div class="panel" id="dropped-wrap" style="margin-top:14px">
+      <h2>Dropped by filters</h2>
+      <ul class="dropped" id="dropped"></ul>
+    </div>
+  </section>
+</main>
+<script>window.PAYLOAD = /*PAYLOAD*/;</script>
+<script>/*RANKER_JS*/</script>
+<script>/*UI_JS*/</script>
+</body>
+</html>

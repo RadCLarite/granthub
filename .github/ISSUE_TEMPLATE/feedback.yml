@@ -1,0 +1,16 @@
+name: Matchmaker feedback
+description: Tell us how the Federal Funds Matchmaker worked for you.
+title: "Feedback: "
+labels: ["feedback"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Issues on this repository are public. Do not include names, contact details, or anything about real people. Grant and agency names are fine.
+  - type: textarea
+    id: what
+    attributes:
+      label: Feedback
+      description: What were you trying to do, and what got in the way or what should we add?
+    validations:
+      required: true

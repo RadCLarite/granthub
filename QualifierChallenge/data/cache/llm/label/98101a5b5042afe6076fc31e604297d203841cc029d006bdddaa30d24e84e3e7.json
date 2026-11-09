@@ -1,0 +1,39 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "Specific states and territories are eligible and will be identified in the NOFO.",
+    "program_domain": "D07",
+    "owning_division": "DHHS: Child Development and Early Education",
+    "required_capabilities": [
+      "data_systems_interoperability"
+    ],
+    "requires_subrecipient_network": false,
+    "evaluation_required": false,
+    "is_capital_project": false,
+    "needs_formal_designation": true,
+    "is_renewal": false,
+    "match_required": true,
+    "match_pct_stated": 30,
+    "match_evidence": "This program requires you to contribute 30% of the ACF federal share of the award",
+    "target_population": "all_residents",
+    "alignment_dhhs": {
+      "level": "partial",
+      "plan_row": "G1.O3",
+      "rationale": "The opportunity aims to improve program quality and access, which aligns with mitigating barriers to access of health services."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity does not align with any DMVA strategic plan objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v3",
+    "created": "2026-09-29T14:24:46-0400",
+    "prompt_tokens": 4332,
+    "output_tokens": 288,
+    "seconds": 49.5
+  }
+}

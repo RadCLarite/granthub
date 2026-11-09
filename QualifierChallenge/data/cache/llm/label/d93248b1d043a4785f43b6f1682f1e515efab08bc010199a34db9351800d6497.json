@@ -1,0 +1,39 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "state_governments, public_and_indian_housing_authorities, other_native_american_tribal_organizations, nonprofits_non_higher_education_with_501c3, nonprofits_non_higher_education_without_501c3, city_or_township_governments, county_governments, special_district_governments, federally_recognized_native_american_tribal_governments",
+    "program_domain": "D07",
+    "owning_division": "DHHS: Health Service Regulation",
+    "required_capabilities": [
+      "clinical_service_delivery"
+    ],
+    "requires_subrecipient_network": false,
+    "evaluation_required": false,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "This program has no cost-sharing requirement.",
+    "target_population": "all_residents",
+    "alignment_dhhs": {
+      "level": "partial",
+      "plan_row": "G1.O3",
+      "rationale": "The program aims to improve access to health services, aligning with the goal of mitigating barriers to health service access."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The program does not align with DMVA's strategic plan objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v3.1",
+    "created": "2026-09-29T16:03:17-0400",
+    "prompt_tokens": 4439,
+    "output_tokens": 343,
+    "seconds": 39.5
+  }
+}

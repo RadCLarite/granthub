@@ -1,0 +1,50 @@
+fact_id,fact,expr,expected,tol
+f1,Agencies ranked for,length(unique(items$agency_id)),32,0
+f2,Open opportunities ranked (posted + forecasted + notice),length(unique(items$opp_id)),1576,0
+f3,Agency by opportunity pairs scored,nrow(items),50432,0
+f4,Open opportunities with no usable close date (rolling date listed or forecast date has passed),sum(is.na(items$days_left[items$agency_id == 'deq'])),489,0
+f5,Open opportunities with no usable award ceiling (blank or 0),sum(is.na(items$award_ceiling[items$agency_id == 'deq'])),887,0
+f6,Agency by opportunity pairs hidden as clearly not eligible,nrow(dropped),5394,0
+f7,Agency by opportunity pairs marked check eligibility (shown with a badge),sum(items$eligibility == 'ask'),16288,0
+f8,Pairs hidden by applicant code alone when the code is 25 or 99,"sum(items$eligibility == 'no' & items$elig_source == 'code' & items$applicant_types %in% c('25', '99'))",0,0
+f9,A higher-education-only grant is not hidden for UNC,sum(dropped$id == 'unc:363549'),0,0
+f10,Agencies in payload.json,nrow(payload$agencies),32,0
+f11,Most Top 10 rows for any one agency in payload.json,max(table(payload$rows$agency_id[payload$rows$in_top10])),10,0
+f12,Rows in payload.json (Top 10 + Coming up + hidden examples),nrow(payload$rows),960,0
+f13,Rows in rankings_backtest.csv (top 50 per agency and window),nrow(backtest),152000,0
+f14,"Backtest windows (2, 4 and 6 weeks from 2024-11-06)","nrow(unique(backtest[, c('window_weeks','window_start')]))",95,0
+f15,Open opportunities whose title names another state or region (fit halved),length(unique(items$opp_id[items$geo_other])),60,0
+f16,DERA (opp 363936) is in the DEQ Top 10,sum(payload$rows$opp_id == '363936' & payload$rows$agency_id == 'deq' & payload$rows$in_top10),1,0
+f17,DERA (opp 363936) is in the DPI Top 10,sum(payload$rows$opp_id == '363936' & payload$rows$agency_id == 'dpi' & payload$rows$in_top10),1,0
+f18,Agencies that reach the 50% pass bar on 4-week windows (DPI DEQ DHHS),sum(bt_result$pct[bt_result$window_weeks == 4] >= 0.5),2,0
+f19,DPI programs caught in 4-week windows (of 3 won),bt_result$caught[bt_result$agency_id == 'dpi' & bt_result$window_weeks == 4],2,0
+f20,DEQ programs caught in 4-week windows (of 7 won),bt_result$caught[bt_result$agency_id == 'deq' & bt_result$window_weeks == 4],4,0
+f21,DHHS programs caught in 4-week windows (of 11 won),bt_result$caught[bt_result$agency_id == 'dhhs' & bt_result$window_weeks == 4],4,0
+f22,Agencies where the soonest-deadline baseline beats the model on 4-week windows,sum(bt_result$baseline_deadline_pct[bt_result$window_weeks == 4] > bt_result$pct[bt_result$window_weeks == 4]),3,0
+f23,Top 10 rows closing within 14 days (all agencies),sum(payload$rows$in_top10 & !is.na(payload$rows$days_left) & payload$rows$days_left >= 0 & payload$rows$days_left <= payload$closing_soon_days),67,0
+f24,Agencies with at least one Top 10 row closing within 14 days,sum(payload$agencies$n_closing_soon > 0),24,0
+f25,Plan goals in payload.json (match board),nrow(payload$goals),153,0
+f26,Agencies with at least one plan goal in payload.json,length(unique(payload$goals$agency_id)),32,0
+f27,NC counties with an outline and need values in payload.json,nrow(payload$counties),100,0
+f28,County need indicators in payload.json,nrow(payload$county_need$indicators),18,0
+f29,Hand-built capability rows in payload.json (DHHS 14 + DMVA 14),nrow(payload$capabilities),28,0
+f30,Top 10 rows with a known signature tier (cost share stated on the notice),sum(payload$rows$in_top10 & payload$rows$signature_tier != 'unknown'),258,0
+f31,Top 10 rows whose tier is leadership (cost share on an award of $1M or more),sum(payload$rows$in_top10 & payload$rows$signature_tier == 'leadership'),26,0
+f32,v2 backtest: agencies with 3+ won programs in the full pool (4-week windows),sum(bt_v2$window_weeks == 4 & bt_v2$top_n == 10 & bt_v2$won_in_pool >= 3),12,0
+f33,v2 backtest: won programs across those agencies (4-week windows),sum(bt_v2$won_in_pool[bt_v2$window_weeks == 4 & bt_v2$top_n == 10 & bt_v2$won_in_pool >= 3]),157,0
+f34,v2 backtest: won programs reaching the Top 10 (4-week windows),sum(bt_v2$caught[bt_v2$window_weeks == 4 & bt_v2$top_n == 10 & bt_v2$won_in_pool >= 3]),61,0
+f35,v2 backtest: won programs reaching the Top 50 (4-week windows),sum(bt_v2$caught[bt_v2$window_weeks == 4 & bt_v2$top_n == 50 & bt_v2$won_in_pool >= 3]),98,0
+f36,v2 backtest: agencies at or above 50% in the Top 10 (4-week windows),sum(bt_v2$pct[bt_v2$window_weeks == 4 & bt_v2$top_n == 10 & bt_v2$won_in_pool >= 3] >= 0.5),4,0
+f37,"Tuning grid: current setting (title x1, mean centering) Top 10 catches over the 12 agencies",sum(bt_tune$caught[bt_tune$title_rep == 1 & bt_tune$center == 'mean']),60,0
+f38,Tuning grid: no centering across agencies Top 10 catches (shows centering helps),sum(bt_tune$caught[bt_tune$title_rep == 1 & bt_tune$center == 'none']),41,0
+f39,Tuning grid: best setting on all 12 (z centering) Top 10 catches,sum(bt_tune$caught[bt_tune$title_rep == 1 & bt_tune$center == 'z']),64,0
+f40,Reach: won programs a newest-posted-first alert reaches in its Top 10 (same 12 agencies),round(sum((bt_v2$newest_pct * bt_v2$won_in_pool)[bt_v2$window_weeks == 4 & bt_v2$top_n == 10 & bt_v2$won_in_pool >= 3])),35,0
+f41,Reach: won programs our Top 10 reached that the newest-posted Top 10 did not,sum(bt_v2$only_model[bt_v2$window_weeks == 4 & bt_v2$top_n == 10 & bt_v2$won_in_pool >= 3]),39,0
+f42,Reach: won programs the newest-posted Top 10 reached that our Top 10 did not,sum(bt_v2$only_newest[bt_v2$window_weeks == 4 & bt_v2$top_n == 10 & bt_v2$won_in_pool >= 3]),13,0
+f43,"In-time curve: won programs reaching the Top 10 with 21+ days left, 2-week windows (same 159)","with(read.csv(file.path(DIR_PROCESSED, ""backtest_v2_intime_curve.csv"")), caught_intime[window_weeks == 2])",53,0
+f44,"In-time curve: same, 4-week windows","with(read.csv(file.path(DIR_PROCESSED, ""backtest_v2_intime_curve.csv"")), caught_intime[window_weeks == 4])",41,0
+f45,"In-time curve: same, 6-week windows","with(read.csv(file.path(DIR_PROCESSED, ""backtest_v2_intime_curve.csv"")), caught_intime[window_weeks == 6])",34,0
+f46,"In-time curve: all Top 10 catches, 2-week windows","with(read.csv(file.path(DIR_PROCESSED, ""backtest_v2_intime_curve.csv"")), caught[window_weeks == 2])",61,0
+f47,"In-time curve: all Top 10 catches, 6-week windows","with(read.csv(file.path(DIR_PROCESSED, ""backtest_v2_intime_curve.csv"")), caught[window_weeks == 6])",55,0
+f48,"v2 backtest: soonest-deadline baseline, percent of won programs reached (pooled, 4-week, Top 10)","round(100 * sum((bt_v2$deadline_pct * bt_v2$won_in_pool)[bt_v2$window_weeks == 4 & bt_v2$top_n == 10 & bt_v2$won_in_pool >= 3]) / sum(bt_v2$won_in_pool[bt_v2$window_weeks == 4 & bt_v2$top_n == 10 & bt_v2$won_in_pool >= 3]), 1)",19.7,0.05
+f49,"v2 backtest: random-10 baseline, percent of won programs reached (pooled, exact expected value)","round(100 * sum((bt_v2$random_pct * bt_v2$won_in_pool)[bt_v2$window_weeks == 4 & bt_v2$top_n == 10 & bt_v2$won_in_pool >= 3]) / sum(bt_v2$won_in_pool[bt_v2$window_weeks == 4 & bt_v2$top_n == 10 & bt_v2$won_in_pool >= 3]), 1)",14.1,0.05

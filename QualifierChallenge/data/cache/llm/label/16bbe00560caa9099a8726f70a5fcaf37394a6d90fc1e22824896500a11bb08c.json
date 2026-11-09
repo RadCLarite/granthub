@@ -1,0 +1,42 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "state_governments, public_and_state_institutions_of_higher_education, nonprofits_non_higher_education_with_501c3",
+    "program_domain": "D01",
+    "owning_division": "DHHS: Mental Health, Developmental Disabilities and Substance Use Services",
+    "required_capabilities": [
+      "public_health_surveillance",
+      "data_systems_interoperability",
+      "research_and_rigorous_evaluation",
+      "subrecipient_network_management"
+    ],
+    "requires_subrecipient_network": true,
+    "evaluation_required": true,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "none",
+    "target_population": "adults_mental_distress",
+    "alignment_dhhs": {
+      "level": "strong",
+      "plan_row": "G3.O3",
+      "rationale": "The opportunity focuses on comprehensive suicide prevention, which aligns with the objective to increase access to crisis services."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity does not specifically address veteran-focused suicide prevention initiatives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v3.1",
+    "created": "2026-09-29T15:23:28-0400",
+    "prompt_tokens": 3548,
+    "output_tokens": 313,
+    "seconds": 40.9
+  }
+}

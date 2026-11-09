@@ -1,0 +1,40 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "state_governments, nonprofits_non_higher_education_without_501c3, for_profit_organizations_other_than_small_businesses, private_institutions_of_higher_education, independent_school_districts, other_native_american_tribal_organizations, public_and_indian_housing_authorities, public_and_state_institutions_of_higher_education, federally_recognized_native_american_tribal_governments, small_businesses, county_governments, nonprofits_non_higher_education_with_501c3, city_or_township_governments",
+    "program_domain": "D03",
+    "owning_division": "DHHS: Health Benefits (NC Medicaid)",
+    "required_capabilities": [
+      "data_systems_interoperability",
+      "research_and_rigorous_evaluation"
+    ],
+    "requires_subrecipient_network": false,
+    "evaluation_required": false,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "none",
+    "target_population": "all_residents",
+    "alignment_dhhs": {
+      "level": "partial",
+      "plan_row": "G1.O3",
+      "rationale": "The program aims to increase access to preventive health services, which aligns with the objective to mitigate barriers to access of health services."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The program does not align with DMVA's strategic plan objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v3.1",
+    "created": "2026-09-29T16:02:21-0400",
+    "prompt_tokens": 3099,
+    "output_tokens": 384,
+    "seconds": 21
+  }
+}

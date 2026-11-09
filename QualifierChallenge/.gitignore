@@ -1,0 +1,25 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.Renviron
+.DS_Store
+.quarto/
+*_files/
+outs/*
+!outs/grant-triage-tool.html
+!outs/solveathon_project.html
+.claude/
+
+# Downloaded full announcements (116 MB). Their extracted text is kept in
+# data/processed/grantsgov_enrichment.rds, which is what the labeler read.
+data/raw/grants/nofo/
+# Generated deliverables that belong in the submission
+!outs/top_results.xlsx
+!outs/top_results.csv
+!outs/team_brief_v2.docx
+
+!outs/figures/
+!outs/todo/
+!outs/top_results_team.xlsx
+!outs/top_results_with_rationale.xlsx

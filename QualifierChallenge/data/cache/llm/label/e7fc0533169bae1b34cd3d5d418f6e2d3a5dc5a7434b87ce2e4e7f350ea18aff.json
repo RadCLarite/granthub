@@ -1,0 +1,40 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "Eligible project applicants for the CoC Program Competition are found at 24 CFR 578.15 and include nonprofit organizations; state governments; local governments; instrumentalities of state and local governments; Indian Tribes and tribally designated housing entities, as defined in section 4 of the Native American Housing Assistance and Self-Determination Act of 1996 (25 U.S.C. 4103); and public housing agencies, as such term is defined in 24 CFR 5.100, are eligible without limitation or exclusion.",
+    "program_domain": "D08",
+    "owning_division": "DHHS: Public Health",
+    "required_capabilities": [
+      "housing_stock_or_assistance",
+      "subrecipient_network_management"
+    ],
+    "requires_subrecipient_network": true,
+    "evaluation_required": false,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "none",
+    "target_population": "people_in_poverty",
+    "alignment_dhhs": {
+      "level": "partial",
+      "plan_row": "G1.O4",
+      "rationale": "The opportunity supports local capacity to overcome persistent health inequities by providing funding for efforts to quickly rehouse individuals and families experiencing homelessness."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity does not directly align with DMVA's strategic plan objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v2",
+    "created": "2026-09-29T09:16:12-0400",
+    "prompt_tokens": 4083,
+    "output_tokens": 381,
+    "seconds": 37.2
+  }
+}

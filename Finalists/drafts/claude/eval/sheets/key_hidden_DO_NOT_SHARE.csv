@@ -1,0 +1,61 @@
+agency,item_no,opp_id,opp_number,source_stratum,kw_rank,kw_score,kw_hits
+Department of Public Schools,1,334905,RANDENDEPSTEMFY22RFI,baseline_top,4,6,education|invest|learning|prepare|school|student
+Department of Public Schools,2,363210,RFA-HD-28-003,random_rest,464,1,phase
+Department of Public Schools,3,362827,OFH-2600-DC-021C,random_rest,444,1,education
+Department of Public Schools,4,357133,THEHAGUE-FY25-01,baseline_mid,290,1,prepare
+Department of Public Schools,5,361426,PAR-26-113,baseline_mid,411,1,environment
+Department of Public Schools,6,352810,PAR-24-128,baseline_mid,249,1,prepare
+Department of Public Schools,7,361604,26-507,baseline_top,2,7,education|educator|learning|phase|prepare|school|student
+Department of Public Schools,8,334326,21-595,baseline_top,3,6,education|educator|learning|prepare|student|transformative
+Department of Public Schools,9,357490,PAR-25-269,random_rest,103,2,optimize|phase
+Department of Public Schools,10,360368,PA-26-001,baseline_mid,371,1,parent
+Department of Public Schools,11,359120,PAS-TUNIS-FY2025,baseline_top,6,5,celebrate|education|learning|school|student
+Department of Public Schools,12,360613,PAR-27-055,random_rest,384,1,phase
+Department of Public Schools,13,355824,MP-CPI-25-001,random_rest,97,2,environment|healthy
+Department of Public Schools,14,334013,AFKIN-21-01,baseline_top,5,5,education|environment|learning|safe|school
+Department of Public Schools,15,363857,RFA-RM-28-014,random_rest,548,1,healthy
+Department of Public Schools,16,358833,PA-25-424,baseline_mid,330,1,parent
+Department of Public Schools,17,363474,RFA-RM-28-006,random_rest,158,2,phase|transformative
+Department of Public Schools,18,332138,EDA-PHI-TA-PRO-2021-2006851,baseline_mid,209,1,education
+Department of Public Schools,19,358816,PAR-25-439,random_rest,326,1,school
+Department of Public Schools,20,344124,23-510,baseline_top,1,7,education|environment|invest|learning|prepare|student|transformative
+Department of Environmental Quality,1,331311,95332421K0004,baseline_top,5,20,assistance|decision|engage|engagement|exceed|general|government|implementing|investment|leader|long|making|meet|partnership|policy|process|providing|requirement|stakeholder|term
+Department of Environmental Quality,2,363572,PA-28-049,random_rest,1523,0,""
+Department of Environmental Quality,3,347679,23-580,baseline_mid,486,5,implementation|infrastructure|meet|resource|science
+Department of Environmental Quality,4,364013,PAS-28-073,random_rest,789,4,implementation|innovation|setting|treatment
+Department of Environmental Quality,5,364165,FA955027S0002,random_rest,801,4,collaborative|effort|resource|science
+Department of Environmental Quality,6,363670,HT942526BCRPBTA122,random_rest,1388,1,science
+Department of Environmental Quality,7,364135,DE-FOA-0003631,baseline_top,3,22,assistance|better|chemical|create|effort|environment|environmental|innovation|investment|long|natural|prevent|processe|protection|recovery|resource|restoration|science|solution|technical|term|treatment
+Department of Environmental Quality,8,357632,PAR-25-196,baseline_mid,870,3,engagement|government|science
+Department of Environmental Quality,9,357003,PAR-25-175,random_rest,1484,0,""
+Department of Environmental Quality,10,362857,HT942526JWMRPMMRDA,baseline_mid,582,5,accelerate|effort|health|meet|requirement
+Department of Environmental Quality,11,327185,DOS-USEU-PD-2020-002,baseline_top,1,23,active|agencie|assistance|decision|developing|environment|government|implementation|implementing|increase|involvement|meet|partnership|policie|policy|process|requirement|resource|standard|strategic|technical|term|transparency
+Department of Environmental Quality,12,334326,21-595,baseline_top,6,20,active|assistance|collaborative|create|developing|engage|engagement|health|implementation|increase|infrastructure|innovation|meet|natural|participation|partnership|science|stakeholder|strategic|term
+Department of Environmental Quality,13,350650,RFA-CE-18-000,random_rest,1464,0,""
+Department of Environmental Quality,14,358176,PAR-25-369,random_rest,1082,2,involvement|stakeholder
+Department of Environmental Quality,15,364136,DE-FOA-0003630,baseline_top,4,22,assistance|better|chemical|create|effort|environment|environmental|innovation|investment|long|natural|prevent|processe|protection|recovery|resource|restoration|science|solution|technical|term|treatment
+Department of Environmental Quality,16,363745,FA955026S0002,baseline_mid,966,3,general|investment|science
+Department of Environmental Quality,17,325599,AFPRA-20-04,baseline_top,2,22,agencie|assistance|businesse|effort|environment|environmental|government|increase|innovation|investment|involvement|leader|long|natural|process|protection|requirement|resident|resilience|resource|standard|term
+Department of Environmental Quality,18,363532,HRSA-27-027,baseline_mid,774,4,assistance|health|innovation|technical
+Department of Environmental Quality,19,359325,23-589,random_rest,161,9,developing|effort|engage|engagement|infrastructure|involvement|resource|science|technical
+Department of Environmental Quality,20,357204,PAR-25-095,baseline_mid,678,4,environmental|health|resource|treatment
+Department of Health and Human Services,1,361534,RFA-CA-26-011,baseline_mid,770,4,data|health|outcome|resource
+Department of Health and Human Services,2,362014,HSG-2600-DC-0033,random_rest,333,7,affordable|comprehensive|familie|individual|resource|sustainable|training
+Department of Health and Human Services,3,363148,PDR-2600-DC-0079,random_rest,1367,1,cost
+Department of Health and Human Services,4,364127,RFA-HD-28-002,baseline_top,3,21,access|care|complex|comprehensive|continuou|cost|critical|data|delivery|develop|drive|effective|efficient|health|high|individual|outcome|person|resource|strategie|workforce
+Department of Health and Human Services,5,363398,CDC-RFA-CE-27-0039,baseline_top,6,18,access|address|continuou|coordination|data|factor|health|high|improvement|outcome|partner|partnership|priority|quality|resource|strategic|strategie|strengthening
+Department of Health and Human Services,6,361205,RFA-DA-27-011,random_rest,764,4,complex|high|innovative|partner
+Department of Health and Human Services,7,334905,RANDENDEPSTEMFY22RFI,baseline_top,2,22,access|accessible|address|career|cost|critical|develop|ecosystem|effective|improvement|individual|leveraging|outcome|partner|partnership|priority|promote|rural|strategic|talent|training|workforce
+Department of Health and Human Services,8,334326,21-595,baseline_top,1,27,address|attract|behavioral|career|comprehensive|cost|critical|data|delivering|health|high|improvement|individual|innovative|manage|modernizing|partner|partnership|promote|quality|retain|stakeholder|strategic|strengthening|training|well|workforce
+Department of Health and Human Services,9,360926,RFA-ES-26-004,baseline_mid,961,3,address|health|training
+Department of Health and Human Services,10,360543,PAR-27-072,random_rest,1497,0,""
+Department of Health and Human Services,11,348599,23-598,baseline_mid,866,3,improvement|justice|sustainable
+Department of Health and Human Services,12,351231,PDSITALYFY24,random_rest,29,14,ability|cost|develop|individual|organizational|outcome|partnership|priority|promote|quality|strategic|sustainable|well|whole
+Department of Health and Human Services,13,361249,26-504,baseline_mid,579,5,complex|data|develop|promote|training
+Department of Health and Human Services,14,327185,DOS-USEU-PD-2020-002,baseline_top,4,20,ability|access|address|comprehensive|cost|data|develop|individual|innovative|organizational|outcome|partner|partnership|promote|resource|strategic|sustainable|training|transparency|well
+Department of Health and Human Services,15,363225,DFOP0017180,random_rest,1371,1,innovative
+Department of Health and Human Services,16,331311,95332421K0004,baseline_top,5,19,access|address|attract|coordination|cost|deliver|delivery|develop|high|individual|organizational|outcome|partner|partnership|promote|reform|stakeholder|sustainable|training
+Department of Health and Human Services,17,363839,RFA-NS-28-002,baseline_mid,484,6,data|develop|effective|health|high|quality
+Department of Health and Human Services,18,344715,23-525,baseline_mid,675,4,data|individual|quality|well
+Department of Health and Human Services,19,fr:2026-19578,,random_rest,847,4,access|care|comprehensive|health
+Department of Health and Human Services,20,356925,PAR-25-211,random_rest,117,10,ability|address|data|develop|health|improvement|innovative|outcome|person|strategie

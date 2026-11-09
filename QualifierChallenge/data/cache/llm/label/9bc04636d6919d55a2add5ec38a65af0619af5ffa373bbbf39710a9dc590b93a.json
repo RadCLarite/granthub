@@ -1,0 +1,39 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "Natural Resources Conservation Service Wetland Mitigation Banking Program Fiscal Year (FY) 2026",
+    "program_domain": "none",
+    "owning_division": "Other state agency",
+    "required_capabilities": [
+      "capital_construction"
+    ],
+    "requires_subrecipient_network": false,
+    "evaluation_required": true,
+    "is_capital_project": true,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": true,
+    "match_pct_stated": 20,
+    "match_evidence": "Cost Sharing Required Cost Share: • 20 percent of total project costs (total project costs includes Federal and non-Federal funds) included in the application must be from non-federal funding.",
+    "target_population": "system_level",
+    "alignment_dhhs": {
+      "level": "none",
+      "plan_row": "G1",
+      "rationale": "The opportunity focuses on wetland conservation and does not directly relate to health equity or access to health services."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "G1",
+      "rationale": "The opportunity is related to wetland conservation and does not align with DMVA's strategic goals focused on veterans and military transition."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v2",
+    "created": "2026-09-29T09:33:19-0400",
+    "prompt_tokens": 3446,
+    "output_tokens": 314,
+    "seconds": 33
+  }
+}

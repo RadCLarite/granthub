@@ -1,0 +1,42 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "Division of Runaway and Homeless Youth will award one cooperative agreement on a competitive basis for a period of three years to operate the National Communication System (NCS) for Runaway and Homeless Youth Program.",
+    "program_domain": "D04",
+    "owning_division": "DHHS: Child and Family Well-Being",
+    "required_capabilities": [
+      "behavioral_health_delivery",
+      "public_health_surveillance",
+      "data_systems_interoperability",
+      "subrecipient_network_management"
+    ],
+    "requires_subrecipient_network": true,
+    "evaluation_required": true,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": true,
+    "match_pct_stated": 10,
+    "match_evidence": "This program requires you to contribute 10% of the project’s total cost.",
+    "target_population": "children",
+    "alignment_dhhs": {
+      "level": "strong",
+      "plan_row": "G2.O1",
+      "rationale": "The program aims to provide behavioral and mental health services to vulnerable youth, aligning with the objective to strengthen capacity to meet the behavioral and mental health needs of North Carolina children and families."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The program does not directly align with any of the DMVA strategic plan objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v2",
+    "created": "2026-09-29T09:08:29-0400",
+    "prompt_tokens": 4102,
+    "output_tokens": 352,
+    "seconds": 35.1
+  }
+}

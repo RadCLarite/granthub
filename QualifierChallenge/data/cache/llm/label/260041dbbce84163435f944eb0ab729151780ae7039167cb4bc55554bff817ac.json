@@ -1,0 +1,41 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "state_governments, county_governments, special_district_governments, federally_recognized_native_american_tribal_governments, city_or_township_governments",
+    "program_domain": "D08",
+    "owning_division": "DHHS: Public Health",
+    "required_capabilities": [
+      "public_health_surveillance",
+      "housing_stock_or_assistance",
+      "subrecipient_network_management"
+    ],
+    "requires_subrecipient_network": true,
+    "evaluation_required": false,
+    "is_capital_project": false,
+    "needs_formal_designation": true,
+    "is_renewal": false,
+    "match_required": true,
+    "match_pct_stated": 0,
+    "match_evidence": "Cost Sharing or Matching This Program requires cost sharing or matching, as described below.",
+    "target_population": "children",
+    "alignment_dhhs": {
+      "level": "partial",
+      "plan_row": "G1.O1",
+      "rationale": "The program supports local capacity to overcome persistent health inequities by assisting in identifying and controlling lead-based paint hazards in housing."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The program does not directly align with DMVA's strategic plan objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v2",
+    "created": "2026-09-29T09:23:12-0400",
+    "prompt_tokens": 3672,
+    "output_tokens": 314,
+    "seconds": 36.4
+  }
+}

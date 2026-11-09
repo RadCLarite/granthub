@@ -1,0 +1,39 @@
+{
+  "label": {
+    "administrable_by_state_agency": false,
+    "administrable_evidence": "false",
+    "program_domain": "none",
+    "owning_division": "none",
+    "required_capabilities": [
+      "data_systems_interoperability"
+    ],
+    "requires_subrecipient_network": false,
+    "evaluation_required": false,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": true,
+    "match_pct_stated": 20,
+    "match_evidence": "Grant recipients will be required to contribute at least twenty (20) percent of State funds for eligible activity costs.",
+    "target_population": "system_level",
+    "alignment_dhhs": {
+      "level": "none",
+      "plan_row": "G1.O3",
+      "rationale": "The opportunity focuses on data collection and system modernization, which is not directly related to mitigating barriers to health services access."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "G2.O1",
+      "rationale": "The opportunity is about crash data systems, which is not related to veterans home infrastructure or cemetery maintenance."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v3",
+    "created": "2026-09-29T14:01:53-0400",
+    "prompt_tokens": 3857,
+    "output_tokens": 285,
+    "seconds": 40.4
+  }
+}

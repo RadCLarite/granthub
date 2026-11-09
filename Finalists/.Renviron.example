@@ -1,0 +1,3 @@
+# Copy to .Renviron (same folder) and fill in. .Renviron is gitignored; never commit a key.
+# Add keys here only if the finals data needs them.
+CENSUS_API_KEY=

@@ -1,0 +1,41 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "Eligible applicants are limited to: States; units of local government; tribal governments or tribal organizations; population specific organizations; victim service providers; and state, tribal, or territorial domestic violence or sexual assault coalitions.",
+    "program_domain": "D06",
+    "owning_division": "DHHS: Social Services",
+    "required_capabilities": [
+      "behavioral_health_delivery",
+      "workforce_training_credentialing",
+      "subrecipient_network_management"
+    ],
+    "requires_subrecipient_network": true,
+    "evaluation_required": false,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "none",
+    "target_population": "older_adults",
+    "alignment_dhhs": {
+      "level": "partial",
+      "plan_row": "G1.O4",
+      "rationale": "The program supports local capacity to overcome persistent health disparities among older adults."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The program does not directly align with DMVA's strategic plan objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v2",
+    "created": "2026-09-29T09:37:09-0400",
+    "prompt_tokens": 2567,
+    "output_tokens": 305,
+    "seconds": 29
+  }
+}

@@ -1,0 +1,60 @@
+agency_id,cfda,group,best_rank,best_title,fit,top10_median_fit,n_notice_tokens,n_shared_tokens,shared_share,top_shared_words,fit_minus_top10_median,fit_below_top10_median,hand_tag_sample
+commerce,17.245,rank below 50,55,Change 1 to Training and Employment Guidance Letter No. 01-25: Process for Requesting Fiscal Year 2026 Trade Adjustment Assistance Program Funds,0.3645,0.8082,40,18,0.45,state program year workforce employment,-0.4437,TRUE,TRUE
+commerce,17.271,rank below 50,382,Work Opportunity Tax Credit Initial Funding Allotments for Fiscal Year 2026,0.0535,0.6218,42,22,0.5238,grant state year award fiscal,-0.5683,TRUE,FALSE
+commerce,17.273,rank below 50,59,Foreign Labor Certification Grant Planning Guidance for Fiscal Year (FY) 2025 through FY 2028 (Change 1),0.253,0.4667,28,15,0.5357,grant state year workforce labor,-0.2137,TRUE,FALSE
+commerce,17.277,rank below 50,107,Rapid Reskill Employment Recovery National Dislocated Worker Grants,0.2505,0.7107,21,9,0.4286,grant employment opportunity funding recovery,-0.4602,TRUE,FALSE
+dacs,10.664,rank below 50,65,Landscape Scale Restoration Grant Program 2025 Southern and IITF,0.1863,0.4332,108,37,0.3426,forest state program strategy year,-0.247,TRUE,FALSE
+dacs,10.720,rank below 50,719,Community Wildfire Defense Grant 2024 (FY25) Northeast-Midwest,0,0.3129,182,59,0.3242,forest service program strategy year,-0.3129,TRUE,FALSE
+dacs,15.657,rank below 50,802,F24AS00431 FY24 Recovery Implementation,0,0.4332,68,31,0.4559,service measure resource time plan,-0.4332,TRUE,TRUE
+deq,15.073,rank below 50,148,Earth Mapping Resources Initiative (Earth MRI) Mine Waste Cooperative Agreements FY2026,0.1281,0.5155,45,17,0.3778,program state support resource data,-0.3874,TRUE,FALSE
+deq,15.616,rank below 50,54,F26AS00013 FY 2026 Clean Vessel Act (CVA) Notice of Funding Opportunity,0.2403,0.5474,55,22,0.4,public program provide state opportunity,-0.3071,TRUE,FALSE
+deq,15.622,rank below 50,314,F26AS00009_FY 2026 - Sportfishing and Boating Safety Act - Boating Infrastructure Grant (BIG) Tier 2,0.0368,0.3786,120,35,0.2917,public program provide state infrastructure,-0.3418,TRUE,FALSE
+deq,15.810,rank below 50,53,The State Component of the National Cooperative Geologic Mapping Program,0.2119,0.5155,128,57,0.4453,program provide water state support,-0.3036,TRUE,FALSE
+deq,66.461,rank below 50,52,FY 2025 Region 4 Wetlands Program,0.1947,0.5415,51,24,0.4706,program state develop protect local,-0.3467,TRUE,FALSE
+deq,81.041,rank below 50,1173,Inflation Reduction Act (IRA) of 2022: State-Based Home Energy Efficiency Contractor Training Competitive Grant Program,0,0.6575,159,56,0.3522,community program provide state support,-0.6575,TRUE,FALSE
+deq,97.056,rank below 50,164,Fiscal Year 2025 Port Security Grant Program,0.1416,0.591,106,54,0.5094,program provide state support opportunity,-0.4494,TRUE,TRUE
+dhhs,10.541,rank below 50,285,FY 2026 CN Technology Innovation Grant for Child and Adult Care Food Program Integrity,0.0511,0.4933,408,97,0.2377,care access improve system department,-0.4423,TRUE,FALSE
+dhhs,10.545,rank below 50,174,FY 2026 Mobile Payments Solution for SNAP Authorized Farmers - Cooperative Agreement,0.1067,0.4933,121,30,0.2479,health access department well plan,-0.3866,TRUE,FALSE
+dhhs,10.561,rank below 50,115,FY 2026 SNAP Earnings Verification Support Grant,0.0944,0.4246,85,22,0.2588,health service being well support,-0.3303,TRUE,FALSE
+dhhs,10.578,rank below 50,737,FY 2026 WIC Infrastructure Grant,0,0.5882,98,24,0.2449,service system program cost data,-0.5882,TRUE,FALSE
+dhhs,10.579,rank below 50,145,USDA-FNS-CN-EAG-FY26,0.0575,0.4371,149,42,0.2819,service improve department support promote,-0.3796,TRUE,FALSE
+dhhs,10.580,rank below 50,177,FY 2026 SNAP Process and Technology Improvement,0.1022,0.5405,104,31,0.2981,health service improve system program,-0.4383,TRUE,TRUE
+dhhs,16.560,rank below 50,66,"NIJ FY 2026 Invited to Apply - Novel Psychoactive Substance Discovery, Education, and Reporting Institute",0.004,0.2766,28,7,0.25,opportunity operation enhance identify rapidly,-0.2727,TRUE,FALSE
+dhhs,16.754,rank below 50,147,BJA FY 2026 Harold Rogers Prescription Drug Monitoring Program,0.0153,0.2975,95,26,0.2737,health system support program strengthen,-0.2821,TRUE,FALSE
+dhhs,17.235,rank below 50,336,"Program Year 2026 Senior Community Service Employment Program State, Territorial, and National Grantees",0.0274,0.5405,21,7,0.3333,service program community provide state,-0.5131,TRUE,FALSE
+dhhs,84.177,rank below 50,664,Office of Special Education and Rehabilitative Services (OSERS): Rehabilitation Services Administration (RSA): Independent Living Services for Older Individuals Who Are Blind (OIB) Program: Training and Technical Assistance ALN Number 84.177Z,0,0.4683,90,21,0.2333,service access improve department individual,-0.4683,TRUE,FALSE
+dhhs,84.325,rank below 50,303,"OSERS-OSEP: Personnel Preparation of Special Education, Early Intervention, and Related Services Personnel, Assistance Listing Number (ALN) 84.325K",0.0016,0.3993,102,26,0.2549,service care improve department program,-0.3977,TRUE,FALSE
+dhhs,93.052,rank below 50,447,Advancing State Implementation of the National Strategy to Support Family Caregivers,0,0.4683,78,23,0.2949,plan support partner supporting address,-0.4683,TRUE,FALSE
+dhhs,93.072,rank below 50,129,Lifespan Respite Care Program: State Program Enhancement Grants,0.0978,0.4557,109,38,0.3486,service care system support program,-0.358,TRUE,TRUE
+dhhs,93.092,rank below 50,153,Personal Responsibility Education Innovative Strategies (PREIS),0.0618,0.4246,116,28,0.2414,service care well partner program,-0.3628,TRUE,FALSE
+dhhs,93.165,rank below 50,69,State Loan Repayment Program (State LRP),0.1247,0.4557,24,8,0.3333,health care program state operating,-0.331,TRUE,FALSE
+dhhs,93.583,rank below 50,218,Wilson Fish Bridge to Employment Program,0.0787,0.4933,56,17,0.3036,service access well support individual,-0.4146,TRUE,FALSE
+dhhs,93.747,rank below 50,456,Elder Justice Innovation Grants FY2025,0,0.4683,34,5,0.1471,support program justice improvement issue,-0.4683,TRUE,FALSE
+dhhs,93.767,rank below 50,762,Connecting Kids to Coverage Outreach and Enrollment Cooperative Agreements (CKC) 2025,0,0.4683,31,7,0.2258,health service improve program eligible,-0.4683,TRUE,FALSE
+dhhs,93.788,rank below 50,379,Emergency Department Alternatives to Opioids Program,0.0056,0.4933,32,9,0.2812,care department program develop practice,-0.4877,TRUE,TRUE
+dncr,15.657,rank below 50,943,F24AS00431 FY24 Recovery Implementation,0,0.6013,68,30,0.4412,plan resource opportunity public development,-0.6013,TRUE,FALSE
+doi,93.071,rank below 50,83,National Center for Benefits Outreach & Enrollment,0.0727,0.3264,70,34,0.4857,service public maintain outreach provide,-0.2537,TRUE,FALSE
+doi,97.043,rank below 50,577,Fiscal Year 2026 State Fire Training Systems Grants,0,0.2954,44,20,0.4545,service material accordance system control,-0.2954,TRUE,FALSE
+doi,97.044,rank below 50,588,Fiscal Year (FY) 2025 Assistance to Firefighters Grants (AFG) Program,0,0.3055,59,21,0.3559,service department standard health provide,-0.3055,TRUE,FALSE
+dpi,10.541,rank below 50,82,FY 2026 CN Technology Innovation Grant for Child and Adult Care Food Program Integrity,0.3073,0.5875,408,242,0.5931,student public state increase support,-0.2802,TRUE,FALSE
+dpi,10.579,rank below 50,89,USDA-FNS-CN-EAG-FY26,0.2608,0.6546,149,97,0.651,school student public education state,-0.3939,TRUE,FALSE
+dpi,84.048,rank below 50,280,Fiscal Year 2026 State Allocations under the Carl D. Perkins Career and Technical Education Act of 2006 (Perkins V),0.1519,0.6965,23,11,0.4783,education state year program career,-0.5446,TRUE,TRUE
+dpi,84.323,rank below 50,106,"Office of Special Education and Rehabilitative Services (OSERS): Office of Special Education Programs (OSEP): State Personnel Development Grants (SPDG) Program, Assistance Listing Number 84.323A",0.2463,0.6546,69,46,0.6667,education state plan number program,-0.4084,TRUE,FALSE
+dps,16.017,rank below 50,219,OVW Fiscal Year 2026 Sexual Assault Services Formula Program,0.1265,0.5932,32,14,0.4375,service program state support victim,-0.4667,TRUE,FALSE
+dps,16.044,rank below 50,122,BJA FY25 Invited to Apply&#8211; Forensics Training and Technical Assistance (FTTA) Program,0.1916,0.5932,41,27,0.6585,program training improve resource community,-0.4016,TRUE,FALSE
+dps,16.588,rank below 50,68,OVW Fiscal Year 2025 STOP Formula Grant Program,0.2096,0.5408,37,18,0.4865,service program training community state,-0.3312,TRUE,FALSE
+dps,16.606,rank below 50,51,BJA FY25 State Criminal Alien Assistance Program (SCAAP),0.2961,0.5813,70,37,0.5286,service safety public program resource,-0.2852,TRUE,FALSE
+dps,16.735,rank below 50,58,BJA FY25 Investigating and Prosecuting Sexual Assaults in Confinement Facilities Program,0.2219,0.5603,33,18,0.5455,program enhance law increase enforcement,-0.3383,TRUE,TRUE
+dps,16.742,rank below 50,134,BJA FY 2026 Paul Coverdell Forensic Science Improvement- Competitive Grants Program,0,0.5533,26,12,0.4615,service program state opportunity local,-0.5533,TRUE,FALSE
+dps,16.816,rank below 50,57,BJA FY25 John R. Justice (JRJ) Formula Grant Program,0.1914,0.5203,44,21,0.4773,service public program justice provide,-0.3289,TRUE,FALSE
+dps,20.218,rank below 50,62,Development of Fiscal Year 2026 Commercial Vehicle Safety Plans to Support National Safety Goals,0.1879,0.7266,31,16,0.5161,safety program reduce provide development,-0.5387,TRUE,FALSE
+dps,20.237,rank below 50,244,FY2025 High Priority Program &#8211; Innovative Technology Deployment (HP-ITD),0.0874,0.5408,37,21,0.5676,safety program improve reduce operation,-0.4535,TRUE,FALSE
+dps,20.703,rank below 50,321,FY 2025 HMEP Grant Program States and Territories,0.0534,0.3978,25,12,0.48,program increase provide state local,-0.3444,TRUE,FALSE
+dps,97.023,rank below 50,183,Fiscal Year 26 Community Assistance Program - State Support Services Element (CAP-SSSE),0.158,0.6188,67,35,0.5224,service program ensure community reduce,-0.4608,TRUE,FALSE
+dps,97.043,rank below 50,89,Fiscal Year 2025 State Fire Training Systems Grant,0.1718,0.4244,52,30,0.5769,service program prevention training state,-0.2526,TRUE,TRUE
+dps,97.045,rank below 50,53,Fiscal Year 2026 Cooperating Technical Partners (CTP) Program - Region 2,0.3035,0.5393,55,36,0.6545,public program community reduce increase,-0.2358,TRUE,FALSE
+ncdot,20.215,rank below 50,310,NOTICE OF FUNDING OPPORTUNITY FOR FISCAL YEAR (FY) 2024 &#8211; 2026 GARRETT A. MORGAN TECHNOLOGY AND TRANSPORTATION EDUCATION PROGRAM,0.0906,0.3879,201,73,0.3632,transportation program performance total year,-0.2973,TRUE,FALSE
+ncdot,20.276,rank below 50,59,"National Culvert Removal, Replacement, and Restoration (Culvert Aquatic Organism Passage)",0.161,0.4872,35,14,0.4,program improve funding provide grant,-0.3262,TRUE,FALSE
+wrc,10.028,rank below 50,181,Spatial Ecology and Chronic Wasting Disease Dynamics of Wild White-tailed and Mule Deer in Northern Colorado,0.0669,0.4772,280,73,0.2607,wildlife agency program opportunity mission,-0.4102,TRUE,FALSE
+wrc,15.657,rank below 50,263,F24AS00431 FY24 Recovery Implementation,0.1026,0.5033,68,34,0.5,resource opportunity public support plan,-0.4007,TRUE,FALSE
+wrc,97.056,rank below 50,262,Fiscal Year 2025 Port Security Grant Program,0.0605,0.3858,106,51,0.4811,program opportunity state management associated,-0.3253,TRUE,TRUE

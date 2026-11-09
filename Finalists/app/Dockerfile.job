@@ -1,0 +1,22 @@
+# Dockerfile.job: image for the daily Container Apps Job (MODE=job). NOT built or pushed yet.
+# Build context is the REPO ROOT (it needs Finalists/ and one QualifierChallenge file), so from the repo root:
+#   az acr build -r ffmacrteam15 -t ffm-job:v1 -f Finalists/app/Dockerfile.job . --no-logs
+# Only the scoring inputs are copied (no data/raw, no data/cache, no keys): the job never calls out.
+FROM rocker/r-ver:4.4.2
+RUN apt-get update && apt-get install -y --no-install-recommends libcurl4-openssl-dev libssl-dev libxml2-dev libv8-dev curl \
+ && rm -rf /var/lib/apt/lists/*
+RUN R -q -e 'install.packages(c("here","dplyr","readr","jsonlite","janitor","stringr","purrr","tibble","httr2","digest","Matrix","ggplot2","V8"), repos="https://cloud.r-project.org")' \
+ && R -q -e 'stopifnot(all(c("here","dplyr","readr","jsonlite","janitor","stringr","purrr","tibble","httr2","digest","Matrix","ggplot2","V8") %in% rownames(installed.packages())))'
+COPY Finalists/Finalists.Rproj /srv/finalists/Finalists.Rproj
+COPY Finalists/src/R /srv/finalists/src/R
+COPY Finalists/src/tool /srv/finalists/src/tool
+COPY Finalists/src/docs/agency_goal_summaries.csv /srv/finalists/src/docs/agency_goal_summaries.csv
+COPY Finalists/data/manual /srv/finalists/data/manual
+COPY Finalists/data/example /srv/finalists/data/example
+COPY Finalists/data/processed /srv/finalists/data/processed
+COPY QualifierChallenge/data/manual/agency_capabilities.csv /srv/QualifierChallenge/data/manual/agency_capabilities.csv
+COPY Finalists/app/job.R Finalists/app/entrypoint.sh /srv/app/
+RUN chmod +x /srv/app/entrypoint.sh
+WORKDIR /srv/app
+ENV MODE=job FINALISTS_DIR=/srv/finalists TZ=America/New_York
+ENTRYPOINT ["/srv/app/entrypoint.sh"]

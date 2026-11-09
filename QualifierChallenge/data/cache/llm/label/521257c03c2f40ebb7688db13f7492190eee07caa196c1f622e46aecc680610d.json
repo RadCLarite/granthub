@@ -1,0 +1,40 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "Eligible applicants under the Bollards Competitive Grant Program are State Departments of Transportation (State DOTs) and local government entities such as any city, county, town, parish, village, or other general-purpose political subdivision of a State).",
+    "program_domain": "D08",
+    "owning_division": "none",
+    "required_capabilities": [
+      "emergency_management",
+      "capital_construction"
+    ],
+    "requires_subrecipient_network": false,
+    "evaluation_required": false,
+    "is_capital_project": true,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "none",
+    "target_population": "hazard_exposed",
+    "alignment_dhhs": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The grant focuses on infrastructure and safety measures for pedestrians, which does not directly align with any of the DHHS strategic plan objectives."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The grant focuses on pedestrian safety and infrastructure, which does not directly align with any of the DMVA strategic plan objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v2",
+    "created": "2026-09-29T09:34:31-0400",
+    "prompt_tokens": 3733,
+    "output_tokens": 322,
+    "seconds": 34.2
+  }
+}

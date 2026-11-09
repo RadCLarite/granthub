@@ -1,0 +1,41 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "administrable_by_state_agency: true if a state health, human services, or veterans agency could realistically be the lead applicant and run this program.",
+    "program_domain": "D01",
+    "owning_division": "DHHS: Mental Health, Developmental Disabilities and Substance Use Services",
+    "required_capabilities": [
+      "behavioral_health_delivery",
+      "data_systems_interoperability",
+      "subrecipient_network_management"
+    ],
+    "requires_subrecipient_network": true,
+    "evaluation_required": true,
+    "is_capital_project": false,
+    "needs_formal_designation": true,
+    "is_renewal": false,
+    "match_required": false,
+    "match_pct_stated": 0,
+    "match_evidence": "none",
+    "target_population": "adults_mental_distress",
+    "alignment_dhhs": {
+      "level": "strong",
+      "plan_row": "G3.O2",
+      "rationale": "The initiative supports coordinated, direct intervention efforts across public safety, justice, mental health, and substance use agencies to increase access to mental health and substance use treatment, directly advancing the objective to expand access to behavioral health supports for people involved in the justice system."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The opportunity does not directly relate to any of the DMVA strategic plan goals or objectives."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v2",
+    "created": "2026-09-29T09:49:14-0400",
+    "prompt_tokens": 2658,
+    "output_tokens": 352,
+    "seconds": 32.4
+  }
+}

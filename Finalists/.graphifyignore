@@ -1,0 +1,6 @@
+data/cache/
+data/processed/
+data/raw/agency_plans/
+outs/
+api_keys.env
+.Renviron*

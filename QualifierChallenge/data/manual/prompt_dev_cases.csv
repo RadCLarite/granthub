@@ -1,0 +1,17 @@
+title_contains,expected_administrable,chosen_why
+Title X Family Planning Services Grants,TRUE,v3 rejected it although its quoted eligibility included states
+Family-to-Family Health Information Centers,TRUE,v3 rejected it although eligibility said any domestic public entity
+Increased Capacity in Alcohol Epid,TRUE,v3 rejected a state-located public health capacity grant
+Laboratory Flexible Funding Model,TRUE,state public health labs are the intended applicants
+Public Health Crisis Response Cooperative Agreement,TRUE,known state health department program
+"Comprehensive Opioid, Stimulant",TRUE,open to state agencies; must stay aligned
+State Veterans Home Construction,TRUE,DMVA vignette
+Home Study and Post-Release Services,,borderline: state agencies eligible but usually nonprofits run it
+Sierra L,FALSE,v2 error: international program
+Wildland Fire,FALSE,v2 error: not a health or human services function
+Abandoned Mine,FALSE,v2 error: environmental cleanup
+Houses of Worship,FALSE,v2 error: law enforcement grant
+Seattle FY 2021,FALSE,economic development
+Emerging Infections Network,FALSE,research network
+Integrating Machine Learning with Computational,FALSE,FDA research
+US Travelers Health Research,,borderline research and outreach network

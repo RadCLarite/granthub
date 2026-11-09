@@ -1,0 +1,37 @@
+{
+  "label": {
+    "administrable_by_state_agency": true,
+    "administrable_evidence": "Eligible applicants include state, local, and tribal governments, nonprofit organizations, educational institutions, and other community-based partners.",
+    "program_domain": "none",
+    "owning_division": "none",
+    "required_capabilities": [],
+    "requires_subrecipient_network": false,
+    "evaluation_required": true,
+    "is_capital_project": false,
+    "needs_formal_designation": false,
+    "is_renewal": false,
+    "match_required": true,
+    "match_pct_stated": 1,
+    "match_evidence": "Cost sharing is required for all proposals. All applicants must demonstrate a 1:1 match of federal funds to non-federal funds, which may be in the form of cash, services, or in-kind contributions.",
+    "target_population": "all_residents",
+    "alignment_dhhs": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The grant program focuses on urban and community forestry and does not directly align with any specific health or social service objectives in the NC DHHS Strategic Plan."
+    },
+    "alignment_dmva": {
+      "level": "none",
+      "plan_row": "none",
+      "rationale": "The grant program focuses on urban and community forestry and does not directly align with any specific veteran or military service objectives in the NC DMVA Strategic Plan."
+    }
+  },
+  "meta": {
+    "model": "qwen2.5:14b",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "prompt_version": "v2",
+    "created": "2026-09-29T13:07:22-0400",
+    "prompt_tokens": 3740,
+    "output_tokens": 331,
+    "seconds": 39.5
+  }
+}

@@ -1,0 +1,35 @@
+agency,machine,order,status
+Department of Public Schools,A,0,done
+Department of Environmental Quality,A,0,done
+Department of Health and Human Services,A,0,done
+Department of Administration,A,0,done
+Department of Agriculture and Consumer Services,A,0,done
+Department of Information Technology,A,0,done
+Department of Justice,A,0,done
+Department of Adult Correction,B,0,done
+Department of Commerce,B,0,done
+Department of Insurance,B,0,done
+Department of Labor,B,0,done
+Department of Military and Veterans Affairs,A,1,todo
+Department of Natural and Cultural Resources,B,1,todo
+Department of Transportation,C,1,todo
+Department of Public Safety,D,1,todo
+NC Community College System,E,1,todo
+Wildlife Resources Commission,A,2,todo
+NC Housing Finance Agency,A,3,todo
+University of North Carolina System,B,2,todo
+State Highway Patrol,C,2,todo
+State Bureau of Investigation,D,2,todo
+Office of State Fire Marshal,E,2,todo
+Department of Secretary of State,A,4,todo
+Judicial Branch - Indigent Defense,A,5,todo
+Office of State Budget and Management,B,3,todo
+Department of Revenue,C,3,todo
+Department of State Treasurer,D,3,todo
+Office of Administrative Hearings,E,3,todo
+Office of the State Auditor,A,6,todo
+Office of the State Controller,A,7,todo
+Office of State Human Resources,B,4,todo
+State Board of Elections,C,4,todo
+Guiding Principles,D,4,todo
+State Board of Education Plan,E,4,todo

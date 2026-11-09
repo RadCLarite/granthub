@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NC Grants Explorer</title>
+<!-- Libre Franklin when online; offline the stylesheet's Franklin Gothic / Helvetica fallbacks apply. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>/*LEAFLET_CSS*/</style>
+<style>/*STYLES*/</style>
+</head>
+<body>
+<header class="app">
+  <div class="brand">
+    <span class="logo" aria-hidden="true"><i style="background:var(--tier1)"></i><i style="background:var(--tier2)"></i><i style="background:var(--tier3)"></i></span>
+    <div>
+      <h1>NC Grants Explorer</h1>
+      <div class="sub">Federal opportunities sorted by whose signature you need, not by a score.</div>
+    </div>
+  </div>
+  <div class="ctl" style="margin:0;min-width:160px">
+    <label for="agency">Agency</label>
+    <select id="agency"></select>
+  </div>
+  <div class="spacer"></div>
+  <div class="data-note" id="data-note"></div>
+  <div class="header-actions">
+  <nav class="site-links" aria-label="Project links">
+    <a href="https://kapollol.github.io/SolveAThon_2026/" target="_blank" rel="noopener">Project website</a>
+    <a href="https://kapollol.github.io/SolveAThon_2026/notebook.html" target="_blank" rel="noopener">How we built it</a>
+  </nav>
+  <button class="btn" type="button" id="present-toggle" aria-pressed="false" title="Enlarge everything for a projector or screen share">Larger text</button>
+  </div>
+</header>
+
+<div class="scenario">
+  <div>
+    <label for="scenario-text" class="scenario-label">Describe your situation in plain English</label>
+    <textarea id="scenario-text" placeholder="e.g. I have about one month, no matching funds, two staff, awards of at least $250k, rural behavioral health, reach the most people"></textarea>
+  </div>
+  <div class="row" style="align-self:end">
+    <button class="btn primary" id="apply-text">Apply</button>
+    <span class="small muted">Presets:</span>
+    <span id="presets" class="row"></span>
+  </div>
+  <div class="examples"><span class="small muted">Try an example:</span><span id="examples" class="row"></span></div>
+  <div class="chips" id="chips"></div>
+</div>
+
+<div class="layout">
+  <aside class="controls">
+    <div class="panel">
+      <h3>Your constraints</h3>
+      <div class="ctl">
+        <label for="ref-date">Reference date</label>
+        <input type="date" id="ref-date">
+        <div class="hint">Treat this as "today".</div>
+      </div>
+      <div class="ctl">
+        <label for="runway">Usable runway <span class="val" id="runway-val"></span></label>
+        <input type="range" id="runway">
+        <div class="hint">Days you need before the deadline, including internal sign-off.</div>
+      </div>
+      <div class="ctl">
+        <label>Can I commit matching funds?</label>
+        <div class="seg" id="match" role="group" aria-label="Can I commit matching funds?"></div>
+        <div class="hint" id="match-hint"></div>
+      </div>
+      <div class="ctl">
+        <label for="fte">Staff for a new application <span class="val" id="fte-val"></span></label>
+        <input type="range" id="fte">
+      </div>
+      <div class="ctl">
+        <label for="minaward">Minimum award worth pursuing <span class="val" id="minaward-val"></span></label>
+        <input type="range" id="minaward">
+        <div class="hint">Estimated award per recipient, not the national pot.</div>
+      </div>
+      <label class="toggle"><input type="checkbox" id="forecasts"> Include forecasts (not yet open)</label>
+      <label class="toggle"><input type="checkbox" id="show-screened"> Include research awards (Tier 4: partner-led)</label>
+      <div class="hint small muted">Research awards need a university or research institution as the applicant, so they get their own pile below the three authority tiers. Restricted competitions stay in the list below the piles.</div>
+    </div>
+
+    <details class="panel" id="rank-panel" open>
+      <summary>Rank within piles</summary>
+      <div class="hint small muted">Ranking orders opportunities inside each pile. It never moves anything between piles.</div>
+      <div class="ctl">
+        <label for="sort-by">Order by</label>
+        <select id="sort-by"><option value="impact">Impact score (your weights)</option><option value="deadline">Soonest deadline</option></select>
+      </div>
+      <div class="ctl">
+        <label for="most-important">What matters most?</label>
+        <select id="most-important">
+          <option value="">Everything equally</option>
+          <option value="alignment">Fit with the strategic plan</option>
+          <option value="reach">Reaching the most people</option>
+          <option value="depth">Most help per person</option>
+          <option value="award">Largest award</option>
+          <option value="priority">My program priorities</option>
+        </select>
+        <div class="hint">Sets that weight to 3 and the rest to 1. Fine-tune below.</div>
+      </div>
+      <div id="impact-weights"></div>
+    </details>
+
+    <details class="panel" id="weights-panel">
+      <summary>Program priority weights</summary>
+      <div class="hint small muted">These feed the "My program priorities" part of the impact score. They never change a tier.</div>
+      <div id="weights"></div>
+    </details>
+
+    <details class="panel" id="assumptions-panel">
+      <summary>Assumptions</summary>
+      <div class="hint small muted">Policy judgments built into the rules. Change them and every pile recomputes.</div>
+      <div class="ctl">
+        <label for="approp">Cost-share awards at or above this need an appropriation <span class="val" id="approp-val"></span></label>
+        <input type="number" id="approp" step="100000" min="0">
+      </div>
+      <div class="ctl">
+        <label>FTE needed to apply, by burden</label>
+        <div class="weight-row"><span>Low</span><input type="number" id="fte-low" step="0.25" min="0"><span></span></div>
+        <div class="weight-row"><span>Medium</span><input type="number" id="fte-medium" step="0.25" min="0"><span></span></div>
+        <div class="weight-row"><span>High</span><input type="number" id="fte-high" step="0.25" min="0"><span></span></div>
+      </div>
+      <button class="btn" id="reset-all">Reset everything to the opening scenario</button>
+    </details>
+  </aside>
+
+  <main>
+    <nav class="tabs" role="tablist" aria-label="Views">
+      <button class="on" role="tab" aria-selected="true" aria-controls="tab-piles" data-tab="piles">Piles</button>
+      <button role="tab" aria-selected="false" aria-controls="tab-map" data-tab="map">Need map</button>
+      <button role="tab" aria-selected="false" aria-controls="tab-reach" data-tab="reach">Reach vs intensity</button>
+      <button role="tab" aria-selected="false" aria-controls="tab-method" data-tab="method">How this works</button>
+    </nav>
+
+    <section id="tab-piles" role="tabpanel">
+      <div class="summary-row">
+        <div class="summary" id="summary" aria-live="polite"></div>
+        <button class="btn" type="button" id="export-csv" title="Download everything currently in the piles as a spreadsheet-ready CSV">Export this view (CSV)</button>
+      </div>
+      <div class="piles" id="piles"></div>
+      <div class="drawers">
+        <details class="drawer" id="drawer-cycle"><summary></summary><div class="list"></div></details>
+        <details class="drawer" id="drawer-scope"><summary></summary>
+          <div class="list"><div class="small muted" id="scope-note"></div><input type="search" id="scope-search" placeholder="Search titles, agencies or reasons" style="width:100%;margin:4px 0 8px;padding:6px 8px;border:1px solid var(--border-strong);border-radius:6px;background:var(--surface-2)"><div id="scope-rows"></div></div></details>
+        <details class="drawer" id="drawer-screened"><summary></summary>
+          <div class="list"><input type="search" id="screened-search" placeholder="Search titles or agencies" style="width:100%;margin:4px 0 8px;padding:6px 8px;border:1px solid var(--border-strong);border-radius:6px;background:var(--surface-2)"><div id="screened-rows"></div></div></details>
+      </div>
+    </section>
+
+    <section id="tab-map" class="hidden" role="tabpanel">
+      <div class="callout" id="map-callout"></div>
+      <div class="map-controls">
+        <div class="ctl"><label for="map-domain">Map layer</label><select id="map-domain"></select></div>
+        <div class="ctl"><label for="map-boundary">Boundary overlay</label><select id="map-boundary"></select></div>
+      </div>
+      <div id="map"></div>
+      <div class="legend" id="map-legend"></div>
+      <div class="small secondary" id="map-indicators"></div>
+    </section>
+
+    <section id="tab-reach" class="hidden" role="tabpanel">
+      <div class="callout"><strong>Estimates, two separate axes.</strong> Horizontal: how many North Carolinians are in the
+        population the opportunity serves (an upper bound on reach). Vertical: estimated award divided by that population.
+        Top-left is intense help for few people; bottom-right is thin help for many. Neither corner is "better".</div>
+      <div class="series-legend" id="reach-legend"></div>
+      <div class="chart-wrap" id="reach-wrap"><svg id="reach-svg" role="img" aria-label="Reach versus intensity scatter plot"></svg><div class="tooltip hidden" id="reach-tip"></div></div>
+      <div id="reach-notes" class="small secondary" style="margin-top:8px"></div>
+      <details class="drawer" style="margin-top:10px"><summary>Table view</summary><div class="list" id="reach-table"></div></details>
+    </section>
+
+    <section id="tab-method" class="hidden" role="tabpanel"><div class="method" id="method"></div></section>
+  </main>
+</div>
+
+<div id="detail-root"></div>
+
+<script type="application/json" id="payload">/*PAYLOAD*/</script>
+<script>/*LEAFLET_JS*/</script>
+<script>/*TIERING_JS*/</script>
+<script>/*UI_JS*/</script>
+</body>
+</html>
