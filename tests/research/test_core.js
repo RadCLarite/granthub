@@ -331,4 +331,32 @@ t('scoreTestset passes search options', () => {
   assert.strictEqual(scoreTestset(srows, aw, []).perAward[0].ic_rank, 1);
   assert.strictEqual(scoreTestset(srows, aw, [], { phraseBoost: 0 }).perAward[0].ic_rank, 2);
 });
+t('parseQuery treats guillemets and low-9 quotes as quote marks', () => {
+  assert.deepStrictEqual(RC.parseQuery('«deep learning» imaging').phrases.map(p => p.tokens), [['deep', 'learning']]);
+  assert.deepStrictEqual(RC.parseQuery('„deep learning“ imaging').phrases.map(p => p.tokens), [['deep', 'learning']]);
+  assert(!/[«»„]/.test(RC.parseQuery('«deep learning» imaging').plain));
+});
+t('phrase words survive the 40-term cap', () => {
+  const fill = [], many = [];
+  for (let i = 0; i < 45; i++) many.push('q' + (i < 10 ? '0' : '') + i);  /* 3-char tokens keep the query under the 200-char phrase limit */
+  for (let i = 0; i < 60; i++) fill.push({ id: 'f' + i, title: 'alpha beta filler ' + (i < 45 ? many[i] : 'plain'), sum: '' });
+  fill.push({ id: 'hit', title: 'alpha beta study', sum: '' });
+  const capIdx = RC.buildIndex(fill, []);
+  const qs = '"alpha beta" ' + many.join(' ');
+  assert(qs.length <= RC.PHRASE_QUERY_MAX_CHARS, 'query must stay within the phrase limit');
+  const res = RC.search(capIdx, '"alpha beta" ' + many.join(' '), { limit: 100 });
+  assert(res.some(r => r.id === 'hit'), 'phrase row must not be dropped by the term cap');
+});
+t('phraseNotices builds the tab messages', () => {
+  const one = RC.phraseNotices(RC.parseQuery('"artificial intelligence" grants').phrases);
+  assert.strictEqual(one.prefix, 'Exact phrase required: “artificial intelligence”. ');
+  assert(/the exact phrase “artificial intelligence”\. Remove the quotes/.test(one.empty));
+  const two = RC.phraseNotices(RC.parseQuery('"deep learning" "mri scans"').phrases);
+  assert(/all of these exact phrases: “deep learning”, “mri scans”/.test(two.empty));
+  const none = RC.phraseNotices([]);
+  assert.strictEqual(none.prefix, ''); assert.strictEqual(none.empty, '');
+});
+t('phrase tip states the length limit it enforces', () => {
+  assert(RC.PHRASE_TIP.indexOf(String(RC.PHRASE_QUERY_MAX_CHARS)) >= 0);
+});
 console.log(n + ' tests pass');
