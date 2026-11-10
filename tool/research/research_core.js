@@ -28,10 +28,10 @@
   /* Quoted phrases count only in short queries: the same box takes pasted abstracts, where quote marks are punctuation. */
   var PHRASE_QUERY_MAX_CHARS = 200, MAX_PHRASES = 5;
   function parseQuery(raw) {
-    var s = typeof raw === 'string' ? raw : '', plain = s.replace(/["“”]/g, ' '), phrases = [];
+    var s = typeof raw === 'string' ? raw : '', plain = s.replace(/[“”„‟«»"]/g, ' '), phrases = [];
     /* An odd number of quote marks (5" display "deep learning") means the pairing is a guess: treat all of them as punctuation. */
-    if (s.length <= PHRASE_QUERY_MAX_CHARS && (s.match(/["“”]/g) || []).length % 2 === 0) {
-      var re = /["“”]([^"“”]*)["“”]/g, m, seen = new Set();
+    if (s.length <= PHRASE_QUERY_MAX_CHARS && (s.match(/[“”„‟«»"]/g) || []).length % 2 === 0) {
+      var re = /[“”„‟«»"]([^“”„‟«»"]*)[“”„‟«»"]/g, m, seen = new Set();
       while (phrases.length < MAX_PHRASES && (m = re.exec(s))) {
         var tokens = tokenize(m[1]), key = tokens.join(' ');
         if (!tokens.length || seen.has(key)) continue;
@@ -40,6 +40,15 @@
       }
     }
     return { plain: plain, phrases: phrases };
+  }
+
+  var PHRASE_TIP = 'Tip: put a phrase in double quotes to require it, for example “artificial intelligence”. Quotes work in searches up to ' + PHRASE_QUERY_MAX_CHARS + ' characters, not in a pasted abstract.';
+  /* Text the tab shows for a phrase search: prefix for the match line, and the message for "words match, phrase does not". */
+  function phraseNotices(phrases) {
+    if (!phrases || !phrases.length) return { prefix: '', empty: '' };
+    var list = phrases.map(function (p) { return '“' + p.text + '”'; }).join(', ');
+    return { prefix: 'Exact phrase required: ' + list + '. ',
+      empty: 'No open opportunity contains ' + (phrases.length > 1 ? 'all of these exact phrases: ' : 'the exact phrase ') + list + '. Remove the quotes to search the words separately.' };
   }
 
   function hasRun(seq, toks) {
@@ -163,7 +172,10 @@
       cand.push({ term: terms[t], idf: idf, w: idf * (qf.get(terms[t]) || 1), order: t });
     }
     cand.sort(function (x, y) { return y.w - x.w || x.order - y.order; });
-    cand = cand.slice(0, MAX_TERMS);
+    /* Words inside a required phrase are never cut by the cap: a phrase row would otherwise score 0 and vanish. */
+    var forced = new Set();
+    if (allowed) parsed.phrases.forEach(function (ph) { ph.tokens.forEach(function (w) { forced.add(w); }); });
+    cand = cand.filter(function (x, i) { return i < MAX_TERMS || forced.has(x.term); });
     var scores = new Map(), matched = new Map();
     for (var c = 0; c < cand.length; c++) {
       var term = cand[c].term, post = index.postings.get(term);
@@ -335,6 +347,6 @@
     return { kept: kept, unknown: unknown, removedBy: removedBy };
   }
 
-  return { tokenize: tokenize, parseQuery: parseQuery, expandTerms: expandTerms, buildIndex: buildIndex, search: search,
+  return { tokenize: tokenize, parseQuery: parseQuery, phraseNotices: phraseNotices, PHRASE_TIP: PHRASE_TIP, PHRASE_QUERY_MAX_CHARS: PHRASE_QUERY_MAX_CHARS, expandTerms: expandTerms, buildIndex: buildIndex, search: search,
     applyFilters: applyFilters, daysUntil: daysUntil, daysSince: daysSince, staleNotice: staleNotice, businessDaysBefore: businessDaysBefore, timeWarning: timeWarning };
 });
