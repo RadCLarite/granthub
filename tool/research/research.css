@@ -33,6 +33,9 @@
 #v-research .rt-badge.rt-ok { background: var(--good-soft); color: var(--good); }
 #v-research .rt-badge.rt-tight { background: var(--warn-soft); color: var(--on-warn-soft); }
 #v-research .rt-badge.rt-late { background: var(--bad-soft); color: var(--bad); }
+#v-research .rt-badge.rt-flag { background: var(--surface-2); color: var(--text-primary); border: 1px solid var(--border); }
+#v-research .rt-badge.rt-flag-mine { background: var(--warn-soft); border-color: var(--warn); }
+#v-research .rt-muted { color: var(--text-secondary); font-size: .85rem; }
 #v-research .rt-badge.rt-unknown { background: var(--surface-3); color: var(--text-secondary); border: 1px solid var(--border); }
 #v-research .rt-line { margin: 4px 0; color: var(--text-primary); font-size: .93rem; }
 #v-research .rt-snip { margin: 6px 0 0; color: var(--text-secondary); font-size: .9rem; }

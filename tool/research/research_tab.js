@@ -96,6 +96,13 @@
     b.appendChild(el('span', 'rt-badge', row.trial === 'required' ? 'Clinical trial required' : row.trial === 'not_allowed' ? 'Clinical trial not allowed' : row.trial === 'optional' ? 'Clinical trial optional' : 'Clinical trial: unknown'));
     (unk || []).forEach(function (k) { b.appendChild(el('span', 'rt-badge rt-unknown', 'unknown: ' + (FILTER_NAMES[k] || k))); });
     card.appendChild(b);
+    var ticked = (state.ui.flagBoxes || []).filter(function (c) { return c.checked; }).map(function (c) { return c.value; }), fn = RC.flagNotes(row, ticked);
+    if (fn.shown.length) {
+      var fb = el('div', 'rt-badges');
+      fn.shown.forEach(function (x) { fb.appendChild(el('span', 'rt-badge rt-flag' + (ticked.indexOf(x.key) >= 0 ? ' rt-flag-mine' : ''), (x.state === 'no' ? 'Not listed: ' : 'Mentioned: ') + x.label)); });
+      card.appendChild(fb);
+    }
+    if (fn.unknownTicked.length) card.appendChild(el('p', 'rt-line rt-muted', 'You ticked ' + fn.unknownTicked.map(function (x) { return x.label; }).join(', ') + '. This listing does not say. Read the notice.'));
     card.appendChild(el('p', 'rt-line', row.ceil != null ? 'Award ceiling ' + money(row.ceil) + ' as listed' : 'Budget: unknown'));
     var line = el('p', 'rt-line'), level, label, days = RC.daysUntil(row.close, state.today);
     if (row.status === 'forecasted' || !row.close) { line.textContent = 'Date not announced'; level = 'unknown'; label = 'No deadline to check'; }
@@ -203,6 +210,12 @@
       lab.appendChild(cb); lab.appendChild(document.createTextNode(m)); fs.appendChild(lab); return cb;
     });
     det.appendChild(fs);
+    var fs3 = el('fieldset'); fs3.appendChild(el('legend', null, 'My project has... (highlights only, hides nothing)'));
+    u.flagBoxes = Object.keys(window.ResearchCore.FLAG_LABELS).map(function (k) {
+      var lab = el('label'), cb = el('input'); cb.type = 'checkbox'; cb.value = k;
+      lab.appendChild(cb); lab.appendChild(document.createTextNode(window.ResearchCore.FLAG_LABELS[k])); fs3.appendChild(lab); return cb;
+    });
+    det.appendChild(fs3);
     var fs2 = el('fieldset'); fs2.appendChild(el('legend', null, 'Lead time and sign-off (estimates)'));
     var g2 = el('div', 'rt-grid');
     u.wR01 = numInput(8, 0); u.wR21 = numInput(6, 0); u.wK = numInput(8, 0); u.sign = numInput(5, 0);

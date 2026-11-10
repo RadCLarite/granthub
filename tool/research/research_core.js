@@ -161,6 +161,19 @@
     return out;
   }
 
+  /* Unusual-case flags (from research.json row.flags). The notice "mentions" a thing; a missing key means unknown, never "no". */
+  var FLAG_LABELS = { loi: 'letter of intent', foreign: 'foreign participation allowed', cost_share: 'cost sharing', subaward: 'subaward',
+    multi_pi: 'multiple PIs', ind_ide: 'IND or IDE', data_sharing: 'data sharing', animals: 'animal research', human_subjects: 'human subjects' };
+  function flagNotes(row, ticked) {
+    var flags = row && row.flags && typeof row.flags === 'object' ? row.flags : {}, want = new Set(ticked || []), shown = [], unknownTicked = [];
+    Object.keys(FLAG_LABELS).forEach(function (k) {
+      if (flags[k] === 'yes' || flags[k] === 'no') shown.push({ key: k, label: FLAG_LABELS[k], state: flags[k] });
+      else if (want.has(k)) unknownTicked.push({ key: k, label: FLAG_LABELS[k] });
+    });
+    shown.sort(function (a, b) { return (want.has(b.key) ? 1 : 0) - (want.has(a.key) ? 1 : 0); });
+    return { shown: shown, unknownTicked: unknownTicked };
+  }
+
   function search(index, query, opts) {
     var limit = opts && opts.limit > 0 ? Math.floor(opts.limit) : DEFAULT_LIMIT;
     var parsed = parseQuery(query), qt = tokenize(parsed.plain);
@@ -359,5 +372,5 @@
   }
 
   return { tokenize: tokenize, parseQuery: parseQuery, phraseNotices: phraseNotices, PHRASE_TIP: PHRASE_TIP, PHRASE_QUERY_MAX_CHARS: PHRASE_QUERY_MAX_CHARS, expandTerms: expandTerms, buildIndex: buildIndex, search: search,
-    applyFilters: applyFilters, daysUntil: daysUntil, daysSince: daysSince, staleNotice: staleNotice, businessDaysBefore: businessDaysBefore, timeWarning: timeWarning };
+    applyFilters: applyFilters, flagNotes: flagNotes, FLAG_LABELS: FLAG_LABELS, daysUntil: daysUntil, daysSince: daysSince, staleNotice: staleNotice, businessDaysBefore: businessDaysBefore, timeWarning: timeWarning };
 });

@@ -379,4 +379,24 @@ t('boost overhead stays small on a 3,000-char search over a larger pool', () => 
   const off = time({ phraseBoost: 0 }), on = time({});
   assert(on - off <= off + 3, 'boost overhead ' + (on - off).toFixed(1) + ' ms against ' + off.toFixed(1) + ' ms for the rest of the search');
 });
+t('flagNotes puts ticked flags first and lists ticked unknowns', () => {
+  const a = RC.flagNotes({ flags: { foreign: 'yes', loi: 'yes' } }, ['loi']);
+  assert.deepStrictEqual(a.shown.map(x => x.key), ['loi', 'foreign']);
+  assert.strictEqual(a.shown[0].state, 'yes');
+  assert.deepStrictEqual(a.unknownTicked, []);
+  const b = RC.flagNotes({ flags: {} }, ['ind_ide']);
+  assert.deepStrictEqual(b.shown, []);
+  assert.deepStrictEqual(b.unknownTicked, [{ key: 'ind_ide', label: RC.FLAG_LABELS.ind_ide }]);
+});
+t('flagNotes tolerates missing, null and array flags', () => {
+  assert.deepStrictEqual(RC.flagNotes({}, []).shown, []);
+  assert.deepStrictEqual(RC.flagNotes({ flags: null }, ['loi']).unknownTicked.length, 1);
+  assert.deepStrictEqual(RC.flagNotes({ flags: [] }, []).shown, []);
+  assert.deepStrictEqual(RC.flagNotes({ flags: { loi: 'yes' } }, ['nonsense']).unknownTicked, []);
+});
+t('FLAG_LABELS has the nine keys and never says required', () => {
+  assert.deepStrictEqual(Object.keys(RC.FLAG_LABELS).sort(), ['animals', 'cost_share', 'data_sharing', 'foreign', 'human_subjects', 'ind_ide', 'loi', 'multi_pi', 'subaward']);
+  Object.keys(RC.FLAG_LABELS).forEach(k => assert(!/required/i.test(RC.FLAG_LABELS[k]), k));
+  assert.strictEqual(RC.flagNotes({ flags: { cost_share: 'no' } }, []).shown[0].state, 'no');
+});
 console.log(n + ' tests pass');
