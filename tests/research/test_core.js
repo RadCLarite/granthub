@@ -379,4 +379,107 @@ t('boost overhead stays small on a 3,000-char search over a larger pool', () => 
   const off = time({ phraseBoost: 0 }), on = time({});
   assert(on - off <= off + 3, 'boost overhead ' + (on - off).toFixed(1) + ' ms against ' + off.toFixed(1) + ' ms for the rest of the search');
 });
+t('flagNotes puts ticked flags first and lists ticked unknowns', () => {
+  const a = RC.flagNotes({ flags: { foreign: 'yes', loi: 'yes' } }, ['loi']);
+  assert.deepStrictEqual(a.shown.map(x => x.key), ['loi', 'foreign']);
+  assert.strictEqual(a.shown[0].state, 'yes');
+  assert.deepStrictEqual(a.unknownTicked, []);
+  const b = RC.flagNotes({ flags: {} }, ['ind_ide']);
+  assert.deepStrictEqual(b.shown, []);
+  assert.deepStrictEqual(b.unknownTicked, [{ key: 'ind_ide', label: RC.FLAG_LABELS.ind_ide }]);
+});
+t('flagNotes tolerates missing, null and array flags', () => {
+  assert.deepStrictEqual(RC.flagNotes({}, []).shown, []);
+  assert.deepStrictEqual(RC.flagNotes({ flags: null }, ['loi']).unknownTicked.length, 1);
+  assert.deepStrictEqual(RC.flagNotes({ flags: [] }, []).shown, []);
+  assert.deepStrictEqual(RC.flagNotes({ flags: { loi: 'yes' } }, ['nonsense']).unknownTicked, []);
+});
+t('FLAG_LABELS has the nine keys and never says required', () => {
+  assert.deepStrictEqual(Object.keys(RC.FLAG_LABELS).sort(), ['animals', 'cost_share', 'data_sharing', 'foreign', 'human_subjects', 'ind_ide', 'loi', 'multi_pi', 'subaward']);
+  Object.keys(RC.FLAG_LABELS).forEach(k => assert(!/required/i.test(RC.FLAG_LABELS[k]), k));
+  assert.strictEqual(RC.flagNotes({ flags: { cost_share: 'no' } }, []).shown[0].state, 'no');
+});
+t('foundationStale uses 365 days and treats blank as stale', () => {
+  assert.strictEqual(RC.foundationStale('2025-01-01', '2026-11-10'), true);
+  assert.strictEqual(RC.foundationStale('2026-06-01', '2026-11-10'), false);
+  assert.strictEqual(RC.foundationStale('', '2026-11-10'), true);
+  assert.strictEqual(RC.foundationStale(null, '2026-11-10'), true);
+  assert.strictEqual(RC.foundationStale('2025-11-10', '2026-11-10'), false);
+  assert.strictEqual(RC.foundationStale('2025-11-09', '2026-11-10'), true);
+});
+t('searchFoundations ranks by focus and name, and rejects empty queries', () => {
+  const fr = [
+    { id: 'f1', name: 'Cardiology Fund', focus: 'Supports heart failure trials and arrhythmia research.' },
+    { id: 'f2', name: 'Neuro Fund', focus: 'Supports stroke imaging, perfusion and cerebrovascular research.' },
+  ];
+  const fi = RC.buildFoundationIndex(fr, groups);
+  const res = RC.searchFoundations(fi, 'stroke perfusion imaging', {});
+  assert.strictEqual(res[0].id, 'f2');
+  assert.deepStrictEqual(RC.searchFoundations(fi, 'the and of', {}), []);
+  assert.deepStrictEqual(RC.searchFoundations(RC.buildFoundationIndex([], groups), 'stroke', {}), []);
+  assert.strictEqual(RC.searchFoundations(fi, '"heart failure"', {})[0].id, 'f1');
+});
+t('buildIcs writes one all-day event per dated row, escaped, with CRLF', () => {
+  const rows = [
+    { id: 'r1', title: 'Cancer, imaging; R01 & <b>', close: '2026-12-01', url: 'https://example.org/1', num: 'PAR-1' },
+    { id: 'r2', title: 'No date', close: null, url: 'https://example.org/2', num: 'PAR-2' },
+  ];
+  const ics = RC.buildIcs(rows, '20261110T120000Z');
+  assert(ics.startsWith('BEGIN:VCALENDAR\r\n'));
+  assert(ics.endsWith('END:VCALENDAR\r\n'));
+  assert.strictEqual(ics.split('BEGIN:VEVENT').length - 1, 1);
+  assert(ics.includes('DTSTART;VALUE=DATE:20261201\r\n'));
+  assert(ics.includes('DTEND;VALUE=DATE:20261202\r\n'));
+  assert(ics.includes('DTSTAMP:20261110T120000Z\r\n'));
+  assert(ics.includes('UID:research-r1@ffm\r\n'));
+  assert(ics.includes('SUMMARY:Closes: Cancer\\, imaging\\; R01 & <b>\r\n'));
+  assert(!ics.includes('No date'));
+  assert(!/[^\r]\n/.test(ics), 'every line break is CRLF');
+});
+t('buildIcs rolls over month and year ends, and gives nothing for undated input', () => {
+  assert(RC.buildIcs([{ id: 'a', title: 'x', close: '2026-12-31' }], '20261110T120000Z').includes('DTEND;VALUE=DATE:20270101'));
+  assert(RC.buildIcs([{ id: 'a', title: 'x', close: '2028-02-28' }], '20261110T120000Z').includes('DTEND;VALUE=DATE:20280229'));
+  assert.strictEqual(RC.buildIcs([{ id: 'a', title: 'x', close: null }], '20261110T120000Z'), '');
+  assert.strictEqual(RC.buildIcs([], '20261110T120000Z'), '');
+  assert.strictEqual(RC.buildIcs([{ id: 'a', title: 'x', close: 'soon' }], '20261110T120000Z'), '');
+});
+t('cleanPublicationList drops numbering, doi and urls but keeps title words', () => {
+  const out = RC.cleanPublicationList('1. Smith J, et al. Deep learning for stroke. Radiology 2024. doi:10.1148/radiol.1234\n[2] Lee K. Perfusion CT. https://doi.org/10.1000/xyz123');
+  assert(!/(^|\n)\s*1\./.test(out) && !out.includes('[2]'));
+  assert(!/doi/i.test(out) && !out.includes('10.1148') && !out.includes('http'));
+  assert(out.includes('Deep learning for stroke') && out.includes('Perfusion CT') && out.includes('2024'));
+  assert.strictEqual(RC.cleanPublicationList(''), '');
+  assert.strictEqual(RC.cleanPublicationList(null), '');
+});
+t('normalizeOrcid accepts prefixes, spaces and lower-case x, and checks the digit', () => {
+  ['0000-0002-1825-0097', 'https://orcid.org/0000-0002-1825-0097', ' 0000 0002 1825 0097 ', '0000000218250097', 'http://orcid.org/0000-0002-1825-0097'].forEach(v =>
+    assert.strictEqual(RC.normalizeOrcid(v), '0000-0002-1825-0097', v));
+  assert.strictEqual(RC.normalizeOrcid('0000-0002-1694-233x'), '0000-0002-1694-233X');
+  ['0000-0002-1825-0098', '0000-0002-1825', '', 'abcd-efgh-ijkl-mnop', null, undefined, 12345, '0000-0002-1825-0097-9', 'https://evil.example/0000-0002-1825-0097'].forEach(v =>
+    assert.strictEqual(RC.normalizeOrcid(v), null, String(v)));
+});
+t('openAlexWorksUrl is the exact one-host request', () => {
+  const u = RC.openAlexWorksUrl('0000-0002-1825-0097');
+  assert.strictEqual(u, 'https://api.openalex.org/works?filter=authorships.author.orcid:https://orcid.org/0000-0002-1825-0097&sort=publication_year:desc&per-page=25&select=title,publication_year,abstract_inverted_index,topics');
+  assert(RC.openAlexWorksUrl('0000-0002-1825-0097', 5).includes('per-page=5&'));
+  assert.strictEqual((u.match(/https?:\/\/[^/]+/g) || []).filter(h => h !== 'https://orcid.org').join(), 'https://api.openalex.org');
+});
+t('worksToText rebuilds abstracts by position and tolerates gaps', () => {
+  const w = [{ title: 'A', abstract_inverted_index: { Deep: [0], learning: [1], helps: [2, 4], stroke: [3] }, topics: [{ display_name: 'Stroke' }, { display_name: 'Imaging' }, { display_name: 'Third' }] }];
+  assert.strictEqual(RC.worksToText(w).replace(/\s+/g, ' ').trim(), 'A Deep learning helps stroke helps Stroke Imaging');
+  assert.strictEqual(RC.worksToText([{ title: 'Only title', abstract_inverted_index: null }]).trim(), 'Only title');
+  assert.strictEqual(RC.worksToText([{ title: '', abstract_inverted_index: null }, null, {}]), '');
+  assert.strictEqual(RC.worksToText([]), '');
+  assert.strictEqual(RC.worksToText(null), '');
+  const many = []; for (let i = 0; i < 400; i++) many.push({ title: 'Paper number ' + i + ' about perfusion imaging', abstract_inverted_index: { alpha: [0], beta: [1], gamma: [2] } });
+  const out = RC.worksToText(many);
+  assert(out.length <= 3000);
+  assert(/\w$/.test(out) && out.split(/\s+/).every(t => /^(Paper|number|\d+|about|perfusion|imaging|alpha|beta|gamma)$/.test(t)), 'cut on a word boundary');
+});
+t('buildIcs skips forecasted rows even when they carry an estimated date', () => {
+  const rows = [{ id: 'p', title: 'Posted', close: '2026-12-01', status: 'posted' }, { id: 'f', title: 'Forecast', close: '2026-12-05', status: 'forecasted' }];
+  const ics = RC.buildIcs(rows, '20261110T120000Z');
+  assert(ics.includes('Posted') && !ics.includes('Forecast'));
+  assert.strictEqual(RC.buildIcs([rows[1]], '20261110T120000Z'), '');
+});
 console.log(n + ' tests pass');

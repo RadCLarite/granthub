@@ -18,6 +18,10 @@ Nothing here has been done. The repository has no remote and has not been pushed
 - [ ] Rotate every key that was ever used on the team machines (Simpler.Grants.gov, SAM.gov, any Azure or model key). The tracked tree has no key file, but keys were held in `api_keys.env` and `.Renviron` outside git.
 - [ ] Decide what happens to the Azure resources named in `archive/finalists/docs/azure_setup.md` and `app/` (registry, storage, container app). Remove the names from the public tree if the resources will be deleted or should not be advertised.
 
+## Third-party requests from the browser
+- [ ] The researcher tab calls one outside host, `https://api.openalex.org`, only after a click on "Look up my papers", sending only the ORCID iD (no cookies, nothing stored). Confirm the notice text above the ORCID box still says this.
+- [ ] OpenAlex runs without a key (observed 2026-11-10: a free daily budget shared per IP address). Never commit an OpenAlex key; a key in a public static page is visible to everyone. If the owner later wants a key, put it behind a proxy the owner controls.
+
 ## Personal and third-party data in the tree
 - [ ] Contact emails in data: opportunity records (`data/processed/opportunities.csv`, `.json`, `payload.json`, `grantsgov_extract.csv`, `sam_listings.csv`) and cache JSON under `data/cache/api/` carry federal program contact addresses (for example `support@grants.gov`, agency grant offices). They are public notice contacts, but decide whether to strip them. Some agency plan text files under `data/processed/agency_plan_text/` contain staff addresses from the PDFs.
 - [ ] UNC email addresses: present in `archive/finalists/` (Azure setup, organizer notes, planning, deploy checklist). Remove or redact before publishing, or drop those files from `archive/`.
