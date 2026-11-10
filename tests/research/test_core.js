@@ -234,6 +234,13 @@ t('parseQuery malformed', () => {
   const six = ['a1 b1', 'c1 d1', 'e1 f1', 'g1 h1', 'i1 j1', 'k1 l1'].map(s => '"' + s + '"').join(' ');
   assert.strictEqual(RC.parseQuery(six).phrases.length, 5);
 });
+t('parseQuery odd number of quote marks ignores them all', () => {
+  const p = RC.parseQuery('5" display "deep learning"');
+  assert.deepStrictEqual(p.phrases, []);
+  assert.deepStrictEqual(RC.tokenize(p.plain), ['display', 'deep', 'learning']);
+  assert.strictEqual(RC.parseQuery('"a1 b1" "c1 d1" "e1').phrases.length, 0);
+  assert.strictEqual(RC.parseQuery('"a1 b1" "c1 d1"').phrases.length, 2);
+});
 t('parseQuery long query ignores quotes', () => {
   const q = 'word '.repeat(60) + '"ct perfusion"';
   assert(q.length > 200);

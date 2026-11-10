@@ -29,7 +29,8 @@
   var PHRASE_QUERY_MAX_CHARS = 200, MAX_PHRASES = 5;
   function parseQuery(raw) {
     var s = typeof raw === 'string' ? raw : '', plain = s.replace(/["“”]/g, ' '), phrases = [];
-    if (s.length <= PHRASE_QUERY_MAX_CHARS) {
+    /* An odd number of quote marks (5" display "deep learning") means the pairing is a guess: treat all of them as punctuation. */
+    if (s.length <= PHRASE_QUERY_MAX_CHARS && (s.match(/["“”]/g) || []).length % 2 === 0) {
       var re = /["“”]([^"“”]*)["“”]/g, m, seen = new Set();
       while (phrases.length < MAX_PHRASES && (m = re.exec(s))) {
         var tokens = tokenize(m[1]), key = tokens.join(' ');
