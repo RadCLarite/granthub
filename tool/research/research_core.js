@@ -8,6 +8,7 @@
   'use strict';
 
   var K1 = 1.2, B = 0.75, MAX_TERMS = 40, DEFAULT_LIMIT = 50;
+  var PHRASE_BOOST = 0.5; /* per matched adjacent pair, times its mean idf; fixed in advance, not tuned on the test set */
   var STOP = new Set(('a an and are as at be by for from has have in into is it its of on or that the this to was were will with ' +
     'not no we our their these those can may use using used via within across between among about over under per than then also').split(' '));
 
@@ -127,6 +128,24 @@
     return { N: docs.length, avgdl: docs.length ? total / docs.length : 0, docs: docs, df: df, postings: postings, groups: groups || [] };
   }
 
+  /* Distinct consecutive query-token pairs (query order, before synonym expansion) as Map "a b" -> mean idf of the two words.
+     Like MAX_TERMS, only the 40 heaviest pairs are kept (ties by first appearance), so a pasted abstract stays cheap. */
+  function queryBigrams(index, qt) {
+    var N = index.N, found = new Map(), list = [];
+    function idfOf(term) { var n = index.df.get(term); return n ? Math.log(1 + (N - n + 0.5) / (n + 0.5)) : null; }
+    for (var i = 0; i + 1 < qt.length; i++) {
+      var key = qt[i] + ' ' + qt[i + 1];
+      if (found.has(key)) continue;
+      var a = idfOf(qt[i]), b = idfOf(qt[i + 1]);
+      found.set(key, true);
+      if (a !== null && b !== null) list.push({ key: key, w: (a + b) / 2, order: list.length });
+    }
+    list.sort(function (x, y) { return y.w - x.w || x.order - y.order; });
+    var out = new Map();
+    for (var j = 0; j < list.length && j < MAX_TERMS; j++) out.set(list[j].key, list[j].w);
+    return out;
+  }
+
   function search(index, query, opts) {
     var limit = opts && opts.limit > 0 ? Math.floor(opts.limit) : DEFAULT_LIMIT;
     var parsed = parseQuery(query), qt = tokenize(parsed.plain);
@@ -154,6 +173,20 @@
         scores.set(post[p], (scores.get(post[p]) || 0) + s);
         var m = matched.get(post[p]); if (!m) { m = []; matched.set(post[p], m); } m.push(term);
       }
+    }
+    var boost = opts && typeof opts.phraseBoost === 'number' && isFinite(opts.phraseBoost) && opts.phraseBoost >= 0 ? opts.phraseBoost : PHRASE_BOOST;
+    var pairs = boost > 0 ? queryBigrams(index, qt) : null;
+    if (pairs && pairs.size) {
+      scores.forEach(function (s, d) {
+        var seen = new Set(), bonus = 0, seqs = index.docs[d].seq;
+        for (var q = 0; q < seqs.length; q++) {
+          for (var k = 0; k + 1 < seqs[q].length; k++) {
+            var key = seqs[q][k] + ' ' + seqs[q][k + 1], w = pairs.get(key);
+            if (w !== undefined && !seen.has(key)) { seen.add(key); bonus += w; }
+          }
+        }
+        if (bonus) scores.set(d, s + boost * bonus);
+      });
     }
     var res = [];
     scores.forEach(function (s, d) { if (s > 0) res.push({ id: index.docs[d].id, score: s, matched: matched.get(d) }); });

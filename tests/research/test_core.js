@@ -261,4 +261,55 @@ t('two phrases are ANDed', () => {
 t('single-word phrase', () => {
   assert.deepStrictEqual(ids(RC.search(pidx, '"perfusion"')).sort(), ['p1', 'p2', 'p3', 'p5']);
 });
+/* ---- adjacent-word boost (Task 2) ---- */
+const brows = [
+  { id: 'z1', title: 'perfusion lung ct', sum: '' },
+  { id: 'z2', title: 'ct perfusion lung', sum: '' },
+  { id: 'y1', title: 'grain subsidies', sum: '' },
+  { id: 'y2', title: 'crop yields', sum: '' },
+];
+const bidx = RC.buildIndex(brows, []);
+const score = (r, id) => r.find(x => x.id === id).score;
+t('boost reorders adjacent first', () => {
+  const on = RC.search(bidx, 'ct perfusion'), off = RC.search(bidx, 'ct perfusion', { phraseBoost: 0 });
+  assert.deepStrictEqual(ids(on).slice(0, 2), ['z2', 'z1']);
+  assert.deepStrictEqual(ids(off).slice(0, 2), ['z1', 'z2']);
+  assert.strictEqual(score(off, 'z1'), score(off, 'z2'));
+});
+t('boost size', () => {
+  const on = RC.search(bidx, 'ct perfusion');
+  assert(Math.abs((score(on, 'z2') - score(on, 'z1')) - 0.5 * Math.LN2) < 1e-9);
+});
+t('boost adds no rows', () => {
+  const q = 'ct perfusion stroke';
+  assert.deepStrictEqual(ids(RC.search(pidx, q)).sort(), ids(RC.search(pidx, q, { phraseBoost: 0 })).sort());
+});
+t('boost bridges stop words', () => {
+  const kidx = RC.buildIndex([
+    { id: 'k1', title: 'ct perfusion', sum: '' }, { id: 'k2', title: 'perfusion of the ct', sum: '' },
+    { id: 'f1', title: 'grain subsidies', sum: '' }, { id: 'f2', title: 'crop yields', sum: '' }], []);
+  assert.deepStrictEqual(ids(RC.search(kidx, 'perfusion ct')).slice(0, 2), ['k2', 'k1']);
+  assert.deepStrictEqual(ids(RC.search(kidx, 'perfusion ct', { phraseBoost: 0 })).slice(0, 2), ['k1', 'k2']);
+});
+t('boost is order-sensitive', () => {
+  const r = RC.search(bidx, 'perfusion ct');
+  assert.strictEqual(score(r, 'z1'), score(r, 'z2'));
+  assert.strictEqual(ids(r)[0], 'z1');
+});
+t('boost deterministic and bounded', () => {
+  const words = ['alpha','beta','gamma','delta','stroke','imaging','tumor','grain','lung','heart'];
+  const big = [];
+  for (let i = 0; i < 1225; i++) big.push({ id: 'r' + String(i).padStart(4, '0'), title: 'w' + i + ' ' + words[i % 10], sum: words[(i * 3) % 10] + ' study ' + words[(i * 7) % 10] + ' ' + i });
+  const bi = RC.buildIndex(big, groups);
+  const q = []; for (let i = 0; i < 500; i++) q.push(i % 7 === 0 ? 'w' + (i % 1000) : words[(i * i) % 10]);
+  const text = q.join(' ').slice(0, 3000);
+  const t0 = Date.now();
+  const a = RC.search(bi, text, { limit: 25 });
+  assert(Date.now() - t0 < 2000);
+  assert.deepStrictEqual(a, RC.search(bi, text, { limit: 25 }));
+});
+t('bad phraseBoost values fall back to the default', () => {
+  const d = RC.search(bidx, 'ct perfusion');
+  for (const bad of [-1, NaN, 'x']) assert.deepStrictEqual(RC.search(bidx, 'ct perfusion', { phraseBoost: bad }), d);
+});
 console.log(n + ' tests pass');
