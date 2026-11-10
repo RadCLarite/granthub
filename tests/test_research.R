@@ -70,7 +70,7 @@ local({
   js <- jsonlite::toJSON(p$rows, auto_unbox = TRUE, na = "null")
   check(s, "NA close serialises as null", grepl('"close":null', js, fixed = TRUE))
   r1 <- p$rows[[1]]
-  check(s, "row has the contract fields", setequal(names(r1), c("id","num","title","agency","status","close","floor","ceil","mech","trial","hs","ic","elig","url","sum")))
+  check(s, "row has the contract fields", setequal(names(r1), c("id","num","title","agency","status","close","floor","ceil","mech","trial","hs","ic","flags","post","elig","url","sum")))
   check(s, "row parses mechanism and trial", identical(r1$mech, "R01") && identical(r1$trial, "optional"))
   check(s, "numeric award fields", is.numeric(r1$ceil) && r1$ceil == 500000)
 
@@ -90,6 +90,27 @@ local({
   check(s, "only-UNMAPPED row is in the pool with elig empty", pu$n == 1 && identical(pu$rows[[1]]$id, "u1") && identical(pu$rows[[1]]$elig, ""), pu$n)
   um2 <- toy[1, ]; um2$applicant_types <- "UNMAPPED|20"
   check(s, "UNMAPPED token stripped from elig", identical(build_research_payload(um2, as.Date("2026-11-07"))$rows[[1]]$elig, "20"))
+
+  s <- "research: flags"
+  fl <- function(sum = "", elig = "", cs = NA_character_) parse_flags(sum, elig, cs)[[1]]
+  check(s, "flag: letter of intent", identical(fl("Letter of intent due 2026-12-01")$loi, "yes"))
+  check(s, "flag: cost sharing Yes / No / NA", identical(fl(cs = "Yes")$cost_share, "yes") && identical(fl(cs = "No")$cost_share, "no") && is.null(fl(cs = NA_character_)$cost_share))
+  check(s, "flag: foreign component, not foreign-born", identical(fl("Applicants must include a foreign component")$foreign, "yes") && is.null(fl("foreign-born residents")$foreign))
+  check(s, "flag: IND/IDE whole upper-case word only", identical(fl("Investigational New Drug (IND) application")$ind_ide, "yes") && identical(fl("needs an IDE")$ind_ide, "yes") && is.null(fl("individual investigators behind the study")$ind_ide))
+  check(s, "flag: data sharing", identical(fl("data sharing plan")$data_sharing, "yes") && identical(fl("Data Management and Sharing")$data_sharing, "yes"))
+  check(s, "flag: animals and human subjects", identical(fl("animal models")$animals, "yes") && identical(fl("human subjects")$human_subjects, "yes"))
+  check(s, "flag: multi-PI", identical(fl("multiple principal investigators")$multi_pi, "yes") && identical(fl("multi-PI")$multi_pi, "yes"))
+  check(s, "flag: subaward", identical(fl("subaward")$subaward, "yes") && identical(fl("subaward/subcontract")$subaward, "yes"))
+  check(s, "flag: empty and NA give an empty list", identical(parse_flags(c("", NA), c(NA, ""), c(NA, NA)), list(list(), list())))
+  check(s, "flag: eligibility text is searched too", identical(fl("", "Foreign components, as defined in the NIH Grants Policy Statement, are allowed")$foreign, "yes"))
+  check(s, "flag: boilerplate 'not eligible' does not set foreign", is.null(fl("Non-domestic Entities (Foreign Organizations) are not eligible to apply")$foreign))
+  fx <- toy[c(1, 7), ]
+  fx$post_date <- c("2026-10-01", NA); fx$cost_sharing <- c("Yes", NA); fx$eligibility_text <- c("", "")
+  fx$summary <- c("Letter of intent required.", "s")
+  pf <- build_research_payload(fx, as.Date("2026-11-07"))
+  check(s, "payload rows carry flags and post", identical(pf$rows[[1]]$flags$loi, "yes") && identical(pf$rows[[1]]$flags$cost_share, "yes") && identical(pf$rows[[1]]$post, "2026-10-01") &&
+    length(pf$rows[[2]]$flags) == 0 && is.na(pf$rows[[2]]$post))
+  check(s, "payload tolerates missing flag columns", is.list(p$rows[[1]]$flags) && is.na(p$rows[[1]]$post))
 
   if (standalone) {
     rep <- dplyr::bind_rows(results)
