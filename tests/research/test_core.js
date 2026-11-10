@@ -522,4 +522,10 @@ t('M9 no source line in research_core.js is longer than 240 characters', () => {
   const long = lines.map((l, i) => [i + 1, l.length]).filter(x => x[1] > 240);
   assert.deepStrictEqual(long, []);
 });
+t('committed research.json carries no HTML entities in titles, agencies or summaries', () => {
+  const data = require(path.join(__dirname, '..', '..', 'data', 'processed', 'research.json'));
+  const bad = [];
+  data.rows.forEach(r => ['title', 'agency', 'sum'].forEach(k => { const m = /&(#\d+|#x[0-9a-f]+|[a-z]+);/i.exec(r[k] || ''); if (m) bad.push(r.id + ' ' + k + ' ' + m[0]); }));
+  assert.deepStrictEqual(bad.slice(0, 5), []);
+});
 console.log(n + ' tests pass');
