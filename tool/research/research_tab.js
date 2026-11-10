@@ -99,7 +99,7 @@
     var ticked = (state.ui.flagBoxes || []).filter(function (c) { return c.checked; }).map(function (c) { return c.value; }), fn = RC.flagNotes(row, ticked);
     if (fn.shown.length) {
       var fb = el('div', 'rt-badges');
-      fn.shown.forEach(function (x) { fb.appendChild(el('span', 'rt-badge rt-flag' + (ticked.indexOf(x.key) >= 0 ? ' rt-flag-mine' : ''), (x.state === 'no' ? 'Not listed: ' : 'Mentioned: ') + x.label)); });
+      fn.shown.forEach(function (x) { fb.appendChild(el('span', 'rt-badge rt-flag' + (ticked.indexOf(x.key) >= 0 ? ' rt-flag-mine' : ''), (x.state === 'no' ? 'No ' : 'Mentioned: ') + x.label)); });
       card.appendChild(fb);
     }
     if (fn.unknownTicked.length) card.appendChild(el('p', 'rt-line rt-muted', 'You ticked ' + fn.unknownTicked.map(function (x) { return x.label; }).join(', ') + '. This listing does not say. Read the notice.'));

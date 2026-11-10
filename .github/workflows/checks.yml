@@ -43,6 +43,8 @@ jobs:
               t = open(p).read(); assert t.startswith("BEGIN:VCALENDAR") and t.rstrip().endswith("END:VCALENDAR"), p
           print("ok:", len(r), "researcher feeds")
           EOF
+      - name: Researcher feed tests
+        run: python3 -m unittest tests/research/test_feeds.py
       - name: Researcher tab unit tests
         run: node tests/research/test_core.js
       - name: Researcher tab test set report
