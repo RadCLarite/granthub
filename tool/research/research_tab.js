@@ -1,5 +1,5 @@
 /* Researcher tab UI. Adds only window.ResearchTab. All inserted text goes through textContent (never innerHTML).
-   Needs window.ResearchCore. Fetches research.json and synonyms.json from the same folder; sends nothing anywhere. */
+   Needs window.ResearchCore. Fetches research.json and synonyms.json from the same folder. Sends only an ORCID iD to api.openalex.org, and only on click. */
 (function () {
   'use strict';
   var MAX_SHOW = 50, FILTER_NAMES = { institution: 'institution type', trial: 'clinical trial', budget: 'budget', career: 'career stage', mechs: 'preferred mechanisms' };
@@ -127,7 +127,7 @@
     if (tail) out.appendChild(el('p', 'rt-meta', tail));
   }
 
-  function run() { runFederal(); appendFoundations(state.ui.box.value); }
+  function run() { state.searched = true; runFederal(); appendFoundations(state.ui.box.value); }
 
   function runFederal() {
     var RC = window.ResearchCore, q = state.ui.box.value;
@@ -228,17 +228,18 @@
       var ctl = new AbortController(), timer = setTimeout(function () { ctl.abort(); }, 10000);
       fetch(RC.openAlexWorksUrl(id), { signal: ctl.signal, credentials: 'omit', headers: { Accept: 'application/json' } }).then(function (r) {
         if (r.status === 429 || r.status === 402 || r.status === 403) throw new Error('limit');
-        if (!r.ok) throw new Error('http');
+        if (!r.ok) { var he = new Error('http'); he.status = r.status; throw he; }
         return r.json();
       }).then(function (d) {
-        var works = (d && d.results) || [], text = RC.worksToText(works);
+        var works = (d && d.results) || [], text = RC.worksToText(works), st = RC.worksStats(works);
         if (!text) { msg.textContent = 'OpenAlex has no papers with text for that iD. Paste your abstract instead.'; return; }
         if (u.box.value.trim() && !window.confirm('Replace the text in the box with text from your papers?')) { msg.textContent = 'Left your text as it was.'; return; }
-        u.box.value = text; msg.textContent = 'Filled from ' + works.length + ' papers. Edit the text, then press Search.';
+        u.box.value = text;
+        msg.textContent = 'Filled from ' + st.used + (st.used === 1 ? ' paper. ' : ' papers. ') + (st.withAbstract === 0
+          ? 'None has an abstract on OpenAlex, so this is titles only and matches will be rough. Add an abstract if you can, then press Search.'
+          : 'Edit the text, then press Search.');
       }).catch(function (err) {
-        msg.textContent = err && err.message === 'limit' ? 'OpenAlex is busy or the free daily limit is used up. Paste your abstract instead.'
-          : err && err.name === 'AbortError' ? 'OpenAlex took too long to answer. Try again, or paste your abstract instead.'
-          : 'Could not reach OpenAlex. Check your connection, or paste your abstract instead.';
+        msg.textContent = RC.openAlexFailureText(err);
       }).then(function () { clearTimeout(timer); btn.disabled = false; });
     });
     row.appendChild(inp); row.appendChild(btn); det.appendChild(row); det.appendChild(msg);
@@ -293,6 +294,7 @@
     var fs3 = el('fieldset'); fs3.appendChild(el('legend', null, 'My project has... (highlights only, hides nothing)'));
     u.flagBoxes = Object.keys(window.ResearchCore.FLAG_LABELS).map(function (k) {
       var lab = el('label'), cb = el('input'); cb.type = 'checkbox'; cb.value = k;
+      cb.addEventListener('change', function () { if (state.searched) run(); });  /* ticks only highlight, so redraw the current results at once */
       lab.appendChild(cb); lab.appendChild(document.createTextNode(window.ResearchCore.FLAG_LABELS[k])); fs3.appendChild(lab); return cb;
     });
     det.appendChild(fs3);

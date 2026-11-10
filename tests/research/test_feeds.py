@@ -1,6 +1,6 @@
 """Tests for the researcher feeds written by app/build_feeds.py (stdlib only).
 Run from the repo root: python3 -m unittest tests/research/test_feeds.py"""
-import json, os, subprocess, sys, tempfile, unittest, xml.dom.minidom as minidom
+import json, os, re, subprocess, sys, tempfile, unittest, xml.dom.minidom as minidom
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 SCRIPT = os.path.join(ROOT, "app", "build_feeds.py")
@@ -80,6 +80,29 @@ class ResearchFeeds(unittest.TestCase):
     def test_no_research_argument_means_no_research_folder(self):
         out = build(with_research=False)
         self.assertFalse(os.path.exists(os.path.join(out, "feeds", "research")))
+
+    def test_atom_updated_values_are_full_timestamps(self):
+        # M1: a row's bare post date (2026-10-01) is not an RFC 3339 date-time
+        d = os.path.join(build(), "feeds", "research")
+        text = read(os.path.join(d, "CA.atom"))
+        stamps = re.findall(r"<updated>([^<]*)</updated>", text)
+        self.assertGreaterEqual(len(stamps), 3)
+        for s in stamps:
+            self.assertRegex(s, r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$")
+
+    def test_ics_lines_are_folded_at_75_octets_and_unfold_cleanly(self):
+        # M2: RFC 5545 section 3.1
+        title = "Accent é " + "imaging study " * 30 + "end"
+        tmp = tempfile.mkdtemp()
+        json.dump({"data_as_of": "2026-11-10", "agencies": [], "rows": []}, open(os.path.join(tmp, "p.json"), "w"))
+        row = dict(ROWS[0], title=title)
+        json.dump({"as_of": "2026-11-10", "rows": [row]}, open(os.path.join(tmp, "r.json"), "w"))
+        out = os.path.join(tmp, "site"); os.makedirs(out)
+        subprocess.run([sys.executable, SCRIPT, os.path.join(tmp, "p.json"), out, os.path.join(tmp, "r.json")], check=True, capture_output=True, env=dict(os.environ, FEEDS_TODAY="2026-11-10"))
+        text = read(os.path.join(out, "feeds", "research", "all.ics"))
+        for line in text.split("\r\n"):
+            self.assertLessEqual(len(line.encode("utf-8")), 75, line[:40])
+        self.assertIn("SUMMARY:Closes: " + title, text.replace("\r\n ", ""))
 
 
 if __name__ == "__main__":
