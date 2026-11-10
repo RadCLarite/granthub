@@ -127,7 +127,8 @@ validate_foundations <- function(df, as_of) {
   }
   u <- which(!blank(df$url) & !grepl("^https://", df$url))
   if (length(u)) err <- c(err, sprintf("row %d: url must start with https://", u))
-  d <- suppressWarnings(as.Date(as.character(df$verified_on), format = "%Y-%m-%d"))
+  v <- trimws(as.character(df$verified_on))
+  d <- suppressWarnings(as.Date(ifelse(grepl("^[0-9]{4}-[0-9]{2}-[0-9]{2}$", v), v, NA_character_), format = "%Y-%m-%d"))  # strict, as in app/check_foundations.py
   bd <- which(!blank(df$verified_on) & is.na(d))
   if (length(bd)) err <- c(err, sprintf("row %d: verified_on is not a YYYY-MM-DD date", bd))
   fut <- which(!is.na(d) & d > as_of)

@@ -177,6 +177,17 @@
   /* ---- calendar text and pasted-list cleanup ---- */
   function icsText(s) { return String(s == null ? '' : s).replace(/\\/g, '\\\\').replace(/;/g, '\\;').replace(/,/g, '\\,').replace(/\r?\n/g, ' '); }
   function icsDate(ms) { var d = new Date(ms); return d.getUTCFullYear() * 10000 + (d.getUTCMonth() + 1) * 100 + d.getUTCDate() + ''; }
+  /* RFC 5545 section 3.1: content lines are at most 75 octets; a longer line continues on the next line after CRLF and one space. Never splits a character. */
+  function foldIcsLine(line) {
+    var out = [], cur = '', bytes = 0;
+    Array.from(line).forEach(function (ch) {
+      var cp = ch.codePointAt(0), b = cp < 0x80 ? 1 : cp < 0x800 ? 2 : cp < 0x10000 ? 3 : 4, cap = out.length ? 74 : 75;
+      if (bytes + b > cap) { out.push(cur); cur = ''; bytes = 0; }
+      cur += ch; bytes += b;
+    });
+    out.push(cur);
+    return out.join('\r\n ');
+  }
   /* RFC 5545 text: one all-day event per row with a readable close date. stamp (YYYYMMDDTHHMMSSZ) is passed in so the function stays pure. */
   function buildIcs(rows, stamp) {
     var ev = [];
@@ -187,7 +198,7 @@
         'SUMMARY:' + icsText('Closes: ' + r.title), 'DESCRIPTION:' + icsText((r.num || '') + '. ' + (r.url || '')), 'END:VEVENT');
     });
     if (!ev.length) return '';
-    return ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//FFM//EN', 'CALSCALE:GREGORIAN'].concat(ev, ['END:VCALENDAR']).join('\r\n') + '\r\n';
+    return ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//FFM//EN', 'CALSCALE:GREGORIAN'].concat(ev, ['END:VCALENDAR']).map(foldIcsLine).join('\r\n') + '\r\n';
   }
   /* Strips reference numbers, "doi:" tokens, DOI strings and links from a pasted publication list so they do not become query terms. */
   function cleanPublicationList(text) {
@@ -201,7 +212,8 @@
   /* Canonical 0000-0002-1825-0097 form, or null. Only an orcid.org prefix is accepted; the last digit is the ISO 7064 mod 11-2 check. */
   function normalizeOrcid(raw) {
     if (typeof raw !== 'string') return null;
-    var s = raw.trim().replace(/^https?:\/\/(www\.)?orcid\.org\//i, '').replace(/[\s-]/g, '');
+    /* scheme optional; en dash, minus sign and non-breaking hyphen are what a PDF or web page pastes in place of "-" */
+    var s = raw.trim().replace(/^(https?:\/\/)?(www\.)?orcid\.org\//i, '').replace(/\/+$/, '').replace(/[\s\-‐-―−]/g, '');
     if (!/^\d{15}[\dXx]$/.test(s)) return null;
     s = s.toUpperCase();
     var total = 0;
@@ -221,12 +233,8 @@
     var max = maxChars > 0 ? maxChars : 3000, parts = [];
     (Array.isArray(works) ? works : []).forEach(function (w) {
       if (!w || typeof w !== 'object') return;
-      var words = [], idx = w.abstract_inverted_index;
-      if (idx && typeof idx === 'object') Object.keys(idx).forEach(function (word) {
-        (Array.isArray(idx[word]) ? idx[word] : []).forEach(function (pos) { if (pos >= 0 && pos < 5000) words[pos] = word; });
-      });
       var topics = (Array.isArray(w.topics) ? w.topics : []).slice(0, 2).map(function (t) { return t && t.display_name; }).filter(Boolean);
-      var line = [w.title || '', words.filter(Boolean).join(' '), topics.join(' ')].filter(Boolean).join(' ');
+      var line = [w.title || '', abstractOf(w), topics.join(' ')].filter(Boolean).join(' ');
       if (line) parts.push(line);
     });
     var out = parts.join('\n');
@@ -234,6 +242,32 @@
     var cut = out.slice(0, max);
     if (!/\s/.test(out.charAt(max))) cut = cut.replace(/\s*\S*$/, '');
     return cut.trim();
+  }
+  function abstractOf(w) {
+    var words = [], idx = w && w.abstract_inverted_index;
+    if (idx && typeof idx === 'object') Object.keys(idx).forEach(function (word) {
+      (Array.isArray(idx[word]) ? idx[word] : []).forEach(function (pos) { if (pos >= 0 && pos < 5000) words[pos] = word; });
+    });
+    return words.filter(Boolean).join(' ');
+  }
+  /* used = works that add any text; withAbstract = those that carry an abstract (titles alone make a weak query). */
+  function worksStats(works) {
+    var st = { used: 0, withAbstract: 0 };
+    (Array.isArray(works) ? works : []).forEach(function (w) {
+      if (!w || typeof w !== 'object') return;
+      var a = abstractOf(w);
+      if (w.title || a || (Array.isArray(w.topics) && w.topics.some(function (t) { return t && t.display_name; }))) st.used++;
+      if (a) st.withAbstract++;
+    });
+    return st;
+  }
+  /* What the ORCID box says when the OpenAlex request fails. err.status is set by the caller for a non-OK reply. */
+  function openAlexFailureText(err) {
+    var tail = ' Paste your abstract instead.';
+    if (err && err.message === 'limit') return 'OpenAlex is busy or the free daily limit is used up.' + tail;
+    if (err && err.name === 'AbortError') return 'OpenAlex took too long to answer. Try again, or paste your abstract instead.';
+    if (err && err.status) return 'OpenAlex answered with an error (' + err.status + '). Try again later, or paste your abstract instead.';
+    return 'Could not reach OpenAlex. Check your connection, or paste your abstract instead.';
   }
 
   function search(index, query, opts) {
@@ -444,6 +478,10 @@
     return { kept: kept, unknown: unknown, removedBy: removedBy };
   }
 
-  return { tokenize: tokenize, parseQuery: parseQuery, phraseNotices: phraseNotices, PHRASE_TIP: PHRASE_TIP, PHRASE_QUERY_MAX_CHARS: PHRASE_QUERY_MAX_CHARS, expandTerms: expandTerms, buildIndex: buildIndex, search: search,
-    applyFilters: applyFilters, flagNotes: flagNotes, buildIcs: buildIcs, normalizeOrcid: normalizeOrcid, openAlexWorksUrl: openAlexWorksUrl, worksToText: worksToText,cleanPublicationList: cleanPublicationList,foundationStale: foundationStale, buildFoundationIndex: buildFoundationIndex, searchFoundations: searchFoundations, FLAG_LABELS: FLAG_LABELS, daysUntil: daysUntil, daysSince: daysSince, staleNotice: staleNotice, businessDaysBefore: businessDaysBefore, timeWarning: timeWarning };
+  return { tokenize: tokenize, parseQuery: parseQuery, phraseNotices: phraseNotices, PHRASE_TIP: PHRASE_TIP,
+    PHRASE_QUERY_MAX_CHARS: PHRASE_QUERY_MAX_CHARS, expandTerms: expandTerms, buildIndex: buildIndex, search: search, applyFilters: applyFilters,
+    flagNotes: flagNotes, buildIcs: buildIcs, normalizeOrcid: normalizeOrcid, openAlexWorksUrl: openAlexWorksUrl, worksToText: worksToText,
+    worksStats: worksStats, openAlexFailureText: openAlexFailureText, cleanPublicationList: cleanPublicationList, foundationStale: foundationStale,
+    buildFoundationIndex: buildFoundationIndex, searchFoundations: searchFoundations, FLAG_LABELS: FLAG_LABELS, daysUntil: daysUntil,
+    daysSince: daysSince, staleNotice: staleNotice, businessDaysBefore: businessDaysBefore, timeWarning: timeWarning };
 });

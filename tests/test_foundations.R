@@ -21,6 +21,8 @@ local({
   check(s, "missing url is an error", length(bad("url", "")) >= 1)
   check(s, "http url is an error", length(bad("url", "http://example.org/a")) >= 1)
   check(s, "unparseable verified_on is an error", length(bad("verified_on", "last week")) >= 1)
+  check(s, "unpadded verified_on is an error", length(bad("verified_on", "2026-1-5")) >= 1)
+  check(s, "verified_on with trailing text is an error", length(bad("verified_on", "2026-11-01 (checked)")) >= 1)
   check(s, "future verified_on is an error", length(bad("verified_on", "2027-01-01")) >= 1)
   check(s, "missing focus is an error", length(bad("focus", "")) >= 1)
   check(s, "missing name is an error", length(bad("name", "")) >= 1)

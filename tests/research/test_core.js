@@ -482,4 +482,44 @@ t('buildIcs skips forecasted rows even when they carry an estimated date', () =>
   assert(ics.includes('Posted') && !ics.includes('Forecast'));
   assert.strictEqual(RC.buildIcs([rows[1]], '20261110T120000Z'), '');
 });
+t('M2 buildIcs folds every line at 75 octets and unfolding restores the text', () => {
+  const title = 'Long title with an accent é and ' + 'imaging '.repeat(40) + 'end';
+  const ics = RC.buildIcs([{ id: 'x', title, close: '2026-12-01', status: 'posted', num: 'PAR-1', url: 'https://example.org/x' }], '20261110T120000Z');
+  ics.split('\r\n').forEach(l => assert(Buffer.byteLength(l, 'utf8') <= 75, 'line over 75 octets: ' + l.length));
+  const unfolded = ics.replace(/\r\n /g, '');
+  assert(unfolded.includes('SUMMARY:Closes: ' + title));
+  assert(!ics.includes('�'));
+});
+t('M3 worksStats counts works that add text and works with abstracts', () => {
+  const works = [{ title: 'Only a title' }, { title: 'With abstract', abstract_inverted_index: { alpha: [0], beta: [1] } }, { title: '' }, null];
+  assert.deepStrictEqual(RC.worksStats(works), { used: 2, withAbstract: 1 });
+  assert.deepStrictEqual(RC.worksStats(null), { used: 0, withAbstract: 0 });
+});
+t('M4 openAlexFailureText tells an HTTP error from a connection problem', () => {
+  const e = new Error('http'); e.status = 503;
+  assert(/503/.test(RC.openAlexFailureText(e)) && !/connection/i.test(RC.openAlexFailureText(e)));
+  const e401 = new Error('http'); e401.status = 401;
+  assert(/401/.test(RC.openAlexFailureText(e401)));
+  assert(/connection/i.test(RC.openAlexFailureText(new TypeError('Failed to fetch'))));
+  assert(/free daily limit/.test(RC.openAlexFailureText(new Error('limit'))));
+  const ab = new Error('x'); ab.name = 'AbortError';
+  assert(/too long/.test(RC.openAlexFailureText(ab)));
+});
+t('M6 research_tab.js header does not claim it sends nothing', () => {
+  const head = require('fs').readFileSync(path.join(__dirname, '..', '..', 'tool', 'research', 'research_tab.js'), 'utf8').split('\n').slice(0, 3).join('\n');
+  assert(!/sends nothing anywhere/.test(head));
+  assert(/openalex/i.test(head));
+});
+t('M7 normalizeOrcid accepts scheme-less links, unicode dashes and a trailing slash', () => {
+  const ok = '0000-0002-1825-0097';
+  ['orcid.org/0000-0002-1825-0097', 'www.orcid.org/0000-0002-1825-0097', 'https://orcid.org/0000-0002-1825-0097/',
+   '0000–0002–1825–0097', '0000‑0002‑1825‑0097', '0000−0002−1825−0097', ' 0000 0002 1825 0097 '].forEach(v => assert.strictEqual(RC.normalizeOrcid(v), ok, v));
+  assert.strictEqual(RC.normalizeOrcid('https://evil.example/orcid.org/0000-0002-1825-0097'), null);
+  assert.strictEqual(RC.normalizeOrcid('0000-0002-1825-0098'), null);
+});
+t('M9 no source line in research_core.js is longer than 240 characters', () => {
+  const lines = require('fs').readFileSync(path.join(__dirname, '..', '..', 'tool', 'research', 'research_core.js'), 'utf8').split('\n');
+  const long = lines.map((l, i) => [i + 1, l.length]).filter(x => x[1] > 240);
+  assert.deepStrictEqual(long, []);
+});
 console.log(n + ' tests pass');

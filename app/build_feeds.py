@@ -7,13 +7,27 @@ SITE_URL (env) is the public address of the tool; default is the assumed Pages U
 Numbers and dates come from the payload only; nothing is computed beyond filtering."""
 import html, json, os, sys, datetime as dt
 
+CRLF = chr(13) + chr(10)
+
 SITE = os.environ.get("SITE_URL", "https://radclarite.github.io/granthub/matchmaker/").rstrip("/") + "/"
 payload, out = sys.argv[1], os.path.join(sys.argv[2], "feeds")
 p = json.load(open(payload, encoding="utf-8"))
 os.makedirs(out, exist_ok=True)
 x = lambda s: html.escape(str(s if s is not None else ""), quote=True)
 asof = p["data_as_of"]
-upd = asof if "T" in asof else asof + "T00:00:00Z"
+ts = lambda d: d if "T" in d else d + "T00:00:00Z"  # Atom wants an RFC 3339 date-time, never a bare date
+upd = ts(asof)
+
+def fold(line):
+    """RFC 5545 section 3.1: at most 75 octets per line; continuation lines start with one space. Never splits a character."""
+    out, cur, n = [], "", 0
+    for ch in line:
+        b = len(ch.encode("utf-8"))
+        if n + b > (74 if out else 75):
+            out.append(cur); cur, n = "", 0
+        cur += ch; n += b
+    out.append(cur)
+    return (CRLF + " ").join(out)
 
 def ics_text(s):
     return str(s or "").replace("\\", "\\\\").replace(";", "\\;").replace(",", "\\,").replace("\n", " ")
@@ -52,7 +66,7 @@ for a in p["agencies"]:
                 "DESCRIPTION:" + ics_text("%s. %s" % (r.get("opp_number"), r.get("url"))), "END:VEVENT"]
         n += 1
     cal.append("END:VCALENDAR")
-    open(os.path.join(out, aid + ".ics"), "w", encoding="utf-8", newline="").write("\r\n".join(cal) + "\r\n")
+    open(os.path.join(out, aid + ".ics"), "w", encoding="utf-8", newline="").write(CRLF.join(fold(l) for l in cal) + CRLF)
     index.append((aid, a["agency_name"], len(rows), n))
 
 # ---- researcher feeds (optional third argument: research.json) ----
@@ -69,14 +83,14 @@ if len(sys.argv) > 3:
     for code in sorted({r["ic"] for r in posted if r.get("ic")}):
         groups[code] = ("NIH institute " + code, [r for r in posted if r.get("ic") == code])
     rasof = rp.get("as_of") or asof
-    rupd = rasof if "T" in rasof else rasof + "T00:00:00Z"
+    rupd = ts(rasof)
     for gid, (gname, grows) in groups.items():
         grows = sorted(grows, key=lambda r: (r.get("close") is None, r.get("close") or ""))
         ent = []
         for r in grows:
             due = r.get("close") or "no close date listed"
             ent.append(
-                f'<entry><title>{x(r["title"])}</title><id>tag:ffm,research:{x(r["id"])}</id><updated>{x(r.get("post") or rupd)}</updated>'
+                f'<entry><title>{x(r["title"])}</title><id>tag:ffm,research:{x(r["id"])}</id><updated>{x(ts(r["post"]) if r.get("post") else rupd)}</updated>'
                 f'<link href="{x(r.get("url"))}"/><summary>{x("%s. Closes %s. Screening aid; confirm on Grants.gov." % (r.get("num"), due))}</summary></entry>')
         feed = ('<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom">'
                 f'<title>{x(gname)}: open federal research opportunities</title><id>tag:ffm,research:{x(gid)}</id><updated>{x(rupd)}</updated>'
@@ -92,7 +106,7 @@ if len(sys.argv) > 3:
                     "SUMMARY:" + ics_text("Closes: " + r["title"]), "DESCRIPTION:" + ics_text("%s. %s" % (r.get("num"), r.get("url"))), "END:VEVENT"]
             n += 1
         cal.append("END:VCALENDAR")
-        open(os.path.join(rout, gid + ".ics"), "w", encoding="utf-8", newline="").write("\r\n".join(cal) + "\r\n")
+        open(os.path.join(rout, gid + ".ics"), "w", encoding="utf-8", newline="").write(CRLF.join(fold(l) for l in cal) + CRLF)
         rindex.append((gid, gname, len(grows), n))
 rli = "".join(f'<li>{x(nm)}: <a href="research/{x(i)}.atom">feed</a> ({k} opportunities), <a href="research/{x(i)}.ics">calendar</a> ({n} deadlines)</li>'
               for i, nm, k, n in rindex)
