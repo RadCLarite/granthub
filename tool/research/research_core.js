@@ -197,6 +197,45 @@
     }).filter(Boolean).join('\n');
   }
 
+  /* ---- ORCID iD and OpenAlex (the only request the tab can make; the iD is the only thing sent) ---- */
+  /* Canonical 0000-0002-1825-0097 form, or null. Only an orcid.org prefix is accepted; the last digit is the ISO 7064 mod 11-2 check. */
+  function normalizeOrcid(raw) {
+    if (typeof raw !== 'string') return null;
+    var s = raw.trim().replace(/^https?:\/\/(www\.)?orcid\.org\//i, '').replace(/[\s-]/g, '');
+    if (!/^\d{15}[\dXx]$/.test(s)) return null;
+    s = s.toUpperCase();
+    var total = 0;
+    for (var i = 0; i < 15; i++) total = (total + Number(s.charAt(i))) * 2;
+    var check = (12 - total % 11) % 11;
+    if (s.charAt(15) !== (check === 10 ? 'X' : String(check))) return null;
+    return s.slice(0, 4) + '-' + s.slice(4, 8) + '-' + s.slice(8, 12) + '-' + s.slice(12);
+  }
+  function openAlexWorksUrl(orcid, perPage) {
+    var id = normalizeOrcid(orcid), n = perPage > 0 ? Math.min(200, Math.floor(perPage)) : 25;
+    if (!id) return '';
+    return 'https://api.openalex.org/works?filter=authorships.author.orcid:https://orcid.org/' + id + '&sort=publication_year:desc&per-page=' + n +
+      '&select=title,publication_year,abstract_inverted_index,topics';
+  }
+  /* Titles, abstracts (rebuilt from OpenAlex's word-position index) and up to 2 topic names per work, cut at maxChars on a word boundary. */
+  function worksToText(works, maxChars) {
+    var max = maxChars > 0 ? maxChars : 3000, parts = [];
+    (Array.isArray(works) ? works : []).forEach(function (w) {
+      if (!w || typeof w !== 'object') return;
+      var words = [], idx = w.abstract_inverted_index;
+      if (idx && typeof idx === 'object') Object.keys(idx).forEach(function (word) {
+        (Array.isArray(idx[word]) ? idx[word] : []).forEach(function (pos) { if (pos >= 0 && pos < 5000) words[pos] = word; });
+      });
+      var topics = (Array.isArray(w.topics) ? w.topics : []).slice(0, 2).map(function (t) { return t && t.display_name; }).filter(Boolean);
+      var line = [w.title || '', words.filter(Boolean).join(' '), topics.join(' ')].filter(Boolean).join(' ');
+      if (line) parts.push(line);
+    });
+    var out = parts.join('\n');
+    if (out.length <= max) return out;
+    var cut = out.slice(0, max);
+    if (!/\s/.test(out.charAt(max))) cut = cut.replace(/\s*\S*$/, '');
+    return cut.trim();
+  }
+
   function search(index, query, opts) {
     var limit = opts && opts.limit > 0 ? Math.floor(opts.limit) : DEFAULT_LIMIT;
     var parsed = parseQuery(query), qt = tokenize(parsed.plain);
@@ -406,5 +445,5 @@
   }
 
   return { tokenize: tokenize, parseQuery: parseQuery, phraseNotices: phraseNotices, PHRASE_TIP: PHRASE_TIP, PHRASE_QUERY_MAX_CHARS: PHRASE_QUERY_MAX_CHARS, expandTerms: expandTerms, buildIndex: buildIndex, search: search,
-    applyFilters: applyFilters, flagNotes: flagNotes, buildIcs: buildIcs, cleanPublicationList: cleanPublicationList,foundationStale: foundationStale, buildFoundationIndex: buildFoundationIndex, searchFoundations: searchFoundations, FLAG_LABELS: FLAG_LABELS, daysUntil: daysUntil, daysSince: daysSince, staleNotice: staleNotice, businessDaysBefore: businessDaysBefore, timeWarning: timeWarning };
+    applyFilters: applyFilters, flagNotes: flagNotes, buildIcs: buildIcs, normalizeOrcid: normalizeOrcid, openAlexWorksUrl: openAlexWorksUrl, worksToText: worksToText,cleanPublicationList: cleanPublicationList,foundationStale: foundationStale, buildFoundationIndex: buildFoundationIndex, searchFoundations: searchFoundations, FLAG_LABELS: FLAG_LABELS, daysUntil: daysUntil, daysSince: daysSince, staleNotice: staleNotice, businessDaysBefore: businessDaysBefore, timeWarning: timeWarning };
 });

@@ -213,11 +213,44 @@
     out.appendChild(sec);
   }
 
+  var ORCID_NOTICE = 'Clicking Look up sends only your ORCID iD to OpenAlex (api.openalex.org) and reads your public papers. Nothing is stored. Your pasted text never leaves this page.';
+  function buildOrcidBlock(u) {
+    var RC = window.ResearchCore, det = el('details', 'rt-orcid'), row = el('div', 'rt-row');
+    det.appendChild(el('summary', null, 'Use my ORCID'));
+    det.appendChild(el('p', 'rt-meta', ORCID_NOTICE));
+    var inp = el('input'); inp.type = 'text'; inp.id = 'rt-orcid'; inp.placeholder = '0000-0002-1825-0097'; inp.autocomplete = 'off'; inp.setAttribute('aria-label', 'ORCID iD');
+    var btn = el('button', 'rt-btn', 'Look up my papers'); btn.type = 'button';
+    var msg = el('p', 'rt-meta'); msg.setAttribute('role', 'status');
+    btn.addEventListener('click', function () {
+      var id = RC.normalizeOrcid(inp.value);
+      if (!id) { msg.textContent = 'That iD does not look right. It has 16 characters, like 0000-0002-1825-0097.'; return; }
+      btn.disabled = true; msg.textContent = 'Looking up your papers...';
+      var ctl = new AbortController(), timer = setTimeout(function () { ctl.abort(); }, 10000);
+      fetch(RC.openAlexWorksUrl(id), { signal: ctl.signal, credentials: 'omit', headers: { Accept: 'application/json' } }).then(function (r) {
+        if (r.status === 429 || r.status === 402 || r.status === 403) throw new Error('limit');
+        if (!r.ok) throw new Error('http');
+        return r.json();
+      }).then(function (d) {
+        var works = (d && d.results) || [], text = RC.worksToText(works);
+        if (!text) { msg.textContent = 'OpenAlex has no papers with text for that iD. Paste your abstract instead.'; return; }
+        if (u.box.value.trim() && !window.confirm('Replace the text in the box with text from your papers?')) { msg.textContent = 'Left your text as it was.'; return; }
+        u.box.value = text; msg.textContent = 'Filled from ' + works.length + ' papers. Edit the text, then press Search.';
+      }).catch(function (err) {
+        msg.textContent = err && err.message === 'limit' ? 'OpenAlex is busy or the free daily limit is used up. Paste your abstract instead.'
+          : err && err.name === 'AbortError' ? 'OpenAlex took too long to answer. Try again, or paste your abstract instead.'
+          : 'Could not reach OpenAlex. Check your connection, or paste your abstract instead.';
+      }).then(function () { clearTimeout(timer); btn.disabled = false; });
+    });
+    row.appendChild(inp); row.appendChild(btn); det.appendChild(row); det.appendChild(msg);
+    return det;
+  }
+
   function buildUi(root) {
     var u = state.ui;
     root.appendChild(el('h2', null, 'Find funding for a research project'));
-    root.appendChild(el('p', 'rt-privacy', 'Your text stays in this browser. Nothing is sent anywhere.'));
+    root.appendChild(el('p', 'rt-privacy', 'Your text stays in this browser. Nothing is sent unless you press Look up in the ORCID box below.'));
     var panel = el('div', 'rt-panel');
+    panel.appendChild(buildOrcidBlock(u));
     u.box = el('textarea'); u.box.id = 'rt-text'; u.box.rows = 5;
     var l = el('label', null, 'Paste an abstract, aims, or keywords'); l.htmlFor = 'rt-text';
     panel.appendChild(l); panel.appendChild(u.box);

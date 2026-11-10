@@ -451,4 +451,29 @@ t('cleanPublicationList drops numbering, doi and urls but keeps title words', ()
   assert.strictEqual(RC.cleanPublicationList(''), '');
   assert.strictEqual(RC.cleanPublicationList(null), '');
 });
+t('normalizeOrcid accepts prefixes, spaces and lower-case x, and checks the digit', () => {
+  ['0000-0002-1825-0097', 'https://orcid.org/0000-0002-1825-0097', ' 0000 0002 1825 0097 ', '0000000218250097', 'http://orcid.org/0000-0002-1825-0097'].forEach(v =>
+    assert.strictEqual(RC.normalizeOrcid(v), '0000-0002-1825-0097', v));
+  assert.strictEqual(RC.normalizeOrcid('0000-0002-1694-233x'), '0000-0002-1694-233X');
+  ['0000-0002-1825-0098', '0000-0002-1825', '', 'abcd-efgh-ijkl-mnop', null, undefined, 12345, '0000-0002-1825-0097-9', 'https://evil.example/0000-0002-1825-0097'].forEach(v =>
+    assert.strictEqual(RC.normalizeOrcid(v), null, String(v)));
+});
+t('openAlexWorksUrl is the exact one-host request', () => {
+  const u = RC.openAlexWorksUrl('0000-0002-1825-0097');
+  assert.strictEqual(u, 'https://api.openalex.org/works?filter=authorships.author.orcid:https://orcid.org/0000-0002-1825-0097&sort=publication_year:desc&per-page=25&select=title,publication_year,abstract_inverted_index,topics');
+  assert(RC.openAlexWorksUrl('0000-0002-1825-0097', 5).includes('per-page=5&'));
+  assert.strictEqual((u.match(/https?:\/\/[^/]+/g) || []).filter(h => h !== 'https://orcid.org').join(), 'https://api.openalex.org');
+});
+t('worksToText rebuilds abstracts by position and tolerates gaps', () => {
+  const w = [{ title: 'A', abstract_inverted_index: { Deep: [0], learning: [1], helps: [2, 4], stroke: [3] }, topics: [{ display_name: 'Stroke' }, { display_name: 'Imaging' }, { display_name: 'Third' }] }];
+  assert.strictEqual(RC.worksToText(w).replace(/\s+/g, ' ').trim(), 'A Deep learning helps stroke helps Stroke Imaging');
+  assert.strictEqual(RC.worksToText([{ title: 'Only title', abstract_inverted_index: null }]).trim(), 'Only title');
+  assert.strictEqual(RC.worksToText([{ title: '', abstract_inverted_index: null }, null, {}]), '');
+  assert.strictEqual(RC.worksToText([]), '');
+  assert.strictEqual(RC.worksToText(null), '');
+  const many = []; for (let i = 0; i < 400; i++) many.push({ title: 'Paper number ' + i + ' about perfusion imaging', abstract_inverted_index: { alpha: [0], beta: [1], gamma: [2] } });
+  const out = RC.worksToText(many);
+  assert(out.length <= 3000);
+  assert(/\w$/.test(out) && out.split(/\s+/).every(t => /^(Paper|number|\d+|about|perfusion|imaging|alpha|beta|gamma)$/.test(t)), 'cut on a word boundary');
+});
 console.log(n + ' tests pass');
