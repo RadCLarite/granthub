@@ -194,7 +194,6 @@ check(l, "shards cover every item exactly once", identical(ids_seen, 1:7))
 source(here::here("tests", "test_ingest.R"))
 source(here::here("tests", "test_plan_tables.R"))
 source(here::here("tests", "test_research.R"))
-source(here::here("tests", "test_foundations.R"))
 
 # ---- Report ------------------------------------------------------------------------
 rep <- bind_rows(results)

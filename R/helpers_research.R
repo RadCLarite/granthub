@@ -134,35 +134,3 @@ build_research_payload <- function(opps, as_of, source_date = as_of) {
   list(as_of = format(as_of), source_date = format(source_date), n = length(rows), rows = rows)
 }
 
-# ---- Foundation list (data/manual/foundations.csv -> research_foundations.json) ----------------------------
-# Every row must carry its own source page and the date a person last read it there; a row without either is an
-# error, never displayed. career_stage and award_note may be empty. Returns character(): one message per problem.
-FOUNDATION_COLS <- c("id", "name", "focus", "career_stage", "award_note", "url", "verified_on")
-validate_foundations <- function(df, as_of) {
-  err <- character()
-  miss <- setdiff(FOUNDATION_COLS, names(df))
-  if (length(miss)) return(paste("missing column:", miss))
-  blank <- function(x) is.na(x) | !nzchar(trimws(as.character(x)))
-  for (col in c("id", "name", "focus", "url", "verified_on")) {
-    b <- which(blank(df[[col]]))
-    if (length(b)) err <- c(err, sprintf("row %d: %s is empty", b, col))
-  }
-  u <- which(!blank(df$url) & !grepl("^https://", df$url))
-  if (length(u)) err <- c(err, sprintf("row %d: url must start with https://", u))
-  v <- trimws(as.character(df$verified_on))
-  d <- suppressWarnings(as.Date(ifelse(grepl("^[0-9]{4}-[0-9]{2}-[0-9]{2}$", v), v, NA_character_), format = "%Y-%m-%d"))  # strict, as in app/check_foundations.py
-  bd <- which(!blank(df$verified_on) & is.na(d))
-  if (length(bd)) err <- c(err, sprintf("row %d: verified_on is not a YYYY-MM-DD date", bd))
-  fut <- which(!is.na(d) & d > as_of)
-  if (length(fut)) err <- c(err, sprintf("row %d: verified_on is after %s", fut, format(as_of)))
-  dup <- which(duplicated(df$id) & !blank(df$id))
-  if (length(dup)) err <- c(err, sprintf("row %d: duplicate id %s", dup, df$id[dup]))
-  err
-}
-
-build_foundations_payload <- function(df, as_of) {
-  nz <- function(x) { x <- as.character(x); ifelse(is.na(x) | !nzchar(trimws(x)), NA_character_, trimws(x)) }
-  rows <- lapply(seq_len(nrow(df)), function(i) list(id = as.character(df$id[i]), name = as.character(df$name[i]), focus = as.character(df$focus[i]),
-    career = nz(df$career_stage[i]), note = nz(df$award_note[i]), url = as.character(df$url[i]), verified = as.character(df$verified_on[i])))
-  list(as_of = format(as_of), n = length(rows), rows = rows)
-}
