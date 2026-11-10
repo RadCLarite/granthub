@@ -182,7 +182,7 @@
     var ev = [];
     (rows || []).forEach(function (r) {
       var ms = isoToUtcMs(r && r.close);
-      if (ms === null) return;
+      if (ms === null || r.status === 'forecasted') return;  /* a forecasted date is an estimate: the card says "Date not announced" */
       ev.push('BEGIN:VEVENT', 'UID:research-' + r.id + '@ffm', 'DTSTAMP:' + stamp, 'DTSTART;VALUE=DATE:' + icsDate(ms), 'DTEND;VALUE=DATE:' + icsDate(ms + DAY_MS),
         'SUMMARY:' + icsText('Closes: ' + r.title), 'DESCRIPTION:' + icsText((r.num || '') + '. ' + (r.url || '')), 'END:VEVENT');
     });

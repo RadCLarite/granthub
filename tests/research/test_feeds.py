@@ -8,6 +8,7 @@ TITLE_A = "Cancer, imaging; R01 & <b>"
 ROWS = [
     {"id": "1", "num": "PAR-1", "title": TITLE_A, "ic": "CA", "status": "posted", "close": "2026-12-01", "post": "2026-10-01", "url": "https://example.org/1"},
     {"id": "2", "num": "PAR-2", "title": "No close date", "ic": "CA", "status": "posted", "close": None, "post": "2026-10-02", "url": "https://example.org/2"},
+    {"id": "4", "num": "PAR-4", "title": "Already closed", "ic": "CA", "status": "posted", "close": "2026-11-01", "post": "2026-09-01", "url": "https://example.org/4"},
     {"id": "3", "num": "PAR-3", "title": "Forecast only", "ic": "AG", "status": "forecasted", "close": None, "post": None, "url": "https://example.org/3"},
 ]
 
@@ -21,7 +22,7 @@ def build(with_research=True):
     out = os.path.join(tmp, "site")
     os.makedirs(out)
     args = [sys.executable, SCRIPT, payload, out] + ([research] if with_research else [])
-    subprocess.run(args, check=True, capture_output=True)
+    subprocess.run(args, check=True, capture_output=True, env=dict(os.environ, FEEDS_TODAY="2026-11-10"))
     return out
 
 
@@ -57,6 +58,20 @@ class ResearchFeeds(unittest.TestCase):
         self.assertIn("Cancer\, imaging\; R01 & <b>", text)
         self.assertNotIn("No close date", text)
         self.assertIn("\r\n", text)
+
+    def test_closed_rows_are_left_out_of_both_feeds(self):
+        d = os.path.join(build(), "feeds", "research")
+        for name in ("CA.atom", "all.atom", "CA.ics", "all.ics"):
+            self.assertNotIn("Already closed", read(os.path.join(d, name)), name)
+
+    def test_row_closing_today_is_kept(self):
+        tmp = tempfile.mkdtemp()
+        json.dump({"data_as_of": "2026-11-10", "agencies": [], "rows": []}, open(os.path.join(tmp, "p.json"), "w"))
+        row = dict(ROWS[0], close="2026-11-10")
+        json.dump({"as_of": "2026-11-10", "rows": [row]}, open(os.path.join(tmp, "r.json"), "w"))
+        out = os.path.join(tmp, "site"); os.makedirs(out)
+        subprocess.run([sys.executable, SCRIPT, os.path.join(tmp, "p.json"), out, os.path.join(tmp, "r.json")], check=True, capture_output=True, env=dict(os.environ, FEEDS_TODAY="2026-11-10"))
+        self.assertIn("DTSTART;VALUE=DATE:20261110", read(os.path.join(out, "feeds", "research", "all.ics")))
 
     def test_index_links_research_feeds(self):
         out = build()

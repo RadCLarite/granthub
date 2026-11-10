@@ -63,7 +63,8 @@ if len(sys.argv) > 3:
     rp = json.load(open(sys.argv[3], encoding="utf-8"))
     rout = os.path.join(out, "research")
     os.makedirs(rout, exist_ok=True)
-    posted = [r for r in rp["rows"] if r.get("status") == "posted"]
+    today = os.environ.get("FEEDS_TODAY") or dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d")  # feeds are rebuilt daily, research.json by hand: drop what has closed since
+    posted = [r for r in rp["rows"] if r.get("status") == "posted" and not (r.get("close") and r["close"] < today)]
     groups = {"all": ("All open opportunities", posted)}
     for code in sorted({r["ic"] for r in posted if r.get("ic")}):
         groups[code] = ("NIH institute " + code, [r for r in posted if r.get("ic") == code])

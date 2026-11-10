@@ -104,6 +104,9 @@ local({
   check(s, "flag: empty and NA give an empty list", identical(parse_flags(c("", NA), c(NA, ""), c(NA, NA)), list(list(), list())))
   check(s, "flag: eligibility text is searched too", identical(fl("", "Foreign components, as defined in the NIH Grants Policy Statement, are allowed")$foreign, "yes"))
   check(s, "flag: boilerplate 'not eligible' does not set foreign", is.null(fl("Non-domestic Entities (Foreign Organizations) are not eligible to apply")$foreign))
+  check(s, "flag: 'may not include foreign components' does not set foreign", is.null(fl("Applicants may not include foreign components")$foreign))
+  check(s, "flag: run-on 'not eligible ... are eligible' does not set foreign", is.null(fl("foreign entities are not eligible to compete for or receive funds and are eligible only as subrecipients")$foreign))
+  check(s, "flag: 'must include a foreign component' still sets foreign", identical(fl("Applicants must include a foreign component")$foreign, "yes"))
   fx <- toy[c(1, 7), ]
   fx$post_date <- c("2026-10-01", NA); fx$cost_sharing <- c("Yes", NA); fx$eligibility_text <- c("", "")
   fx$summary <- c("Letter of intent required.", "s")

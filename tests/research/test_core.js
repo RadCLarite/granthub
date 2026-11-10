@@ -476,4 +476,10 @@ t('worksToText rebuilds abstracts by position and tolerates gaps', () => {
   assert(out.length <= 3000);
   assert(/\w$/.test(out) && out.split(/\s+/).every(t => /^(Paper|number|\d+|about|perfusion|imaging|alpha|beta|gamma)$/.test(t)), 'cut on a word boundary');
 });
+t('buildIcs skips forecasted rows even when they carry an estimated date', () => {
+  const rows = [{ id: 'p', title: 'Posted', close: '2026-12-01', status: 'posted' }, { id: 'f', title: 'Forecast', close: '2026-12-05', status: 'forecasted' }];
+  const ics = RC.buildIcs(rows, '20261110T120000Z');
+  assert(ics.includes('Posted') && !ics.includes('Forecast'));
+  assert.strictEqual(RC.buildIcs([rows[1]], '20261110T120000Z'), '');
+});
 console.log(n + ' tests pass');

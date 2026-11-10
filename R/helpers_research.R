@@ -59,7 +59,7 @@ parse_flags <- function(summary, eligibility, cost_sharing) {
   has <- function(pat, ic = TRUE) stringr::str_detect(txt, if (ic) stringr::regex(pat, ignore_case = TRUE) else pat)
   hit <- list(
     loi = has("letters? of intent") | has("\\bLOI\\b", FALSE),
-    foreign = has("foreign (components?|organizations?|institutions?|entities|applicants?)[^.;]{0,120}\\b(are|is) (allowed|permitted|eligible)|(must )?include (a )?foreign components?"),
+    foreign = has("foreign (components?|organizations?|institutions?|entities|applicants?)(?:(?!\\bnot\\b)[^.;]){0,120}\\b(are|is) (allowed|permitted|eligible)|(must|will|should) include (a )?foreign components?"),
     subaward = has("sub-?awards?|subcontract"),
     multi_pi = has("multi-?pi\\b|multiple (principal investigators|pis?\\b|program directors)"),
     ind_ide = has("\\b(IND|IDE)\\b", FALSE) | has("investigational (new drug|device exemption)"),
