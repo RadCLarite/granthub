@@ -30,7 +30,7 @@ FOUNDATIONS="$REPO/data/processed/research_foundations.json"
 [ -f "$FOUNDATIONS" ] || { echo "FAIL: no foundations payload at $FOUNDATIONS (run Rscript R/15_build_foundations.R)"; exit 1; }
 cp "$FOUNDATIONS" "$OUT/matchmaker/research/research_foundations.json"
 [ -f "$OUT/matchmaker/research/research_tab.js" ] && [ -f "$OUT/matchmaker/research/synonyms.json" ] || { echo "FAIL: research files missing from site"; exit 1; }
-python3 "$HERE/build_feeds.py" "$PAYLOAD" "$OUT/matchmaker"
+python3 "$HERE/build_feeds.py" "$PAYLOAD" "$OUT/matchmaker" "$RESEARCH"
 touch "$OUT/.nojekyll"
 
 bad=$(find "$OUT" \( -name 'api_keys.env' -o -name '.Renviron' -o -name '*.env' \) | head -5)

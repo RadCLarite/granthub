@@ -36,6 +36,12 @@ jobs:
           for p in glob.glob(d + "/*.ics"):
               t = open(p).read(); assert t.startswith("BEGIN:VCALENDAR") and t.rstrip().endswith("END:VCALENDAR"), p
           print("ok:", len(f), "agency feeds")
+          r = glob.glob(d + "/research/*.atom")
+          assert r, "no researcher feeds built"
+          for p in r: m.parse(p)
+          for p in glob.glob(d + "/research/*.ics"):
+              t = open(p).read(); assert t.startswith("BEGIN:VCALENDAR") and t.rstrip().endswith("END:VCALENDAR"), p
+          print("ok:", len(r), "researcher feeds")
           EOF
       - name: Researcher tab unit tests
         run: node tests/research/test_core.js
