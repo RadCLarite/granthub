@@ -76,8 +76,30 @@ parse_flags <- function(summary, eligibility, cost_sharing) {
   })
 }
 
+# Display text: numeric (&#8211;, &#x2019;) and the common named HTML entities become characters; zero-width characters
+# drop out, no-break and narrow spaces become spaces. Two passes, as the extract sometimes doubles &amp;. Same intent as
+# clean_text() in helpers_rank.R, kept here so this file stands alone.
+decode_entities <- function(x) {
+  x <- as.character(x)
+  named <- c("&lt;" = "<", "&gt;" = ">", "&quot;" = "\"", "&apos;" = "'", "&nbsp;" = " ")
+  one <- function(s) {
+    if (is.na(s)) return(s)
+    s <- gsub("&amp;", "&", s, fixed = TRUE)
+    for (e in unique(regmatches(s, gregexpr("&#(?:[0-9]+|[xX][0-9a-fA-F]+);", s, perl = TRUE))[[1]])) {
+      body <- substr(e, 3, nchar(e) - 1)
+      cp <- if (grepl("^[xX]", body)) strtoi(substring(body, 2), 16L) else strtoi(body, 10L)
+      r <- if (is.na(cp) || cp < 1L || cp > 1114111L) e else if (cp %in% c(8203L, 65279L)) "" else if (cp %in% c(160L, 8239L)) " " else intToUtf8(cp)
+      s <- gsub(e, r, s, fixed = TRUE)
+    }
+    for (e in names(named)) s <- gsub(e, named[[e]], s, fixed = TRUE)
+    s
+  }
+  vapply(x, function(s) one(one(s)), character(1), USE.NAMES = FALSE) |> trimws() |> gsub(pattern = "[ \t\r\n]+", replacement = " ")
+}
+
 build_research_payload <- function(opps, as_of, source_date = as_of) {
   o <- opps
+  for (nm in intersect(c("title", "agency", "summary"), names(o))) o[[nm]] <- decode_entities(o[[nm]])
   if ("fetched_on" %in% names(o) && any(!is.na(o$fetched_on))) source_date <- max(as.Date(as.character(o$fetched_on)), na.rm = TRUE)
   codes <- strsplit(ifelse(is.na(o$applicant_types), "", as.character(o$applicant_types)), "|", fixed = TRUE)
   elig <- vapply(codes, function(x) any(x %in% RESEARCH_ELIGIBLE_CODES) || (length(x) > 0 && all(x == "UNMAPPED")), logical(1))

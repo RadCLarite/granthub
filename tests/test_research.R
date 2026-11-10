@@ -115,6 +115,15 @@ local({
     length(pf$rows[[2]]$flags) == 0 && is.na(pf$rows[[2]]$post))
   check(s, "payload tolerates missing flag columns", is.list(p$rows[[1]]$flags) && is.na(p$rows[[1]]$post))
 
+  ent <- toy[1, ]
+  ent$title <- "Imaging &#8211; AI (R01 Clinical Trial Optional) &amp; O&#8217;Brien&#x2019;s&#160;lab&#8203;"
+  ent$summary <- "Don&#8217;t use &#8220;raw&#8221; text &#8212; ok &lt;b&gt;"
+  pe <- build_research_payload(ent, as.Date("2026-11-07"))
+  check(s, "title entities decoded", identical(pe$rows[[1]]$title, "Imaging – AI (R01 Clinical Trial Optional) & O’Brien’s lab"), pe$rows[[1]]$title)
+  check(s, "summary entities decoded", identical(pe$rows[[1]]$sum, "Don’t use “raw” text — ok <b>"), pe$rows[[1]]$sum)
+  check(s, "mechanism still parsed after decoding", identical(pe$rows[[1]]$mech, "R01"))
+  check(s, "text without entities is untouched", identical(p$rows[[1]]$title, "Keep (R01 Clinical Trial Optional)"))
+
   if (standalone) {
     rep <- dplyr::bind_rows(results)
     if (!all(rep$ok)) print(as.data.frame(rep[!rep$ok, c("section", "name", "got")]))
