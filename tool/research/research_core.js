@@ -327,17 +327,6 @@
     return res.slice(0, limit);
   }
 
-  /* ---- foundations: same BM25 engine over each foundation's name (title) and its own focus sentence (summary) ---- */
-  var FOUNDATION_STALE_DAYS = 365;
-  function foundationStale(verifiedIso, todayIso, maxDays) {
-    var n = daysSince(verifiedIso, todayIso);
-    return n === null || n > (maxDays > 0 ? maxDays : FOUNDATION_STALE_DAYS);
-  }
-  function buildFoundationIndex(rows, groups) {
-    return buildIndex((rows || []).map(function (r) { return { id: r.id, title: r.name, sum: r.focus }; }), groups);
-  }
-  function searchFoundations(index, query, opts) { return search(index, query, opts); }
-
   /* ---- filters and time warnings (all date math is UTC, from YYYY-MM-DD only) ---- */
   var DAY_MS = 86400000;
   var INSTITUTION_CODES = { university: ['06', '20'], hospital_nonprofit: ['12', '13', '25'], small_business: ['23'] };
@@ -481,7 +470,7 @@
   return { tokenize: tokenize, parseQuery: parseQuery, phraseNotices: phraseNotices, PHRASE_TIP: PHRASE_TIP,
     PHRASE_QUERY_MAX_CHARS: PHRASE_QUERY_MAX_CHARS, expandTerms: expandTerms, buildIndex: buildIndex, search: search, applyFilters: applyFilters,
     flagNotes: flagNotes, buildIcs: buildIcs, normalizeOrcid: normalizeOrcid, openAlexWorksUrl: openAlexWorksUrl, worksToText: worksToText,
-    worksStats: worksStats, openAlexFailureText: openAlexFailureText, cleanPublicationList: cleanPublicationList, foundationStale: foundationStale,
-    buildFoundationIndex: buildFoundationIndex, searchFoundations: searchFoundations, FLAG_LABELS: FLAG_LABELS, daysUntil: daysUntil,
+    worksStats: worksStats, openAlexFailureText: openAlexFailureText, cleanPublicationList: cleanPublicationList,
+    FLAG_LABELS: FLAG_LABELS, daysUntil: daysUntil,
     daysSince: daysSince, staleNotice: staleNotice, businessDaysBefore: businessDaysBefore, timeWarning: timeWarning };
 });
