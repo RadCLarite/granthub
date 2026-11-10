@@ -127,7 +127,7 @@
     if (tail) out.appendChild(el('p', 'rt-meta', tail));
   }
 
-  function run() { state.searched = true; runFederal(); appendFoundations(state.ui.box.value); }
+  function run() { state.searched = true; runFederal(); }
 
   function runFederal() {
     var RC = window.ResearchCore, q = state.ui.box.value;
@@ -182,35 +182,6 @@
       setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
     });
     var row = el('div', 'rt-row'); row.appendChild(b); state.ui.out.appendChild(row);
-  }
-
-  function appendFoundations(q) {
-    var RC = window.ResearchCore, out = state.ui.out;
-    var old = out.querySelector('.rt-foundations'); if (old) out.removeChild(old);
-    if (!state.fIndex || !state.fRows.length) return;
-    var hits = RC.searchFoundations(state.fIndex, q, { limit: 10 });
-    if (!hits.length) return;
-    var byId = {}, sec = el('section', 'rt-foundations'), matched = {};
-    state.fRows.forEach(function (r) { byId[r.id] = r; });
-    sec.appendChild(el('h3', 'rt-fhead', 'Foundations'));
-    sec.appendChild(el('p', 'rt-meta', "Confirm on the foundation's own page. Amounts and deadlines change."));
-    hits.forEach(function (h) {
-      var r = byId[h.id]; if (!r) return;
-      h.matched.forEach(function (t) { matched[t] = 1; });
-      var card = el('article', 'rt-card'), t = el('h3');
-      if (typeof r.url === 'string' && /^https:\/\//i.test(r.url)) {
-        var a = el('a'); a.href = r.url; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.textContent = r.name; t.appendChild(a);
-      } else t.textContent = r.name;
-      card.appendChild(t);
-      var p = el('p', 'rt-snip'); highlight(p, r.focus, matched); card.appendChild(p);
-      if (r.career) card.appendChild(el('p', 'rt-line', 'Career stage: ' + r.career));
-      if (r.note) card.appendChild(el('p', 'rt-line', r.note));
-      var b = el('div', 'rt-badges');
-      b.appendChild(el('span', 'rt-badge rt-unknown', 'Verified on ' + (r.verified || 'unknown')));
-      if (RC.foundationStale(r.verified, state.today)) b.appendChild(el('span', 'rt-badge rt-late', 'Stale: check the page'));
-      card.appendChild(b); sec.appendChild(card);
-    });
-    out.appendChild(sec);
   }
 
   var ORCID_NOTICE = 'Clicking Look up sends only your ORCID iD to OpenAlex (api.openalex.org) and reads your public papers. Nothing is stored. Your pasted text never leaves this page.';
@@ -336,14 +307,12 @@
     state.started = true;
     state.today = localToday();
     container.appendChild(el('p', 'rt-meta', 'Loading the opportunity list...'));
-    Promise.all([fetchJson('research.json'), fetchJson('synonyms.json'), fetchJson('research_foundations.json').catch(function () { return null; })]).then(function (res) {
+    Promise.all([fetchJson('research.json'), fetchJson('synonyms.json')]).then(function (res) {
       var data = res[0], rows = (data && data.rows) || [];
       state.rows = rows.filter(function (r) { return !(r.close && r.close < state.today); });
       state.asOf = data.as_of || 'unknown';
       state.sourceDate = data.source_date || data.as_of || 'unknown';
       state.index = window.ResearchCore.buildIndex(state.rows, res[1]);
-      state.fRows = res[2] && res[2].rows ? res[2].rows : [];
-      state.fIndex = window.ResearchCore.buildFoundationIndex(state.fRows, res[1]);
       while (container.firstChild) container.removeChild(container.firstChild);
       buildUi(container);
     }).catch(function () {
