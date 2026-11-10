@@ -24,6 +24,56 @@
     return out;
   }
 
+  /* Quoted phrases count only in short queries: the same box takes pasted abstracts, where quote marks are punctuation. */
+  var PHRASE_QUERY_MAX_CHARS = 200, MAX_PHRASES = 5;
+  function parseQuery(raw) {
+    var s = typeof raw === 'string' ? raw : '', plain = s.replace(/["“”]/g, ' '), phrases = [];
+    if (s.length <= PHRASE_QUERY_MAX_CHARS) {
+      var re = /["“”]([^"“”]*)["“”]/g, m, seen = new Set();
+      while (phrases.length < MAX_PHRASES && (m = re.exec(s))) {
+        var tokens = tokenize(m[1]), key = tokens.join(' ');
+        if (!tokens.length || seen.has(key)) continue;
+        seen.add(key);
+        phrases.push({ text: m[1].trim(), tokens: tokens });
+      }
+    }
+    return { plain: plain, phrases: phrases };
+  }
+
+  function hasRun(seq, toks) {
+    for (var i = 0; i + toks.length <= seq.length; i++) {
+      var j = 0;
+      while (j < toks.length && seq[i + j] === toks[j]) j++;
+      if (j === toks.length) return true;
+    }
+    return false;
+  }
+
+  /* Doc indexes (as a Set) holding every phrase as a consecutive run inside the title or the summary. */
+  function phraseDocs(index, phrases) {
+    var allowed = null;
+    for (var p = 0; p < phrases.length; p++) {
+      var toks = phrases[p].tokens, lists = [], ok = true;
+      for (var k = 0; k < toks.length; k++) {
+        var post = index.postings.get(toks[k]);
+        if (!post) { ok = false; break; }
+        lists.push(post);
+      }
+      var next = new Set();
+      if (ok) {
+        lists.sort(function (a, b) { return a.length - b.length; });
+        for (var c = 0; c < lists[0].length; c++) {
+          var d = lists[0][c];
+          if ((allowed && !allowed.has(d)) || next.has(d)) continue;
+          var seq = index.docs[d].seq;
+          if (hasRun(seq[0], toks) || hasRun(seq[1], toks)) next.add(d);
+        }
+      }
+      allowed = next;
+    }
+    return allowed;
+  }
+
   var groupMaps = new WeakMap();
   function groupMap(groups) {
     var m = groupMaps.get(groups);
@@ -65,7 +115,7 @@
       var all = tt.concat(tt, st);
       for (var k = 0; k < all.length; k++) { tf.set(all[k], (tf.get(all[k]) || 0) + 1); len++; }
       tf.forEach(function (_, term) { df.set(term, (df.get(term) || 0) + 1); });
-      docs.push({ id: String(r.id), tf: tf, len: len });
+      docs.push({ id: String(r.id), tf: tf, len: len, seq: [tt, st] });
       total += len;
     }
     var postings = new Map();
@@ -79,8 +129,10 @@
 
   function search(index, query, opts) {
     var limit = opts && opts.limit > 0 ? Math.floor(opts.limit) : DEFAULT_LIMIT;
-    var qt = tokenize(query);
+    var parsed = parseQuery(query), qt = tokenize(parsed.plain);
     if (!qt.length || !index.N) return [];
+    var allowed = parsed.phrases.length && !(opts && opts.phraseFilter === false) ? phraseDocs(index, parsed.phrases) : null;
+    if (allowed && !allowed.size) return [];
     var qf = new Map();
     for (var i = 0; i < qt.length; i++) qf.set(qt[i], (qf.get(qt[i]) || 0) + 1);
     var terms = expandTerms(Array.from(qf.keys()), index.groups), N = index.N, cand = [];
@@ -96,6 +148,7 @@
     for (var c = 0; c < cand.length; c++) {
       var term = cand[c].term, post = index.postings.get(term);
       for (var p = 0; p < post.length; p++) {
+        if (allowed && !allowed.has(post[p])) continue;
         var doc = index.docs[post[p]], f = doc.tf.get(term);
         var s = cand[c].idf * (f * (K1 + 1)) / (f + K1 * (1 - B + B * doc.len / index.avgdl));
         scores.set(post[p], (scores.get(post[p]) || 0) + s);
@@ -248,6 +301,6 @@
     return { kept: kept, unknown: unknown, removedBy: removedBy };
   }
 
-  return { tokenize: tokenize, expandTerms: expandTerms, buildIndex: buildIndex, search: search,
+  return { tokenize: tokenize, parseQuery: parseQuery, expandTerms: expandTerms, buildIndex: buildIndex, search: search,
     applyFilters: applyFilters, daysUntil: daysUntil, daysSince: daysSince, staleNotice: staleNotice, businessDaysBefore: businessDaysBefore, timeWarning: timeWarning };
 });

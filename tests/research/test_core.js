@@ -208,4 +208,57 @@ t('scoreTestset one hit and one not-testable', () => {
   assert.strictEqual(r.summary.funder_known, 0.5);
   assert(r.summary.text.indexOf('1 of 1') >= 0);
 });
+/* ---- phrase handling (Task 1) ---- */
+const prows = [
+  { id: 'p1', title: 'CT perfusion imaging in acute stroke', sum: '' },
+  { id: 'p2', title: 'Perfusion of the heart; CT of the lung', sum: '' },
+  { id: 'p3', title: 'Stroke outcomes', sum: 'Advanced CT perfusion protocols' },
+  { id: 'p4', title: 'Stroke of the brain tumors', sum: '' },
+  { id: 'p5', title: 'Lung CT', sum: 'perfusion study' },
+];
+const pidx = RC.buildIndex(prows, groups);
+const ids = r => r.map(x => x.id);
+t('parseQuery basics', () => {
+  const p = RC.parseQuery('"CT perfusion" stroke');
+  assert.strictEqual(p.plain, ' CT perfusion  stroke');
+  assert.deepStrictEqual(p.phrases, [{ text: 'CT perfusion', tokens: ['ct', 'perfusion'] }]);
+  assert.deepStrictEqual(RC.parseQuery('“ct perfusion”').phrases[0].tokens, ['ct', 'perfusion']);
+});
+t('parseQuery malformed', () => {
+  const u = RC.parseQuery('"ct perfusion');
+  assert.deepStrictEqual(u.phrases, []);
+  assert.deepStrictEqual(RC.tokenize(u.plain), ['ct', 'perfusion']);
+  assert.deepStrictEqual(RC.parseQuery('""').phrases, []);
+  assert.deepStrictEqual(RC.parseQuery('"the of"').phrases, []);
+  assert.strictEqual(RC.parseQuery('"a1 b1" "a1 b1"').phrases.length, 1);
+  const six = ['a1 b1', 'c1 d1', 'e1 f1', 'g1 h1', 'i1 j1', 'k1 l1'].map(s => '"' + s + '"').join(' ');
+  assert.strictEqual(RC.parseQuery(six).phrases.length, 5);
+});
+t('parseQuery long query ignores quotes', () => {
+  const q = 'word '.repeat(60) + '"ct perfusion"';
+  assert(q.length > 200);
+  assert.deepStrictEqual(RC.parseQuery(q).phrases, []);
+});
+t('phrase filter', () => {
+  assert.deepStrictEqual(ids(RC.search(pidx, '"ct perfusion"')).sort(), ['p1', 'p3']);
+  assert(ids(RC.search(pidx, '"ct perfusion"', { phraseFilter: false })).includes('p2'));
+});
+t('phrase filter keeps ranking order', () => {
+  const f = ids(RC.search(pidx, '"ct perfusion" stroke', { phraseBoost: 0 }));
+  const u = ids(RC.search(pidx, 'ct perfusion stroke', { phraseBoost: 0 })).filter(i => !['p2', 'p4', 'p5'].includes(i));
+  assert.deepStrictEqual(f, u);
+});
+t('phrase stop words and plurals', () => {
+  assert.deepStrictEqual(ids(RC.search(pidx, '"stroke brain tumor"')), ['p4']);
+  assert.deepStrictEqual(RC.search(pidx, '"stroke tumors"'), []);
+});
+t('phrase does not straddle title and summary', () => {
+  assert(!ids(RC.search(pidx, '"ct perfusion"')).includes('p5'));
+});
+t('two phrases are ANDed', () => {
+  assert.deepStrictEqual(ids(RC.search(pidx, '"ct perfusion" "acute stroke"')), ['p1']);
+});
+t('single-word phrase', () => {
+  assert.deepStrictEqual(ids(RC.search(pidx, '"perfusion"')).sort(), ['p1', 'p2', 'p3', 'p5']);
+});
 console.log(n + ' tests pass');
