@@ -51,6 +51,11 @@
       empty: 'No open opportunity contains ' + (phrases.length > 1 ? 'all of these exact phrases: ' : 'the exact phrase ') + list + '. Remove the quotes to search the words separately.' };
   }
 
+  function hasPair(seq, a, b) {
+    for (var i = 0; i + 1 < seq.length; i++) if (seq[i] === a && seq[i + 1] === b) return true;
+    return false;
+  }
+
   function hasRun(seq, toks) {
     for (var i = 0; i + toks.length <= seq.length; i++) {
       var j = 0;
@@ -190,16 +195,22 @@
     var boost = opts && typeof opts.phraseBoost === 'number' && isFinite(opts.phraseBoost) && opts.phraseBoost >= 0 ? opts.phraseBoost : PHRASE_BOOST;
     var pairs = boost > 0 ? queryBigrams(index, qt) : null;
     if (pairs && pairs.size) {
-      scores.forEach(function (s, d) {
-        var seen = new Set(), bonus = 0, seqs = index.docs[d].seq;
-        for (var q = 0; q < seqs.length; q++) {
-          for (var k = 0; k + 1 < seqs[q].length; k++) {
-            var key = seqs[q][k] + ' ' + seqs[q][k + 1], w = pairs.get(key);
-            if (w !== undefined && !seen.has(key)) { seen.add(key); bonus += w; }
-          }
+      /* Per query pair, visit only the rows that hold both words (walk the shorter posting list, test the other), then look for the pair side by side. */
+      var bonus = new Map();
+      pairs.forEach(function (w, key) {
+        var sp = key.indexOf(' '), a = key.slice(0, sp), b = key.slice(sp + 1), pa = index.postings.get(a), pb = index.postings.get(b);
+        if (!pa || !pb) return;
+        var small = pa.length <= pb.length ? pa : pb, other = small === pa ? pb : pa, j = 0;
+        for (var i2 = 0; i2 < small.length; i2++) {
+          var d = small[i2];
+          while (j < other.length && other[j] < d) j++;
+          if (j >= other.length) break;
+          if (other[j] !== d || !scores.has(d)) continue;
+          var seqs = index.docs[d].seq;
+          if (hasPair(seqs[0], a, b) || hasPair(seqs[1], a, b)) bonus.set(d, (bonus.get(d) || 0) + w);
         }
-        if (bonus) scores.set(d, s + boost * bonus);
       });
+      bonus.forEach(function (bn, d) { scores.set(d, scores.get(d) + boost * bn); });
     }
     var res = [];
     scores.forEach(function (s, d) { if (s > 0) res.push({ id: index.docs[d].id, score: s, matched: matched.get(d) }); });
