@@ -27,7 +27,7 @@ It started as an entry in the Solve-A-Thon 2026 challenge for the NC Office of S
 
 The "For researchers" tab lists open federal opportunities that a university or nonprofit applicant can apply to, with a search box, filters and a time warning. It is a screening aid: it helps you decide what to read, and the Grants.gov notice is the authority on dates, eligibility and fit. "Unknown" means unknown: when a mechanism, institute, trial status or date could not be read from the notice, the tab says so and does not guess.
 
-Ranking is keyword matching (BM25) with a synonym list. Each result shows the terms that matched, so you can see why it ranked where it did. In this version nothing you type is sent to any server; the search runs in your browser on two data files from this site, `research.json` and `synonyms.json`.
+Ranking is keyword matching (BM25) with a synonym list. Each result shows the terms that matched, so you can see why it ranked where it did. Words that appear next to each other in a listing rank higher, and a phrase in double quotes is required (quotes count in a short search, not in a pasted abstract). In this version nothing you type is sent to any server; the search runs in your browser on two data files from this site, `research.json` and `synonyms.json`.
 
 Run the checks from the repo root with `node tests/research/test_core.js` (unit tests) and `node tests/research/run_testset.js` (scores the award test set and writes `outs/research_testset_report.csv`).
 
