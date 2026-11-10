@@ -174,6 +174,29 @@
     return { shown: shown, unknownTicked: unknownTicked };
   }
 
+  /* ---- calendar text and pasted-list cleanup ---- */
+  function icsText(s) { return String(s == null ? '' : s).replace(/\\/g, '\\\\').replace(/;/g, '\\;').replace(/,/g, '\\,').replace(/\r?\n/g, ' '); }
+  function icsDate(ms) { var d = new Date(ms); return d.getUTCFullYear() * 10000 + (d.getUTCMonth() + 1) * 100 + d.getUTCDate() + ''; }
+  /* RFC 5545 text: one all-day event per row with a readable close date. stamp (YYYYMMDDTHHMMSSZ) is passed in so the function stays pure. */
+  function buildIcs(rows, stamp) {
+    var ev = [];
+    (rows || []).forEach(function (r) {
+      var ms = isoToUtcMs(r && r.close);
+      if (ms === null) return;
+      ev.push('BEGIN:VEVENT', 'UID:research-' + r.id + '@ffm', 'DTSTAMP:' + stamp, 'DTSTART;VALUE=DATE:' + icsDate(ms), 'DTEND;VALUE=DATE:' + icsDate(ms + DAY_MS),
+        'SUMMARY:' + icsText('Closes: ' + r.title), 'DESCRIPTION:' + icsText((r.num || '') + '. ' + (r.url || '')), 'END:VEVENT');
+    });
+    if (!ev.length) return '';
+    return ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//FFM//EN', 'CALSCALE:GREGORIAN'].concat(ev, ['END:VCALENDAR']).join('\r\n') + '\r\n';
+  }
+  /* Strips reference numbers, "doi:" tokens, DOI strings and links from a pasted publication list so they do not become query terms. */
+  function cleanPublicationList(text) {
+    if (typeof text !== 'string') return '';
+    return text.split(/\r?\n/).map(function (line) {
+      return line.replace(/^\s*(\[\d+\]|\d+[.)])\s*/, '').replace(/https?:\/\/\S+/gi, ' ').replace(/\bdoi:?\s*/gi, ' ').replace(/\b10\.\d{4,9}\/\S+/g, ' ').replace(/[ \t]+/g, ' ').trim();
+    }).filter(Boolean).join('\n');
+  }
+
   function search(index, query, opts) {
     var limit = opts && opts.limit > 0 ? Math.floor(opts.limit) : DEFAULT_LIMIT;
     var parsed = parseQuery(query), qt = tokenize(parsed.plain);
@@ -383,5 +406,5 @@
   }
 
   return { tokenize: tokenize, parseQuery: parseQuery, phraseNotices: phraseNotices, PHRASE_TIP: PHRASE_TIP, PHRASE_QUERY_MAX_CHARS: PHRASE_QUERY_MAX_CHARS, expandTerms: expandTerms, buildIndex: buildIndex, search: search,
-    applyFilters: applyFilters, flagNotes: flagNotes, foundationStale: foundationStale, buildFoundationIndex: buildFoundationIndex, searchFoundations: searchFoundations, FLAG_LABELS: FLAG_LABELS, daysUntil: daysUntil, daysSince: daysSince, staleNotice: staleNotice, businessDaysBefore: businessDaysBefore, timeWarning: timeWarning };
+    applyFilters: applyFilters, flagNotes: flagNotes, buildIcs: buildIcs, cleanPublicationList: cleanPublicationList,foundationStale: foundationStale, buildFoundationIndex: buildFoundationIndex, searchFoundations: searchFoundations, FLAG_LABELS: FLAG_LABELS, daysUntil: daysUntil, daysSince: daysSince, staleNotice: staleNotice, businessDaysBefore: businessDaysBefore, timeWarning: timeWarning };
 });

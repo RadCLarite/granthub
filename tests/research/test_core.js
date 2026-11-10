@@ -419,4 +419,36 @@ t('searchFoundations ranks by focus and name, and rejects empty queries', () => 
   assert.deepStrictEqual(RC.searchFoundations(RC.buildFoundationIndex([], groups), 'stroke', {}), []);
   assert.strictEqual(RC.searchFoundations(fi, '"heart failure"', {})[0].id, 'f1');
 });
+t('buildIcs writes one all-day event per dated row, escaped, with CRLF', () => {
+  const rows = [
+    { id: 'r1', title: 'Cancer, imaging; R01 & <b>', close: '2026-12-01', url: 'https://example.org/1', num: 'PAR-1' },
+    { id: 'r2', title: 'No date', close: null, url: 'https://example.org/2', num: 'PAR-2' },
+  ];
+  const ics = RC.buildIcs(rows, '20261110T120000Z');
+  assert(ics.startsWith('BEGIN:VCALENDAR\r\n'));
+  assert(ics.endsWith('END:VCALENDAR\r\n'));
+  assert.strictEqual(ics.split('BEGIN:VEVENT').length - 1, 1);
+  assert(ics.includes('DTSTART;VALUE=DATE:20261201\r\n'));
+  assert(ics.includes('DTEND;VALUE=DATE:20261202\r\n'));
+  assert(ics.includes('DTSTAMP:20261110T120000Z\r\n'));
+  assert(ics.includes('UID:research-r1@ffm\r\n'));
+  assert(ics.includes('SUMMARY:Closes: Cancer\\, imaging\\; R01 & <b>\r\n'));
+  assert(!ics.includes('No date'));
+  assert(!/[^\r]\n/.test(ics), 'every line break is CRLF');
+});
+t('buildIcs rolls over month and year ends, and gives nothing for undated input', () => {
+  assert(RC.buildIcs([{ id: 'a', title: 'x', close: '2026-12-31' }], '20261110T120000Z').includes('DTEND;VALUE=DATE:20270101'));
+  assert(RC.buildIcs([{ id: 'a', title: 'x', close: '2028-02-28' }], '20261110T120000Z').includes('DTEND;VALUE=DATE:20280229'));
+  assert.strictEqual(RC.buildIcs([{ id: 'a', title: 'x', close: null }], '20261110T120000Z'), '');
+  assert.strictEqual(RC.buildIcs([], '20261110T120000Z'), '');
+  assert.strictEqual(RC.buildIcs([{ id: 'a', title: 'x', close: 'soon' }], '20261110T120000Z'), '');
+});
+t('cleanPublicationList drops numbering, doi and urls but keeps title words', () => {
+  const out = RC.cleanPublicationList('1. Smith J, et al. Deep learning for stroke. Radiology 2024. doi:10.1148/radiol.1234\n[2] Lee K. Perfusion CT. https://doi.org/10.1000/xyz123');
+  assert(!/(^|\n)\s*1\./.test(out) && !out.includes('[2]'));
+  assert(!/doi/i.test(out) && !out.includes('10.1148') && !out.includes('http'));
+  assert(out.includes('Deep learning for stroke') && out.includes('Perfusion CT') && out.includes('2024'));
+  assert.strictEqual(RC.cleanPublicationList(''), '');
+  assert.strictEqual(RC.cleanPublicationList(null), '');
+});
 console.log(n + ' tests pass');

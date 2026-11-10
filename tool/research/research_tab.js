@@ -168,7 +168,20 @@
     var cards = shown.map(function (k) { return buildCard(k.row, k.hit, f.unknown[k.row.id], settings); });
     var tail = kept.length > MAX_SHOW ? (kept.length - MAX_SHOW) + ' more not shown. Narrow your text or use Filters.' : '';
     render(null, cards, tail);
+    addCalendarButton(shown.map(function (k) { return k.row; }));
     updateMeta(notice.prefix + 'Showing ' + shown.length + ' of ' + kept.length + ' matches.');
+  }
+
+  function addCalendarButton(rows) {
+    var stamp = new Date().toISOString().slice(0, 19).split('-').join('').split(':').join('') + 'Z', ics = window.ResearchCore.buildIcs(rows, stamp);
+    if (!ics) return;
+    var b = el('button', 'rt-btn', 'Add these deadlines to my calendar (.ics)'); b.type = 'button';
+    b.addEventListener('click', function () {
+      var url = URL.createObjectURL(new Blob([ics], { type: 'text/calendar' })), a = el('a');
+      a.href = url; a.download = 'grant-deadlines.ics'; document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+    });
+    var row = el('div', 'rt-row'); row.appendChild(b); state.ui.out.appendChild(row);
   }
 
   function appendFoundations(q) {
@@ -209,6 +222,9 @@
     var l = el('label', null, 'Paste an abstract, aims, or keywords'); l.htmlFor = 'rt-text';
     panel.appendChild(l); panel.appendChild(u.box);
     panel.appendChild(el('p', 'rt-meta', window.ResearchCore.PHRASE_TIP));
+    var cl = el('button', 'rt-btn rt-ex', 'Clean pasted publication list'); cl.type = 'button';
+    cl.addEventListener('click', function () { u.box.value = window.ResearchCore.cleanPublicationList(u.box.value); });
+    panel.appendChild(cl);
     var r1 = el('div', 'rt-row'), go = el('button', 'rt-btn', 'Search'); go.type = 'button'; go.addEventListener('click', run);
     r1.appendChild(go); panel.appendChild(r1);
     var r2 = el('div', 'rt-row'); r2.appendChild(el('span', 'rt-exlabel', 'Try:'));
