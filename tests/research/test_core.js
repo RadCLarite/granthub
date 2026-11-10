@@ -399,4 +399,24 @@ t('FLAG_LABELS has the nine keys and never says required', () => {
   Object.keys(RC.FLAG_LABELS).forEach(k => assert(!/required/i.test(RC.FLAG_LABELS[k]), k));
   assert.strictEqual(RC.flagNotes({ flags: { cost_share: 'no' } }, []).shown[0].state, 'no');
 });
+t('foundationStale uses 365 days and treats blank as stale', () => {
+  assert.strictEqual(RC.foundationStale('2025-01-01', '2026-11-10'), true);
+  assert.strictEqual(RC.foundationStale('2026-06-01', '2026-11-10'), false);
+  assert.strictEqual(RC.foundationStale('', '2026-11-10'), true);
+  assert.strictEqual(RC.foundationStale(null, '2026-11-10'), true);
+  assert.strictEqual(RC.foundationStale('2025-11-10', '2026-11-10'), false);
+  assert.strictEqual(RC.foundationStale('2025-11-09', '2026-11-10'), true);
+});
+t('searchFoundations ranks by focus and name, and rejects empty queries', () => {
+  const fr = [
+    { id: 'f1', name: 'Cardiology Fund', focus: 'Supports heart failure trials and arrhythmia research.' },
+    { id: 'f2', name: 'Neuro Fund', focus: 'Supports stroke imaging, perfusion and cerebrovascular research.' },
+  ];
+  const fi = RC.buildFoundationIndex(fr, groups);
+  const res = RC.searchFoundations(fi, 'stroke perfusion imaging', {});
+  assert.strictEqual(res[0].id, 'f2');
+  assert.deepStrictEqual(RC.searchFoundations(fi, 'the and of', {}), []);
+  assert.deepStrictEqual(RC.searchFoundations(RC.buildFoundationIndex([], groups), 'stroke', {}), []);
+  assert.strictEqual(RC.searchFoundations(fi, '"heart failure"', {})[0].id, 'f1');
+});
 console.log(n + ' tests pass');
