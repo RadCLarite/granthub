@@ -19,7 +19,7 @@ function firstRank(results, byId, field, want) {
 const pct = (a, b) => b ? (100 * a / b).toFixed(1) + '%' : 'n/a';
 const mean = a => a.length ? a.reduce((x, y) => x + y, 0) / a.length : null;
 
-function scoreTestset(rows, awards, groups) {
+function scoreTestset(rows, awards, groups, opts) {
   const index = RC.buildIndex(rows, groups || []);
   const byId = new Map(rows.map(r => [String(r.id), r]));
   const nPool = rows.length;
@@ -30,7 +30,7 @@ function scoreTestset(rows, awards, groups) {
     const ic = a.ic ? String(a.ic).toUpperCase() : null, mech = a.mechanism ? String(a.mechanism).toUpperCase() : null;
     const nIc = ic ? cnt('ic', ic) : 0, nMech = mech ? cnt('mech', mech) : 0;
     const ic_testable = nIc > 0, mech_testable = nMech > 0;
-    const res = RC.search(index, [a.title, a.abstract].filter(Boolean).join(' '), { limit: LIMIT });
+    const res = RC.search(index, [a.title, a.abstract].filter(Boolean).join(' '), Object.assign({ limit: LIMIT }, opts));
     const ic_rank = ic_testable ? firstRank(res, byId, 'ic', ic) : null;
     const mech_rank = mech_testable ? firstRank(res, byId, 'mech', mech) : null;
     const hit_ic = ic_testable ? ic_rank != null && ic_rank <= TOP : null;
@@ -80,8 +80,9 @@ if (require.main === module) {
   const awards = load('data', 'research_testset', 'reporter_sample.json').concat(load('data', 'research_testset', 'owner_abstracts.json'))
     .filter(a => a.abstract && String(a.abstract).trim());
   const groups = process.argv.includes('--no-synonyms') ? [] : load('tool', 'research', 'synonyms.json');
-  const r = scoreTestset(rows, awards, groups);
-  if (!process.argv.includes('--no-synonyms')) {
+  const boostArg = process.argv.find(a => a.indexOf('--phrase-boost=') === 0);
+  const r = scoreTestset(rows, awards, groups, boostArg ? { phraseBoost: Number(boostArg.slice('--phrase-boost='.length)) } : undefined);
+  if (process.argv.length <= 2) {
     fs.mkdirSync(path.join(root, 'outs'), { recursive: true });
     fs.writeFileSync(path.join(root, 'outs', 'research_testset_report.csv'), toCsv(r.perAward));
   }

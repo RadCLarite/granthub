@@ -40,3 +40,28 @@ Same harness, `--no-synonyms` flag (empty groups array) against the current 47 g
 | Groups on | 5 of 9 | 7 of 10 | 4 of 9 |
 
 Identical. The long abstract queries already contain the specific terms, and the groups changed the top-50 order for only 1 of 10 awards, with no change in any rank used by these metrics. On this test set the synonyms neither help nor hurt; they are likely to matter more for short typed queries, which this harness does not test.
+
+## Phrase boost run (adjacent-word boost)
+
+Date: 2026-11-09. Pool: 1,225 open opportunities. Awards: **10** NIH RePORTER awards (the 10 owner abstracts are not in yet, so this is not a 20-award result). Flag: `--phrase-boost=<n>`; 0 is the no-boost baseline, 0.5 is the shipped default (fixed before the run, not tuned). The harness queries with full abstracts (2,400 to 3,300 characters), so quoted phrases never apply here; the quoted-phrase filter is covered by unit tests only.
+
+| Boost | IC hit@10 | Mechanism hit@10 | IC and mechanism each in top 10 (separate rows) |
+|---|---|---|---|
+| 0 (baseline) | 5 of 9 | 7 of 10 | 4 of 9 |
+| 0.25 (sensitivity) | 5 of 9 | 7 of 10 | 4 of 9 |
+| 0.5 (default) | 5 of 9 | 7 of 10 | 4 of 9 |
+| 1 (sensitivity) | 5 of 9 | 7 of 10 | 4 of 9 |
+
+Ship rule (set before the run): keep 0.5 only if no hit count falls below the baseline. None fell, so 0.5 stays the default. This shows no regression, nothing more: one award is 10 points, and these metrics count same-funder and same-mechanism rows, not topical fit.
+
+What the boost did change, baseline to 0.5 (rank of the first same-funder row, then the first same-mechanism row; "null" means none in the top 50 or not testable):
+
+| Award | IC rank | Mechanism rank | Top-10 rows that changed order |
+|---|---|---|---|
+| 5R01NS126509-03 | 2 to 1 | 1 to 2 | 8 |
+| 2T32AA007577-26 | 5 to 3 | 3 to 4 | 3 |
+| 5F31CA288055-02 | 28 | null | 1 (one new row entered the top 10) |
+| 2P20GM103447-25 | null | null | 4 |
+| other 6 awards | no change | no change | 0 |
+
+So on real abstracts the boost reorders a few top-10 lists and moves the metric ranks by one or two places. It does not move any award across the top-10 line. Whether the reordered lists read better to a researcher is a question for the human check (phase 3), not this proxy.

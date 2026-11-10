@@ -312,4 +312,16 @@ t('bad phraseBoost values fall back to the default', () => {
   const d = RC.search(bidx, 'ct perfusion');
   for (const bad of [-1, NaN, 'x']) assert.deepStrictEqual(RC.search(bidx, 'ct perfusion', { phraseBoost: bad }), d);
 });
+t('scoreTestset passes search options', () => {
+  const { scoreTestset } = require(path.join(__dirname, 'run_testset.js'));
+  const srows = [
+    { id: 'z1', title: 'perfusion lung ct', sum: '', ic: 'AA' },
+    { id: 'z2', title: 'ct perfusion lung', sum: '', ic: 'BB' },
+    { id: 'y1', title: 'grain subsidies', sum: '', ic: 'CC' },
+    { id: 'y2', title: 'crop yields', sum: '', ic: 'CC' },
+  ];
+  const aw = [{ id: 'a1', ic: 'BB', abstract: 'ct perfusion' }];
+  assert.strictEqual(scoreTestset(srows, aw, []).perAward[0].ic_rank, 1);
+  assert.strictEqual(scoreTestset(srows, aw, [], { phraseBoost: 0 }).perAward[0].ic_rank, 2);
+});
 console.log(n + ' tests pass');
