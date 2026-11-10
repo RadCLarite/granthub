@@ -359,4 +359,24 @@ t('phraseNotices builds the tab messages', () => {
 t('phrase tip states the length limit it enforces', () => {
   assert(RC.PHRASE_TIP.indexOf(String(RC.PHRASE_QUERY_MAX_CHARS)) >= 0);
 });
+t('boost overhead stays small on a 3,000-char search over a larger pool', () => {
+  /* Benchmark: synthetic Zipf-like pool of 5,000 rows (the live pool is 1,225); a 3,000-char query is the worst case the tab allows.
+     The boost may cost at most as much as the rest of the search plus 3 ms; median of 9 runs keeps it steady on a busy machine. */
+  let seed = 1; const rnd = () => (seed = (seed * 1664525 + 1013904223) >>> 0) / 4294967296;
+  const V = 3000, vocab = []; for (let i = 0; i < V; i++) vocab.push('w' + i.toString(36) + 'x');
+  const word = () => vocab[Math.floor(Math.pow(rnd(), 2) * V)];
+  const big = [];
+  for (let i = 0; i < 5000; i++) {
+    const ti = [], su = []; for (let k = 0; k < 8; k++) ti.push(word()); for (let k = 0; k < 120; k++) su.push(word());
+    big.push({ id: 'r' + i, title: ti.join(' '), sum: su.join(' ') });
+  }
+  const bidx = RC.buildIndex(big, []);
+  const qw = []; while (qw.join(' ').length < 3000) qw.push(word());
+  const query = qw.join(' ').slice(0, 3000);
+  const med = a => a.sort((x, y) => x - y)[a.length >> 1];
+  const time = o => { const ts = []; for (let i = 0; i < 9; i++) { const t0 = process.hrtime.bigint(); RC.search(bidx, query, o); ts.push(Number(process.hrtime.bigint() - t0) / 1e6); } return med(ts); };
+  time({ phraseBoost: 0 });
+  const off = time({ phraseBoost: 0 }), on = time({});
+  assert(on - off <= off + 3, 'boost overhead ' + (on - off).toFixed(1) + ' ms against ' + off.toFixed(1) + ' ms for the rest of the search');
+});
 console.log(n + ' tests pass');
