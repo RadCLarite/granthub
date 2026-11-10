@@ -126,14 +126,14 @@
     updateMeta('');
     if (!state.index) { render('Still loading the opportunity list. Try again in a moment.'); return; }
     if (!RC.tokenize(q).length) { render('Type or paste a few topic words, for example the aims of your project. Common words alone cannot be searched.'); return; }
-    var phrases = RC.parseQuery(q).phrases, plist = phrases.map(function (p) { return '“' + p.text + '”'; }).join(', ');
+    var phrases = RC.parseQuery(q).phrases, notice = RC.phraseNotices(phrases);
     var hits = RC.search(state.index, q, { limit: state.rows.length || 1 }), byId0 = {};
     state.rows.forEach(function (r) { byId0[r.id] = r; });
     function live(hs) { return hs.filter(function (h) { return isLive(byId0[h.id]); }); }  /* a tab left open past midnight must not show a closed grant */
     hits = live(hits);
     if (!hits.length) {
       if (phrases.length && live(RC.search(state.index, q, { limit: state.rows.length || 1, phraseFilter: false })).length) {
-        render('No open opportunity contains ' + (phrases.length > 1 ? 'all of these exact phrases: ' : 'the exact phrase ') + plist + '. Remove the quotes to search the words separately.');
+        render(notice.empty);
         return;
       }
       render('No open opportunity shares words with this text. Try fewer or more general words.'); return;
@@ -159,7 +159,7 @@
     var cards = shown.map(function (k) { return buildCard(k.row, k.hit, f.unknown[k.row.id], settings); });
     var tail = kept.length > MAX_SHOW ? (kept.length - MAX_SHOW) + ' more not shown. Narrow your text or use Filters.' : '';
     render(null, cards, tail);
-    updateMeta((phrases.length ? 'Exact phrase required: ' + plist + '. ' : '') + 'Showing ' + shown.length + ' of ' + kept.length + ' matches.');
+    updateMeta(notice.prefix + 'Showing ' + shown.length + ' of ' + kept.length + ' matches.');
   }
 
   function buildUi(root) {
@@ -170,7 +170,7 @@
     u.box = el('textarea'); u.box.id = 'rt-text'; u.box.rows = 5;
     var l = el('label', null, 'Paste an abstract, aims, or keywords'); l.htmlFor = 'rt-text';
     panel.appendChild(l); panel.appendChild(u.box);
-    panel.appendChild(el('p', 'rt-meta', 'Tip: put a phrase in double quotes to require it, for example “artificial intelligence”. Quotes work in short searches, not in a pasted abstract.'));
+    panel.appendChild(el('p', 'rt-meta', window.ResearchCore.PHRASE_TIP));
     var r1 = el('div', 'rt-row'), go = el('button', 'rt-btn', 'Search'); go.type = 'button'; go.addEventListener('click', run);
     r1.appendChild(go); panel.appendChild(r1);
     var r2 = el('div', 'rt-row'); r2.appendChild(el('span', 'rt-exlabel', 'Try:'));
