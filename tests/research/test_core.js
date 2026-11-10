@@ -208,4 +208,127 @@ t('scoreTestset one hit and one not-testable', () => {
   assert.strictEqual(r.summary.funder_known, 0.5);
   assert(r.summary.text.indexOf('1 of 1') >= 0);
 });
+/* ---- phrase handling (Task 1) ---- */
+const prows = [
+  { id: 'p1', title: 'CT perfusion imaging in acute stroke', sum: '' },
+  { id: 'p2', title: 'Perfusion of the heart; CT of the lung', sum: '' },
+  { id: 'p3', title: 'Stroke outcomes', sum: 'Advanced CT perfusion protocols' },
+  { id: 'p4', title: 'Stroke of the brain tumors', sum: '' },
+  { id: 'p5', title: 'Lung CT', sum: 'perfusion study' },
+];
+const pidx = RC.buildIndex(prows, groups);
+const ids = r => r.map(x => x.id);
+t('parseQuery basics', () => {
+  const p = RC.parseQuery('"CT perfusion" stroke');
+  assert.strictEqual(p.plain, ' CT perfusion  stroke');
+  assert.deepStrictEqual(p.phrases, [{ text: 'CT perfusion', tokens: ['ct', 'perfusion'] }]);
+  assert.deepStrictEqual(RC.parseQuery('“ct perfusion”').phrases[0].tokens, ['ct', 'perfusion']);
+});
+t('parseQuery malformed', () => {
+  const u = RC.parseQuery('"ct perfusion');
+  assert.deepStrictEqual(u.phrases, []);
+  assert.deepStrictEqual(RC.tokenize(u.plain), ['ct', 'perfusion']);
+  assert.deepStrictEqual(RC.parseQuery('""').phrases, []);
+  assert.deepStrictEqual(RC.parseQuery('"the of"').phrases, []);
+  assert.strictEqual(RC.parseQuery('"a1 b1" "a1 b1"').phrases.length, 1);
+  const six = ['a1 b1', 'c1 d1', 'e1 f1', 'g1 h1', 'i1 j1', 'k1 l1'].map(s => '"' + s + '"').join(' ');
+  assert.strictEqual(RC.parseQuery(six).phrases.length, 5);
+});
+t('parseQuery odd number of quote marks ignores them all', () => {
+  const p = RC.parseQuery('5" display "deep learning"');
+  assert.deepStrictEqual(p.phrases, []);
+  assert.deepStrictEqual(RC.tokenize(p.plain), ['display', 'deep', 'learning']);
+  assert.strictEqual(RC.parseQuery('"a1 b1" "c1 d1" "e1').phrases.length, 0);
+  assert.strictEqual(RC.parseQuery('"a1 b1" "c1 d1"').phrases.length, 2);
+});
+t('parseQuery long query ignores quotes', () => {
+  const q = 'word '.repeat(60) + '"ct perfusion"';
+  assert(q.length > 200);
+  assert.deepStrictEqual(RC.parseQuery(q).phrases, []);
+});
+t('phrase filter', () => {
+  assert.deepStrictEqual(ids(RC.search(pidx, '"ct perfusion"')).sort(), ['p1', 'p3']);
+  assert(ids(RC.search(pidx, '"ct perfusion"', { phraseFilter: false })).includes('p2'));
+});
+t('phrase filter keeps ranking order', () => {
+  const f = ids(RC.search(pidx, '"ct perfusion" stroke', { phraseBoost: 0 }));
+  const u = ids(RC.search(pidx, 'ct perfusion stroke', { phraseBoost: 0 })).filter(i => !['p2', 'p4', 'p5'].includes(i));
+  assert.deepStrictEqual(f, u);
+});
+t('phrase stop words and plurals', () => {
+  assert.deepStrictEqual(ids(RC.search(pidx, '"stroke brain tumor"')), ['p4']);
+  assert.deepStrictEqual(RC.search(pidx, '"stroke tumors"'), []);
+});
+t('phrase does not straddle title and summary', () => {
+  assert(!ids(RC.search(pidx, '"ct perfusion"')).includes('p5'));
+});
+t('two phrases are ANDed', () => {
+  assert.deepStrictEqual(ids(RC.search(pidx, '"ct perfusion" "acute stroke"')), ['p1']);
+});
+t('single-word phrase', () => {
+  assert.deepStrictEqual(ids(RC.search(pidx, '"perfusion"')).sort(), ['p1', 'p2', 'p3', 'p5']);
+});
+/* ---- adjacent-word boost (Task 2) ---- */
+const brows = [
+  { id: 'z1', title: 'perfusion lung ct', sum: '' },
+  { id: 'z2', title: 'ct perfusion lung', sum: '' },
+  { id: 'y1', title: 'grain subsidies', sum: '' },
+  { id: 'y2', title: 'crop yields', sum: '' },
+];
+const bidx = RC.buildIndex(brows, []);
+const score = (r, id) => r.find(x => x.id === id).score;
+t('boost reorders adjacent first', () => {
+  const on = RC.search(bidx, 'ct perfusion'), off = RC.search(bidx, 'ct perfusion', { phraseBoost: 0 });
+  assert.deepStrictEqual(ids(on).slice(0, 2), ['z2', 'z1']);
+  assert.deepStrictEqual(ids(off).slice(0, 2), ['z1', 'z2']);
+  assert.strictEqual(score(off, 'z1'), score(off, 'z2'));
+});
+t('boost size', () => {
+  const on = RC.search(bidx, 'ct perfusion');
+  assert(Math.abs((score(on, 'z2') - score(on, 'z1')) - 0.5 * Math.LN2) < 1e-9);
+});
+t('boost adds no rows', () => {
+  const q = 'ct perfusion stroke';
+  assert.deepStrictEqual(ids(RC.search(pidx, q)).sort(), ids(RC.search(pidx, q, { phraseBoost: 0 })).sort());
+});
+t('boost bridges stop words', () => {
+  const kidx = RC.buildIndex([
+    { id: 'k1', title: 'ct perfusion', sum: '' }, { id: 'k2', title: 'perfusion of the ct', sum: '' },
+    { id: 'f1', title: 'grain subsidies', sum: '' }, { id: 'f2', title: 'crop yields', sum: '' }], []);
+  assert.deepStrictEqual(ids(RC.search(kidx, 'perfusion ct')).slice(0, 2), ['k2', 'k1']);
+  assert.deepStrictEqual(ids(RC.search(kidx, 'perfusion ct', { phraseBoost: 0 })).slice(0, 2), ['k1', 'k2']);
+});
+t('boost is order-sensitive', () => {
+  const r = RC.search(bidx, 'perfusion ct');
+  assert.strictEqual(score(r, 'z1'), score(r, 'z2'));
+  assert.strictEqual(ids(r)[0], 'z1');
+});
+t('boost deterministic and bounded', () => {
+  const words = ['alpha','beta','gamma','delta','stroke','imaging','tumor','grain','lung','heart'];
+  const big = [];
+  for (let i = 0; i < 1225; i++) big.push({ id: 'r' + String(i).padStart(4, '0'), title: 'w' + i + ' ' + words[i % 10], sum: words[(i * 3) % 10] + ' study ' + words[(i * 7) % 10] + ' ' + i });
+  const bi = RC.buildIndex(big, groups);
+  const q = []; for (let i = 0; i < 500; i++) q.push(i % 7 === 0 ? 'w' + (i % 1000) : words[(i * i) % 10]);
+  const text = q.join(' ').slice(0, 3000);
+  const t0 = Date.now();
+  const a = RC.search(bi, text, { limit: 25 });
+  assert(Date.now() - t0 < 2000);
+  assert.deepStrictEqual(a, RC.search(bi, text, { limit: 25 }));
+});
+t('bad phraseBoost values fall back to the default', () => {
+  const d = RC.search(bidx, 'ct perfusion');
+  for (const bad of [-1, NaN, 'x']) assert.deepStrictEqual(RC.search(bidx, 'ct perfusion', { phraseBoost: bad }), d);
+});
+t('scoreTestset passes search options', () => {
+  const { scoreTestset } = require(path.join(__dirname, 'run_testset.js'));
+  const srows = [
+    { id: 'z1', title: 'perfusion lung ct', sum: '', ic: 'AA' },
+    { id: 'z2', title: 'ct perfusion lung', sum: '', ic: 'BB' },
+    { id: 'y1', title: 'grain subsidies', sum: '', ic: 'CC' },
+    { id: 'y2', title: 'crop yields', sum: '', ic: 'CC' },
+  ];
+  const aw = [{ id: 'a1', ic: 'BB', abstract: 'ct perfusion' }];
+  assert.strictEqual(scoreTestset(srows, aw, []).perAward[0].ic_rank, 1);
+  assert.strictEqual(scoreTestset(srows, aw, [], { phraseBoost: 0 }).perAward[0].ic_rank, 2);
+});
 console.log(n + ' tests pass');
