@@ -65,3 +65,7 @@ What the boost did change, baseline to 0.5 (rank of the first same-funder row, t
 | other 6 awards | no change | no change | 0 |
 
 So on real abstracts the boost reorders a few top-10 lists and moves the metric ranks by one or two places. It does not move any award across the top-10 line. Whether the reordered lists read better to a researcher is a question for the human check (phase 3), not this proxy.
+
+## Phase 2 rerun (2026-11-10)
+
+Phase 2 did not change ranking. Rerunning `node tests/research/run_testset.js` gives the same counts as before: IC hit@10 5 of 9, mechanism 7 of 10, both 4 of 9 (10 of the 20 awards have abstracts).

@@ -96,6 +96,13 @@
     b.appendChild(el('span', 'rt-badge', row.trial === 'required' ? 'Clinical trial required' : row.trial === 'not_allowed' ? 'Clinical trial not allowed' : row.trial === 'optional' ? 'Clinical trial optional' : 'Clinical trial: unknown'));
     (unk || []).forEach(function (k) { b.appendChild(el('span', 'rt-badge rt-unknown', 'unknown: ' + (FILTER_NAMES[k] || k))); });
     card.appendChild(b);
+    var ticked = (state.ui.flagBoxes || []).filter(function (c) { return c.checked; }).map(function (c) { return c.value; }), fn = RC.flagNotes(row, ticked);
+    if (fn.shown.length) {
+      var fb = el('div', 'rt-badges');
+      fn.shown.forEach(function (x) { fb.appendChild(el('span', 'rt-badge rt-flag' + (ticked.indexOf(x.key) >= 0 ? ' rt-flag-mine' : ''), (x.state === 'no' ? 'No ' : 'Mentioned: ') + x.label)); });
+      card.appendChild(fb);
+    }
+    if (fn.unknownTicked.length) card.appendChild(el('p', 'rt-line rt-muted', 'You ticked ' + fn.unknownTicked.map(function (x) { return x.label; }).join(', ') + '. This listing does not say. Read the notice.'));
     card.appendChild(el('p', 'rt-line', row.ceil != null ? 'Award ceiling ' + money(row.ceil) + ' as listed' : 'Budget: unknown'));
     var line = el('p', 'rt-line'), level, label, days = RC.daysUntil(row.close, state.today);
     if (row.status === 'forecasted' || !row.close) { line.textContent = 'Date not announced'; level = 'unknown'; label = 'No deadline to check'; }
@@ -120,7 +127,9 @@
     if (tail) out.appendChild(el('p', 'rt-meta', tail));
   }
 
-  function run() {
+  function run() { runFederal(); appendFoundations(state.ui.box.value); }
+
+  function runFederal() {
     var RC = window.ResearchCore, q = state.ui.box.value;
     state.today = localToday();
     updateMeta('');
@@ -159,18 +168,96 @@
     var cards = shown.map(function (k) { return buildCard(k.row, k.hit, f.unknown[k.row.id], settings); });
     var tail = kept.length > MAX_SHOW ? (kept.length - MAX_SHOW) + ' more not shown. Narrow your text or use Filters.' : '';
     render(null, cards, tail);
+    addCalendarButton(shown.map(function (k) { return k.row; }));
     updateMeta(notice.prefix + 'Showing ' + shown.length + ' of ' + kept.length + ' matches.');
+  }
+
+  function addCalendarButton(rows) {
+    var stamp = new Date().toISOString().slice(0, 19).split('-').join('').split(':').join('') + 'Z', ics = window.ResearchCore.buildIcs(rows, stamp);
+    if (!ics) return;
+    var b = el('button', 'rt-btn', 'Add these deadlines to my calendar (.ics)'); b.type = 'button';
+    b.addEventListener('click', function () {
+      var url = URL.createObjectURL(new Blob([ics], { type: 'text/calendar' })), a = el('a');
+      a.href = url; a.download = 'grant-deadlines.ics'; document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+    });
+    var row = el('div', 'rt-row'); row.appendChild(b); state.ui.out.appendChild(row);
+  }
+
+  function appendFoundations(q) {
+    var RC = window.ResearchCore, out = state.ui.out;
+    var old = out.querySelector('.rt-foundations'); if (old) out.removeChild(old);
+    if (!state.fIndex || !state.fRows.length) return;
+    var hits = RC.searchFoundations(state.fIndex, q, { limit: 10 });
+    if (!hits.length) return;
+    var byId = {}, sec = el('section', 'rt-foundations'), matched = {};
+    state.fRows.forEach(function (r) { byId[r.id] = r; });
+    sec.appendChild(el('h3', 'rt-fhead', 'Foundations'));
+    sec.appendChild(el('p', 'rt-meta', "Confirm on the foundation's own page. Amounts and deadlines change."));
+    hits.forEach(function (h) {
+      var r = byId[h.id]; if (!r) return;
+      h.matched.forEach(function (t) { matched[t] = 1; });
+      var card = el('article', 'rt-card'), t = el('h3');
+      if (typeof r.url === 'string' && /^https:\/\//i.test(r.url)) {
+        var a = el('a'); a.href = r.url; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.textContent = r.name; t.appendChild(a);
+      } else t.textContent = r.name;
+      card.appendChild(t);
+      var p = el('p', 'rt-snip'); highlight(p, r.focus, matched); card.appendChild(p);
+      if (r.career) card.appendChild(el('p', 'rt-line', 'Career stage: ' + r.career));
+      if (r.note) card.appendChild(el('p', 'rt-line', r.note));
+      var b = el('div', 'rt-badges');
+      b.appendChild(el('span', 'rt-badge rt-unknown', 'Verified on ' + (r.verified || 'unknown')));
+      if (RC.foundationStale(r.verified, state.today)) b.appendChild(el('span', 'rt-badge rt-late', 'Stale: check the page'));
+      card.appendChild(b); sec.appendChild(card);
+    });
+    out.appendChild(sec);
+  }
+
+  var ORCID_NOTICE = 'Clicking Look up sends only your ORCID iD to OpenAlex (api.openalex.org) and reads your public papers. Nothing is stored. Your pasted text never leaves this page.';
+  function buildOrcidBlock(u) {
+    var RC = window.ResearchCore, det = el('details', 'rt-orcid'), row = el('div', 'rt-row');
+    det.appendChild(el('summary', null, 'Use my ORCID'));
+    det.appendChild(el('p', 'rt-meta', ORCID_NOTICE));
+    var inp = el('input'); inp.type = 'text'; inp.id = 'rt-orcid'; inp.placeholder = '0000-0002-1825-0097'; inp.autocomplete = 'off'; inp.setAttribute('aria-label', 'ORCID iD');
+    var btn = el('button', 'rt-btn', 'Look up my papers'); btn.type = 'button';
+    var msg = el('p', 'rt-meta'); msg.setAttribute('role', 'status');
+    btn.addEventListener('click', function () {
+      var id = RC.normalizeOrcid(inp.value);
+      if (!id) { msg.textContent = 'That iD does not look right. It has 16 characters, like 0000-0002-1825-0097.'; return; }
+      btn.disabled = true; msg.textContent = 'Looking up your papers...';
+      var ctl = new AbortController(), timer = setTimeout(function () { ctl.abort(); }, 10000);
+      fetch(RC.openAlexWorksUrl(id), { signal: ctl.signal, credentials: 'omit', headers: { Accept: 'application/json' } }).then(function (r) {
+        if (r.status === 429 || r.status === 402 || r.status === 403) throw new Error('limit');
+        if (!r.ok) throw new Error('http');
+        return r.json();
+      }).then(function (d) {
+        var works = (d && d.results) || [], text = RC.worksToText(works);
+        if (!text) { msg.textContent = 'OpenAlex has no papers with text for that iD. Paste your abstract instead.'; return; }
+        if (u.box.value.trim() && !window.confirm('Replace the text in the box with text from your papers?')) { msg.textContent = 'Left your text as it was.'; return; }
+        u.box.value = text; msg.textContent = 'Filled from ' + works.length + ' papers. Edit the text, then press Search.';
+      }).catch(function (err) {
+        msg.textContent = err && err.message === 'limit' ? 'OpenAlex is busy or the free daily limit is used up. Paste your abstract instead.'
+          : err && err.name === 'AbortError' ? 'OpenAlex took too long to answer. Try again, or paste your abstract instead.'
+          : 'Could not reach OpenAlex. Check your connection, or paste your abstract instead.';
+      }).then(function () { clearTimeout(timer); btn.disabled = false; });
+    });
+    row.appendChild(inp); row.appendChild(btn); det.appendChild(row); det.appendChild(msg);
+    return det;
   }
 
   function buildUi(root) {
     var u = state.ui;
     root.appendChild(el('h2', null, 'Find funding for a research project'));
-    root.appendChild(el('p', 'rt-privacy', 'Your text stays in this browser. Nothing is sent anywhere.'));
+    root.appendChild(el('p', 'rt-privacy', 'Your text stays in this browser. Nothing is sent unless you press Look up in the ORCID box below.'));
     var panel = el('div', 'rt-panel');
+    panel.appendChild(buildOrcidBlock(u));
     u.box = el('textarea'); u.box.id = 'rt-text'; u.box.rows = 5;
     var l = el('label', null, 'Paste an abstract, aims, or keywords'); l.htmlFor = 'rt-text';
     panel.appendChild(l); panel.appendChild(u.box);
     panel.appendChild(el('p', 'rt-meta', window.ResearchCore.PHRASE_TIP));
+    var cl = el('button', 'rt-btn rt-ex', 'Clean pasted publication list'); cl.type = 'button';
+    cl.addEventListener('click', function () { u.box.value = window.ResearchCore.cleanPublicationList(u.box.value); });
+    panel.appendChild(cl);
     var r1 = el('div', 'rt-row'), go = el('button', 'rt-btn', 'Search'); go.type = 'button'; go.addEventListener('click', run);
     r1.appendChild(go); panel.appendChild(r1);
     var r2 = el('div', 'rt-row'); r2.appendChild(el('span', 'rt-exlabel', 'Try:'));
@@ -203,6 +290,12 @@
       lab.appendChild(cb); lab.appendChild(document.createTextNode(m)); fs.appendChild(lab); return cb;
     });
     det.appendChild(fs);
+    var fs3 = el('fieldset'); fs3.appendChild(el('legend', null, 'My project has... (highlights only, hides nothing)'));
+    u.flagBoxes = Object.keys(window.ResearchCore.FLAG_LABELS).map(function (k) {
+      var lab = el('label'), cb = el('input'); cb.type = 'checkbox'; cb.value = k;
+      lab.appendChild(cb); lab.appendChild(document.createTextNode(window.ResearchCore.FLAG_LABELS[k])); fs3.appendChild(lab); return cb;
+    });
+    det.appendChild(fs3);
     var fs2 = el('fieldset'); fs2.appendChild(el('legend', null, 'Lead time and sign-off (estimates)'));
     var g2 = el('div', 'rt-grid');
     u.wR01 = numInput(8, 0); u.wR21 = numInput(6, 0); u.wK = numInput(8, 0); u.sign = numInput(5, 0);
@@ -241,12 +334,14 @@
     state.started = true;
     state.today = localToday();
     container.appendChild(el('p', 'rt-meta', 'Loading the opportunity list...'));
-    Promise.all([fetchJson('research.json'), fetchJson('synonyms.json')]).then(function (res) {
+    Promise.all([fetchJson('research.json'), fetchJson('synonyms.json'), fetchJson('research_foundations.json').catch(function () { return null; })]).then(function (res) {
       var data = res[0], rows = (data && data.rows) || [];
       state.rows = rows.filter(function (r) { return !(r.close && r.close < state.today); });
       state.asOf = data.as_of || 'unknown';
       state.sourceDate = data.source_date || data.as_of || 'unknown';
       state.index = window.ResearchCore.buildIndex(state.rows, res[1]);
+      state.fRows = res[2] && res[2].rows ? res[2].rows : [];
+      state.fIndex = window.ResearchCore.buildFoundationIndex(state.fRows, res[1]);
       while (container.firstChild) container.removeChild(container.firstChild);
       buildUi(container);
     }).catch(function () {
