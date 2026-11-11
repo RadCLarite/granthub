@@ -33,6 +33,15 @@ Each card can show "Mentioned" flags read from the notice text (letter of intent
 
 Run the checks from the repo root with `node tests/research/test_core.js` (unit tests) and `node tests/research/run_testset.js` (scores the award test set and writes `outs/research_testset_report.csv`).
 
+Rebuilding `research.json` (from the repo root, in this order; it is a manual step, not part of the daily job):
+
+1. `Rscript R/02f_research_pool.R` pulls the open pool from Simpler.Grants.gov into `data/processed/research_opportunities.csv`. It calls an outside service and needs `SIMPLER_GRANTS_KEY` in your `.Renviron` (never in a tracked file); pages already in `data/cache/api/simpler_research/` are not fetched again.
+2. `Rscript R/02g_research_unmatched.R` looks up post date, cost sharing and the grants.gov link for pool rows that `opportunities.csv` does not hold, one read-only Grants.gov call per row, cached in `data/cache/api/grantsgov_detail/`. It reads the file from step 1, so run it second. It writes `data/processed/research_grantsgov_lookup.csv`.
+3. `Rscript R/14_build_research_payload.R` writes `data/processed/research.json`. It takes post date, cost sharing, eligibility text and the grants.gov link from `opportunities.csv` and the step 2 lookup (Simpler has none of them), then fits the file to the size budget: if it is over `RESEARCH_PAYLOAD_BUDGET` (1,850,000 bytes) it cuts every summary to a common length, in 100-character steps from 1,200 down to a floor of `RESEARCH_SUM_FLOOR` (600), and says so. It stops if the floor does not fit or the file passes `RESEARCH_PAYLOAD_LIMIT` (2,000,000 bytes). The three numbers are in `R/00_config.R`.
+4. `node tests/research/run_testset.js`, then `node tests/research/test_core.js`, `python tests/research/test_feeds.py` and `Rscript tests/run_tests.R`. Compare the test-set summary with `docs/research_testset_results.md` before committing.
+
+Only step 1 needs a key, and only steps 1 and 2 call outside services. This does not refresh `opportunities.csv`; that is `R/02a`, `02b` and `03`, which need `REF_DATE` moved in `R/00_config.R`; that invalidates the 02b and 02e cache keys, so do it on its own branch.
+
 Current limits:
 - Only R01, R21 and K-family mechanisms have lead times, and forecasted or no-close rows get no deadline check. On the current data (checked for 2026-11-09) 143 of 1,225 rows (11.7%) get an ok, tight or late time warning; the rest show "unknown" (no parsed mechanism, or a mechanism with no lead time) or "date not announced".
 - The tab shows when the listings were fetched and warns when they are 3 or more days old; research.json is rebuilt by hand, not by the daily job.
