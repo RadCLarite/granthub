@@ -188,6 +188,11 @@
     out.push(cur);
     return out.join('\r\n ');
   }
+  /* Simpler's forecasted close date, shown on forecasted cards only. It is an estimate: nothing else reads row.est (not the time warning, the sort or the .ics). */
+  function estimateNote(row) {
+    if (!row || row.status !== 'forecasted' || typeof row.est !== 'string' || isoToUtcMs(row.est) === null) return '';
+    return 'Estimated close ' + row.est + ', not confirmed';
+  }
   /* RFC 5545 text: one all-day event per row with a readable close date. stamp (YYYYMMDDTHHMMSSZ) is passed in so the function stays pure. */
   function buildIcs(rows, stamp) {
     var ev = [];
@@ -480,7 +485,7 @@
 
   return { tokenize: tokenize, parseQuery: parseQuery, phraseNotices: phraseNotices, PHRASE_TIP: PHRASE_TIP,
     PHRASE_QUERY_MAX_CHARS: PHRASE_QUERY_MAX_CHARS, expandTerms: expandTerms, buildIndex: buildIndex, search: search, applyFilters: applyFilters, statusEmptyNotice: statusEmptyNotice,
-    flagNotes: flagNotes, buildIcs: buildIcs, normalizeOrcid: normalizeOrcid, openAlexWorksUrl: openAlexWorksUrl, worksToText: worksToText,
+    flagNotes: flagNotes, buildIcs: buildIcs, estimateNote: estimateNote, normalizeOrcid: normalizeOrcid, openAlexWorksUrl: openAlexWorksUrl, worksToText: worksToText,
     worksStats: worksStats, openAlexFailureText: openAlexFailureText, cleanPublicationList: cleanPublicationList,
     FLAG_LABELS: FLAG_LABELS, daysUntil: daysUntil,
     daysSince: daysSince, staleNotice: staleNotice, businessDaysBefore: businessDaysBefore, timeWarning: timeWarning };

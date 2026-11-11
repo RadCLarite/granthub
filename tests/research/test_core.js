@@ -582,4 +582,36 @@ t('statusEmptyNotice names the mode and the way out', () => {
   assert(p.indexOf('posted') >= 0 && p.indexOf('All') >= 0 && p.indexOf('Filters') < 0);
   assert(f.indexOf('forecasted') >= 0 && f.indexOf('All') >= 0);
 });
+
+t('estimateNote words a forecasted estimate as not confirmed', () => {
+  assert.strictEqual(RC.estimateNote({ status: 'forecasted', close: null, est: '2027-02-01' }), 'Estimated close 2027-02-01, not confirmed');
+});
+t('estimateNote is empty for posted rows, missing or malformed estimates', () => {
+  assert.strictEqual(RC.estimateNote({ status: 'posted', close: '2026-12-01', est: '2027-02-01' }), '');
+  assert.strictEqual(RC.estimateNote({ status: 'forecasted', close: null, est: null }), '');
+  assert.strictEqual(RC.estimateNote({ status: 'forecasted', close: null }), '');
+  assert.strictEqual(RC.estimateNote({ status: 'forecasted', close: null, est: 'soon' }), '');
+  assert.strictEqual(RC.estimateNote(null), '');
+});
+t('an estimated close date never feeds the time warning', () => {
+  const w = RC.timeWarning({ status: 'forecasted', close: null, est: '2026-11-12' }, '2026-11-10', { signoffBusinessDays: 5 });
+  assert.strictEqual(w.level, 'unknown');
+  assert.strictEqual(w.daysToInstitution, null);
+});
+t('buildIcs skips a forecasted row that has only an estimate', () => {
+  assert.strictEqual(RC.buildIcs([{ id: 'f', title: 'Forecast', close: null, est: '2027-02-01', status: 'forecasted' }], '20261110T120000Z'), '');
+});
+t('committed research.json: est only on forecasted rows, ISO dates, never equal to a posted close', () => {
+  const data = require(path.join(__dirname, '..', '..', 'data', 'processed', 'research.json'));
+  let withEst = 0;
+  data.rows.forEach(r => {
+    assert(Object.prototype.hasOwnProperty.call(r, 'est'), 'row ' + r.id + ' lacks est');
+    if (r.est == null) return;
+    withEst++;
+    assert.strictEqual(r.status, 'forecasted', 'est on a non-forecasted row ' + r.id);
+    assert(/^\d{4}-\d{2}-\d{2}$/.test(r.est), 'bad est ' + r.est);
+    assert.strictEqual(r.close, null, 'forecasted row ' + r.id + ' has a close date');
+  });
+  assert(withEst > 400, 'expected most forecasted rows to carry an estimate, got ' + withEst);
+});
 console.log(n + ' tests pass');
