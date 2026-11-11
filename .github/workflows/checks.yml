@@ -83,3 +83,27 @@ jobs:
         run: AS_OF_DATE=2026-11-07 Rscript R/10_run_ranking.R
       - name: R tests
         run: Rscript tests/run_tests.R
+      - name: Show how payload.json differs from the committed copy
+        if: failure()
+        run: |
+          python3 - <<'EOF'
+          import json, subprocess
+          old = json.loads(subprocess.check_output(["git", "show", "HEAD:data/processed/payload.json"]))
+          new = json.load(open("data/processed/payload.json", encoding="utf-8"))
+          print("top-level keys equal:", sorted(old) == sorted(new))
+          for k in sorted(set(old) | set(new)):
+              if old.get(k) != new.get(k):
+                  a, b = old.get(k), new.get(k)
+                  if isinstance(a, list) and isinstance(b, list):
+                      print(k, "differs: lengths", len(a), len(b))
+                      for i, (x, y) in enumerate(zip(a, b)):
+                          if x != y:
+                              d = [c for c in (set(x) | set(y)) if x.get(c) != y.get(c)] if isinstance(x, dict) and isinstance(y, dict) else "row differs"
+                              print("  first differing item", i, "fields:", d)
+                              if isinstance(d, list):
+                                  for c in d[:5]:
+                                      print("   ", c, repr(x.get(c))[:80], "->", repr(y.get(c))[:80])
+                              break
+                  else:
+                      print(k, "differs:", repr(a)[:120], "->", repr(b)[:120])
+          EOF
