@@ -41,3 +41,6 @@
 #v-research .rt-snip { margin: 6px 0 0; color: var(--text-secondary); font-size: .9rem; }
 #v-research mark { background: var(--accent-soft); color: var(--text-primary); font-weight: 700; padding: 0 2px; border-radius: 3px; }
 #v-research .rt-aid { margin: 14px 0; color: var(--text-secondary); font-size: .9rem; font-weight: 600; }
+#v-research .rt-toggle { border: 0; padding: 0; margin: 12px 0 0; display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; }
+#v-research .rt-toggle legend { float: left; padding: 0 8px 0 0; font-weight: 650; }
+#v-research .rt-toggle label { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; cursor: pointer; }
