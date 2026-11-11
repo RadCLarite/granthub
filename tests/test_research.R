@@ -178,6 +178,25 @@ local({
   mm <- merge_grantsgov_fields(data.frame(opp_id = "2", url = "https://simpler.grants.gov/opportunity/x", stringsAsFactors = FALSE), both)
   check(s, "looked-up row reaches merge_grantsgov_fields with its grants.gov link and post date", identical(mm$url, "u2") && mm$post_date == "2026-11-10" && mm$cost_sharing == "No")
 
+  s <- "ic from summary"
+  check(s, "parenthesised acronym after Institute", identical(parse_ic("PAR-25-001", NA_character_, "Through this NOFO, the National Cancer Institute (NCI) solicits grant applications proposing to develop tools."), "CA"))
+  check(s, "acronym alone in the first sentence", identical(parse_ic("PAR-25-343", NA_character_, "The NIDCD is committed to identifying effective interventions. More text follows."), "DC"))
+  check(s, "opportunity number wins over the summary", identical(parse_ic("RFA-AG-26-020", NA_character_, "The National Cancer Institute (NCI) solicits applications."), "AG"))
+  check(s, "funding_activity wins over the summary", identical(parse_ic("PAR-22-083", "HL", "The National Cancer Institute (NCI) solicits applications."), "HL"))
+  check(s, "first sentence naming two institutes is not guessed", is.na(parse_ic("PAR-25-002", NA_character_, "The NEI and the NCI jointly invite applications for imaging. Details follow.")))
+  check(s, "an institute named only after the first sentence is ignored", is.na(parse_ic("PAR-25-003", NA_character_, "This NOFO supports research on vision. NEI is the lead.")))
+  check(s, "NIAID is not read as NIA", identical(parse_ic("PAR-25-004", NA_character_, "NIAID supports this program."), "AI"))
+  check(s, "lower-case acronyms are not matched", is.na(parse_ic("PAR-25-005", NA_character_, "a study of nia and nci markers.")))
+  check(s, "non-NIH funder names are not matched", is.na(parse_ic("22-600", NA_character_, "The National Science Foundation (NSF) supports research.")))
+  check(s, "NA or empty summary gives NA", all(is.na(parse_ic(c("PAR-1", "PAR-2"), NA_character_, c(NA_character_, "")))))
+  check(s, "vectorised over rows", identical(parse_ic(c("RFA-AG-26-020", "PAR-1", "PAR-2"), NA_character_, c(NA_character_, "NIMH seeks applications.", "Plain text.")), c("AG", "MH", NA_character_)))
+  check(s, "two-argument calls still work", identical(parse_ic("PAR-22-083", "HL"), "HL"))
+  ic_toy <- toy[1, ]
+  ic_toy$opp_number <- "PAR-25-343"; ic_toy$agency <- "National Institutes of Health"; ic_toy$summary <- "The NIDCD is committed to identifying effective interventions."
+  check(s, "payload: NIH row gets its institute from the summary", identical(build_research_payload(ic_toy, as.Date("2026-11-07"))$rows[[1]]$ic, "DC"))
+  ic_toy$agency <- "U.S. National Science Foundation"
+  check(s, "payload: non-NIH row with the same text stays unknown", is.na(build_research_payload(ic_toy, as.Date("2026-11-07"))$rows[[1]]$ic))
+
   if (standalone) {
     rep <- dplyr::bind_rows(results)
     if (!all(rep$ok)) print(as.data.frame(rep[!rep$ok, c("section", "name", "got")]))

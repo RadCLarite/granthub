@@ -2,7 +2,8 @@
 # Reads research_opportunities.csv if present, else opportunities.csv. Clock is AS_OF_DATE (00_config.R).
 # When the Simpler file is used, post_date, cost_sharing, eligibility_text and the grants.gov url come from opportunities.csv (matched on opp_id).
 # Note: funding_activity in opportunities.csv is the Grants.gov category (HL = Health, ED = Education), not an NIH
-# institute, so the IC code is taken from the opportunity number only.
+# institute, so the IC code is taken from the opportunity number, and for NIH rows without one from the institute the
+# summary names (parse_ic in helpers_research.R).
 # Run from the repo root: Rscript R/14_build_research_payload.R
 
 here::i_am("R/14_build_research_payload.R")

@@ -104,3 +104,25 @@ The other IC and mechanism ranks moved by one to a few places and crossed no top
 | Forecasted | 572 | 4 of 9 | 3 of 7 (3 not testable) | 1 of 6 (4 not testable) | 23.8% | 27.8% |
 
 Each group is its own pool, so its testable awards and random baseline differ (posted: IC 5.6%, mechanism 25.3%; forecasted: IC 13.9%, mechanism 11.6%). The forecasted pool has no rows for some mechanisms, so three awards are not testable there; do not compare its hit counts with the posted ones directly. One award is 11 to 17 points in these small pools. Per-award files: `outs/research_testset_report_posted.csv` and `_forecasted.csv`.
+
+## Institute read from the summary text (2026-11-10)
+
+`parse_ic` now also reads the institute from an NIH notice's summary when the opportunity number gives none: first an acronym in parentheses after Institute, Center, Library or Office ("the National Cancer Institute (NCI) solicits"), else the one acronym named in the first sentence. A first sentence naming two institutes is left unknown; non-NIH rows are never read this way. On the 224 pool rows whose institute is known from the opportunity number, the rules agreed on 123 of the 124 they answered (the miss is an Office of Data Science Strategy notice whose first sentence lists several institutes). Rebuilt `research.json`: 144 rows gained an institute, no existing institute and no other field changed.
+
+| | Known IC before | Known IC after |
+|---|---|---|
+| All (1,426 rows) | 224 (15.7%) | 368 (25.8%) |
+| Posted (854) | 88 (10.3%) | 170 (19.9%) |
+| Forecasted (572) | 136 (23.8%) | 198 (34.6%) |
+
+Test set, IC hit@10 (same 10 awards, same ranking code):
+
+| Pool | Before | After | Random baseline before, after |
+|---|---|---|---|
+| All | 4 of 9 | 5 of 10 | 9.1%, 16.7% |
+| Posted | 2 of 9 | 4 of 10 | 5.6%, 15.3% |
+| Forecasted | 4 of 9 | 5 of 9 | 13.9%, 20.5% |
+
+Mechanism hit@10 and its counts did not change (all 7 of 10, posted 6 of 10, forecasted 3 of 7). Four awards moved: the three CA awards rank their first same-institute row higher (`reporter_1F31CA305956-01` 33 to 1 and now a hit; `reporter_5R01CA276653-03` 6 to 1; `reporter_5F31CA288055-02` 40 to 28), and `reporter_2P20GM103447-25` (GM) became testable for the first time and is a miss.
+
+How to read this: the hit counts rose, but so did the denominators and the random baseline, because far more rows now carry an institute. The margin over random is about the same as before (all rows 35 points before, 33 after). With 10 awards one award is 10 points, so this is not evidence of better ranking. What changed is that the institute is known for a quarter of the pool instead of 16%, which makes the institute metric a fairer test and the tab's institute information more complete.
