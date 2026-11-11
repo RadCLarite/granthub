@@ -1,7 +1,7 @@
-opp_id,url,post_date,cost_sharing
-364251,https://www.grants.gov/search-results-detail/364251,2026-11-10,No
-364252,https://www.grants.gov/search-results-detail/364252,2026-11-10,No
-364247,https://www.grants.gov/search-results-detail/364247,2026-11-10,No
-364245,https://www.grants.gov/search-results-detail/364245,2026-11-10,Yes
-364244,https://www.grants.gov/search-results-detail/364244,2026-11-09,No
-356537,https://www.grants.gov/search-results-detail/356537,2024-09-26,No
+opp_id,url,post_date,cost_sharing,eligibility_text
+364251,https://www.grants.gov/search-results-detail/364251,2026-11-10,No,Other Eligible ApplicantsIndian/Native American Tribal Governments (Other than Federally Recognized);Eligible Agencies of the Federal Government;U.S. Territory or Possession;Faith-based or Community-based Organizations;Regional Organizations.
+364252,https://www.grants.gov/search-results-detail/364252,2026-11-10,No,Other Eligible ApplicantsIndian/Native American Tribal Governments (Other than Federally Recognized);Eligible Agencies of the Federal Government;U.S. Territory or Possession;Faith-based or Community-based Organizations;Regional Organizations;Non-domestic (non-U.S.) Entities (Foreign Institutions).
+364247,https://www.grants.gov/search-results-detail/364247,2026-11-10,No,"See ""Description"" below and Full Announcement for eligibility requirements."
+364245,https://www.grants.gov/search-results-detail/364245,2026-11-10,Yes,NA
+364244,https://www.grants.gov/search-results-detail/364244,2026-11-09,No,This announcement is open ONLY to the existing Center of Excellence recipients as identified below.
+356537,https://www.grants.gov/search-results-detail/356537,2024-09-26,No,NA
