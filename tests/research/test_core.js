@@ -614,4 +614,13 @@ t('committed research.json: est only on forecasted rows, ISO dates, never equal 
   });
   assert(withEst > 400, 'expected most forecasted rows to carry an estimate, got ' + withEst);
 });
+t('estimateNote says the estimate has passed when est is before today', () => {
+  const r = { status: 'forecasted', close: null, est: '2026-03-18' };
+  assert.strictEqual(RC.estimateNote(r, '2026-11-11'), 'Estimated close 2026-03-18 has passed, not confirmed');
+  assert.strictEqual(RC.estimateNote({ status: 'forecasted', close: null, est: '2026-11-11' }, '2026-11-11'), 'Estimated close 2026-11-11, not confirmed');
+  assert.strictEqual(RC.estimateNote({ status: 'forecasted', close: null, est: '2026-11-12' }, '2026-11-11'), 'Estimated close 2026-11-12, not confirmed');
+  assert.strictEqual(RC.estimateNote(r), 'Estimated close 2026-03-18, not confirmed');
+  assert.strictEqual(RC.estimateNote(r, 'bad'), 'Estimated close 2026-03-18, not confirmed');
+  assert.strictEqual(RC.estimateNote({ status: 'posted', est: '2026-03-18' }, '2026-11-11'), '');
+});
 console.log(n + ' tests pass');
