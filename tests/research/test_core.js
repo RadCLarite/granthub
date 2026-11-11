@@ -552,4 +552,34 @@ t('scoreByStatus group text reports the pool size of its own group', () => {
   assert(g.forecasted.summary.text.indexOf('against a pool of 1 opportunities') >= 0);
   assert(g.all.summary.text.indexOf('against a pool of 2 opportunities') >= 0);
 });
+t('status toggle: posted only, forecasted only, or all', () => {
+  const R = [
+    { id: 'p1', status: 'posted', elig: '06', mech: 'R01' },
+    { id: 'p2', status: 'posted', elig: '06', mech: 'R21' },
+    { id: 'f1', status: 'forecasted', elig: '06', mech: 'R01' },
+    { id: 'n1', elig: '06', mech: 'R01' },
+  ];
+  const ids = f => f.kept.map(r => r.id);
+  let f = RC.applyFilters(R, { status: 'posted' });
+  assert.deepStrictEqual(ids(f), ['p1', 'p2', 'n1']);
+  assert.strictEqual(f.removedBy.status, 1);
+  assert.deepStrictEqual(f.unknown.n1, ['status']);                 /* no status on the row: stays, flagged unknown */
+  f = RC.applyFilters(R, { status: 'forecasted' });
+  assert.deepStrictEqual(ids(f), ['f1', 'n1']);
+  assert.strictEqual(f.removedBy.status, 2);
+  assert.deepStrictEqual(ids(RC.applyFilters(R, { status: '' })), ['p1', 'p2', 'f1', 'n1']);
+  assert.deepStrictEqual(ids(RC.applyFilters(R, { status: 'all' })), ['p1', 'p2', 'f1', 'n1']);
+  assert.deepStrictEqual(ids(RC.applyFilters(R, {})), ['p1', 'p2', 'f1', 'n1']);
+  assert.deepStrictEqual(ids(RC.applyFilters(R, { status: 'bogus' })), ['p1', 'p2', 'f1', 'n1']);   /* unknown mode shows everything, never hides */
+});
+t('status toggle works together with other filters', () => {
+  const R = [{ id: 'a', status: 'posted', elig: '06', mech: 'R01' }, { id: 'b', status: 'forecasted', elig: '23', mech: 'R01' }, { id: 'c', status: 'forecasted', elig: '06', mech: 'R01' }];
+  const f = RC.applyFilters(R, { status: 'forecasted', institution: 'university' });
+  assert.deepStrictEqual(f.kept.map(r => r.id), ['c']);
+});
+t('statusEmptyNotice names the mode and the way out', () => {
+  const p = RC.statusEmptyNotice('posted'), f = RC.statusEmptyNotice('forecasted');
+  assert(p.indexOf('posted') >= 0 && p.indexOf('All') >= 0 && p.indexOf('Filters') < 0);
+  assert(f.indexOf('forecasted') >= 0 && f.indexOf('All') >= 0);
+});
 console.log(n + ' tests pass');
