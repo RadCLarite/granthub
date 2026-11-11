@@ -128,15 +128,19 @@ decode_entities <- function(x) {
   vapply(x, function(s) one(one(s)), character(1), USE.NAMES = FALSE) |> trimws() |> gsub(pattern = "[ \t\r\n]+", replacement = " ")
 }
 
-# Grants.gov fetchOpportunity response (parsed JSON) -> post date (YYYY-MM-DD) and cost sharing ("Yes"/"No"), NA when absent.
+# Grants.gov fetchOpportunity response (parsed JSON) -> post date (YYYY-MM-DD), cost sharing ("Yes"/"No") and eligibility text
+# (applicantEligibilityDesc, entities decoded), NA when absent or empty.
 # A posted opportunity keeps these in data$synopsis, a forecast in data$forecast.
 parse_grantsgov_detail <- function(x) {
   d <- x$data
   blk <- if (length(d$synopsis)) d$synopsis else d$forecast
   ps <- as.character(blk$postingDateStr)
   cs <- blk$costSharing
+  el <- as.character(blk$applicantEligibilityDesc)
+  el <- if (length(el) == 1 && !is.na(el) && nzchar(trimws(el))) decode_entities(el) else NA_character_
   list(post_date = if (length(ps) == 1 && !is.na(ps) && grepl("^[0-9]{4}-[0-9]{2}-[0-9]{2}", ps)) substr(ps, 1, 10) else NA_character_,
-       cost_sharing = if (length(cs) == 1 && is.logical(cs) && !is.na(cs)) if (cs) "Yes" else "No" else NA_character_)
+       cost_sharing = if (length(cs) == 1 && is.logical(cs) && !is.na(cs)) if (cs) "Yes" else "No" else NA_character_,
+       eligibility_text = el)
 }
 
 grantsgov_url <- function(opp_id) paste0("https://www.grants.gov/search-results-detail/", opp_id)
@@ -147,7 +151,7 @@ unmatched_opp_ids <- function(pool, gg) {
   if (is.null(gg) || !nrow(gg)) ids else ids[!ids %in% as.character(gg$opp_id)]
 }
 
-# Append looked-up rows (opp_id, url, post_date, cost_sharing) to the Grants.gov table for ids it lacks; its own rows win.
+# Append looked-up rows (opp_id, url, post_date, cost_sharing, eligibility_text) to the Grants.gov table for ids it lacks; its own rows win.
 add_grantsgov_lookup <- function(gg, lookup) {
   if (is.null(lookup) || !nrow(lookup)) return(gg)
   lookup <- lookup[!as.character(lookup$opp_id) %in% as.character(gg$opp_id), , drop = FALSE]
