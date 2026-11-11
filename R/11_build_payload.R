@@ -181,7 +181,8 @@ goals <- goal_src |>
 
 # plan_thin: the agency's plan text (all its plan files, folded plans included) is small, so the keyword fit rests on little text.
 plan_text_dir <- here::here("data", "processed", "agency_plan_text", "all")
-plan_bytes <- function(files) sum(file.size(file.path(plan_text_dir, paste0(sub("[.]pdf$", "", files[!is.na(files)]), ".txt"))), na.rm = TRUE)
+# Bytes are counted with CRLF as LF (plan_text_bytes), so a Windows checkout and the Linux daily job give the same flag.
+plan_bytes <- function(files) plan_text_bytes(file.path(plan_text_dir, paste0(sub("[.]pdf$", "", files[!is.na(files)]), ".txt")))
 for (i in seq_along(agencies)) agencies[[i]]$plan_thin <- plan_bytes(agencies[[i]]$plan_files) < PLAN_THIN_MIN_BYTES
 
 # Qualifier datasets carried into the tool: county outlines + need indicators (need map), and the

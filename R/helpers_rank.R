@@ -298,3 +298,15 @@ tag_groups <- function(title, summary, rules = GROUP_RULES, max_n = REACH_MAX_GR
     data.frame(id = ids, quote = unname(q))
   }, title, summary, USE.NAMES = FALSE)
 }
+
+# Size in bytes of plan text files with each CRLF counted as one LF, so the figure is the same on a Windows checkout
+# (CRLF, git autocrlf) and on Linux (LF). A missing file counts as zero. Used for plan_thin (11_build_payload.R).
+plan_text_bytes <- function(paths) {
+  sum(vapply(paths, function(p) {
+    if (!file.exists(p)) return(0)
+    x <- readBin(p, "raw", file.size(p))
+    n <- length(x)
+    if (n == 0) return(0)
+    n - if (n > 1) sum(x[-n] == as.raw(13) & x[-1] == as.raw(10)) else 0
+  }, numeric(1)))
+}
