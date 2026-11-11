@@ -241,3 +241,8 @@ LLM_MODEL          <- "qwen2.5:14b"   # same model as the qualifier; check `olla
 LLM_PROMPT_VERSION <- "v1"            # bump to invalidate cached labels after changing a prompt
 LLM_SEED           <- 42L
 LLM_TIMEOUT_SEC    <- 180
+
+# Researcher tab payload size (14_build_research_payload.R). The build shortens summaries to stay under the budget and stops over the limit.
+RESEARCH_PAYLOAD_LIMIT  <- 2000000L  # [assumed] hard cap on research.json bytes
+RESEARCH_PAYLOAD_BUDGET <- 1850000L  # [assumed] build target: 7.5% under the limit, so a bigger pool does not fail the build
+RESEARCH_SUM_FLOOR      <- 600L      # [assumed] summaries are never cut below this many characters
