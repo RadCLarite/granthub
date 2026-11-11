@@ -57,7 +57,7 @@ No maintainer or owner is named yet. The [runbook](docs/runbook.md) is written f
 
 ## How the data refreshes
 
-A daily GitHub Actions job re-scores the opportunity data already stored in the repository, rebuilds the site and redeploys it. It does not fetch new postings from Grants.gov. Fetching new postings is still a manual step run by a person with the needed API keys. So the list shows the grants gathered at the last manual fetch, minus any whose close date has since passed. The tool shows a "data as of" date, and a banner when the data is 3 or more days old. These workflows have not yet run on GitHub, so the daily refresh is unverified in production.
+A daily GitHub Actions job re-scores the opportunity data already stored in the repository, rebuilds the site and redeploys it. It does not fetch new postings from Grants.gov. Fetching new postings is still a manual step run by a person with the needed API keys. So the list shows the grants gathered at the last manual fetch, minus any whose close date has since passed. The tool shows a "data as of" date, and a banner when the data is 3 or more days old. Both scheduled workflows (the daily rebuild and the freshness check) have each run once on GitHub, on 2026-11-10 (UTC), and succeeded; several days in a row have not been observed yet, so a missed run would only show up when the freshness check fails.
 
 ## Privacy
 
