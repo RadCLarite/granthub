@@ -35,16 +35,39 @@ parse_hs_flag <- function(text, trial) {
     TRUE ~ NA_character_)
 }
 
-.nih_ic_codes <- function() readr::read_csv(here::here("data", "manual", "nih_ic_codes.csv"), col_types = "cc", show_col_types = FALSE)$ic
+.nih_ic_table <- function() readr::read_csv(here::here("data", "manual", "nih_ic_codes.csv"), col_types = "cc", show_col_types = FALSE)
+.nih_ic_codes <- function() .nih_ic_table()$ic
 
-# Two-letter NIH institute code: from RFA-AG-26-020 style numbers, else a funding_activity value that is a known IC code.
-parse_ic <- function(opp_number, funding_activity) {
-  known <- .nih_ic_codes()
+# Institute a notice's summary names, as its two-letter code; NA when it names none or cannot be told. Two rules, in order:
+# (1) an acronym in parentheses after Institute, Center, Library or Office ("the National Cancer Institute (NCI) solicits");
+# (2) the one acronym in the first sentence ("The NIDCD is committed to"). A first sentence naming two institutes is not guessed.
+# Case-sensitive, whole-word, and only the acronyms in nih_ic_codes.csv. On the 224 pool rows whose institute is known from the
+# opportunity number, these rules agreed on 123 of the 124 they answered (2026-11-10).
+.ic_from_summary <- function(summary, tbl) {
+  s <- as.character(summary)
+  s[is.na(s)] <- ""
+  alt <- paste(tbl$name, collapse = "|")
+  paren <- stringr::str_match(s, paste0("(Institute|Center|Library|Office)[^()]{0,80}[(](", alt, ")[)]"))[, 3]
+  first <- stringr::str_extract(s, "^[^.]{0,400}")
+  one <- vapply(stringr::str_extract_all(first, paste0("\\b(", alt, ")\\b")), function(h) {
+    u <- unique(h)
+    if (length(u) == 1) u else NA_character_
+  }, character(1))
+  tbl$ic[match(dplyr::coalesce(paren, one), tbl$name)]
+}
+
+# Two-letter NIH institute code: from RFA-AG-26-020 style numbers, else a funding_activity value that is a known IC code,
+# else (when a summary is given) the institute the summary names. Pass the summary for NIH rows only.
+parse_ic <- function(opp_number, funding_activity, summary = NULL) {
+  tbl <- .nih_ic_table()
+  known <- tbl$ic
   from_num <- stringr::str_match(as.character(opp_number), "^(?:RFA|PAR|PA|NOT)-([A-Z]{2})-[0-9]{2}-")[, 2]
   from_num <- ifelse(from_num %in% known, from_num, NA_character_)
   fa <- toupper(trimws(as.character(funding_activity)))
   fa <- ifelse(fa %in% known, fa, NA_character_)
-  dplyr::coalesce(from_num, fa)
+  out <- dplyr::coalesce(from_num, fa)
+  if (!is.null(summary)) out <- dplyr::coalesce(out, .ic_from_summary(rep_len(summary, length(out)), tbl))
+  out
 }
 
 # Pool rule: open (posted or forecasted), not past as_of, reaches a higher-ed applicant type; one row per opp_id.
@@ -186,7 +209,8 @@ build_research_payload <- function(opps, as_of, source_date = as_of) {
   amt <- function(x) { v <- num(x); ifelse(is.na(v) | v == 0, NA_real_, v) }  # 0 means "not given", as in the NC pipeline
   trial <- parse_trial_status(o$title)
   mech <- parse_mechanism(o$title)
-  ic <- parse_ic(o$opp_number, rep(NA_character_, nrow(o)))
+  is_nih <- grepl("National Institutes of Health|^NIH", as.character(o$agency)) | (if ("agency_code" %in% names(o)) grepl("^HHS-NIH", as.character(o$agency_code)) else FALSE)
+  ic <- parse_ic(o$opp_number, rep(NA_character_, nrow(o)), ifelse(is_nih, as.character(o$summary), NA_character_))
   txt <- paste(o$title, o$summary)
   col <- function(nm) if (nm %in% names(o)) as.character(o[[nm]]) else rep(NA_character_, nrow(o))
   flags <- parse_flags(col("summary"), col("eligibility_text"), col("cost_sharing"))
