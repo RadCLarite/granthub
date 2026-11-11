@@ -47,7 +47,7 @@ Only step 1 needs a key, and only steps 1 and 2 call outside services. This does
 Current limits:
 - Only R01, R21 and K-family mechanisms have lead times, and forecasted or no-close rows get no deadline check. On the current data (1,426 rows, checked for 2026-11-10) 144 rows (10.1%) get an ok, tight or late time warning; the rest show "unknown" (no parsed mechanism, or a mechanism with no lead time) or "date not announced".
 - The tab shows when the listings were fetched and warns when they are 3 or more days old; research.json is rebuilt by hand, not by the daily job.
-- Funder (institute) codes are known for only about 16% of the pool (224 of 1,426), and a mechanism for about 38% (536).
+- Funder (institute) codes are known for only about 26% of the pool (368 of 1,426; read from the opportunity number or, for NIH notices, from the institute the summary names), and a mechanism for about 38% (536).
 - The test set has 10 of 20 awards. The owner adds 10 more of their own.
 - Lead times behind the time warning are estimates, not agency commitments.
 
