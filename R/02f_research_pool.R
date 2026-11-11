@@ -57,7 +57,7 @@ flat <- function(d) {
   s <- d$summary
   tibble(opp_id = ifelse(is.na(d$legacy_opportunity_id), paste0("S", d$opportunity_id), as.character(d$legacy_opportunity_id)), opp_number = d$opportunity_number,
          title = d$opportunity_title, agency = d$agency_name, agency_code = d$agency_code, status = d$opportunity_status,
-         close_date = as.Date(s$close_date), award_floor = s$award_floor, award_ceiling = s$award_ceiling,
+         close_date = as.Date(s$close_date), forecasted_close_date = as.Date(s$forecasted_close_date), award_floor = s$award_floor, award_ceiling = s$award_ceiling,
          applicant_types = map_chr(s$applicant_types, type_codes),
          summary = str_squish(str_remove_all(s$summary_description, "<[^>]+>")),
          url = paste0("https://simpler.grants.gov/opportunity/", d$opportunity_id),

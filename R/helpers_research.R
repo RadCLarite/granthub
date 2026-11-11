@@ -219,6 +219,9 @@ build_research_payload <- function(opps, as_of, source_date = as_of) {
   col <- function(nm) if (nm %in% names(o)) as.character(o[[nm]]) else rep(NA_character_, nrow(o))
   flags <- parse_flags(col("summary"), col("eligibility_text"), col("cost_sharing"))
   post <- suppressWarnings(as.Date(col("post_date")))
+  # Simpler's forecasted close date: an estimate, kept on forecasted rows only and never used to filter or warn.
+  est <- suppressWarnings(as.Date(col("forecasted_close_date")))
+  est[as.character(o$status) != "forecasted"] <- NA
   rows <- lapply(seq_len(nrow(o)), function(i) list(
     id = as.character(o$opp_id[i]), num = as.character(o$opp_number[i]), title = as.character(o$title[i]),
     agency = as.character(o$agency[i]), status = as.character(o$status[i]),
@@ -228,6 +231,7 @@ build_research_payload <- function(opps, as_of, source_date = as_of) {
     ic = ic[i],
     flags = if (length(flags[[i]])) flags[[i]] else structure(list(), names = character(0)),
     post = if (is.na(post[i])) NA_character_ else format(post[i]),
+    est = if (is.na(est[i])) NA_character_ else format(est[i]),
     elig = as.character(o$applicant_types[i]), url = as.character(o$url[i]),
     sum = substr(as.character(o$summary[i]), 1, RESEARCH_SUM_MAX)))
   list(as_of = format(as_of), source_date = format(source_date), n = length(rows), rows = rows)
