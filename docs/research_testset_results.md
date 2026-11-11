@@ -92,3 +92,15 @@ The IC hit rate is one award lower than the earlier runs (5 of 9, 55.6%); mechan
 | `reporter_2T32AA007577-26` (AA) | 3 to 19 | leaves |
 
 The other IC and mechanism ranks moved by one to a few places and crossed no top-10 line. Net: one award in, two out. With 9 testable awards one award is 11 points, so this is within the noise of a ten-award test set and is not evidence that the tool got worse or better. I did not test why the two awards fell; the likely cause is the 124 added NIH rows (mostly forecasted) competing for the top 10, but that is not checked. The random baseline moved too (IC 7.3% to 9.1%, mechanism 21.2% to 19.8%) because the shares of rows with a known IC and mechanism changed.
+
+## Posted versus forecasted (2026-11-10)
+
+`node tests/research/run_testset.js` now prints the test set three times, each against its own pool, so posted (active) and forecasted opportunities can be reviewed apart. Same 10 awards, same pool file as the refresh rerun above.
+
+| Pool | Rows | IC hit@10 | Mechanism hit@10 | IC and mechanism each in top 10 | Known IC | Known mechanism |
+|---|---|---|---|---|---|---|
+| All | 1,426 | 4 of 9 | 7 of 10 | 4 of 9 | 15.7% | 37.6% |
+| Posted (active) | 854 | 2 of 9 | 6 of 10 | 2 of 9 | 10.3% | 44.1% |
+| Forecasted | 572 | 4 of 9 | 3 of 7 (3 not testable) | 1 of 6 (4 not testable) | 23.8% | 27.8% |
+
+Each group is its own pool, so its testable awards and random baseline differ (posted: IC 5.6%, mechanism 25.3%; forecasted: IC 13.9%, mechanism 11.6%). The forecasted pool has no rows for some mechanisms, so three awards are not testable there; do not compare its hit counts with the posted ones directly. One award is 11 to 17 points in these small pools. Per-award files: `outs/research_testset_report_posted.csv` and `_forecasted.csv`.
