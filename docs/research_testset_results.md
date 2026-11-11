@@ -69,3 +69,26 @@ So on real abstracts the boost reorders a few top-10 lists and moves the metric 
 ## Phase 2 rerun (2026-11-10)
 
 Phase 2 did not change ranking. Rerunning `node tests/research/run_testset.js` gives the same counts as before: IC hit@10 5 of 9, mechanism 7 of 10, both 4 of 9 (10 of the 20 awards have abstracts).
+
+## Pool refresh rerun (2026-11-10)
+
+Date: 2026-11-10. Pool: 1,426 open opportunities (`data/processed/research.json`, built and listings fetched 2026-11-10, summaries cut at 1,000 characters to fit the size budget). The pool was refreshed from Simpler.Grants.gov (206 rows added, 1 removed; 195 of the added rows are forecasted). Same 10 NIH RePORTER awards, same ranking code, same default phrase boost (0.5) and synonym groups.
+
+```
+10 awards run against a pool of 1426 opportunities (search limit 50)
+IC hit@10: 4 of 9 testable in top 10 (44.4%), 1 not testable
+Mechanism hit@10: 7 of 10 testable in top 10 (70.0%), 0 not testable
+IC and mechanism each in top 10 (separate rows): 4 of 9 testable in top 10 (44.4%), 1 not testable
+Pool share with known IC (funder_known): 15.7%; known mechanism (mech_known): 37.6%
+Random baseline (mean 1-(1-p)^10): IC 9.1%, mechanism 19.8%
+```
+
+The IC hit rate is one award lower than the earlier runs (5 of 9, 55.6%); mechanism and the combined count are unchanged. The ranking code did not change: the difference comes from the new pool. Against the 2026-11-09 pool, three awards changed their IC result:
+
+| Award | First same-IC rank, before to after | Top 10 |
+|---|---|---|
+| `reporter_1R01NS140757-01A1` (NS) | 27 to 5 | enters |
+| `reporter_1F31CA305956-01` (CA) | 4 to 33 | leaves |
+| `reporter_2T32AA007577-26` (AA) | 3 to 19 | leaves |
+
+The other IC and mechanism ranks moved by one to a few places and crossed no top-10 line. Net: one award in, two out. With 9 testable awards one award is 11 points, so this is within the noise of a ten-award test set and is not evidence that the tool got worse or better. I did not test why the two awards fell; the likely cause is the 124 added NIH rows (mostly forecasted) competing for the top 10, but that is not checked. The random baseline moved too (IC 7.3% to 9.1%, mechanism 21.2% to 19.8%) because the shares of rows with a known IC and mechanism changed.
