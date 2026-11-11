@@ -195,6 +195,18 @@ source(here::here("tests", "test_ingest.R"))
 source(here::here("tests", "test_plan_tables.R"))
 source(here::here("tests", "test_research.R"))
 
+# ---- 7b. Plan text size does not depend on the line endings of the checkout --------------
+pb <- "unit: plan text bytes"
+tmp_lf <- tempfile(fileext = ".txt"); tmp_crlf <- tempfile(fileext = ".txt")
+writeBin(charToRaw("line one\nline two\nline three\n"), tmp_lf)
+writeBin(charToRaw("line one\r\nline two\r\nline three\r\n"), tmp_crlf)
+check(pb, "CRLF and LF copies of the same text count the same", plan_text_bytes(tmp_crlf) == plan_text_bytes(tmp_lf))
+check(pb, "an LF text of 29 bytes counts 29", plan_text_bytes(tmp_lf) == 29)
+check(pb, "a lone carriage return is kept (only CRLF pairs are folded)", { tmp_cr <- tempfile(); writeBin(charToRaw("a\rb"), tmp_cr); plan_text_bytes(tmp_cr) == 3 })
+check(pb, "several files add up and a missing file counts as zero", plan_text_bytes(c(tmp_lf, tmp_crlf, file.path(tempdir(), "no-such-file.txt"))) == 2 * plan_text_bytes(tmp_lf))
+check(pb, "no files is zero", plan_text_bytes(character(0)) == 0)
+check(pb, "empty file is zero", { tmp_e <- tempfile(); file.create(tmp_e); plan_text_bytes(tmp_e) == 0 })
+
 # ---- Report ------------------------------------------------------------------------
 rep <- bind_rows(results)
 dir.create(DIR_OUTS, showWarnings = FALSE, recursive = TRUE)
