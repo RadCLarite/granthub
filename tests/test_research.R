@@ -156,6 +156,28 @@ local({
   check(s, "budget the floor cannot meet stops with an error", inherits(try(fit_research_payload(big, 1000L), silent = TRUE), "try-error"))
   check(s, "headroom: the build budget sits at least 5 percent under the hard limit", RESEARCH_PAYLOAD_BUDGET <= 0.95 * RESEARCH_PAYLOAD_LIMIT)
 
+  s <- "grantsgov_lookup"
+  syn <- list(data = list(id = 364247L, synopsis = list(postingDateStr = "2026-11-10-00-00-00", costSharing = FALSE)))
+  fc <- list(data = list(id = 364251L, synopsis = list(), forecast = list(postingDateStr = "2026-11-09-00-00-00", costSharing = TRUE)))
+  d1 <- parse_grantsgov_detail(syn)
+  check(s, "synopsis record: post date as YYYY-MM-DD, cost sharing No", identical(d1$post_date, "2026-11-10") && identical(d1$cost_sharing, "No"))
+  d2 <- parse_grantsgov_detail(fc)
+  check(s, "forecast record is read from the forecast block, cost sharing Yes", identical(d2$post_date, "2026-11-09") && identical(d2$cost_sharing, "Yes"))
+  d3 <- parse_grantsgov_detail(list(data = list(id = 1L)))
+  check(s, "record with neither block gives NA, not an error", is.na(d3$post_date) && is.na(d3$cost_sharing))
+  check(s, "NULL response gives NA", is.na(parse_grantsgov_detail(NULL)$post_date))
+  check(s, "grants.gov link has the same shape as opportunities.csv", identical(grantsgov_url("364247"), "https://www.grants.gov/search-results-detail/364247"))
+  pool <- data.frame(opp_id = c("1", "2", "3", "2"), stringsAsFactors = FALSE)
+  check(s, "unmatched ids: in the pool, not in the Grants.gov table, once each", identical(unmatched_opp_ids(pool, data.frame(opp_id = "1")), c("2", "3")))
+  check(s, "unmatched ids: no Grants.gov table means every id", identical(unmatched_opp_ids(pool, NULL), c("1", "2", "3")))
+  base_gg <- data.frame(opp_id = "1", url = "https://www.grants.gov/search-results-detail/1", post_date = "2020-01-01", cost_sharing = "No", eligibility_text = "e", stringsAsFactors = FALSE)
+  lk <- data.frame(opp_id = c("1", "2"), url = c("u1", "u2"), post_date = c("2026-01-01", "2026-11-10"), cost_sharing = c("Yes", "No"), stringsAsFactors = FALSE)
+  both <- add_grantsgov_lookup(base_gg, lk)
+  check(s, "lookup adds only ids the Grants.gov table lacks; existing row wins", identical(both$opp_id, c("1", "2")) && both$post_date[1] == "2020-01-01" && both$url[2] == "u2" && is.na(both$eligibility_text[2]))
+  check(s, "no lookup leaves the Grants.gov table alone", identical(add_grantsgov_lookup(base_gg, NULL), base_gg))
+  mm <- merge_grantsgov_fields(data.frame(opp_id = "2", url = "https://simpler.grants.gov/opportunity/x", stringsAsFactors = FALSE), both)
+  check(s, "looked-up row reaches merge_grantsgov_fields with its grants.gov link and post date", identical(mm$url, "u2") && mm$post_date == "2026-11-10" && mm$cost_sharing == "No")
+
   if (standalone) {
     rep <- dplyr::bind_rows(results)
     if (!all(rep$ok)) print(as.data.frame(rep[!rep$ok, c("section", "name", "got")]))

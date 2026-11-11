@@ -17,6 +17,9 @@ gg_src <- here::here("data", "processed", "opportunities.csv")
 if (basename(src) != "opportunities.csv" && file.exists(gg_src)) {
   # Simpler has no post date, cost sharing, eligibility text or grants.gov link: take them from the Grants.gov table where the row exists there.
   gg <- readr::read_csv(gg_src, col_types = readr::cols(.default = "c"), show_col_types = FALSE)
+  lk_src <- here::here("data", "processed", "research_grantsgov_lookup.csv")  # 02g: rows opportunities.csv lacks
+  lookup <- if (file.exists(lk_src)) readr::read_csv(lk_src, col_types = readr::cols(.default = "c"), show_col_types = FALSE)
+  gg <- add_grantsgov_lookup(gg, lookup)
   opps <- merge_grantsgov_fields(opps, gg)
   message("Grants.gov fields merged for ", sum(opps$opp_id %in% gg$opp_id), " of ", nrow(opps), " rows")
 }

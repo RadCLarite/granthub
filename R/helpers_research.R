@@ -105,6 +105,33 @@ decode_entities <- function(x) {
   vapply(x, function(s) one(one(s)), character(1), USE.NAMES = FALSE) |> trimws() |> gsub(pattern = "[ \t\r\n]+", replacement = " ")
 }
 
+# Grants.gov fetchOpportunity response (parsed JSON) -> post date (YYYY-MM-DD) and cost sharing ("Yes"/"No"), NA when absent.
+# A posted opportunity keeps these in data$synopsis, a forecast in data$forecast.
+parse_grantsgov_detail <- function(x) {
+  d <- x$data
+  blk <- if (length(d$synopsis)) d$synopsis else d$forecast
+  ps <- as.character(blk$postingDateStr)
+  cs <- blk$costSharing
+  list(post_date = if (length(ps) == 1 && !is.na(ps) && grepl("^[0-9]{4}-[0-9]{2}-[0-9]{2}", ps)) substr(ps, 1, 10) else NA_character_,
+       cost_sharing = if (length(cs) == 1 && is.logical(cs) && !is.na(cs)) if (cs) "Yes" else "No" else NA_character_)
+}
+
+grantsgov_url <- function(opp_id) paste0("https://www.grants.gov/search-results-detail/", opp_id)
+
+# Ids in the pool that the Grants.gov table (opportunities.csv) does not hold, once each, in pool order.
+unmatched_opp_ids <- function(pool, gg) {
+  ids <- unique(as.character(pool$opp_id))
+  if (is.null(gg) || !nrow(gg)) ids else ids[!ids %in% as.character(gg$opp_id)]
+}
+
+# Append looked-up rows (opp_id, url, post_date, cost_sharing) to the Grants.gov table for ids it lacks; its own rows win.
+add_grantsgov_lookup <- function(gg, lookup) {
+  if (is.null(lookup) || !nrow(lookup)) return(gg)
+  lookup <- lookup[!as.character(lookup$opp_id) %in% as.character(gg$opp_id), , drop = FALSE]
+  if (!nrow(lookup)) return(gg)
+  dplyr::bind_rows(gg, lookup)
+}
+
 # The Simpler.Grants.gov pull has no post date, cost sharing, eligibility text or grants.gov link. For rows that also
 # appear in the Grants.gov table (matched on opp_id), take those four fields from it. Rows are never added or dropped;
 # a row with no match keeps its Simpler link and leaves the other three as NA.
