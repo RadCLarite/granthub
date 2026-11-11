@@ -189,9 +189,10 @@
     return out.join('\r\n ');
   }
   /* Simpler's forecasted close date, shown on forecasted cards only. It is an estimate: nothing else reads row.est (not the time warning, the sort or the .ics). */
-  function estimateNote(row) {
+  function estimateNote(row, todayIso) {
     if (!row || row.status !== 'forecasted' || typeof row.est !== 'string' || isoToUtcMs(row.est) === null) return '';
-    return 'Estimated close ' + row.est + ', not confirmed';
+    var passed = isoToUtcMs(todayIso) !== null && row.est < todayIso;
+    return 'Estimated close ' + row.est + (passed ? ' has passed' : '') + ', not confirmed';
   }
   /* RFC 5545 text: one all-day event per row with a readable close date. stamp (YYYYMMDDTHHMMSSZ) is passed in so the function stays pure. */
   function buildIcs(rows, stamp) {

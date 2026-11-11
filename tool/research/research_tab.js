@@ -118,7 +118,7 @@
       line.textContent = 'Closes ' + row.close + (days != null ? ' (' + days + (days === 1 ? ' day' : ' days') + '). ' : '. ') + w.reason;
     }
     card.appendChild(line);
-    var est = RC.estimateNote(row);
+    var est = RC.estimateNote(row, state.today);
     if (est) card.appendChild(el('p', 'rt-line rt-muted', est));
     var wrap = el('div', 'rt-badges'); wrap.appendChild(el('span', 'rt-badge rt-' + level, label)); card.appendChild(wrap);
     var sn = snippet(row.sum, matched);
