@@ -237,3 +237,7 @@ build_research_payload <- function(opps, as_of, source_date = as_of) {
   list(as_of = format(as_of), source_date = format(source_date), n = length(rows), rows = rows)
 }
 
+
+# Bytes left under the build budget, and whether at least min_headroom remain. Used by tests/test_research.R on the committed research.json.
+research_headroom <- function(bytes, budget) budget - bytes
+research_headroom_ok <- function(bytes, budget, min_headroom) research_headroom(bytes, budget) >= min_headroom

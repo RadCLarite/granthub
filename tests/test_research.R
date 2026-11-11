@@ -166,6 +166,15 @@ local({
   check(s, "budget the floor cannot meet stops with an error", inherits(try(fit_research_payload(big, 1000L), silent = TRUE), "try-error"))
   check(s, "headroom: the build budget sits at least 5 percent under the hard limit", RESEARCH_PAYLOAD_BUDGET <= 0.95 * RESEARCH_PAYLOAD_LIMIT)
 
+  s <- "research size headroom"
+  check(s, "headroom is budget minus bytes", research_headroom(1833689, 1850000) == 16311)
+  check(s, "headroom below the minimum is flagged", !research_headroom_ok(1840001, 1850000, 10000) && research_headroom_ok(1840000, 1850000, 10000))
+  check(s, "a payload over the budget has negative headroom and fails", research_headroom(1851000, 1850000) < 0 && !research_headroom_ok(1851000, 1850000, 10000))
+  check(s, "minimum headroom is 10 KB and sits inside the budget", RESEARCH_MIN_HEADROOM == 10000L && RESEARCH_MIN_HEADROOM < RESEARCH_PAYLOAD_BUDGET)
+  rj_bytes <- file.size(here::here("data", "processed", "research.json"))
+  check(s, paste0("committed research.json leaves at least ", RESEARCH_MIN_HEADROOM, " bytes under the budget (now ", rj_bytes, ", headroom ", research_headroom(rj_bytes, RESEARCH_PAYLOAD_BUDGET), ")"),
+        research_headroom_ok(rj_bytes, RESEARCH_PAYLOAD_BUDGET, RESEARCH_MIN_HEADROOM))
+
   s <- "grantsgov_lookup"
   syn <- list(data = list(id = 364247L, synopsis = list(postingDateStr = "2026-11-10-00-00-00", costSharing = FALSE)))
   fc <- list(data = list(id = 364251L, synopsis = list(), forecast = list(postingDateStr = "2026-11-09-00-00-00", costSharing = TRUE)))
