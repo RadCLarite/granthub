@@ -514,4 +514,42 @@ t('committed research.json carries no HTML entities in titles, agencies or summa
   data.rows.forEach(r => ['title', 'agency', 'sum'].forEach(k => { const m = /&(#\d+|#x[0-9a-f]+|[a-z]+);/i.exec(r[k] || ''); if (m) bad.push(r.id + ' ' + k + ' ' + m[0]); }));
   assert.deepStrictEqual(bad.slice(0, 5), []);
 });
+const { scoreByStatus } = require(path.join(__dirname, 'run_testset.js'));
+t('scoreByStatus scores posted and forecasted rows as separate pools', () => {
+  const pool = [
+    { id: 'p1', status: 'posted', title: 'stroke perfusion imaging', sum: 'ct perfusion in acute stroke', ic: 'NS', mech: 'R01' },
+    { id: 'p2', status: 'posted', title: 'grain subsidies', sum: '', ic: 'HL', mech: 'R21' },
+    { id: 'f1', status: 'forecasted', title: 'stroke ct perfusion trial', sum: 'acute stroke imaging', ic: 'NS', mech: 'U01' },
+    { id: 'c1', status: 'closed', title: 'stroke', sum: 'stroke', ic: 'NS', mech: 'R01' },
+  ];
+  const aw = [{ id: 'x1', ic: 'NS', mechanism: 'U01', title: 'stroke ct perfusion', abstract: 'imaging of acute stroke' }];
+  const g = scoreByStatus(pool, aw, []);
+  assert.deepStrictEqual(Object.keys(g), ['all', 'posted', 'forecasted']);
+  assert.strictEqual(g.all.summary.pool, 4);
+  assert.strictEqual(g.posted.summary.pool, 2);
+  assert.strictEqual(g.forecasted.summary.pool, 1);
+  assert.strictEqual(g.posted.perAward[0].mech_testable, false);      /* no U01 among posted rows */
+  assert.strictEqual(g.forecasted.perAward[0].mech_testable, true);
+  assert.strictEqual(g.forecasted.perAward[0].mech_rank, 1);
+  assert.strictEqual(g.posted.perAward[0].ic_rank, 1);                 /* p1, not the forecasted f1 */
+});
+t('scoreByStatus "all" equals scoreTestset on the whole pool', () => {
+  const pool = [{ id: 'p1', status: 'posted', title: 'stroke perfusion', sum: 'acute stroke', ic: 'NS', mech: 'R01' }];
+  const aw = [{ id: 'x1', ic: 'NS', mechanism: 'R01', title: 'stroke', abstract: 'acute stroke' }];
+  assert.deepStrictEqual(scoreByStatus(pool, aw, []).all, scoreTestset(pool, aw, []));
+});
+t('scoreByStatus with no forecasted rows gives an empty group, not an error', () => {
+  const pool = [{ id: 'p1', status: 'posted', title: 'stroke', sum: 'stroke', ic: 'NS', mech: 'R01' }];
+  const aw = [{ id: 'x1', ic: 'NS', mechanism: 'R01', title: 'stroke', abstract: 'stroke' }];
+  const g = scoreByStatus(pool, aw, []);
+  assert.strictEqual(g.forecasted.summary.pool, 0);
+  assert.strictEqual(g.forecasted.summary.ic_testable, 0);
+});
+t('scoreByStatus group text reports the pool size of its own group', () => {
+  const pool = [{ id: 'p1', status: 'posted', title: 'stroke', sum: 'stroke', ic: 'NS', mech: 'R01' }, { id: 'f1', status: 'forecasted', title: 'x', sum: 'x', ic: null, mech: null }];
+  const g = scoreByStatus(pool, [], []);
+  assert(g.posted.summary.text.indexOf('against a pool of 1 opportunities') >= 0);
+  assert(g.forecasted.summary.text.indexOf('against a pool of 1 opportunities') >= 0);
+  assert(g.all.summary.text.indexOf('against a pool of 2 opportunities') >= 0);
+});
 console.log(n + ' tests pass');
