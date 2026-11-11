@@ -10,6 +10,7 @@ local({
       results[[length(results) + 1]] <<- tibble::tibble(section = section, name = name, ok = isTRUE(ok), got = as.character(got))
     }
   }
+  source(here::here("R", "00_config.R"))
   source(here::here("R", "helpers_research.R"))
   s <- "research: parsers"
 
@@ -141,6 +142,19 @@ local({
   check(s, "NULL Grants.gov table leaves rows alone", identical(merge_grantsgov_fields(simp, NULL)$url, simp$url))
   mg <- build_research_payload(merge_grantsgov_fields(one, gg), as.Date("2026-11-07"))
   check(s, "merged fields reach the payload: flags, post date, url", identical(mg$rows[[1]]$flags$cost_share, "yes") && identical(mg$rows[[1]]$post, "2026-01-05") && grepl("www.grants.gov", mg$rows[[1]]$url))
+
+  s <- "fit_research_payload"
+  mk <- function(n, len) list(as_of = "2026-11-10", source_date = "2026-11-10", n = n, rows = lapply(seq_len(n), function(i) list(id = as.character(i), title = "T", sum = strrep("abcdefghi ", len %/% 10))))
+  bytes_of <- function(p) nchar(as.character(jsonlite::toJSON(p, auto_unbox = TRUE, na = "null")), type = "bytes")
+  big <- mk(200, 1200)
+  roomy <- fit_research_payload(big, bytes_of(big) + 1000L)
+  check(s, "under budget: payload is returned unchanged", identical(roomy, big))
+  tight <- fit_research_payload(big, as.integer(bytes_of(big) * 0.8))
+  check(s, "over budget: summaries are shortened until it fits", bytes_of(tight) <= as.integer(bytes_of(big) * 0.8) && max(vapply(tight$rows, function(r) nchar(r$sum), 0L)) < 1200L)
+  check(s, "over budget: no row is dropped and nothing but sum changes", tight$n == 200L && identical(vapply(tight$rows, function(r) r$title, ""), rep("T", 200)))
+  check(s, "over budget: summaries are never cut below the floor", min(vapply(tight$rows, function(r) nchar(r$sum), 0L)) >= RESEARCH_SUM_FLOOR)
+  check(s, "budget the floor cannot meet stops with an error", inherits(try(fit_research_payload(big, 1000L), silent = TRUE), "try-error"))
+  check(s, "headroom: the build budget sits at least 5 percent under the hard limit", RESEARCH_PAYLOAD_BUDGET <= 0.95 * RESEARCH_PAYLOAD_LIMIT)
 
   if (standalone) {
     rep <- dplyr::bind_rows(results)

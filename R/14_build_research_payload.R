@@ -23,9 +23,12 @@ if (basename(src) != "opportunities.csv" && file.exists(gg_src)) {
 
 message("Input: ", basename(src))
 payload <- build_research_payload(opps, AS_OF_DATE, REF_DATE)
+payload <- fit_research_payload(payload, RESEARCH_PAYLOAD_BUDGET)
+max_sum <- max(vapply(payload$rows, function(r) nchar(r$sum), 0L))
+if (max_sum < RESEARCH_SUM_MAX) message("Summaries cut to ", max_sum, " characters to fit the ", RESEARCH_PAYLOAD_BUDGET, " byte budget")
 message("source_date: ", payload$source_date, if ("fetched_on" %in% names(opps)) " (fetched_on column)" else " (REF_DATE; no fetched_on column)")
 out <- here::here("data", "processed", "research.json")
 jsonlite::write_json(payload, out, auto_unbox = TRUE, na = "null")
 bytes <- file.size(out)
-if (bytes > 2000000) stop("research.json is ", bytes, " bytes, over the 2,000,000 limit", call. = FALSE)
+if (bytes > RESEARCH_PAYLOAD_LIMIT) stop("research.json is ", bytes, " bytes, over the ", format(RESEARCH_PAYLOAD_LIMIT, big.mark = ","), " limit", call. = FALSE)
 cat(sprintf("research.json: %d rows, %d bytes (built %s, listings fetched %s)\n", payload$n, bytes, payload$as_of, payload$source_date))
