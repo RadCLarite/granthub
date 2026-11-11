@@ -245,4 +245,5 @@ LLM_TIMEOUT_SEC    <- 180
 # Researcher tab payload size (14_build_research_payload.R). The build shortens summaries to stay under the budget and stops over the limit.
 RESEARCH_PAYLOAD_LIMIT  <- 2000000L  # [assumed] hard cap on research.json bytes
 RESEARCH_PAYLOAD_BUDGET <- 1850000L  # [assumed] build target: 7.5% under the limit, so a bigger pool does not fail the build
+RESEARCH_MIN_HEADROOM  <- 10000L    # [assumed] tests fail when research.json is within this many bytes of the budget, before the next growth cuts summaries
 RESEARCH_SUM_FLOOR      <- 600L      # [assumed] summaries are never cut below this many characters
