@@ -81,7 +81,15 @@ parse_flags <- function(summary, eligibility, cost_sharing) {
 # clean_text() in helpers_rank.R, kept here so this file stands alone.
 decode_entities <- function(x) {
   x <- as.character(x)
-  named <- c("&lt;" = "<", "&gt;" = ">", "&quot;" = "\"", "&apos;" = "'", "&nbsp;" = " ")
+  named <- c("&lt;" = "<", "&gt;" = ">", "&quot;" = "\"", "&apos;" = "'", "&nbsp;" = " ",
+             "&ndash;" = "–", "&mdash;" = "—", "&lsquo;" = "‘", "&rsquo;" = "’", "&sbquo;" = "‚",
+             "&ldquo;" = "“", "&rdquo;" = "”", "&bdquo;" = "„", "&hellip;" = "…", "&bull;" = "•",
+             "&middot;" = "·", "&sect;" = "§", "&para;" = "¶", "&trade;" = "™", "&copy;" = "©",
+             "&reg;" = "®", "&deg;" = "°", "&plusmn;" = "±", "&times;" = "×", "&micro;" = "µ",
+             "&euro;" = "€", "&laquo;" = "«", "&raquo;" = "»", "&frac12;" = "½",
+             "&eacute;" = "é", "&egrave;" = "è", "&aacute;" = "á", "&iacute;" = "í", "&oacute;" = "ó",
+             "&uacute;" = "ú", "&ntilde;" = "ñ", "&ccedil;" = "ç", "&uuml;" = "ü", "&ouml;" = "ö",
+             "&auml;" = "ä", "&szlig;" = "ß")
   one <- function(s) {
     if (is.na(s)) return(s)
     s <- gsub("&amp;", "&", s, fixed = TRUE)
@@ -95,6 +103,29 @@ decode_entities <- function(x) {
     s
   }
   vapply(x, function(s) one(one(s)), character(1), USE.NAMES = FALSE) |> trimws() |> gsub(pattern = "[ \t\r\n]+", replacement = " ")
+}
+
+# The Simpler.Grants.gov pull has no post date, cost sharing, eligibility text or grants.gov link. For rows that also
+# appear in the Grants.gov table (matched on opp_id), take those four fields from it. Rows are never added or dropped;
+# a row with no match keeps its Simpler link and leaves the other three as NA.
+merge_grantsgov_fields <- function(opps, gg) {
+  if (is.null(gg) || !nrow(gg)) return(opps)
+  idx <- match(as.character(opps$opp_id), as.character(gg$opp_id))
+  hit <- !is.na(idx)
+  for (nm in c("post_date", "cost_sharing", "eligibility_text")) {
+    if (!nm %in% names(gg)) next
+    v <- rep(NA_character_, nrow(opps))
+    if (nm %in% names(opps)) v <- as.character(opps[[nm]])
+    v[hit] <- as.character(gg[[nm]][idx[hit]])
+    opps[[nm]] <- v
+  }
+  if ("url" %in% names(gg)) {
+    u <- as.character(opps$url)
+    gu <- as.character(gg$url[idx[hit]])
+    u[hit] <- ifelse(is.na(gu) | !nzchar(gu), u[hit], gu)
+    opps$url <- u
+  }
+  opps
 }
 
 build_research_payload <- function(opps, as_of, source_date = as_of) {
