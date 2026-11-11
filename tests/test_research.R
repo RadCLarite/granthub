@@ -51,6 +51,7 @@ local({
     agency = "NIH",
     status = c("posted", "closed", "notice", "posted", "posted", "posted", "forecasted"),
     close_date = c("2026-12-01", "2026-12-01", "2026-12-01", "2026-12-01", "2026-11-01", "2026-11-01", NA),
+    forecasted_close_date = c("2027-01-01", NA, NA, NA, NA, NA, "2027-02-01"),
     award_floor = NA_character_, award_ceiling = "500000",
     applicant_types = c("20|25", "20", "20", "00|01", "20", "20", "06"),
     funding_activity = NA_character_,
@@ -71,7 +72,16 @@ local({
   js <- jsonlite::toJSON(p$rows, auto_unbox = TRUE, na = "null")
   check(s, "NA close serialises as null", grepl('"close":null', js, fixed = TRUE))
   r1 <- p$rows[[1]]
-  check(s, "row has the contract fields", setequal(names(r1), c("id","num","title","agency","status","close","floor","ceil","mech","trial","hs","ic","flags","post","elig","url","sum")))
+  check(s, "row has the contract fields", setequal(names(r1), c("id","num","title","agency","status","close","floor","ceil","mech","trial","hs","ic","flags","post","est","elig","url","sum")))
+  check(s, "forecasted row carries the estimated close date as est", identical(fc$est, "2027-02-01"))
+  check(s, "estimate does not become the close date", is.na(fc$close))
+  check(s, "posted row ignores a forecasted_close_date (est is NA)", is.na(r1$est))
+  past <- toy[7, ]; past$forecasted_close_date <- "2026-01-01"
+  pp <- build_research_payload(past, as.Date("2026-11-07"))
+  check(s, "forecast with a past estimate is still kept (estimate never filters)", pp$n == 1 && identical(pp$rows[[1]]$est, "2026-01-01"))
+  nocol <- build_research_payload(toy[7, setdiff(names(toy), "forecasted_close_date")], as.Date("2026-11-07"))
+  check(s, "no forecasted_close_date column gives est NA", is.na(nocol$rows[[1]]$est))
+  check(s, "est serialises as null when missing", grepl('"est":null', js, fixed = TRUE))
   check(s, "row parses mechanism and trial", identical(r1$mech, "R01") && identical(r1$trial, "optional"))
   check(s, "numeric award fields", is.numeric(r1$ceil) && r1$ceil == 500000)
 
