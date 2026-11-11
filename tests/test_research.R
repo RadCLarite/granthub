@@ -197,6 +197,21 @@ local({
   ic_toy$agency <- "U.S. National Science Foundation"
   check(s, "payload: non-NIH row with the same text stays unknown", is.na(build_research_payload(ic_toy, as.Date("2026-11-07"))$rows[[1]]$ic))
 
+  s <- "grantsgov_lookup: eligibility text"
+  syn_e <- list(data = list(id = 1L, synopsis = list(postingDateStr = "2026-11-10-00-00-00", costSharing = FALSE, applicantEligibilityDesc = "Foreign organizations are allowed to apply. See &quot;Description&quot; &amp; subawards.")))
+  fc_e <- list(data = list(id = 2L, synopsis = list(), forecast = list(postingDateStr = "2026-11-09-00-00-00", costSharing = TRUE, applicantEligibilityDesc = "Open to universities only.")))
+  check(s, "synopsis record: eligibility text read and entities decoded", identical(parse_grantsgov_detail(syn_e)$eligibility_text, "Foreign organizations are allowed to apply. See \"Description\" & subawards."))
+  check(s, "forecast record: eligibility text read from the forecast block", identical(parse_grantsgov_detail(fc_e)$eligibility_text, "Open to universities only."))
+  check(s, "empty or missing eligibility text gives NA", is.na(parse_grantsgov_detail(list(data = list(synopsis = list(postingDateStr = "2026-11-10-00-00-00", costSharing = FALSE, applicantEligibilityDesc = ""))))$eligibility_text) && is.na(parse_grantsgov_detail(syn)$eligibility_text) && is.na(parse_grantsgov_detail(NULL)$eligibility_text))
+  check(s, "eligibility text does not disturb post date and cost sharing", identical(parse_grantsgov_detail(syn_e)$post_date, "2026-11-10") && identical(parse_grantsgov_detail(syn_e)$cost_sharing, "No"))
+  lk_e <- data.frame(opp_id = "2", url = "u2", post_date = "2026-11-09", cost_sharing = "Yes", eligibility_text = "Foreign organizations are allowed to apply.", stringsAsFactors = FALSE)
+  both_e <- add_grantsgov_lookup(base_gg, lk_e)
+  check(s, "lookup eligibility text is carried into the Grants.gov table", identical(both_e$eligibility_text, c("e", "Foreign organizations are allowed to apply.")))
+  one_e <- one
+  one_e$opp_id <- "2"
+  pe <- build_research_payload(merge_grantsgov_fields(one_e, both_e), as.Date("2026-11-07"))
+  check(s, "looked-up eligibility text fills the foreign flag in the payload", identical(pe$rows[[1]]$flags$foreign, "yes"))
+
   if (standalone) {
     rep <- dplyr::bind_rows(results)
     if (!all(rep$ok)) print(as.data.frame(rep[!rep$ok, c("section", "name", "got")]))

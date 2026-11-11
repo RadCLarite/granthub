@@ -1,4 +1,4 @@
-# 02g_research_unmatched.R: Grants.gov post date, cost sharing and link for pool rows that opportunities.csv lacks.
+# 02g_research_unmatched.R: Grants.gov post date, cost sharing, eligibility text and link for pool rows that opportunities.csv lacks.
 # Read-only: one POST to Grants.gov fetchOpportunity per id, cached in data/cache/api/grantsgov_detail (a rerun makes no calls).
 # Ids = rows of research_opportunities.csv not in opportunities.csv. Writes data/processed/research_grantsgov_lookup.csv,
 # which 14_build_research_payload.R merges for those rows. An id Grants.gov does not know is skipped and reported.
@@ -20,8 +20,8 @@ rows <- lapply(ids, function(id) {
                  dir = file.path(DIR_CACHE_API, "grantsgov_detail"), parse = "json"),
     error = function(e) NULL)
   d <- parse_grantsgov_detail(x)
-  if (is.null(x) || (is.na(d$post_date) && is.na(d$cost_sharing))) { message("  skipped ", id, ": no usable record"); return(NULL) }
-  tibble::tibble(opp_id = id, url = grantsgov_url(id), post_date = d$post_date, cost_sharing = d$cost_sharing)
+  if (is.null(x) || (is.na(d$post_date) && is.na(d$cost_sharing) && is.na(d$eligibility_text))) { message("  skipped ", id, ": no usable record"); return(NULL) }
+  tibble::tibble(opp_id = id, url = grantsgov_url(id), post_date = d$post_date, cost_sharing = d$cost_sharing, eligibility_text = d$eligibility_text)
 })
 lookup <- dplyr::bind_rows(rows)
 readr::write_csv(lookup, file.path(DIR_PROCESSED, "research_grantsgov_lookup.csv"))
