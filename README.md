@@ -31,7 +31,7 @@ Ranking is keyword matching (BM25) with a synonym list. Each result shows the te
 
 Each card can show "Mentioned" flags read from the notice text (letter of intent, foreign participation allowed, cost sharing, subaward, multiple PIs, IND or IDE, data sharing, animal research, human subjects). Absence of a flag means unknown, not no. A "My project has..." checklist in Filters highlights the matching flags and tells you when a listing does not say. Static Atom and calendar feeds per NIH institute are under `feeds/research/`, and the results list has a button that downloads its deadlines as a `.ics` file.
 
-Run the checks from the repo root with `node tests/research/test_core.js` (unit tests) and `node tests/research/run_testset.js` (scores the award test set and writes `outs/research_testset_report.csv`).
+Run the checks from the repo root with `node tests/research/test_core.js` (unit tests) and `node tests/research/run_testset.js` (scores the award test set against all rows, against posted (active) rows only and against forecasted rows only, and writes `outs/research_testset_report.csv` plus `_posted.csv` and `_forecasted.csv`).
 
 Rebuilding `research.json` (from the repo root, in this order; it is a manual step, not part of the daily job):
 

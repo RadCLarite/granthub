@@ -1,6 +1,6 @@
 'use strict';
 /* Test-set harness for the researcher tab search.
-   scoreTestset(rows, awards, groups) is pure; the CLI wrapper reads files and writes outs/research_testset_report.csv.
+   scoreTestset(rows, awards, groups) is pure; the CLI wrapper reads files and writes outs/research_testset_report.csv (all rows), _posted.csv and _forecasted.csv (each scored against its own pool).
    It measures how well an award abstract finds CURRENTLY OPEN opportunities of the same funder (ic) and mechanism: a proxy.
    An award is "not testable" for a metric when no pool row has that ic (or mech); it leaves that metric's denominator.
    "IC and mechanism each in top 10" = the first same-ic result AND the first same-mechanism result are each within the top 10 (not necessarily one row). */
@@ -67,6 +67,14 @@ function scoreTestset(rows, awards, groups, opts) {
   return { perAward, summary };
 }
 
+/* The same test set scored three ways: against every row, against posted (active) rows only, and against forecasted rows only.
+   Each group is its own pool, so its counts, testable awards and random baseline are its own. Rows with any other status are only in "all". */
+function scoreByStatus(rows, awards, groups, opts) {
+  const only = st => rows.filter(r => r.status === st);
+  return { all: scoreTestset(rows, awards, groups, opts), posted: scoreTestset(only('posted'), awards, groups, opts),
+    forecasted: scoreTestset(only('forecasted'), awards, groups, opts) };
+}
+
 function toCsv(perAward) {
   const cols = ['id', 'source', 'topic', 'ic', 'mechanism', 'ic_testable', 'mech_testable', 'ic_rank', 'mech_rank', 'hit_ic', 'hit_mech', 'hit_ic_and_mech', 'results'];
   const esc = v => { const s = v == null ? '' : String(v); return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; };
@@ -81,12 +89,20 @@ if (require.main === module) {
     .filter(a => a.abstract && String(a.abstract).trim());
   const groups = process.argv.includes('--no-synonyms') ? [] : load('tool', 'research', 'synonyms.json');
   const boostArg = process.argv.find(a => a.indexOf('--phrase-boost=') === 0);
-  const r = scoreTestset(rows, awards, groups, boostArg ? { phraseBoost: Number(boostArg.slice('--phrase-boost='.length)) } : undefined);
+  const g = scoreByStatus(rows, awards, groups, boostArg ? { phraseBoost: Number(boostArg.slice('--phrase-boost='.length)) } : undefined);
   if (process.argv.length <= 2) {
     fs.mkdirSync(path.join(root, 'outs'), { recursive: true });
-    fs.writeFileSync(path.join(root, 'outs', 'research_testset_report.csv'), toCsv(r.perAward));
+    fs.writeFileSync(path.join(root, 'outs', 'research_testset_report.csv'), toCsv(g.all.perAward));
+    fs.writeFileSync(path.join(root, 'outs', 'research_testset_report_posted.csv'), toCsv(g.posted.perAward));
+    fs.writeFileSync(path.join(root, 'outs', 'research_testset_report_forecasted.csv'), toCsv(g.forecasted.perAward));
   }
-  console.log(r.summary.text);
+  console.log(g.all.summary.text);
+  console.log('');
+  console.log('--- Posted (active) opportunities only ---');
+  console.log(g.posted.summary.text);
+  console.log('');
+  console.log('--- Forecasted opportunities only ---');
+  console.log(g.forecasted.summary.text);
   process.exit(0);
 }
-module.exports = { scoreTestset };
+module.exports = { scoreTestset, scoreByStatus };
