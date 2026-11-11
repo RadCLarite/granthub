@@ -2,7 +2,7 @@
    Needs window.ResearchCore. Fetches research.json and synonyms.json from the same folder. Sends only an ORCID iD to api.openalex.org, and only on click. */
 (function () {
   'use strict';
-  var MAX_SHOW = 50, FILTER_NAMES = { institution: 'institution type', trial: 'clinical trial', budget: 'budget', career: 'career stage', mechs: 'preferred mechanisms' };
+  var MAX_SHOW = 50, FILTER_NAMES = { status: 'posted or forecasted', institution: 'institution type', trial: 'clinical trial', budget: 'budget', career: 'career stage', mechs: 'preferred mechanisms' };
   var EXAMPLES = ['stroke CT perfusion imaging AI', 'multimodal AI for radiology reports', 'physics-based MRI'];
   var LEVEL_TEXT = { ok: 'Time looks OK', tight: 'Tight for sign-off', late: 'Institutional deadline passed', unknown: 'Time check unavailable' };
   var state = { rows: [], index: null, asOf: '', sourceDate: '', today: '', ui: {}, started: false };
@@ -67,10 +67,15 @@
     b.textContent = note || ''; b.hidden = !note;
   }
   function sortDate(row) { return row.status === 'forecasted' || !row.close ? '9999-99-99' : row.close; }
+  function statusMode() {
+    var r = state.ui.statusRadios || [], i;
+    for (i = 0; i < r.length; i++) if (r[i].checked) return r[i].value;
+    return 'all';
+  }
   function readProfile() {
     var u = state.ui, mechs = [];
     u.mechBoxes.forEach(function (b) { if (b.checked) mechs.push(b.value); });
-    return { institution: u.inst.value, trial: u.trial.value === 'unsure' ? '' : u.trial.value, budgetMin: u.bmin.value, budgetMax: u.bmax.value, career: u.career.value, mechs: mechs };
+    return { institution: u.inst.value, trial: u.trial.value === 'unsure' ? '' : u.trial.value, budgetMin: u.bmin.value, budgetMax: u.bmax.value, career: u.career.value, mechs: mechs, status: statusMode() };
   }
   function readSettings() {
     var u = state.ui;
@@ -154,6 +159,7 @@
     if (!f.kept.length) {
       var top = null, best = 0;
       Object.keys(f.removedBy).forEach(function (k) { if (f.removedBy[k] > best) { best = f.removedBy[k]; top = k; } });
+      if (top === 'status') { render(RC.statusEmptyNotice(statusMode())); return; }
       render('No match left after filtering. The "' + (FILTER_NAMES[top] || top) + '" filter removed the most (' + best + '). Open Filters and loosen it.');
       return;
     }
@@ -231,6 +237,13 @@
     cl.addEventListener('click', function () { u.box.value = window.ResearchCore.cleanPublicationList(u.box.value); });
     panel.appendChild(cl);
     var r1 = el('div', 'rt-row'), go = el('button', 'rt-btn', 'Search'); go.type = 'button'; go.addEventListener('click', run);
+    var tg = el('fieldset', 'rt-toggle'); tg.id = 'rt-status'; tg.appendChild(el('legend', null, 'Show'));
+    u.statusRadios = [['all', 'All'], ['posted', 'Posted (open now)'], ['forecasted', 'Forecasted (not yet open)']].map(function (o, i) {
+      var lab = el('label'), rb = el('input'); rb.type = 'radio'; rb.name = 'rt-status'; rb.value = o[0]; rb.checked = i === 0;
+      rb.addEventListener('change', function () { if (state.searched) run(); });  /* the toggle redraws the current results at once */
+      lab.appendChild(rb); lab.appendChild(document.createTextNode(o[1])); tg.appendChild(lab); return rb;
+    });
+    panel.appendChild(tg);
     r1.appendChild(go); panel.appendChild(r1);
     var r2 = el('div', 'rt-row'); r2.appendChild(el('span', 'rt-exlabel', 'Try:'));
     EXAMPLES.forEach(function (t) {

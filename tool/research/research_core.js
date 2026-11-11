@@ -444,8 +444,19 @@
     for (var i = 0; i < list.length; i++) if (String(list[i]).toUpperCase() === code) return 'keep';
     return 'remove';
   }
+  /* Results toggle: "posted" (open now) or "forecasted" (not yet open). Anything else shows both. A row with no status stays and is flagged unknown. */
+  function checkStatus(row, want) {
+    if (want !== 'posted' && want !== 'forecasted') return 'keep';
+    if (!row.status) return 'unknown';
+    return row.status === want ? 'keep' : 'remove';
+  }
+  function statusEmptyNotice(mode) {
+    var what = mode === 'forecasted' ? 'forecasted opportunities' : 'posted opportunities';
+    return 'No match among ' + what + ' only. Switch the toggle above to All' + (mode === 'forecasted' ? ' or Posted' : ' or Forecasted') + '.';
+  }
   function applyFilters(rows, profile) {
     var p = profile || {}, checks = [];
+    if (p.status) checks.push(['status', function (r) { return checkStatus(r, p.status); }]);
     if (p.institution) checks.push(['institution', function (r) { return checkInstitution(r, p.institution); }]);
     if (p.trial) checks.push(['trial', function (r) { return checkTrial(r, p.trial); }]);
     var bMin = finiteOrNull(p.budgetMin), bMax = finiteOrNull(p.budgetMax);
@@ -468,7 +479,7 @@
   }
 
   return { tokenize: tokenize, parseQuery: parseQuery, phraseNotices: phraseNotices, PHRASE_TIP: PHRASE_TIP,
-    PHRASE_QUERY_MAX_CHARS: PHRASE_QUERY_MAX_CHARS, expandTerms: expandTerms, buildIndex: buildIndex, search: search, applyFilters: applyFilters,
+    PHRASE_QUERY_MAX_CHARS: PHRASE_QUERY_MAX_CHARS, expandTerms: expandTerms, buildIndex: buildIndex, search: search, applyFilters: applyFilters, statusEmptyNotice: statusEmptyNotice,
     flagNotes: flagNotes, buildIcs: buildIcs, normalizeOrcid: normalizeOrcid, openAlexWorksUrl: openAlexWorksUrl, worksToText: worksToText,
     worksStats: worksStats, openAlexFailureText: openAlexFailureText, cleanPublicationList: cleanPublicationList,
     FLAG_LABELS: FLAG_LABELS, daysUntil: daysUntil,
