@@ -123,6 +123,24 @@ local({
   check(s, "summary entities decoded", identical(pe$rows[[1]]$sum, "Don’t use “raw” text — ok <b>"), pe$rows[[1]]$sum)
   check(s, "mechanism still parsed after decoding", identical(pe$rows[[1]]$mech, "R01"))
   check(s, "text without entities is untouched", identical(p$rows[[1]]$title, "Keep (R01 Clinical Trial Optional)"))
+  check(s, "more named entities decoded", identical(decode_entities("A&ndash;B &mdash; it&rsquo;s &lsquo;x&rsquo; &ldquo;y&rdquo; &sect;3 Foo&trade; &hellip; &eacute;"), "A–B — it’s ‘x’ “y” §3 Foo™ … é"))
+  check(s, "unknown named entity left alone", identical(decode_entities("a &zzzz; b"), "a &zzzz; b"))
+
+  s <- "merge_grantsgov_fields"
+  one <- data.frame(opp_id = "1", opp_number = "RFA-AG-26-020", title = "T (R01)", agency = "NIH", status = "posted", close_date = "2026-12-31",
+                    award_floor = NA, award_ceiling = NA, applicant_types = "20", summary = "x", url = "u", stringsAsFactors = FALSE)
+  simp <- data.frame(opp_id = c("1", "2"), url = c("https://simpler.grants.gov/opportunity/a", "https://simpler.grants.gov/opportunity/b"), stringsAsFactors = FALSE)
+  gg <- data.frame(opp_id = c("1", "9"), url = c("https://www.grants.gov/search-results-detail/1", "https://www.grants.gov/search-results-detail/9"),
+                   post_date = c("2026-01-05", "2026-01-06"), cost_sharing = c("Yes", "No"),
+                   eligibility_text = c("Foreign organizations are allowed.", "x"), stringsAsFactors = FALSE)
+  m <- merge_grantsgov_fields(simp, gg)
+  check(s, "matched row takes Grants.gov url, post date, cost sharing and eligibility text",
+        identical(m$url[1], "https://www.grants.gov/search-results-detail/1") && m$post_date[1] == "2026-01-05" && m$cost_sharing[1] == "Yes" && grepl("Foreign", m$eligibility_text[1]))
+  check(s, "unmatched row keeps its Simpler url, other fields stay NA", identical(m$url[2], "https://simpler.grants.gov/opportunity/b") && is.na(m$post_date[2]) && is.na(m$cost_sharing[2]))
+  check(s, "row count and order unchanged, Grants.gov-only rows not added", identical(m$opp_id, c("1", "2")))
+  check(s, "NULL Grants.gov table leaves rows alone", identical(merge_grantsgov_fields(simp, NULL)$url, simp$url))
+  mg <- build_research_payload(merge_grantsgov_fields(one, gg), as.Date("2026-11-07"))
+  check(s, "merged fields reach the payload: flags, post date, url", identical(mg$rows[[1]]$flags$cost_share, "yes") && identical(mg$rows[[1]]$post, "2026-01-05") && grepl("www.grants.gov", mg$rows[[1]]$url))
 
   if (standalone) {
     rep <- dplyr::bind_rows(results)
