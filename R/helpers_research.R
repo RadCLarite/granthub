@@ -128,6 +128,19 @@ merge_grantsgov_fields <- function(opps, gg) {
   opps
 }
 
+# Keep research.json under max_bytes: when over, cut every summary to a common length, stepping down 100 characters from
+# RESEARCH_SUM_MAX to RESEARCH_SUM_FLOOR, until it fits. Rows and all other fields stay; stops if the floor still does not fit.
+fit_research_payload <- function(p, max_bytes, floor = RESEARCH_SUM_FLOOR) {
+  size <- function(x) nchar(as.character(jsonlite::toJSON(x, auto_unbox = TRUE, na = "null")), type = "bytes")
+  if (size(p) <= max_bytes) return(p)
+  for (cap in unique(c(seq(RESEARCH_SUM_MAX - 100L, floor, by = -100L), floor))) {
+    q <- p
+    q$rows <- lapply(p$rows, function(r) { r$sum <- substr(r$sum, 1, cap); r })
+    if (size(q) <= max_bytes) return(q)
+  }
+  stop("research.json is still ", size(q), " bytes with summaries cut to ", floor, " characters; budget is ", max_bytes, call. = FALSE)
+}
+
 build_research_payload <- function(opps, as_of, source_date = as_of) {
   o <- opps
   for (nm in intersect(c("title", "agency", "summary"), names(o))) o[[nm]] <- decode_entities(o[[nm]])
