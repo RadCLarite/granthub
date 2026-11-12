@@ -140,3 +140,22 @@ Test set, IC hit@10 (same 10 awards, same ranking code, same pool of rows):
 | Forecasted | 5 of 9 | 6 of 9 |
 
 Mechanism hit@10 did not change (all 7 of 10, posted 6 of 10, forecasted 3 of 7). The extra hits come from 100 more summary characters on some rows, not from any change to ranking. With 10 awards one award is 10 points, so treat this as noise, not as an improvement.
+
+## ORCID keywords vs abstract text (2026-11-12)
+
+Question: is the keyword list the ORCID lookup now puts in the box a better query than the titles and abstracts it used to put there? Script: `tests/research/compare_orcid_keywords.js` (calls api.openalex.org, so CI does not run it).
+
+The test set has no PI names or ORCIDs, so this does not test the ORCID lookup itself. For each of the 10 awards the papers are the OpenAlex works that list the award's project number (`awards.funder_award_id`), up to 25. That is the same kind of input the lookup gets. Two awards (R01NS140757, F31CA305956) have no papers on OpenAlex and are left out, so each figure is out of 8. Pool: all 1,426 rows of `research.json`, as in the other sections. Hit@10 means a same-funder (IC) or same-mechanism row in the top 10.
+
+| Query put in the search box | IC hit@10 | Mechanism hit@10 |
+|---|---|---|
+| A. The award's own title and abstract (the baseline above) | 3 of 8 | 6 of 8 |
+| B. Old ORCID fill: titles and abstracts of the papers | 3 of 8 | 2 of 8 |
+| C. New ORCID fill: up to 12 keyword phrases from the papers | 5 of 8 | 4 of 8 |
+
+- C beats B on both measures (IC 3 to 5, mechanism 2 to 4). That is the comparison that matters for the change.
+- C matches or beats A on IC but trails it on mechanism (4 against 6). A paper's keywords describe the science; an award abstract is written in grant language, closer to how a listing reads.
+- Two awards (P41EB024495, P20GM103447) get no same-funder row in the top 50 from keywords, though each has 25 papers.
+- Some topic names that pass the generic-phrase filter are still broad ("Advanced MRI Techniques and Applications", "Radiopharmaceutical Chemistry and Applications"). They are probably adding some noise.
+- With 8 awards one award moves a figure by 12.5 points. Read this as support for the change, not proof. Totals were identical on two runs; a few per-award ranks moved between runs because OpenAlex returns the 25 works in no fixed order.
+- The quoted-phrase option was not tested: single keyword phrases such as "magnetic resonance imaging" match no open row, so all-required quotes return nothing (see the README).
