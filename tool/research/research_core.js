@@ -188,6 +188,12 @@
     out.push(cur);
     return out.join('\r\n ');
   }
+  /* The link for a row: the stored url, else the grants.gov page for a numeric id (research.json leaves out urls the id implies), else ''. */
+  function rowUrl(row) {
+    if (!row) return '';
+    if (typeof row.url === 'string' && row.url) return row.url;
+    return typeof row.id === 'string' && /^[0-9]+$/.test(row.id) ? 'https://www.grants.gov/search-results-detail/' + row.id : '';
+  }
   /* Simpler's forecasted close date, shown on forecasted cards only. It is an estimate: nothing else reads row.est (not the time warning, the sort or the .ics). */
   function estimateNote(row, todayIso) {
     if (!row || row.status !== 'forecasted' || typeof row.est !== 'string' || isoToUtcMs(row.est) === null) return '';
@@ -201,7 +207,7 @@
       var ms = isoToUtcMs(r && r.close);
       if (ms === null || r.status === 'forecasted') return;  /* a forecasted date is an estimate: the card says "Date not announced" */
       ev.push('BEGIN:VEVENT', 'UID:research-' + r.id + '@ffm', 'DTSTAMP:' + stamp, 'DTSTART;VALUE=DATE:' + icsDate(ms), 'DTEND;VALUE=DATE:' + icsDate(ms + DAY_MS),
-        'SUMMARY:' + icsText('Closes: ' + r.title), 'DESCRIPTION:' + icsText((r.num || '') + '. ' + (r.url || '')), 'END:VEVENT');
+        'SUMMARY:' + icsText('Closes: ' + r.title), 'DESCRIPTION:' + icsText((r.num || '') + '. ' + rowUrl(r)), 'END:VEVENT');
     });
     if (!ev.length) return '';
     return ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//FFM//EN', 'CALSCALE:GREGORIAN'].concat(ev, ['END:VCALENDAR']).map(foldIcsLine).join('\r\n') + '\r\n';
@@ -486,7 +492,7 @@
 
   return { tokenize: tokenize, parseQuery: parseQuery, phraseNotices: phraseNotices, PHRASE_TIP: PHRASE_TIP,
     PHRASE_QUERY_MAX_CHARS: PHRASE_QUERY_MAX_CHARS, expandTerms: expandTerms, buildIndex: buildIndex, search: search, applyFilters: applyFilters, statusEmptyNotice: statusEmptyNotice,
-    flagNotes: flagNotes, buildIcs: buildIcs, estimateNote: estimateNote, normalizeOrcid: normalizeOrcid, openAlexWorksUrl: openAlexWorksUrl, worksToText: worksToText,
+    flagNotes: flagNotes, buildIcs: buildIcs, estimateNote: estimateNote, rowUrl: rowUrl, normalizeOrcid: normalizeOrcid, openAlexWorksUrl: openAlexWorksUrl, worksToText: worksToText,
     worksStats: worksStats, openAlexFailureText: openAlexFailureText, cleanPublicationList: cleanPublicationList,
     FLAG_LABELS: FLAG_LABELS, daysUntil: daysUntil,
     daysSince: daysSince, staleNotice: staleNotice, businessDaysBefore: businessDaysBefore, timeWarning: timeWarning };
