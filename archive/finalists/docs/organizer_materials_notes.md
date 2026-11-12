@@ -45,7 +45,7 @@ Over 2 hours on infrastructure before any data or UI; calling the LLM for every 
 ## 2. Azure Access Guide (`Solveathon_Azure_Access_Guide-1.docx`)
 - Portal: https://portal.azure.com. Sign in as `ONYEN@ad.unc.edu`, approve Duo, choose directory UNC-Chapel Hill.
 - Search Subscriptions for `solveathon`. The team subscription is named `unc-sdis-solveathon-teamXX` (XX is the team number). Create all resources in it.
-- If it does not appear: sign out, back in, search again. Then email Pratik Patekar (patekar@unc.edu), Haihan Gao (hhgao@unc.edu), Girish Wangikar (girishw@unc.edu), with name, team name, subscription name and a screenshot, CC all three.
+- If it does not appear: sign out, back in, search again. Then email Pratik Patekar ([email redacted]), Haihan Gao ([email redacted]), Girish Wangikar ([email redacted]), with name, team name, subscription name and a screenshot, CC all three.
 - Not stated in the guide: which services or quotas the credits cover, whether Azure OpenAI is pre-provisioned. The kit says to skip its Step 3 if organizers provide Azure OpenAI.
 
 ## 3. Presentation Template (`Solve-a-thon-Presentation-Template.pptx`)
