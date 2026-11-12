@@ -446,7 +446,7 @@ t('normalizeOrcid accepts prefixes, spaces and lower-case x, and checks the digi
 });
 t('openAlexWorksUrl is the exact one-host request', () => {
   const u = RC.openAlexWorksUrl('0000-0002-1825-0097');
-  assert.strictEqual(u, 'https://api.openalex.org/works?filter=authorships.author.orcid:https://orcid.org/0000-0002-1825-0097&sort=publication_year:desc&per-page=25&select=title,publication_year,abstract_inverted_index,topics');
+  assert.strictEqual(u, 'https://api.openalex.org/works?filter=authorships.author.orcid:https://orcid.org/0000-0002-1825-0097&sort=publication_year:desc&per-page=25&select=title,publication_year,abstract_inverted_index,topics,keywords');
   assert(RC.openAlexWorksUrl('0000-0002-1825-0097', 5).includes('per-page=5&'));
   assert.strictEqual((u.match(/https?:\/\/[^/]+/g) || []).filter(h => h !== 'https://orcid.org').join(), 'https://api.openalex.org');
 });
@@ -639,5 +639,63 @@ t('committed research.json: every row has a usable link and most rows store none
   let stored = 0;
   data.rows.forEach(r => { assert(/^https?:\/\//.test(RC.rowUrl(r)), 'no link for ' + r.id); if (r.url) stored++; });
   assert(stored < 10, 'expected the derivable urls to be dropped, ' + stored + ' rows still store one');
+});
+const kw = (name, score) => ({ display_name: name, score: score });
+t('openAlexWorksUrl also selects keywords', () => {
+  assert(/select=[^&]*\bkeywords\b/.test(RC.openAlexWorksUrl('0000-0002-1825-0097')));
+});
+t('worksToKeywords sums scores across works, merges case, ranks by total then first seen', () => {
+  const works = [
+    { keywords: [kw('Stroke imaging', 0.6), kw('deep learning', 0.9)] },
+    { keywords: [kw('stroke imaging', 0.5), kw('perfusion CT', 0.7)] },
+    { keywords: [kw('Perfusion ct', 0.5)] },
+  ];
+  assert.deepStrictEqual(RC.worksToKeywords(works), ['perfusion CT', 'Stroke imaging', 'deep learning']);
+  assert.deepStrictEqual(RC.worksToKeywords(works).length, 3);
+});
+t('worksToKeywords keeps topics scoring 0.3 or more and drops weaker ones', () => {
+  const works = [{ keywords: [], topics: [kw('Advanced Graph Neural Networks', 0.99), kw('Borderline Topic', 0.3), kw('Weak Topic', 0.29), kw('Noise Topic', 0.01)] }];
+  assert.deepStrictEqual(RC.worksToKeywords(works), ['Advanced Graph Neural Networks', 'Borderline Topic']);
+});
+t('worksToKeywords drops generic phrases and phrases with no searchable word', () => {
+  const works = [{ keywords: [kw('life sciences applications', 1), kw('Physical Sciences Applications', 1), kw('research', 1), kw('the of', 1), kw('drug repurposing', 0.5)] }];
+  assert.deepStrictEqual(RC.worksToKeywords(works), ['drug repurposing']);
+});
+t('worksToKeywords treats plural and singular as one phrase and keeps the first spelling', () => {
+  assert.deepStrictEqual(RC.worksToKeywords([{ keywords: [kw('neural networks', 0.5)] }, { keywords: [kw('Neural network', 0.5)] }]), ['neural networks']);
+});
+t('worksToKeywords caps at 12 and tolerates junk input', () => {
+  const many = [{ keywords: Array.from({ length: 30 }, (_, i) => kw('topic' + String.fromCharCode(97 + (i % 26)) + i, 1 - i / 100)) }];
+  assert.strictEqual(RC.worksToKeywords(many).length, 12);
+  assert.strictEqual(RC.worksToKeywords(many)[0], 'topica0');
+  assert.deepStrictEqual(RC.worksToKeywords(null), []);
+  assert.deepStrictEqual(RC.worksToKeywords([null, {}, { keywords: 'x' }, { keywords: [null, {}, kw('', 1), kw('ok phrase', 'x')] }]), []);
+});
+t('worksToQuery leaves keywords unquoted by default, since all-required quoted phrases match almost no open row', () => {
+  const works = [{ keywords: ['stroke imaging', 'perfusion ct', 'deep learning'].map((nm, i) => kw(nm, 1 - i / 10)) }];
+  assert.deepStrictEqual(RC.worksToQuery(works), { text: 'stroke imaging, perfusion ct, deep learning', kind: 'keywords', count: 3 });
+  assert.strictEqual(RC.parseQuery(RC.worksToQuery(works).text).phrases.length, 0);
+});
+t('worksToQuery can quote the top 5 keywords and the quotes still parse as phrases', () => {
+  const names = ['stroke imaging', 'perfusion ct', 'deep learning', 'vessel segmentation', 'collateral flow', 'thrombectomy outcome', 'infarct core'];
+  const works = [{ keywords: names.map((nm, i) => kw(nm, 1 - i / 10)) }];
+  const q = RC.worksToQuery(works, 5);
+  assert.strictEqual(q.kind, 'keywords');
+  assert.strictEqual(q.count, 7);
+  assert(q.text.startsWith('"stroke imaging", "perfusion ct", "deep learning", "vessel segmentation", "collateral flow", thrombectomy outcome'));
+  assert.strictEqual(RC.parseQuery(q.text).phrases.length, 5);
+});
+t('worksToQuery with quotes stays short enough for them to work even with 12 long keywords', () => {
+  const works = [{ keywords: Array.from({ length: 12 }, (_, i) => kw('a fairly long research keyword phrase number ' + i, 1 - i / 100)) }];
+  const q = RC.worksToQuery(works, 5);
+  assert(q.text.length <= 200, 'length ' + q.text.length);
+  assert.strictEqual(RC.parseQuery(q.text).phrases.length, 3);
+  assert.strictEqual(q.count, 3);
+});
+t('worksToQuery falls back to title and abstract text when no work has keywords', () => {
+  const works = [{ title: 'Only title', abstract_inverted_index: null, keywords: [] }];
+  assert.deepStrictEqual(RC.worksToQuery(works), { text: 'Only title', kind: 'text', count: 0 });
+  assert.deepStrictEqual(RC.worksToQuery([]), { text: '', kind: 'text', count: 0 });
+  assert.deepStrictEqual(RC.worksToQuery(null), { text: '', kind: 'text', count: 0 });
 });
 console.log(n + ' tests pass');
