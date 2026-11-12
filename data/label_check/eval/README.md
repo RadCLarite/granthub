@@ -8,7 +8,7 @@ Purpose: test with human judgment whether the ranked list finds what a grant wri
 - `keyword_baseline.R`: the simple comparison method (a keyword search). NOT our ranker; generic words give it false positives.
 - `score_labels.R`: computes the numbers. `test_metrics.R`: checks the math on fake data, prints "N of N tests pass".
 - `known_cases_draft.csv`: proposed must-pass and must-fail cases. Kent approves.
-- `sheets/`: 3 agencies x 2 labelers (20 rows each), plus a hidden key. Labelers never open the key.
+- `sheets/`: moved on 2026-11-12 to `archive/label_check/eval/sheets/` (3 agencies x 2 labelers, 20 rows each, plus a hidden key; labelers never open the key). `make_label_sheets.R`, `model_label.R` and `score_labels.R` still default to `sheets/` here; pass the archive path (for example `key=../../../archive/label_check/eval/sheets/key_hidden_DO_NOT_SHARE.csv`) until they are updated.
 
 ## Who does what
 - **Everett** (data and testing) runs the labeling session, collects the filled sheets, and runs the scorer. He also owns the known cases.
