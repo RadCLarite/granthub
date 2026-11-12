@@ -1,6 +1,6 @@
 # archive
 
-Historical material from the Solve-A-Thon 2026 competition. It is kept so the project's history and decisions stay readable. **Nothing in here is used by the pipeline, the tests, the workflows or the site build.** Paths inside these files refer to the folder layout at the time (`Finalists/`, `QualifierChallenge/`); they are not updated.
+Historical material from the Solve-A-Thon 2026 competition. It is kept so the project's history and decisions stay readable. **Nothing in here is used by the pipeline, the tests, the workflows or the site build, except `label_check/`: `R/40_label_check.R` reads the hidden keys and labeler sheets from it.** Paths inside these files refer to the folder layout at the time (`Finalists/`, `QualifierChallenge/`); they are not updated.
 
 | Folder | What it holds |
 |---|---|
@@ -11,4 +11,5 @@ Historical material from the Solve-A-Thon 2026 competition. It is kept so the pr
 | `finalists/misplaced_llm_cache/` | 9,724 Ollama responses written to the wrong folder by a labeling run; the committed tarball `data/cache/llm_machineA_2026-11-07.tar.gz` is the copy to resume from. |
 | `finalists/outs_figures/` | Backtest figures from the competition. |
 | `finalists/OLD_CLAUDE.md`, `finalists/old_*gitignore`, `finalists/report.qmd`, `finalists/_quarto.yml` | Old project instructions, ignore files and the report template. |
+| `label_check/` | The hidden answer keys and labeler sheets (labeler names inside) for the held-out and validate label checks, moved here from `data/label_check/`. Read by `R/40_label_check.R`. |
 | `azure_era/` | Scripts for the Azure Container App deployment, replaced by GitHub Pages. |
