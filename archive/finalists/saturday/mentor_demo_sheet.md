@@ -2,7 +2,7 @@
 
 Goal: the mentor drives the live tool and tells us what breaks, confuses or does not earn trust. Mentors are not agency users. Log answers in `mentor_log.md` as mentor input, never "users said".
 
-Live tool: https://ffm-app.bluepebble-2cbaa7af.eastus.azurecontainerapps.io/ (data as of 2026-11-07 11:00). Checked in a browser: 32 agencies in the picker, DEQ shows DERA first with "Not sure we can apply: read the notice".
+Live tool: https://<container-app-host>/ (data as of 2026-11-07 11:00). Checked in a browser: 32 agencies in the picker, DEQ shows DERA first with "Not sure we can apply: read the notice".
 
 ## Before they sit down (2 minutes)
 - Open the URL once so the container is warm. Cold start was 38 seconds at min replicas 0.

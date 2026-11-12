@@ -2,7 +2,7 @@
 
 Solve-A-Thon 2026 Final Quest, sponsor NC Office of State Budget and Management (OSBM).
 Team: Kent Lee, Everett Foo, Marco Gullotto, Matthew Martin, Noah Goldblatt.
-Live tool on Azure: https://ffm-app.bluepebble-2cbaa7af.eastus.azurecontainerapps.io/
+Live tool on Azure: https://<container-app-host>/
 
 How to read this. Every number comes from [src/docs/fact_sheet.md](src/docs/fact_sheet.md) (row number in brackets) and is re-derived by `src/R/check_facts.R` (49 of 49 rows pass). Discovery points are from our merged notes of the Fri Nov 6 session ([planning/07_discovery_findings.md](planning/07_discovery_findings.md), [notes/vault/Solveathon_DiscoverySession.md](notes/vault/Solveathon_DiscoverySession.md)). They are paraphrases, not quotes, and state staff names are left out on purpose. Where something was not measured, we say so. The full working draft, with every decision and its source, is [drafts/claude/docs/field_notes_draft.md](drafts/claude/docs/field_notes_draft.md).
 
@@ -107,7 +107,7 @@ Sources: [AI_USAGE_LOG.md](AI_USAGE_LOG.md), one row per session, with what a pe
 | Codex (GPT-6) | Noah, Matthew | Plan PDF extraction and checks; DERA eligibility and date checks |
 | OpenCode (Big Pickle; DeepSeek V4.1 Flash Free; one model logged only as "Default chat model") | Matthew, Everett | Eligibility checks, persona agents, award-backtest scripts |
 | Local Ollama `qwen2.5:14b` | Kent | Trial relevance labels for an evaluation pool. They failed validation and are **not** used in the tool |
-| Azure OpenAI `gpt-4o-mini` (resource `ffm-aoai-team15`) | Team | **In the product:** notice summaries with a checked quote (`src/R/31_swipe_summary.R`, about 558 calls, about $0.07 as logged) and an advisory "can a state agency apply as lead?" label (`src/R/30_notice_reader.R`). Neither sets rank, eligibility or tier |
+| Azure OpenAI `gpt-4o-mini` (resource `<openai-resource>`) | Team | **In the product:** notice summaries with a checked quote (`src/R/31_swipe_summary.R`, about 558 calls, about $0.07 as logged) and an advisory "can a state agency apply as lead?" label (`src/R/30_notice_reader.R`). Neither sets rank, eligibility or tier |
 
 No other generative AI tool was used: no UNC PromptLab, no ChatGPT. The only tools were Claude Code, OpenCode and Codex (as logged), local Ollama, and Azure OpenAI in the product.
 

@@ -27,7 +27,7 @@ Consequence: the product stays a static, public, browser-state tool. Features th
 
 | Old (Azure) | New (GitHub) |
 |---|---|
-| Container Apps `ffm-app`, Shiny | Pages site at `/matchmaker/` (built; see `app/build_pages.sh`) |
+| Container Apps `<app-name>`, Shiny | Pages site at `/matchmaker/` (built; see `app/build_pages.sh`) |
 | Blob Storage `payload.json` | File on Pages, rebuilt by the daily workflow |
 | Container Apps Job, daily refresh | `pages.yml` cron `0 11 * * *`, `workflow_dispatch` for manual runs |
 | Container registry, revisions, traffic split, rollback to v37 | Branch plus pull request, preview artifact, merge to `main` deploys. Rollback: revert the commit, or re-run an earlier successful deploy |

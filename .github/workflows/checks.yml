@@ -47,6 +47,8 @@ jobs:
         run: python3 -m unittest tests/research/test_feeds.py
       - name: Site asks search engines not to index it
         run: python3 -m unittest tests/research/test_site.py
+      - name: No Azure resource names in the tree
+        run: python3 -m unittest tests/research/test_no_azure_names.py
       - name: Researcher tab unit tests
         run: node tests/research/test_core.js
       - name: Researcher tab test set report

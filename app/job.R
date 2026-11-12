@@ -4,7 +4,7 @@
 # data/processed. Fetching new opportunities from Grants.gov (02a to 03) is NOT part of this job.
 #
 # Settings (env vars; TODO move to 00_config.R, listed in Marco's handoff):
-#   FINALISTS_DIR     root of the repo (holds granthub.Rproj, R/, data/); name kept for the Dockerfile.job image
+#   FINALISTS_DIR     root of the repo (holds granthub.Rproj, R/, data/); name kept from the old job image
 #                     default: the folder above app/ if it has R/, else /srv/granthub
 #   RUN_PIPELINE      1 (default) runs R/13_daily_refresh.R (10_run_ranking + 11_build_payload) from FINALISTS_DIR;
 #                     0 ships FINALISTS_DIR/data/processed/payload.json as it is (then data_as_of is NOT restamped)
@@ -13,6 +13,7 @@
 #   PAYLOAD_IN        payload to ship when not scoring (default: FINALISTS_DIR/data/processed/payload.json, then app/data/payload.json)
 #   JOB_TODAY         YYYY-MM-DD override of "today" (tests only)
 #   AS_OF_DATE        (set by this job from "today" before scoring; 00_config.R reads it) the scoring clock. REF_DATE stays frozen.
+#   BLOB_URL          URL of the payload blob to overwrite (required when JOB_DRY_RUN=0)
 #   BLOB_WRITE_SAS    write SAS for the one blob; else managed identity (needs Storage Blob Data Contributor)
 suppressPackageStartupMessages(library(jsonlite))
 
@@ -22,7 +23,7 @@ die <- function(...) { msg(...); quit(status = 1) }
 
 dry <- env("JOB_DRY_RUN", "1") != "0"
 run_pipeline <- env("RUN_PIPELINE", "1") != "0"
-blob <- "https://ffmdatateam15.blob.core.windows.net/ffm-data/payload.json"
+blob <- env("BLOB_URL")   # full URL of the one payload blob; only needed when JOB_DRY_RUN=0
 Sys.setenv(TZ = env("TZ", "America/New_York"))
 stamp_now <- Sys.time()
 today <- if (nzchar(env("JOB_TODAY"))) as.Date(env("JOB_TODAY")) else as.Date(format(stamp_now, "%Y-%m-%d"))
@@ -33,9 +34,9 @@ script_dir <- tryCatch(dirname(normalizePath(sub("^--file=", "", grep("^--file="
                        error = function(e) getwd())
 root <- env("FINALISTS_DIR", if (dir.exists(file.path(script_dir, "..", "R"))) normalizePath(file.path(script_dir, "..")) else "/srv/granthub")
 have_tree <- dir.exists(file.path(root, "R"))
-# The app image (ffm-app) has no R/ and no scoring inputs, only a baked copy at data/payload.json.
+# The app image (<app-name>) has no R/ and no scoring inputs, only a baked copy at data/payload.json.
 # There the job cannot score: it checks and ships that copy (data_as_of is not restamped). Use the
-# job image (Dockerfile.job) for real daily scoring.
+# job image for real daily scoring.
 if (!have_tree) { run_pipeline <- FALSE; msg("no R/ under", root, "; scoring skipped, shipping the baked payload") }
 payload_path <- env("PAYLOAD_IN", file.path(root, "data", "processed", "payload.json"))
 if (!file.exists(payload_path)) {
@@ -144,6 +145,7 @@ if (nzchar(env("JOB_OUT"))) {
 if (dry) { msg("JOB_DRY_RUN is on: nothing written to Blob"); quit(status = 0) }
 
 # ---- 5. upload -----------------------------------------------------------------------------
+if (!nzchar(blob)) die("BLOB_URL is not set; nothing to upload to")
 sas <- env("BLOB_WRITE_SAS")
 hdr <- c("-H", shQuote("x-ms-blob-type: BlockBlob"), "-H", shQuote("Content-Type: application/json"),
          "-H", shQuote("x-ms-version: 2021-08-06"))

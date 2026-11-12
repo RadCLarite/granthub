@@ -16,7 +16,8 @@ The repository is public at https://github.com/RadCLarite/granthub and the site 
 
 ## Keys and secrets
 - [ ] Rotate every key that was ever used on the team machines (Simpler.Grants.gov, SAM.gov, any Azure or model key). The tracked tree has no key file, but keys were held in `api_keys.env` and `.Renviron` outside git. Open; two keys are also in the old repo's history. **Decides:** each key holder rotates their own; Kent confirms when done.
-- [ ] Decide what happens to the Azure resources named in `archive/finalists/docs/azure_setup.md` and `app/` (registry, storage, container app). Remove the names from the public tree if the resources will be deleted or should not be advertised. Open. **Decides:** Kent (and whoever owns the Azure subscription).
+- [x] Remove the Azure resource names from the public tree. Done 2026-11-12: names are placeholders (`<registry>`, `<storage-account>` and so on) in 21 files, and `tests/research/test_no_azure_names.py` fails CI if one comes back. Past `AI_USAGE_LOG.md` rows still carry some names; that log is append-only.
+- [ ] Decide whether to delete the live Azure resources (registry, storage, container app, OpenAI resource) and stop the spend. Open. **Decides:** Kent (and whoever owns the Azure subscription).
 
 ## Third-party requests from the browser
 - [x] The researcher tab calls one outside host, `https://api.openalex.org`, only after a click on "Look up my papers", sending only the ORCID iD (no cookies, nothing stored). Confirmed 2026-11-12: the notice in `research_tab.js` says it sends only the ORCID iD, stores nothing and keeps pasted text on the page.
@@ -33,6 +34,6 @@ The repository is public at https://github.com/RadCLarite/granthub and the site 
 
 ## Repository hygiene
 - [ ] Repository size: the tree has about 17,500 archived files and many cache files. Consider Git LFS or dropping `archive/finalists/misplaced_llm_cache/` (9,724 loose files duplicated by the tarball in `data/cache/`). Open. **Decides:** Kent.
-- [ ] Decide whether to keep the Azure-era files that remain in `app/` (`Dockerfile`, `Dockerfile.job`, `entrypoint.sh`, `app.R`, `read_feedback.sh`, `pilot_scorecard.sh`). `Dockerfile` copies `app/data` and `app/www`, which do not exist. Open. **Decides:** Kent.
+- [x] Remove the Azure-era files from `app/` (`Dockerfile`, `Dockerfile.job`, `entrypoint.sh`, `app.R`, `read_feedback.sh`, `pilot_scorecard.sh`). Done 2026-11-12; they stay in git history. `app/.dockerignore` is now orphaned and was left in place. `app/job.R` stays (the Pages workflow runs it); its upload target now comes from `BLOB_URL`.
 - [ ] (CI runs the site build, feed and JS tests on every code PR; the R tests and the visual check are not confirmed here.) Re-run `Rscript tests/run_tests.R`, `Rscript R/check_facts.R`, `python app/check_dupes.py` on the pushed copy, and open the Pages site at 1280 and 375 px. Open. **Decides:** Kent.
 - [x] The Pages root `/` is now a landing page forwarding to `/matchmaker/`; the old qualifier site is in `archive/qualifier/docs/`. Restore it only if the owner wants it live. Done, nothing to decide unless the owner wants the old site back.

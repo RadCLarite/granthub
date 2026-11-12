@@ -19,7 +19,7 @@ Rubric target: Solve, level 4 ("a README a state developer could pick up"). This
 ## Running it in the cloud
 - Resource names and every deploy so far: `archive/finalists/docs/azure_setup.md`. Deploy steps: `archive/azure_era/deploy_azure.sh` (dry run by default; asks before each step).
 - The app needs no key. Only the data-collection scripts do: copy `api_keys.env.example` to `api_keys.env` and add your own keys. Never commit the file; hold keys in Azure as secrets.
-- The daily job (`app/job.R`) validates and stamps the payload. Real re-scoring needs the job image (`app/Dockerfile.job`) and write access to Blob; today it runs as a dry run. Fetching new postings is manual.
+- The daily job (`app/job.R`) validates and stamps the payload. Real re-scoring needs the job image (its Dockerfile was removed from the repo on 2026-11-12) and write access to Blob; today it runs as a dry run. Fetching new postings is manual.
 
 ## Known sharp edges
 - The cold start with zero replicas is about 38 seconds; keep one replica for anything people will use.

@@ -96,7 +96,7 @@ Rules to know:
 | [tool/](../tool/) | The one-page tool: `matchmaker.html`, plus `ranker.js`, `ui.js`, `styles.css`, `index.html` and a stub payload in `stub/`. |
 | [tests/](../tests/) | `run_tests.R` is the runner. |
 | [docs/](.) | [runbook](runbook.md), [fact_sheet](fact_sheet.md), [contract](contract.md), [daily_job](daily_job.md), [real_app_criteria](real_app_criteria.md), [REPO_MAP](REPO_MAP.md). |
-| [app/](../app/) | The Azure container: `app.R` (Shiny), `job.R` (daily job), `Dockerfile`, `Dockerfile.job`, `entrypoint.sh`, `read_feedback.sh` (feedback form log), `pilot_scorecard.sh` (pilot measure from logged marks). |
+| [app/](../app/) | The daily job `job.R` (run by the Pages workflow) and the Pages build and feed scripts. The Azure container files (`app.R`, `Dockerfile`, `Dockerfile.job`, `entrypoint.sh`, `read_feedback.sh`, `pilot_scorecard.sh`) were removed on 2026-11-12 and remain in git history. |
 | [data/raw/](../data/raw/) | Untouched inputs: 34 agency plan PDFs, the SAM.gov listings file, organizer files. Never modify. |
 | [data/manual/](../data/manual/) | Hand-authored tables: `criteria.csv`, `agency_map.csv`, `program_map.csv`, `facts.csv`, `test_cases.csv`. |
 | [data/cache/](../data/cache/) | Saved API, OCR and model responses, so reruns are free. |
@@ -137,9 +137,9 @@ PR checks: `.github/workflows/checks.yml` runs `app/check_dupes.py` (duplicate f
 
 ## Legacy: deploy on Azure (no longer used)
 
-The app runs on Azure Container Apps. Names (resource group, registry `ffmacrteam15`, app `ffm-app`, storage `ffmdatateam15`) are in [archive/finalists/docs/azure_setup.md](../archive/finalists/docs/azure_setup.md).
+The app ran on Azure Container Apps (retired; the resource names are placeholders in the archive). Names (resource group, registry `<registry>`, app `<app-name>`, storage `<storage-account>`) are in [archive/finalists/docs/azure_setup.md](../archive/finalists/docs/azure_setup.md).
 
-How it fits together: `app/app.R` serves `matchmaker.html` at `/` and serves `/payload.json` from Blob Storage, with a copy baked into the image as fallback. No key is in the image.
+How it fitted together (these files have since been removed from the repo): `app/app.R` served `matchmaker.html` at `/` and serves `/payload.json` from Blob Storage, with a copy baked into the image as fallback. No key is in the image.
 
 The steps are in [archive/azure_era/deploy_azure.sh](../archive/azure_era/deploy_azure.sh). It is a dry run by default: it prints each command and runs none.
 
@@ -151,7 +151,7 @@ DEPLOY=yes sh archive/azure_era/deploy_azure.sh      # asks before every step
 
 Steps in the script: stage assets and check no key is present, validate `payload.json` (needs python3), build the image with `az acr build`, upload `payload.json` to Blob, update the app, create the daily job, start the job once.
 
-Status (Sat Nov 7, night): image `ffm-app:v24` is live, and the page it serves is byte-identical to `tool/matchmaker.html` on `main` at that time. Every deploy (image tag, revision, what changed) is logged in [archive/finalists/docs/azure_setup.md](../archive/finalists/docs/azure_setup.md).
+Status (Sat Nov 7, night): image `<app-name>:v24` is live, and the page it serves is byte-identical to `tool/matchmaker.html` on `main` at that time. Every deploy (image tag, revision, what changed) is logged in [archive/finalists/docs/azure_setup.md](../archive/finalists/docs/azure_setup.md).
 
 ## Daily refresh
 
@@ -176,7 +176,7 @@ Status (Sun Nov 8): the job runs on image v36 and a run started by hand at 05:02
 - The "NC has won this before" track record undercounts. Only 31 recipient matches are confirmed.
 - SAM.gov shows $0 for many formula programs that do spend money. The tool treats an all-zero listing as unknown, not zero.
 - Missing dates and award amounts are common. The tool shows "not listed", never a made-up value.
-- Pursue, Maybe and Skip marks and the cart live in each browser; there are no accounts. Each mark is also sent to the app's `/feedback` log (agency, grant, rank, mark, a random browser code; no personal data) so `app/pilot_scorecard.sh` can report the pilot measure. Marks do not yet change the ranking.
+- Pursue, Maybe and Skip marks and the cart live in each browser; there are no accounts. Each mark is also sent to the app's `/feedback` log (agency, grant, rank, mark, a random browser code; no personal data) so `app/pilot_scorecard.sh` (since removed) could report the pilot measure. Marks do not yet change the ranking.
 - Four agency plans are old, and plan quality varies across agencies.
 - Only 2 agencies (DHHS and DMVA) have a capability table.
 - The daily refresh is a GitHub Actions run that re-scores cached data and redeploys the site; it does not fetch new postings from Grants.gov. Not yet verified on GitHub (the workflow has not run); do not describe it as live until it has.

@@ -19,7 +19,7 @@ Titles only: the repo is public, so we do not name the state staff and mentors w
 - Cost: to be read from the Azure bill for month to date. The starter kit's $30 to $80 per month is unverified, so we do not quote it. Spend alerts exist at $50, $100, $250 and $400.
 
 ## How we would know it worked
-- Pilot measure, already in the product: the share of Top 10 rows that staff mark Pursue or Maybe, from `/feedback` via `app/pilot_scorecard.sh`.
+- Pilot measure, already in the product: the share of Top 10 rows that staff mark Pursue or Maybe, from `/feedback` via the `pilot_scorecard.sh` script (removed 2026-11-12; see git history).
 - Coverage: how many opportunities the agency would otherwise have missed, counted against the manual list kept in parallel.
 - A "Yes" commits OSBM to: naming an owner, giving 2 to 3 agencies a grants contact for 60 days, and reading the measure at the end.
 
