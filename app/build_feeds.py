@@ -121,7 +121,7 @@ rsec = f'<h2>Researcher feeds</h2><p>Open federal research opportunities by NIH 
 li = "".join(f'<li>{x(nm)}: <a href="{x(i)}.atom">feed</a> ({k} grants), <a href="{x(i)}.ics">calendar</a> ({n} deadlines)</li>'
              for i, nm, k, n in index)
 open(os.path.join(out, "index.html"), "w", encoding="utf-8").write(
-    '<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
+    '<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex, nofollow">'
     f'<title>Grant feeds</title><h1>Grant feeds by agency</h1><p>Data as of {x(asof)}. Top-10 open grants per agency. '
     f'Add a link to a feed reader or calendar app. <a href="../">Back to the tool</a>.</p><ul>{li}</ul>{rsec}')
 print(f"feeds: {len(index)} agencies in {out}")

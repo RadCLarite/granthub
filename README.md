@@ -61,7 +61,7 @@ A daily GitHub Actions job re-scores the opportunity data already stored in the 
 
 ## Privacy
 
-The tool is a static page. It loads its data files (the grant payload and, for the researcher tab, research.json and synonyms.json) from its own site; the only other request is the researcher tab's optional ORCID lookup to api.openalex.org, sent only when you click Look up and carrying only your ORCID iD; your agency choice, marks and notes are kept in your browser's local storage on your device and are never sent anywhere. There are no accounts. Links in the tool (Grants.gov, SAM.gov, the feedback link) open other sites only when you click them. Clear your browser's site data to erase your marks.
+The tool is a static page. It loads its data files (the grant payload and, for the researcher tab, research.json and synonyms.json) from its own site; the only other request is the researcher tab's optional ORCID lookup to api.openalex.org, sent only when you click Look up and carrying only your ORCID iD; your agency choice, marks and notes are kept in your browser's local storage on your device and are never sent anywhere. There are no accounts. Links in the tool (Grants.gov, SAM.gov, the feedback link) open other sites only when you click them. Clear your browser's site data to erase your marks. The site asks search engines not to index it: every page carries a `noindex, nofollow` meta tag, and `app/robots.txt` is copied to the site root. Because the site lives under `/granthub/` on github.io, crawlers read only the meta tag; `robots.txt` takes effect only if the site moves to its own domain. Neither stops a person who has the link.
 
 ## Report a problem or give feedback
 
