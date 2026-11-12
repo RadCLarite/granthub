@@ -1,5 +1,0 @@
-# Intentionally does NOT exclude data/ or www/ (staged copies must reach the build).
-.git
-*.env
-.Renviron
-.DS_Store
