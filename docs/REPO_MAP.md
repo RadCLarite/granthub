@@ -19,7 +19,7 @@ Written when the repository was reorganized into a clean top-level layout (2026-
 | `data/processed/` | Pipeline outputs, including the tracked `payload.json` snapshot. `items.csv` and `ranking.csv` are git-ignored. |
 | `data/example/` | Toy data used only when real files are missing. |
 | `data/qualifier/` | The two qualifier-round files the pipeline still reads (see its README). |
-| `data/label_check/` | Hand-label and holdout sheets read by `R/40_label_check.R` (contain labeler names and hidden keys; see the publishing checklist). |
+| `data/label_check/` | Held-out label check inputs and results read by `R/40_label_check.R`. The labeler sheets and hidden keys moved to `archive/label_check/` (see the publishing checklist). |
 | `docs/` | Runbook, pipeline guide, fact sheet, payload contract (`contract.md`), real-app criteria, daily job, expansion plan, requirements, pilot plan, handover, this map, publishing checklist. |
 | `outs/` | Generated outputs (git-ignored except `.gitkeep`). |
 | `archive/` | Historical, not used by the pipeline. See `archive/README.md`. |

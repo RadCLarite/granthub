@@ -7,10 +7,11 @@
 # see model output. stage=draw makes those blind sheets. Nothing here fills a label,
 # and the draw never looks at any model label.
 #
-# stage=draw   writes, in data/label_check/holdout/:
+# stage=draw   writes, in archive/label_check/holdout/ (sheet_dir=; the hidden key and the labeler sheets live in archive/):
 #   holdout_labeler_A.csv, holdout_labeler_B.csv   same 30 items, different order; blind
-#   goals_for_labelers.md                          the agencies' plan goals, exact text
 #   holdout_key_DO_NOT_OPEN.csv                    item_no -> opp_id and how it was drawn
+# and, in data/label_check/holdout/:
+#   goals_for_labelers.md                          the agencies' plan goals, exact text
 # (stage=score comes after both sheets are filled; not written yet.)
 #
 # Draw rule (written before any label exists): per agency, from the open pool
@@ -29,6 +30,9 @@ stage <- sub("^stage=", "", grep("^stage=", args, value = TRUE)[1])
 if (is.na(stage) || !stage %in% c("draw", "score")) stop("Usage: Rscript R/40_label_check.R stage=draw|score")
 if (!dir.exists("data/processed")) stop("Run this from the repo root.")
 arg <- function(k, d) { m <- grep(paste0("^", k, "="), args, value = TRUE); if (length(m)) sub(paste0("^", k, "="), "", m[1]) else d }
+# Labeler sheets and hidden keys were moved out of data/ (see archive/README.md); the validate key moved with them.
+sheet_dir <- arg("sheet_dir", "archive/label_check/holdout")
+validate_key_path <- arg("validate_key", "archive/label_check/eval/sheets/key_hidden_DO_NOT_SHARE.csv")
 
 # kappa for two logical vectors (no packages): (po - pe) / (1 - pe)
 kappa_bin <- function(x, y) {
@@ -54,8 +58,8 @@ if (stage == "score") {
   out_md <- arg("report", file.path(hdir, "label_check_result.md"))
   LV <- c("relevant", "maybe", "not relevant")
   rd <- function(f) read.csv(f, stringsAsFactors = FALSE, colClasses = "character", na.strings = character(0))
-  A <- rd(file.path(hdir, "holdout_labeler_A.csv")); B <- rd(file.path(hdir, "holdout_labeler_B.csv"))
-  key <- rd(file.path(hdir, "holdout_key_DO_NOT_OPEN.csv"))
+  A <- rd(file.path(sheet_dir, "holdout_labeler_A.csv")); B <- rd(file.path(sheet_dir, "holdout_labeler_B.csv"))
+  key <- rd(file.path(sheet_dir, "holdout_key_DO_NOT_OPEN.csv"))
   A$label <- trimws(tolower(A$label)); B$label <- trimws(tolower(B$label))
   for (nm in c("A", "B")) {
     s <- get(nm); bad <- !(s$label %in% LV)
@@ -113,7 +117,7 @@ opps  <- read.csv("data/processed/opportunities.csv", stringsAsFactors = FALSE,
                   colClasses = c(opp_id = "character", opp_number = "character"))
 goals <- read.csv("data/manual/agency_goal_summaries.csv", stringsAsFactors = FALSE)
 # ids of the 60 validate items, read ONLY to exclude them (no hand labels are read)
-val_key <- read.csv("data/label_check/eval/sheets/key_hidden_DO_NOT_SHARE.csv", stringsAsFactors = FALSE,
+val_key <- read.csv(validate_key_path, stringsAsFactors = FALSE,
                     colClasses = c(opp_id = "character"))
 validate_ids <- unique(val_key$opp_id)
 stopifnot(nrow(val_key) == 60)   # 60 items = 55 unique grants (5 appear under two agencies)
@@ -172,15 +176,16 @@ base <- data.frame(item_no = m$item_no, agency_for_fit = m$agency.x, opp_number 
   stringsAsFactors = FALSE)
 
 out_dir <- "data/label_check/holdout"; dir.create(out_dir, showWarnings = FALSE, recursive = TRUE)
+dir.create(sheet_dir, showWarnings = FALSE, recursive = TRUE)
 for (lb in c("A", "B")) {
   sh <- base
   if (lb == "B") { set.seed(HOLDOUT_SEED + 200); sh <- sh[sample(nrow(sh)), ] }
   sh$labeler <- lb; sh$label <- ""; sh$note <- ""   # label: relevant / maybe / not relevant
-  write.csv(sh, file.path(out_dir, paste0("holdout_labeler_", lb, ".csv")), row.names = FALSE, na = "")
+  write.csv(sh, file.path(sheet_dir, paste0("holdout_labeler_", lb, ".csv")), row.names = FALSE, na = "")
 }
 write.csv(data.frame(item_no = sel$item_no, agency = sel$agency, opp_id = sel$opp_id,
                      source = sel$source, match_score = sel$match_score),
-          file.path(out_dir, "holdout_key_DO_NOT_OPEN.csv"), row.names = FALSE)
+          file.path(sheet_dir, "holdout_key_DO_NOT_OPEN.csv"), row.names = FALSE)
 
 gl <- c("# Plan goals for the held-out labelers", "",
   "Exact text from each agency's strategic plan (`data/manual/agency_goal_summaries.csv`). Label every item for the agency named in its `agency_for_fit` column.",
