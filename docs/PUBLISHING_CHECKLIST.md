@@ -16,7 +16,7 @@ The repository is public at https://github.com/RadCLarite/granthub and the site 
 
 ## Keys and secrets
 - [ ] Rotate every key that was ever used on the team machines (Simpler.Grants.gov, SAM.gov, any Azure or model key). The tracked tree has no key file, but keys were held in `api_keys.env` and `.Renviron` outside git. Open; two keys are also in the old repo's history. **Decides:** each key holder rotates their own; Kent confirms when done.
-- [x] Remove the Azure resource names from the public tree. Done 2026-11-12: names are placeholders (`<registry>`, `<storage-account>` and so on) in 21 files, and `tests/research/test_no_azure_names.py` fails CI if one comes back. Past `AI_USAGE_LOG.md` rows still carry some names; that log is append-only.
+- [x] Remove the Azure resource names from the public tree. Done 2026-11-12: names are placeholders (`<registry>`, `<storage-account>` and so on) in 21 files, and `tests/research/test_no_azure_names.py` fails CI if one comes back. The same placeholders replace the names in past `AI_USAGE_LOG.md` rows.
 - [ ] Decide whether to delete the live Azure resources (registry, storage, container app, OpenAI resource) and stop the spend. Open. **Decides:** Kent (and whoever owns the Azure subscription).
 
 ## Third-party requests from the browser
