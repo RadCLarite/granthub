@@ -12,7 +12,7 @@ Written when the repository was reorganized into a clean top-level layout (2026-
 | `R/` | The numbered R pipeline (`00_config.R` holds every threshold and path), helpers, backtests, `check_facts.R`, `ocr_vision.swift`. |
 | `tool/` | The static web page `matchmaker.html` (published as `/matchmaker/`), plus `ranker.js`, `ui.js`, `styles.css`, `index.html`, `stub/`, `build_tool.R`. |
 | `tests/` | `run_tests.R` and its helpers. |
-| `app/` | Daily job `job.R`, Pages build `build_pages.sh`, feeds `build_feeds.py`, `check_dupes.py`, `site_index.html` (landing page at `/`), Dockerfiles and the Azure-era container files that remain. |
+| `app/` | Daily job `job.R`, Pages build `build_pages.sh`, feeds `build_feeds.py`, `check_dupes.py`, `site_index.html` (landing page at `/`), the Azure-era container files were removed on 2026-11-12 (see git history). |
 | `data/raw/` | Untouched inputs (agency plan PDFs, SAM listings, organizer files). |
 | `data/manual/` | Hand-authored tables, including the agency goal tables and plan text checks. |
 | `data/cache/` | Saved API, OCR and model responses so reruns are free. |

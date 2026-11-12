@@ -4,7 +4,7 @@
 The app is live on Azure and all the proof tests passed. Spend is far under the cap. Kent accepted the tool plan (09) overnight, and PR #14 is merged into main. Nothing broke and no stop rule fired.
 
 ## The app
-URL: https://ffm-app.bluepebble-2cbaa7af.eastus.azurecontainerapps.io/ (Shiny at `/`, qualifier JS tool at `/tool.html`). Checked at 7:00: running, image `ffm-app:v1`, min 0, max 1 replicas.
+URL: https://<container-app-host>/ (Shiny at `/`, qualifier JS tool at `/tool.html`). Checked at 7:00: running, image `<app-name>:v1`, min 0, max 1 replicas.
 
 | Test | Result |
 |---|---|
@@ -30,9 +30,9 @@ URL: https://ffm-app.bluepebble-2cbaa7af.eastus.azurecontainerapps.io/ (Shiny at
 These are list-price estimates, and Azure posts costs late. Azure won't stop spending by itself (spending limit is off, budgets only send alerts). Today's stop from the team plan: **tell Kent at $50 added today.**
 
 ## What changed on Azure
-- Built `ffm-app:v1` in `ffmacrteam15`. Created `ffm-app` in `ffm-env` (0.5 vCPU, 1 Gi, managed identity with AcrPull, registry admin off).
-- Created budget `ffm-guard` with alerts at $50, $100, $250 and $400. They go to Owner/Contributor email, not to this session.
-- Created Azure OpenAI `ffm-aoai-team15` (East US): `gpt-4o-mini` (DataZoneStandard, because Standard was refused as deprecated) and `text-embedding-3-small`. Both calls tested. **Not wired in, and no call cap yet.**
+- Built `<app-name>:v1` in `<registry>`. Created `<app-name>` in `<containerapps-env>` (0.5 vCPU, 1 Gi, managed identity with AcrPull, registry admin off).
+- Created budget `<budget-alert>` with alerts at $50, $100, $250 and $400. They go to Owner/Contributor email, not to this session.
+- Created Azure OpenAI `<openai-resource>` (East US): `gpt-4o-mini` (DataZoneStandard, because Standard was refused as deprecated) and `text-embedding-3-small`. Both calls tested. **Not wired in, and no call cap yet.**
 - Nothing was deleted. No other resources were created.
 
 ## What changed in git

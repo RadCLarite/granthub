@@ -16,7 +16,7 @@ Priority is our reading of what the sponsors stressed most: must = pilot fails w
 | # | Priority | Requirement (sponsor input, paraphrased from notes) | Where it is met | Evidence |
 |---|---|---|---|---|
 | 1 | Must | Save time, never add work | One required choice (agency), then a ranked list; no setup questions | Live tool, README "What it does" |
-| 2 | Must | Fast and simple; waiting minutes fails | Static page served by `ffm-app`, payload prebuilt; warm 0.09 to 0.15 s, cold start 38 s at zero replicas, min replicas set to 1 | `archive/finalists/docs/azure_setup.md` |
+| 2 | Must | Fast and simple; waiting minutes fails | Static page served by `<app-name>`, payload prebuilt; warm 0.09 to 0.15 s, cold start 38 s at zero replicas, min replicas set to 1 | `archive/finalists/docs/azure_setup.md` |
 | 3 | Must | Sort eligibility, not the person | Hard filter with exact quote, or "check eligibility" | Fact sheet rows 7 and 8 (16,288 pairs marked check eligibility; others hidden with a reason) |
 | 4 | Must | Rank by payoff versus effort, not fit alone | Award ceiling and signature tier (writer, supervisor, leadership) shown per row; 26 Top 10 rows need leadership | Fact sheet rows 24 and 25; 887 open items have no award ceiling and say "not listed" (row 6) |
 | 5 | Must | Deadline and time to act on every match | Days-to-deadline and status badges; 71 Top 10 rows close within 14 days across 24 agencies | Fact sheet rows 17 and 18; decision 12 |

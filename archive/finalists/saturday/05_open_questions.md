@@ -4,7 +4,7 @@
 |---|---|---|---|
 | 1 | Where did the overnight label jobs write their output? PR #12 (two-machine Ollama labelling) was reverted on main at 00:25, so the files may not be where main expects | Kent, at kickoff | 8:30 |
 | 2 | Is there a held-out set for the label check? 09 says prompts v2 and v3 were written from the same 60 hand-labelled items. If every hand-labelled item was used, there is no held-out set, and Noah needs about 30 new blind hand labels from two people | Kent and Noah | 9:30 |
-| 3 | Is Azure OpenAI (`ffm-aoai-team15`) ours to use? | Organizers, asked by Matthew | 9:30 |
+| 3 | Is Azure OpenAI (`<openai-resource>`) ours to use? | Organizers, asked by Matthew | 9:30 |
 | 4 | Does the Final Submission form want a repo link or a file? | Organizers, asked by Matthew | 9:30 |
 | 5 | Does a SAM.gov bulk Assistance Listings file exist that avoids the key's rate limit? [uncertain] | Noah | 9:00 |
 | 6 | Does the Federal Audit Clearinghouse give NC awards at state-agency level? [uncertain] | Everett | 2:30 |

@@ -9,7 +9,7 @@ Rewritten Fri Nov 6, about 11:10 pm, by Claude for Marco, after Kent's [15 produ
 Related: [azure_setup.md](../src/docs/azure_setup.md) | [framing worksheet](02_framing_worksheet.md) | [discovery findings](07_discovery_findings.md)
 
 ## Where we start
-**Azure hosting works.** `ffm-app` is live at https://ffm-app.bluepebble-2cbaa7af.eastus.azurecontainerapps.io/
+**Azure hosting works.** `<app-name>` is live at https://<container-app-host>/
 
 Kent's decision 6 makes the product the **qualifier's JS tool reading `payload.json`**, with Azure OpenAI and Blob, and the R Shiny page is the **fallback**. Tonight's proof still helps: the JS tool already runs on Azure at `/tool.html`, though it shows qualifier data, not Finals data.
 
@@ -55,8 +55,8 @@ No matching, ranking or AI exists yet.
 | 7:00 | Read the overnight summary | |
 | Before 9:00 | Confirm this plan. Open the URL on your phone. `az login` with Duo if needed. Check Cost analysis. Merge main | URL loads; branch current |
 | 9:00 | Give Kent the list above. Confirm Azure OpenAI | Gate item and N decided |
-| 9:00 to 10:00 | Create `ffm-aoai-team15`, deploy `gpt-4o-mini` and `text-embedding-3-small`, test both calls. Read the Azure data-handling documentation | Both return 200; pipeline team has what they need, with keys kept out of files |
-| 10:00 to 11:30 | **Blob, once Kent says yes** (his rule). Give `ffm-app` read access (a role assignment). Upload `payload.json` and cache | App reads Blob; new data needs no rebuild |
+| 9:00 to 10:00 | Create `<openai-resource>`, deploy `gpt-4o-mini` and `text-embedding-3-small`, test both calls. Read the Azure data-handling documentation | Both return 200; pipeline team has what they need, with keys kept out of files |
+| 10:00 to 11:30 | **Blob, once Kent says yes** (his rule). Give `<app-name>` read access (a role assignment). Upload `payload.json` and cache | App reads Blob; new data needs no rebuild |
 | 11:30 to 1:00 | Serve the JS tool as the main page, reading Finals `payload.json`. Keep Shiny at a side path as the fallback | Tool loads with Finals data on Azure |
 | **1:00 gate** | Working ranking per agency, recall number, known-good case, deterministic rerun | If short, cut per decision 15: feedback button, LLM tier upgrade, presets |
 | 1:00 to 4:00 | Support Azure reasons with the quote check. Mentor drop-in with a real failure. Start the Q&A cheat sheet | Reasons run within a call cap |
@@ -88,4 +88,4 @@ git push origin marco_testing
 If `git switch` fails because another worktree holds the branch, run these in that worktree. Or open a PR from `marco_testing` to `main` and let Kent merge it.
 
 ## Suggested `handoff.md` Azure row (Kent's file, so not edited)
-> Azure: `ffm-app` live at the URL above (Shiny fallback at `/`, qualifier JS tool at `/tool.html`, image `ffm-app:v1`, 0.5 vCPU, 1 Gi, min 0, max 1, managed identity pull). Budget alerts `ffm-guard` at $50, $100, $250, $400; alerts do not stop spending. Azure OpenAI not created. Details in `src/docs/azure_setup.md`.
+> Azure: `<app-name>` live at the URL above (Shiny fallback at `/`, qualifier JS tool at `/tool.html`, image `<app-name>:v1`, 0.5 vCPU, 1 Gi, min 0, max 1, managed identity pull). Budget alerts `<budget-alert>` at $50, $100, $250, $400; alerts do not stop spending. Azure OpenAI not created. Details in `src/docs/azure_setup.md`.
