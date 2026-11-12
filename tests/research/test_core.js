@@ -623,4 +623,21 @@ t('estimateNote says the estimate has passed when est is before today', () => {
   assert.strictEqual(RC.estimateNote(r, 'bad'), 'Estimated close 2026-03-18, not confirmed');
   assert.strictEqual(RC.estimateNote({ status: 'posted', est: '2026-03-18' }, '2026-11-11'), '');
 });
+t('rowUrl: stored url wins, a numeric id falls back to the grants.gov page, otherwise empty', () => {
+  assert.strictEqual(RC.rowUrl({ id: '360536', url: 'https://example.org/x' }), 'https://example.org/x');
+  assert.strictEqual(RC.rowUrl({ id: '360536' }), 'https://www.grants.gov/search-results-detail/360536');
+  assert.strictEqual(RC.rowUrl({ id: 'S99' }), '');
+  assert.strictEqual(RC.rowUrl({ id: '12; x' }), '');
+  assert.strictEqual(RC.rowUrl(null), '');
+});
+t('buildIcs description carries the derived grants.gov link for a row without a stored url', () => {
+  const ics = RC.buildIcs([{ id: '360536', title: 'T', close: '2026-12-01', status: 'posted', num: 'PAR-1' }], '20261110T120000Z').replace(/\r\n /g, '');
+  assert(ics.includes('https://www.grants.gov/search-results-detail/360536'));
+});
+t('committed research.json: every row has a usable link and most rows store none', () => {
+  const data = require(path.join(__dirname, '..', '..', 'data', 'processed', 'research.json'));
+  let stored = 0;
+  data.rows.forEach(r => { assert(/^https?:\/\//.test(RC.rowUrl(r)), 'no link for ' + r.id); if (r.url) stored++; });
+  assert(stored < 10, 'expected the derivable urls to be dropped, ' + stored + ' rows still store one');
+});
 console.log(n + ' tests pass');

@@ -126,3 +126,17 @@ Test set, IC hit@10 (same 10 awards, same ranking code):
 Mechanism hit@10 and its counts did not change (all 7 of 10, posted 6 of 10, forecasted 3 of 7). Four awards moved: the three CA awards rank their first same-institute row higher (`reporter_1F31CA305956-01` 33 to 1 and now a hit; `reporter_5R01CA276653-03` 6 to 1; `reporter_5F31CA288055-02` 40 to 28), and `reporter_2P20GM103447-25` (GM) became testable for the first time and is a miss.
 
 How to read this: the hit counts rose, but so did the denominators and the random baseline, because far more rows now carry an institute. The margin over random is about the same as before (all rows 35 points before, 33 after). With 10 awards one award is 10 points, so this is not evidence of better ranking. What changed is that the institute is known for a quarter of the pool instead of 16%, which makes the institute metric a fairer test and the tab's institute information more complete.
+
+## Dropping the derivable grants.gov url (2026-11-12)
+
+research.json no longer stores a row's url when it is the grants.gov page its id implies (1,425 of 1,426 rows). That freed about 80 KB, and the size budget spent it on longer summaries: the common cut moved from 1,000 to 1,100 characters (805 rows got longer text; nothing else in a row changed). The file is 1,824,353 bytes, 25,647 under the budget.
+
+Test set, IC hit@10 (same 10 awards, same ranking code, same pool of rows):
+
+| Pool | Before | After |
+|---|---|---|
+| All | 5 of 10 | 5 of 10 |
+| Posted | 4 of 10 | 5 of 10 |
+| Forecasted | 5 of 9 | 6 of 9 |
+
+Mechanism hit@10 did not change (all 7 of 10, posted 6 of 10, forecasted 3 of 7). The extra hits come from 100 more summary characters on some rows, not from any change to ranking. With 10 awards one award is 10 points, so treat this as noise, not as an improvement.

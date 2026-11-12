@@ -13,6 +13,12 @@ SITE = os.environ.get("SITE_URL", "https://radclarite.github.io/granthub/matchma
 payload, out = sys.argv[1], os.path.join(sys.argv[2], "feeds")
 p = json.load(open(payload, encoding="utf-8"))
 os.makedirs(out, exist_ok=True)
+def row_url(r):  # research.json leaves out the grants.gov link when the numeric id implies it
+    if r.get("url"):
+        return r["url"]
+    return "https://www.grants.gov/search-results-detail/" + r["id"] if str(r.get("id", "")).isdigit() else ""
+
+
 x = lambda s: html.escape(str(s if s is not None else ""), quote=True)
 asof = p["data_as_of"]
 ts = lambda d: d if "T" in d else d + "T00:00:00Z"  # Atom wants an RFC 3339 date-time, never a bare date
@@ -91,7 +97,7 @@ if len(sys.argv) > 3:
             due = r.get("close") or "no close date listed"
             ent.append(
                 f'<entry><title>{x(r["title"])}</title><id>tag:ffm,research:{x(r["id"])}</id><updated>{x(ts(r["post"]) if r.get("post") else rupd)}</updated>'
-                f'<link href="{x(r.get("url"))}"/><summary>{x("%s. Closes %s. Screening aid; confirm on Grants.gov." % (r.get("num"), due))}</summary></entry>')
+                f'<link href="{x(row_url(r))}"/><summary>{x("%s. Closes %s. Screening aid; confirm on Grants.gov." % (r.get("num"), due))}</summary></entry>')
         feed = ('<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom">'
                 f'<title>{x(gname)}: open federal research opportunities</title><id>tag:ffm,research:{x(gid)}</id><updated>{x(rupd)}</updated>'
                 f'<link href="{x(SITE)}"/><subtitle>Data as of {x(rasof)}. Screening aid; confirm on Grants.gov.</subtitle>' + "".join(ent) + "</feed>")
@@ -103,7 +109,7 @@ if len(sys.argv) > 3:
             d = dt.date.fromisoformat(r["close"])
             cal += ["BEGIN:VEVENT", f"UID:research-{r['id']}@ffm", "DTSTAMP:" + dt.datetime.now(dt.timezone.utc).strftime("%Y%m%dT%H%M%SZ"),
                     "DTSTART;VALUE=DATE:" + d.strftime("%Y%m%d"), "DTEND;VALUE=DATE:" + (d + dt.timedelta(days=1)).strftime("%Y%m%d"),
-                    "SUMMARY:" + ics_text("Closes: " + r["title"]), "DESCRIPTION:" + ics_text("%s. %s" % (r.get("num"), r.get("url"))), "END:VEVENT"]
+                    "SUMMARY:" + ics_text("Closes: " + r["title"]), "DESCRIPTION:" + ics_text("%s. %s" % (r.get("num"), row_url(r))), "END:VEVENT"]
             n += 1
         cal.append("END:VCALENDAR")
         open(os.path.join(rout, gid + ".ics"), "w", encoding="utf-8", newline="").write(CRLF.join(fold(l) for l in cal) + CRLF)

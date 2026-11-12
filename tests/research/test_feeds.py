@@ -13,12 +13,12 @@ ROWS = [
 ]
 
 
-def build(with_research=True):
+def build(with_research=True, rows=None):
     tmp = tempfile.mkdtemp()
     payload = os.path.join(tmp, "payload.json")
     json.dump({"data_as_of": "2026-11-10", "agencies": [], "rows": []}, open(payload, "w"))
     research = os.path.join(tmp, "research.json")
-    json.dump({"as_of": "2026-11-10", "n": len(ROWS), "rows": ROWS}, open(research, "w"))
+    json.dump({"as_of": "2026-11-10", "n": len(rows or ROWS), "rows": rows or ROWS}, open(research, "w"))
     out = os.path.join(tmp, "site")
     os.makedirs(out)
     args = [sys.executable, SCRIPT, payload, out] + ([research] if with_research else [])
@@ -31,6 +31,13 @@ def read(path):
 
 
 class ResearchFeeds(unittest.TestCase):
+    def test_row_without_url_links_to_grants_gov_by_id(self):
+        rows = [{"id": "360536", "num": "PAR-9", "title": "No stored url", "ic": "CA", "status": "posted", "close": "2026-12-01", "post": "2026-10-01"}]
+        d = os.path.join(build(rows=rows), "feeds", "research")
+        link = "https://www.grants.gov/search-results-detail/360536"
+        self.assertIn('href="' + link + '"', read(os.path.join(d, "CA.atom")))
+        self.assertIn(link, read(os.path.join(d, "CA.ics")).replace("\r\n ", ""))
+
     def test_files_for_institutes_with_posted_rows_and_all(self):
         d = os.path.join(build(), "feeds", "research")
         for name in ("CA.atom", "CA.ics", "all.atom", "all.ics"):
