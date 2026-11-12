@@ -28,7 +28,7 @@ Official schedule is from the organizers (Manning Library Saturday, Manning 209 
 ## Sunday Nov 8
 | Time | What | Who |
 |---|---|---|
-| before 8:30 | Set `ffm-app` min replicas to 1, load the page once (no 38-second cold start) | Marco |
+| before 8:30 | Set `<app-name>` min replicas to 1, load the page once (no 38-second cold start) | Marco |
 | **before 9:00** | Submit slides, field notes, repo link, product link through the Final Submission form. Aim for 8:30 | Kent |
 | 9:30 to 10:00 | Team and judge check-in | All |
 | **10:26 to 10:34** | **Wasian presents** (third slot) | All |

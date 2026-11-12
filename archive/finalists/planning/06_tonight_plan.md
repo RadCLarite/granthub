@@ -45,7 +45,7 @@ You are helping me stand up the Azure skeleton for our Solve-a-thon prototype, t
 
 <context>
 - Read these first: Finalists/CLAUDE.md, Finalists/src/docs/organizer_materials_notes.md (sections 1 and 2: the organizer Starter Kit design and the Azure Access Guide), Finalists/planning/06_tonight_plan.md.
-- Locked decisions: the app is written in R (Shiny for the web UI), not Python. One container image serves two roles via env var MODE=app (web) or MODE=job (daily refresh; a stub is fine tonight). All app state will live as JSON in one Azure Blob container named ffm-data. LLM calls go to Azure OpenAI (an embedding model like text-embedding-3-small and a small chat model like gpt-4o-mini).
+- Locked decisions: the app is written in R (Shiny for the web UI), not Python. One container image serves two roles via env var MODE=app (web) or MODE=job (daily refresh; a stub is fine tonight). All app state will live as JSON in one Azure Blob container named <blob-container>. LLM calls go to Azure OpenAI (an embedding model like text-embedding-3-small and a small chat model like gpt-4o-mini).
 - Subscription: the team subscription is named like unc-sdis-solveathon-teamXX. I am already logged in with az login.
 - Tonight's goal is a skeleton, not the product. No scoring, no data ingestion, no UI beyond a hello page.
 </context>
@@ -53,7 +53,7 @@ You are helping me stand up the Azure skeleton for our Solve-a-thon prototype, t
 <task>
 1. Run az account list and show me the solveathon subscription. Ask me to confirm before setting it with az account set.
 2. Propose a region and resource names (prefix ffm-) in one short table, then wait for my OK. Pick a region where Azure OpenAI and the two models are available; if you cannot confirm availability, say [uncertain] and ask me.
-3. Create, one command at a time, asking before each create: resource group; storage account plus blob container ffm-data; Azure OpenAI resource with one embedding deployment and one chat deployment (skip this step if the organizers already provided Azure OpenAI; ask me first); Azure Container Registry (Basic); Log Analytics workspace; Container Apps environment.
+3. Create, one command at a time, asking before each create: resource group; storage account plus blob container <blob-container>; Azure OpenAI resource with one embedding deployment and one chat deployment (skip this step if the organizers already provided Azure OpenAI; ask me first); Azure Container Registry (Basic); Log Analytics workspace; Container Apps environment.
 4. Test Azure OpenAI with one embedding call and one chat call using curl. Read the key into a shell variable from az, never print it, never write it to a file.
 5. Create Finalists/app/ containing a minimal Shiny app (app.R that shows "Federal Funds Matchmaker: hello from Azure" and the value of MODE) and a Dockerfile based on a pinned rocker/shiny image tag. Build it in the cloud with az acr build so I do not need Docker locally.
 6. Deploy it as a Container App with external ingress on port 3838, pulling from the registry. Return the public URL and confirm it loads with curl.

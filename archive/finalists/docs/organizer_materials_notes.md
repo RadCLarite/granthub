@@ -16,7 +16,7 @@ What it is: an organizer-written playbook for this exact challenge. It gives a r
 - **Fallback:** if Azure OpenAI is unavailable, scoring can fall back to keyword/TF-IDF.
 
 ### Data contract (agree before coding)
-Blob container `ffm-data`: `profiles/{agency}.json`, `raw/{yyyy-mm-dd}/grants.json`, `opportunities/latest.json`, `scored/{agency}/latest.json`, `decisions/{agency}.json`, `eval/labels.json`, `runs/{timestamp}.json`.
+Blob container `<blob-container>`: `profiles/{agency}.json`, `raw/{yyyy-mm-dd}/grants.json`, `opportunities/latest.json`, `scored/{agency}/latest.json`, `decisions/{agency}.json`, `eval/labels.json`, `runs/{timestamp}.json`.
 Minimum opportunity schema: id, source, number, title, agency, status (posted/forecasted), open_date, close_date, days_to_close, eligibility, category, award_ceiling, description, url, ingested_at. Records missing key fields are flagged low-quality, not dropped.
 
 ### Suggested scoring blend (a starting point, not required)
