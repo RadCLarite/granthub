@@ -1,8 +1,8 @@
 # score_labels.R  -- scores team-labelled sheets against the ranker and the keyword baseline.
 #
 # Usage (from this folder):
-#   Rscript score_labels.R sheets=sheets key=sheets/key_hidden_DO_NOT_SHARE.csv \
-#           ranking=path/to/ranking.csv out=results
+#   Rscript score_labels.R ranking=path/to/ranking.csv out=results
+# sheets= and key= default to archive/label_check/eval/sheets (where the sheets and the hidden key moved); pass them to use other files.
 # ranking (optional): columns agency, opp_id, rank (1 = best), optional score. It must be the
 # agency's FULL ranked list of opportunities, not just the 20 pool items (see N below).
 # Without it, only the keyword baseline is scored.
@@ -96,10 +96,15 @@ pass_text <- function(value, mark) {
 }
 
 # ---------------- main (only when run as a script) ----------------
+repo_root <- function(opt) {
+  if (!is.null(opt$repo)) return(opt$repo)
+  here <- tryCatch(dirname(normalizePath(sub("^--file=", "", commandArgs(FALSE)[grep("^--file=", commandArgs(FALSE))][1]))), error = function(e) ".")
+  normalizePath(file.path(here, "..", "..", ".."))
+}
 score_main <- function(argv) {
   kv <- strsplit(argv, "=", fixed = TRUE)
   opt <- setNames(lapply(kv, function(z) paste(z[-1], collapse = "=")), vapply(kv, `[`, "", 1))
-  sheets_dir <- if (!is.null(opt$sheets)) opt$sheets else "sheets"
+  sheets_dir <- if (!is.null(opt$sheets)) opt$sheets else file.path(repo_root(opt), "archive", "label_check", "eval", "sheets")
   key_path <- if (!is.null(opt$key)) opt$key else file.path(sheets_dir, "key_hidden_DO_NOT_SHARE.csv")
   rank_path <- opt$ranking; out_dir <- if (!is.null(opt$out)) opt$out else "results"
   dir.create(out_dir, showWarnings = FALSE, recursive = TRUE)

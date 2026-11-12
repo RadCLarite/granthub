@@ -6,7 +6,7 @@
 # It does not use the ranker at all (no ranking input, on purpose), so the pool cannot
 # be tuned to the ranker. Rerunning gives identical sheets (fixed seed).
 # Nothing here fills a label. Sheets show no rank, score, stratum or keyword hits;
-# the source stratum lives only in sheets/key_hidden_DO_NOT_SHARE.csv.
+# the source stratum lives only in archive/label_check/eval/sheets/key_hidden_DO_NOT_SHARE.csv.
 
 suppressMessages(library(data.table))
 
@@ -27,7 +27,7 @@ here <- dirname(normalizePath(sub("^--file=", "", args_all[grep("^--file=", args
 repo <- normalizePath(file.path(here, "..", "..", ".."))
 opps  <- fread(file.path(repo, "data", "processed", "opportunities.csv"), colClasses = list(character = c("opp_id", "opp_number")))
 goals <- fread(file.path(repo, "data", "manual", "agency_goal_summaries.csv"))
-out_dir <- file.path(here, "sheets")
+out_dir <- file.path(repo, "archive", "label_check", "eval", "sheets")   # sheets and the hidden key live in archive/ (moved 2026-11-12)
 source(file.path(here, "keyword_baseline.R"))
 
 clean_text <- function(x) {
