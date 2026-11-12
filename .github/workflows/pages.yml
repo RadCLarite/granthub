@@ -16,6 +16,7 @@ on:
       - "data/manual/**"
       - "data/qualifier/**"
       - "app/site_index.html"
+      - "app/robots.txt"
       - "app/build_pages.sh"
       - "app/build_feeds.py"
       - "app/job.R"

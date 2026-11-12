@@ -45,6 +45,8 @@ jobs:
           EOF
       - name: Researcher feed tests
         run: python3 -m unittest tests/research/test_feeds.py
+      - name: Site asks search engines not to index it
+        run: python3 -m unittest tests/research/test_site.py
       - name: Researcher tab unit tests
         run: node tests/research/test_core.js
       - name: Researcher tab test set report
