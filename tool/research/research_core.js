@@ -238,7 +238,45 @@
     var id = normalizeOrcid(orcid), n = perPage > 0 ? Math.min(200, Math.floor(perPage)) : 25;
     if (!id) return '';
     return 'https://api.openalex.org/works?filter=authorships.author.orcid:https://orcid.org/' + id + '&sort=publication_year:desc&per-page=' + n +
-      '&select=title,publication_year,abstract_inverted_index,topics';
+      '&select=title,publication_year,abstract_inverted_index,topics,keywords';
+  }
+  /* ORCID keywords: OpenAlex's own keyword phrases (a 0 to 1 score per work) summed over the researcher's works, plus topic names that score
+     at least TOPIC_MIN_SCORE on a work. Generic phrases are dropped. The top KEYWORD_MAX fill the box. */
+  var KEYWORD_MAX = 12, KEYWORD_QUOTED = 0, TOPIC_MIN_SCORE = 0.3;
+  var GENERIC_KEYWORDS = new Set(['applications', 'research', 'methods', 'analysis', 'studies', 'study', 'review', 'data', 'techniques', 'technology',
+    'science', 'sciences', 'health', 'medicine', 'research methods', 'data analysis', 'scientific research']);
+  var GENERIC_SCIENCE_APPS = /^(life|physical|health|social|natural|earth|biomedical|engineering|medical|clinical) sciences? applications?$/;
+  function worksToKeywords(works) {
+    var tally = new Map(), order = 0;
+    function add(name, score) {
+      if (typeof name !== 'string' || typeof score !== 'number' || !isFinite(score) || score <= 0) return;
+      var shown = name.replace(/[“”„‟«»"]/g, ' ').replace(/\s+/g, ' ').trim(), key = tokenize(shown).join(' ');
+      if (!key || GENERIC_KEYWORDS.has(shown.toLowerCase()) || GENERIC_SCIENCE_APPS.test(shown.toLowerCase())) return;
+      var cur = tally.get(key);
+      if (cur) cur.total += score; else tally.set(key, { shown: shown, total: score, order: order++ });
+    }
+    (Array.isArray(works) ? works : []).forEach(function (w) {
+      if (!w || typeof w !== 'object') return;
+      (Array.isArray(w.keywords) ? w.keywords : []).forEach(function (k) { if (k && typeof k === 'object') add(k.display_name, k.score); });
+      (Array.isArray(w.topics) ? w.topics : []).forEach(function (t) { if (t && typeof t === 'object' && t.score >= TOPIC_MIN_SCORE) add(t.display_name, t.score); });
+    });
+    var list = Array.from(tally.values());
+    list.sort(function (a, b) { return b.total - a.total || a.order - b.order; });
+    return list.slice(0, KEYWORD_MAX).map(function (x) { return x.shown; });
+  }
+  /* What the ORCID lookup puts in the box: the keyword list, else the papers' text. `quoted` (default KEYWORD_QUOTED, 0) puts that many
+     top phrases in quotes, which makes a result contain each one verbatim: on the 842 open rows even single phrases such as
+     "magnetic resonance imaging" match nothing, so quoting is off. Quotes only work in queries up to PHRASE_QUERY_MAX_CHARS, so when
+     quoting, lower-ranked phrases are left out rather than let the quotes stop working. */
+  function worksToQuery(works, quoted) {
+    var kws = worksToKeywords(works), text = '', count = 0, q = quoted >= 0 ? Math.floor(quoted) : KEYWORD_QUOTED;
+    for (var i = 0; i < kws.length; i++) {
+      var part = i < q ? '"' + kws[i] + '"' : kws[i], next = text ? text + ', ' + part : part;
+      if (q > 0 && next.length > PHRASE_QUERY_MAX_CHARS) break;
+      text = next; count++;
+    }
+    if (count) return { text: text, kind: 'keywords', count: count };
+    return { text: worksToText(works), kind: 'text', count: 0 };
   }
   /* Titles, abstracts (rebuilt from OpenAlex's word-position index) and up to 2 topic names per work, cut at maxChars on a word boundary. */
   function worksToText(works, maxChars) {
@@ -493,6 +531,7 @@
   return { tokenize: tokenize, parseQuery: parseQuery, phraseNotices: phraseNotices, PHRASE_TIP: PHRASE_TIP,
     PHRASE_QUERY_MAX_CHARS: PHRASE_QUERY_MAX_CHARS, expandTerms: expandTerms, buildIndex: buildIndex, search: search, applyFilters: applyFilters, statusEmptyNotice: statusEmptyNotice,
     flagNotes: flagNotes, buildIcs: buildIcs, estimateNote: estimateNote, rowUrl: rowUrl, normalizeOrcid: normalizeOrcid, openAlexWorksUrl: openAlexWorksUrl, worksToText: worksToText,
+    worksToKeywords: worksToKeywords, worksToQuery: worksToQuery,
     worksStats: worksStats, openAlexFailureText: openAlexFailureText, cleanPublicationList: cleanPublicationList,
     FLAG_LABELS: FLAG_LABELS, daysUntil: daysUntil,
     daysSince: daysSince, staleNotice: staleNotice, businessDaysBefore: businessDaysBefore, timeWarning: timeWarning };

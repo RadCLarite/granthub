@@ -211,11 +211,13 @@
         if (!r.ok) { var he = new Error('http'); he.status = r.status; throw he; }
         return r.json();
       }).then(function (d) {
-        var works = (d && d.results) || [], text = RC.worksToText(works), st = RC.worksStats(works);
+        var works = (d && d.results) || [], q = RC.worksToQuery(works), text = q.text, st = RC.worksStats(works);
         if (!text) { msg.textContent = 'OpenAlex has no papers with text for that iD. Paste your abstract instead.'; return; }
         if (u.box.value.trim() && !window.confirm('Replace the text in the box with text from your papers?')) { msg.textContent = 'Left your text as it was.'; return; }
         u.box.value = text;
-        msg.textContent = 'Filled from ' + st.used + (st.used === 1 ? ' paper. ' : ' papers. ') + (st.withAbstract === 0
+        if (q.kind === 'keywords') msg.textContent = 'Filled with ' + q.count + (q.count === 1 ? ' keyword' : ' keywords') + ' from ' + st.used + (st.used === 1 ? ' paper' : ' papers') +
+          '. Edit the list, then press Search.';
+        else msg.textContent = 'OpenAlex has no keywords for these papers, so the box has their text. Filled from ' + st.used + (st.used === 1 ? ' paper. ' : ' papers. ') + (st.withAbstract === 0
           ? 'None has an abstract on OpenAlex, so this is titles only and matches will be rough. Add an abstract if you can, then press Search.'
           : 'Edit the text, then press Search.');
       }).catch(function (err) {
