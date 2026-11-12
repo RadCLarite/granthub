@@ -1,6 +1,7 @@
 #!/bin/sh
 # build_pages.sh: assemble the GitHub Pages site. Replaces the Azure Container App (deploy_azure.sh).
 #   <out>/                      landing page (app/site_index.html) that forwards to matchmaker/
+#   <out>/robots.txt            asks crawlers to skip the site (app/robots.txt); each page also carries a noindex meta
 #   <out>/matchmaker/           the tool: index.html (tool/matchmaker.html) + payload.json + feeds/ (Atom, ICS)
 #   <out>/matchmaker/research/  researcher tab: research_tab.js, research_core.js, research.css, synonyms.json, research.json
 # Usage: sh app/build_pages.sh <out_dir> [payload.json]
@@ -17,6 +18,7 @@ grep -q '"agencies"' "$PAYLOAD" && grep -q '"data_as_of"' "$PAYLOAD" || { echo "
 
 mkdir -p "$OUT/matchmaker"
 cp "$HERE/site_index.html" "$OUT/index.html"
+cp "$HERE/robots.txt" "$OUT/robots.txt"
 cp "$REPO/tool/matchmaker.html" "$OUT/matchmaker/index.html"
 cp "$PAYLOAD" "$OUT/matchmaker/payload.json"
 # researcher tab: scripts, styles, synonyms and the research payload (served from matchmaker/research/)
