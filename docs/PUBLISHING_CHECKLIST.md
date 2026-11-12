@@ -34,6 +34,6 @@ The repository is public at https://github.com/RadCLarite/granthub and the site 
 
 ## Repository hygiene
 - [ ] Repository size: the tree has about 17,500 archived files and many cache files. Consider Git LFS or dropping `archive/finalists/misplaced_llm_cache/` (9,724 loose files duplicated by the tarball in `data/cache/`). Open. **Decides:** Kent.
-- [x] Remove the Azure-era files from `app/` (`Dockerfile`, `Dockerfile.job`, `entrypoint.sh`, `app.R`, `read_feedback.sh`, `pilot_scorecard.sh`). Done 2026-11-12; they stay in git history. `app/.dockerignore` is now orphaned and was left in place. `app/job.R` stays (the Pages workflow runs it); its upload target now comes from `BLOB_URL`.
+- [x] Remove the Azure-era files from `app/` (`Dockerfile`, `Dockerfile.job`, `entrypoint.sh`, `app.R`, `read_feedback.sh`, `pilot_scorecard.sh`). Done 2026-11-12; they stay in git history. `app/.dockerignore` was removed afterwards. `app/job.R` stays (the Pages workflow runs it); its upload target now comes from `BLOB_URL`.
 - [ ] (CI runs the site build, feed and JS tests on every code PR; the R tests and the visual check are not confirmed here.) Re-run `Rscript tests/run_tests.R`, `Rscript R/check_facts.R`, `python app/check_dupes.py` on the pushed copy, and open the Pages site at 1280 and 375 px. Open. **Decides:** Kent.
 - [x] The Pages root `/` is now a landing page forwarding to `/matchmaker/`; the old qualifier site is in `archive/qualifier/docs/`. Restore it only if the owner wants it live. Done, nothing to decide unless the owner wants the old site back.
