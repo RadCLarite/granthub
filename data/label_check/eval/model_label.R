@@ -94,7 +94,7 @@ if (stage == "validate") {
   tabs <- c(PublicSchools = AGENCIES[1], EnvQuality = AGENCIES[2], DHHS = AGENCIES[3])
   # Join by (agency, item_no) through the key, because opp_number is blank or repeated for some rows.
   # Only opp_id is taken from the key; strata, ranks and keyword hits never reach the model.
-  key <- fread(file.path(here_dir, "sheets", "key_hidden_DO_NOT_SHARE.csv"), colClasses = list(character = c("opp_id", "opp_number")))
+  key <- fread(file.path(repo, "archive", "label_check", "eval", "sheets", "key_hidden_DO_NOT_SHARE.csv"), colClasses = list(character = c("opp_id", "opp_number")))
   hand <- rbindlist(lapply(names(tabs), function(s) {
     d <- as.data.table(read.xlsx(hand_file, s)); d[, agency := tabs[[s]]]
     d[, .(agency, item_no = as.integer(item_no), sheet_title = title, hand_label = trimws(tolower(label)))]
