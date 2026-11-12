@@ -6,7 +6,7 @@ It started as an entry in the Solve-A-Thon 2026 challenge for the NC Office of S
 
 ## Where to open it
 
-**Live link: not set yet.** The tool is a static web page built by GitHub Pages, and the public address has not been confirmed. Until it is, a maintainer can build the site locally; the steps are in the [runbook](docs/runbook.md). When the address is set, it will be put here.
+**Live link: <https://radclarite.github.io/granthub/matchmaker/>.** The tool is a static web page built by GitHub Pages. To build the site locally instead, the steps are in the [runbook](docs/runbook.md).
 
 ## How to use it
 
