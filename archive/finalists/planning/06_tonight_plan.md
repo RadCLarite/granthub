@@ -37,7 +37,7 @@ Open: nobody is assigned to take verbatim workshop notes. Kent asks questions, s
 3. Paste the prompt below. Approve each `az ... create` when Claude asks.
 4. Keep every key and endpoint secret out of the repo and out of chat logs you share. Store keys only in Azure (Container App secrets) or your own shell session.
 5. When done, post to the team chat: public URL, region, resource names, and anything that failed. Tell Kent right away if the R image build fights back, because that could change the stack decision.
-6. If the subscription does not appear: sign out and back in. Then email Pratik Patekar (patekar@unc.edu), Haihan Gao (hhgao@unc.edu) and Girish Wangikar (girishw@unc.edu), CC all three, with name, team name, subscription name and a screenshot.
+6. If the subscription does not appear: sign out and back in. Then email Pratik Patekar ([email redacted]), Haihan Gao ([email redacted]) and Girish Wangikar ([email redacted]), CC all three, with name, team name, subscription name and a screenshot.
 
 ### Prompt for Marco (Claude Code)
 ```text

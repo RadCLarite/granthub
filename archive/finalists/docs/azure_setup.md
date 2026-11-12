@@ -12,7 +12,7 @@ Written Fri Nov 6, 2026, late evening, by Marco with Claude Code. No keys, token
 ## State at end of Friday
 _Updated Fri 10:50 pm: rows below show the state after the proof run. Details are in the proof sections further down._
 
-Signed in as `gullotto@AD.UNC.EDU` (CLI 2.92.0, installed with Homebrew; `containerapp` extension installed, preview). Default subscription: `unc-sdis-solveathon-team15`.
+Signed in as `[email redacted]` (CLI 2.92.0, installed with Homebrew; `containerapp` extension installed, preview). Default subscription: `unc-sdis-solveathon-team15`.
 
 | What | Name | State |
 |---|---|---|
