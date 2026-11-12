@@ -1,4 +1,4 @@
-"""The public tree must not name the team's Azure resources. Past AI_USAGE_LOG.md rows are an append-only record and are exempt."""
+"""The public tree must not name the team's Azure resources."""
 import os
 import re
 import subprocess
@@ -22,8 +22,6 @@ class NoAzureNames(unittest.TestCase):
     def test_no_resource_names_in_tracked_files(self):
         hits = []
         for rel in tracked():
-            if rel == 'AI_USAGE_LOG.md':
-                continue
             path = os.path.join(ROOT, rel)
             if not os.path.isfile(path):
                 continue
