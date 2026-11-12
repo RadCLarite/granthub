@@ -222,7 +222,8 @@ build_research_payload <- function(opps, as_of, source_date = as_of) {
   # Simpler's forecasted close date: an estimate, kept on forecasted rows only and never used to filter or warn.
   est <- suppressWarnings(as.Date(col("forecasted_close_date")))
   est[as.character(o$status) != "forecasted"] <- NA
-  rows <- lapply(seq_len(nrow(o)), function(i) list(
+  rows <- lapply(seq_len(nrow(o)), function(i) {
+  row <- list(
     id = as.character(o$opp_id[i]), num = as.character(o$opp_number[i]), title = as.character(o$title[i]),
     agency = as.character(o$agency[i]), status = as.character(o$status[i]),
     close = if (is.na(close[i])) NA_character_ else format(close[i]),
@@ -233,7 +234,11 @@ build_research_payload <- function(opps, as_of, source_date = as_of) {
     post = if (is.na(post[i])) NA_character_ else format(post[i]),
     est = if (is.na(est[i])) NA_character_ else format(est[i]),
     elig = as.character(o$applicant_types[i]), url = as.character(o$url[i]),
-    sum = substr(as.character(o$summary[i]), 1, RESEARCH_SUM_MAX)))
+    sum = substr(as.character(o$summary[i]), 1, RESEARCH_SUM_MAX))
+  # The grants.gov link follows from the id, so it is not stored (about 80 KB); the tab and feeds rebuild it (rowUrl / row_url).
+  if (identical(row$url, grantsgov_url(row$id))) row$url <- NULL
+  row
+  })
   list(as_of = format(as_of), source_date = format(source_date), n = length(rows), rows = rows)
 }
 

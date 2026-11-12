@@ -88,8 +88,9 @@
     var RC = window.ResearchCore, matched = {}, card = el('article', 'rt-card');
     hit.matched.forEach(function (t) { matched[t] = 1; });
     var h = el('h3'), a = el('a');
-    if (typeof row.url === 'string' && /^https?:\/\//i.test(row.url)) {
-      a.href = row.url; a.target = '_blank'; a.rel = 'noopener noreferrer';
+    var link = RC.rowUrl(row);
+    if (/^https?:\/\//i.test(link)) {
+      a.href = link; a.target = '_blank'; a.rel = 'noopener noreferrer';
       highlight(a, row.title || '(untitled)', matched);
       h.appendChild(a);
     } else highlight(h, row.title || '(untitled)', matched);

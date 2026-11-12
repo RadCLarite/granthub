@@ -151,7 +151,7 @@ local({
   check(s, "row count and order unchanged, Grants.gov-only rows not added", identical(m$opp_id, c("1", "2")))
   check(s, "NULL Grants.gov table leaves rows alone", identical(merge_grantsgov_fields(simp, NULL)$url, simp$url))
   mg <- build_research_payload(merge_grantsgov_fields(one, gg), as.Date("2026-11-07"))
-  check(s, "merged fields reach the payload: flags, post date, url", identical(mg$rows[[1]]$flags$cost_share, "yes") && identical(mg$rows[[1]]$post, "2026-01-05") && grepl("www.grants.gov", mg$rows[[1]]$url))
+  check(s, "merged fields reach the payload: flags, post date, and the implied grants.gov url is not stored", identical(mg$rows[[1]]$flags$cost_share, "yes") && identical(mg$rows[[1]]$post, "2026-01-05") && is.null(mg$rows[[1]]$url))
 
   s <- "fit_research_payload"
   mk <- function(n, len) list(as_of = "2026-11-10", source_date = "2026-11-10", n = n, rows = lapply(seq_len(n), function(i) list(id = as.character(i), title = "T", sum = strrep("abcdefghi ", len %/% 10))))
@@ -165,6 +165,16 @@ local({
   check(s, "over budget: summaries are never cut below the floor", min(vapply(tight$rows, function(r) nchar(r$sum), 0L)) >= RESEARCH_SUM_FLOOR)
   check(s, "budget the floor cannot meet stops with an error", inherits(try(fit_research_payload(big, 1000L), silent = TRUE), "try-error"))
   check(s, "headroom: the build budget sits at least 5 percent under the hard limit", RESEARCH_PAYLOAD_BUDGET <= 0.95 * RESEARCH_PAYLOAD_LIMIT)
+
+  s <- "research url is stored only when it is not derivable from the id"
+  gg <- toy[1, ]; gg$opp_id <- "7"; gg$url <- grantsgov_url("7")
+  ng <- build_research_payload(gg, as.Date("2026-11-07"))$rows[[1]]
+  check(s, "a grants.gov url that the id implies is left out of the row", !("url" %in% names(ng)))
+  sm <- toy[1, ]; sm$opp_id <- "S99"; sm$url <- "https://simpler.grants.gov/opportunity/abc"
+  ns <- build_research_payload(sm, as.Date("2026-11-07"))$rows[[1]]
+  check(s, "any other url is kept", identical(ns$url, "https://simpler.grants.gov/opportunity/abc"))
+  gx <- toy[1, ]; gx$opp_id <- "8"; gx$url <- "https://example.org/other"
+  check(s, "a url that differs from the grants.gov one for that id is kept", identical(build_research_payload(gx, as.Date("2026-11-07"))$rows[[1]]$url, "https://example.org/other"))
 
   s <- "research size headroom"
   check(s, "headroom is budget minus bytes", research_headroom(1833689, 1850000) == 16311)
