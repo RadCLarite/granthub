@@ -45,3 +45,6 @@ data/manual/label_holdout.csv
 data/label_check/eval/model_labels/validate_labels.csv
 archive/qualifier/data/manual/handlabels_60.csv
 archive/qualifier/data/manual/handlabels_60_template.csv
+archive/qualifier/data/manual/spotcheck.csv
+archive/qualifier/data/manual/spotcheck_template.csv
+archive/qualifier/data/processed/grants_rule_review_sample.csv

@@ -1,5 +1,5 @@
 """The hidden answer keys, labeler sheets, and every file that repeats the hand labels are kept out of the public repository.
-They stay on the owner's machine (ignored by git): archive/label_check/ and the round-one hand labels in archive/qualifier/data/manual/, and R/40_label_check.R says so when they are missing."""
+They stay on the owner's machine (ignored by git): archive/label_check/ and the round-one hand labels and the team's review sheets in archive/qualifier/data/, and R/40_label_check.R says so when they are missing."""
 import os
 import re
 import subprocess
@@ -22,6 +22,9 @@ KEPT_LOCAL = [
     'data/label_check/eval/model_labels/validate_labels.csv',
     'archive/qualifier/data/manual/handlabels_60.csv',
     'archive/qualifier/data/manual/handlabels_60_template.csv',
+    'archive/qualifier/data/manual/spotcheck.csv',
+    'archive/qualifier/data/manual/spotcheck_template.csv',
+    'archive/qualifier/data/processed/grants_rule_review_sample.csv',
 ]
 R_SOURCE = os.path.join(ROOT, 'R', '40_label_check.R')
 
