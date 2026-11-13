@@ -51,6 +51,18 @@ This is for real use, not a competition. Each criterion is pass or fail. Who che
 ## Researcher tab (phase 1)
 Automated: Node unit tests (`tests/research/test_core.js`), R parser tests (`tests/test_research.R`), the test-set scorer (`tests/research/run_testset.js`, no pass bar yet) and the Checks workflow. Still needs people: a 20-grant spot check of the parsed fields against Grants.gov, a rating by 5 researchers of whether results are worth a look, and the owner's 10 extra test awards. No Human or GitHub row is marked passed.
 
+## Researcher tab (phase 2: ORCID lookup, unusual-case flags, feeds)
+The foundation list planned for phase 2 was removed (PR 9) and is not built: there is no foundation file, parser or tab code in the tree. `docs/superpowers/plans/2026-11-10-researcher-tab-phase2.md` still describes it.
+
+| # | Pass when | Evidence now | Who |
+|---|---|---|---|
+| R1 | ORCID lookup: nothing leaves the page until the visitor clicks "Look up my papers" after reading the notice; the only request is to `api.openalex.org` and it carries only the ORCID iD; nothing is stored; the iD is checked locally (format and check digit) first | Automated: `test_core.js` (`normalizeOrcid`, `openAlexWorksUrl` is the exact one-host request, `worksToText`); checklist item confirmed 2026-11-12. Not in CI: `compare_orcid_keywords.js` calls OpenAlex. Not done: a person with a real ORCID iD tries it | Me for the automated part; Human for the live try |
+| R2 | Unusual-case flags (nine, for example letter of intent, foreign participation, cost sharing): a flag shows yes or no only when the notice or the structured column says so; a missing flag shows as unknown and never as no; no label says "required" | Automated: `test_core.js` (`flagNotes`, `FLAG_LABELS`), `tests/test_research.R` (`parse_flags`, run in CI; not run locally for this edit). Not done: the 20-grant spot check does not yet cover the flags | Me for the automated part; Human for the spot check |
+| R3 | Feeds: Atom and ICS per NIH institute plus one for all open rows, built by `app/build_feeds.py` from `research.json`; closed rows left out, a row closing today kept, ICS lines folded at 75 octets; the tab also builds an `.ics` of the visitor's current results in the browser | Automated: `tests/research/test_feeds.py` (12 tests with `test_site.py`, pass 2026-11-13) and `test_core.js` (`buildIcs`). Not done: subscribing to a feed in a real calendar or reader | Me for the automated part; Human for the live try |
+| R4 | The page says the results are a screening aid and that dates and rules are confirmed on Grants.gov | Not rechecked for phase 2 in this edit | Me |
+
+No Human row is marked passed.
+
 ## How the loop works
 1. Confirm the thresholds above (the numbers 7, 3, 20, 19, 5, 4, 2 minutes, 6 of 10 are my proposals).
 2. I run every **Me** row, fix failures, and rerun. Cap: 3 rounds.
