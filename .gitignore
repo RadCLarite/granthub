@@ -43,3 +43,5 @@ archive/label_check/
 data/label_check/holdout/label_check_items.csv
 data/manual/label_holdout.csv
 data/label_check/eval/model_labels/validate_labels.csv
+archive/qualifier/data/manual/handlabels_60.csv
+archive/qualifier/data/manual/handlabels_60_template.csv
