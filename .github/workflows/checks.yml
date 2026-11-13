@@ -49,9 +49,9 @@ jobs:
         run: python3 -m unittest tests/research/test_site.py
       - name: No Azure resource names in the tree
         run: python3 -m unittest tests/research/test_no_azure_names.py
-      - name: Label keys live under archive and the R script reads them there
+      - name: Label keys and labels are not tracked, and the R script says so when they are missing
         run: python3 -m unittest tests/research/test_label_check_paths.py
-      - name: Eval scripts read the sheets from archive
+      - name: Eval scripts use the local-only archive sheets folder
         run: python3 -m unittest tests/research/test_eval_scripts_paths.py
       - name: Researcher tab unit tests
         run: node tests/research/test_core.js

@@ -7,7 +7,7 @@
 # see model output. stage=draw makes those blind sheets. Nothing here fills a label,
 # and the draw never looks at any model label.
 #
-# stage=draw   writes, in archive/label_check/holdout/ (sheet_dir=; the hidden key and the labeler sheets live in archive/):
+# stage=draw   writes, in archive/label_check/holdout/ (sheet_dir=; the hidden key and the labeler sheets stay local, git ignores that folder):
 #   holdout_labeler_A.csv, holdout_labeler_B.csv   same 30 items, different order; blind
 #   holdout_key_DO_NOT_OPEN.csv                    item_no -> opp_id and how it was drawn
 # and, in data/label_check/holdout/:
@@ -33,6 +33,13 @@ arg <- function(k, d) { m <- grep(paste0("^", k, "="), args, value = TRUE); if (
 # Labeler sheets and hidden keys were moved out of data/ (see archive/README.md); the validate key moved with them.
 sheet_dir <- arg("sheet_dir", "archive/label_check/holdout")
 validate_key_path <- arg("validate_key", "archive/label_check/eval/sheets/key_hidden_DO_NOT_SHARE.csv")
+# The keys, labeler sheets and label_check_items.csv are not in the public repository (git ignores them);
+# they stay on the owner's machine. Stop with a plain message when they are not here.
+need_local <- function(paths) {
+  miss <- paths[!file.exists(paths)]
+  if (length(miss)) stop("Missing: ", paste(miss, collapse = ", "), ". These files are not in the public repository; ",
+                         "ask the owner for them and put them at those paths to run this stage.", call. = FALSE)
+}
 
 # kappa for two logical vectors (no packages): (po - pe) / (1 - pe)
 kappa_bin <- function(x, y) {
@@ -58,6 +65,7 @@ if (stage == "score") {
   out_md <- arg("report", file.path(hdir, "label_check_result.md"))
   LV <- c("relevant", "maybe", "not relevant")
   rd <- function(f) read.csv(f, stringsAsFactors = FALSE, colClasses = "character", na.strings = character(0))
+  need_local(file.path(sheet_dir, c("holdout_labeler_A.csv", "holdout_labeler_B.csv", "holdout_key_DO_NOT_OPEN.csv")))
   A <- rd(file.path(sheet_dir, "holdout_labeler_A.csv")); B <- rd(file.path(sheet_dir, "holdout_labeler_B.csv"))
   key <- rd(file.path(sheet_dir, "holdout_key_DO_NOT_OPEN.csv"))
   A$label <- trimws(tolower(A$label)); B$label <- trimws(tolower(B$label))
@@ -117,6 +125,7 @@ opps  <- read.csv("data/processed/opportunities.csv", stringsAsFactors = FALSE,
                   colClasses = c(opp_id = "character", opp_number = "character"))
 goals <- read.csv("data/manual/agency_goal_summaries.csv", stringsAsFactors = FALSE)
 # ids of the 60 validate items, read ONLY to exclude them (no hand labels are read)
+need_local(validate_key_path)
 val_key <- read.csv(validate_key_path, stringsAsFactors = FALSE,
                     colClasses = c(opp_id = "character"))
 validate_ids <- unique(val_key$opp_id)

@@ -8,7 +8,7 @@ Purpose: test with human judgment whether the ranked list finds what a grant wri
 - `keyword_baseline.R`: the simple comparison method (a keyword search). NOT our ranker; generic words give it false positives.
 - `score_labels.R`: computes the numbers. `test_metrics.R`: checks the math on fake data, prints "N of N tests pass".
 - `known_cases_draft.csv`: proposed must-pass and must-fail cases. Kent approves.
-- `archive/label_check/eval/sheets/` (moved there from `sheets/` here on 2026-11-12): 3 agencies x 2 labelers (20 rows each), plus a hidden key. Labelers never open the key. `make_label_sheets.R`, `model_label.R` and `score_labels.R` read and write that folder by default.
+- `archive/label_check/eval/sheets/` (local only, not in the public repository; git ignores it): 3 agencies x 2 labelers (20 rows each), plus a hidden key. Labelers never open the key. `make_label_sheets.R`, `model_label.R` and `score_labels.R` read and write that folder by default.
 
 ## Who does what
 - **Everett** (data and testing) runs the labeling session, collects the filled sheets, and runs the scorer. He also owns the known cases.
@@ -19,7 +19,7 @@ Purpose: test with human judgment whether the ranked list finds what a grant wri
 ## Steps
 1. Sat morning, now: sheets already exist (drawn from a fixed seed, before any ranking). Do not regenerate them after the ranker lands; that would change the pool after seeing it.
 2. Each labeler fills the `label` column with exactly: `relevant`, `maybe` or `not relevant`. About 20 items, estimate 20 to 40 minutes each (not measured; time the first three items). "Relevant" = this agency's grant writer would want to look at it. "Maybe" = unclear from the notice. Rows marked "notice" have no deadline or award by design.
-3. Save the filled sheets back into `archive/label_check/eval/sheets/` under the same names.
+3. Save the filled sheets back into `archive/label_check/eval/sheets/` under the same names. Do not commit them; that folder is ignored on purpose.
 4. When the ranking exists, Kent sets `N_SHORTLIST` at the top of `score_labels.R`, then run `Rscript score_labels.R ranking=ranking.csv`. Results go to `results/`.
 5. After the first scoring, each pair discusses the items they disagreed on (`labeler_disagreements_to_discuss.csv`). Save any change as a new file; keep the originals.
 
