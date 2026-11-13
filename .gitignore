@@ -41,3 +41,5 @@ HANDOFF_GitHub_Pages.md
 # Hidden answer keys and labeler sheets: kept on the owner's machine only (see docs/PUBLISHING_CHECKLIST.md)
 archive/label_check/
 data/label_check/holdout/label_check_items.csv
+data/manual/label_holdout.csv
+data/label_check/eval/model_labels/validate_labels.csv

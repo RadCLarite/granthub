@@ -51,7 +51,7 @@ kappa_bin <- function(x, y) {
 # ---- stage=score: run ONLY after both labelers have finished. -------------------------
 # Reads the two filled sheets, the key, and the model labels (prompt evalpool-v3) of the
 # same agencies from data/label_check/eval/model_labels/by_agency/ (that folder is on main).
-# Writes data/manual/label_holdout.csv (hand labels only) and a result report.
+# Writes data/manual/label_holdout.csv (hand labels only; git ignores it, it stays local) and a result report.
 # The combining rule for two labelers is Kent's call, so BOTH readings are reported:
 #   strict : hand "relevant" = both say relevant; yes/no (relevant+maybe vs not) is scored
 #            only on items where the two labelers agree on it. Disagreements are listed.
