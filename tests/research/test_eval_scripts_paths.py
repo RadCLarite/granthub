@@ -1,4 +1,5 @@
 """The eval scripts in data/label_check/eval read and write the sheets and hidden key under archive/label_check/eval/sheets.
+That folder is ignored by git (kept on the owner's machine only), so the check does not need the files to exist.
 Static check: the scripts need data.table, which CI does not install, so they are not run here."""
 import os
 import re
@@ -20,14 +21,10 @@ def source(name):
 
 
 class EvalScriptPaths(unittest.TestCase):
-    def test_each_script_builds_an_archive_sheets_path_that_exists(self):
+    def test_each_script_builds_a_path_under_the_local_only_archive_sheets_folder(self):
         for name in SCRIPTS:
             matches = ARCHIVE_PATH.findall(source(name))
             self.assertTrue(matches, name + ' does not build a path under archive/label_check/eval/sheets')
-            for _, tail in matches:
-                parts = re.findall(r'"([^"]+)"', tail)
-                path = os.path.join(ROOT, 'archive', 'label_check', 'eval', 'sheets', *parts)
-                self.assertTrue(os.path.exists(path), name + ' points at a missing path: ' + path)
 
     def test_no_script_still_defaults_to_the_old_sheets_folder(self):
         for name in SCRIPTS:
