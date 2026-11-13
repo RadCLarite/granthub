@@ -37,3 +37,7 @@ AGENTS.md
 .claude/*
 handoff.md
 HANDOFF_GitHub_Pages.md
+
+# Hidden answer keys and labeler sheets: kept on the owner's machine only (see docs/PUBLISHING_CHECKLIST.md)
+archive/label_check/
+data/label_check/holdout/label_check_items.csv
