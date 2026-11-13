@@ -1,6 +1,7 @@
-"""The hidden answer keys, labeler sheets and the merged holdout items file are kept out of the public repository.
+"""The hidden answer keys, labeler sheets, and every file that repeats the hand labels are kept out of the public repository.
 They stay on the owner's machine under archive/label_check/ (ignored by git), and R/40_label_check.R says so when they are missing."""
 import os
+import re
 import subprocess
 import unittest
 
@@ -17,6 +18,8 @@ KEPT_LOCAL = [
     'archive/label_check/holdout/holdout_labeler_A.csv',
     'archive/label_check/holdout/holdout_labeler_B.csv',
     'data/label_check/holdout/label_check_items.csv',
+    'data/manual/label_holdout.csv',
+    'data/label_check/eval/model_labels/validate_labels.csv',
 ]
 R_SOURCE = os.path.join(ROOT, 'R', '40_label_check.R')
 
@@ -30,6 +33,17 @@ class LabelCheckKeysNotPublic(unittest.TestCase):
         tracked = set(git('ls-files', '--', 'archive/label_check', 'data/label_check/holdout').stdout.split())
         self.assertEqual(sorted(tracked & set(KEPT_LOCAL)), [])
         self.assertEqual(sorted(t for t in tracked if t.startswith('archive/label_check/')), [])
+        elsewhere = set(git('ls-files', '--', 'data/manual', 'data/label_check/eval/model_labels').stdout.split())
+        self.assertEqual(sorted(elsewhere & set(KEPT_LOCAL)), [])
+
+    def test_no_tracked_csv_under_data_carries_hand_labels(self):
+        hand = re.compile(r'(^|,)"?(hand_label|label_A|label_B)"?(,|$)')
+        found = []
+        for f in git('ls-files', '--', 'data/*.csv').stdout.split():
+            with open(os.path.join(ROOT, f), encoding='utf-8-sig', errors='replace') as fh:
+                if hand.search(fh.readline()):
+                    found.append(f)
+        self.assertEqual(found, [])
 
     def test_each_one_is_ignored_so_a_local_copy_cannot_be_added_by_accident(self):
         not_ignored = [f for f in KEPT_LOCAL if git('check-ignore', '-q', f).returncode != 0]
