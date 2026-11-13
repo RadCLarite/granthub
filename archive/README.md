@@ -4,7 +4,7 @@ Historical material from the Solve-A-Thon 2026 competition. It is kept so the pr
 
 | Folder | What it holds |
 |---|---|
-| `qualifier/` | The round-one work (NC DHHS grant-writer triage): R pipeline, notebook, tool, caches, data, outputs, its Pages site (`docs/`). The two files the pipeline still reads were copied to `data/qualifier/`. The round-one hand labels (`data/manual/handlabels_60.csv` and its template, which hold labeler initials) are not tracked: they stay on the owner's machine, so the qualifier's `04_validate.R` cannot run from a fresh clone. |
+| `qualifier/` | The round-one work (NC DHHS grant-writer triage): R pipeline, notebook, tool, caches, data, outputs, its Pages site (`docs/`). The two files the pipeline still reads were copied to `data/qualifier/`. The round-one hand labels (`data/manual/handlabels_60.csv` and its template, which hold labeler initials) are not tracked: they stay on the owner's machine, so the qualifier's `04_validate.R` cannot run from a fresh clone. The team's research-review sheet (`data/manual/spotcheck.csv` and its template, which hold the verdicts) and `data/processed/grants_rule_review_sample.csv` (a blank review sheet) are not tracked either; the notebook chunk that reads `spotcheck.csv` needs the local copy. |
 | `finalists/planning/`, `finalists/saturday/` | Discovery notes, framing worksheets, build-day decisions, mentor logs. The payload contract moved to `docs/contract.md`. |
 | `finalists/docs/` | Organizer brief, judging rubric, Q&A defense, Azure setup notes, organizer-material notes. |
 | `finalists/deliverables/`, `finalists/testing/`, `finalists/FIELD_NOTES.md` | Competition deliverables and simulated reviewer testing notes. |
