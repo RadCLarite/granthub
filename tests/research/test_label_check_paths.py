@@ -1,5 +1,5 @@
 """The hidden answer keys, labeler sheets, and every file that repeats the hand labels are kept out of the public repository.
-They stay on the owner's machine under archive/label_check/ (ignored by git), and R/40_label_check.R says so when they are missing."""
+They stay on the owner's machine (ignored by git): archive/label_check/ and the round-one hand labels in archive/qualifier/data/manual/, and R/40_label_check.R says so when they are missing."""
 import os
 import re
 import subprocess
@@ -20,6 +20,8 @@ KEPT_LOCAL = [
     'data/label_check/holdout/label_check_items.csv',
     'data/manual/label_holdout.csv',
     'data/label_check/eval/model_labels/validate_labels.csv',
+    'archive/qualifier/data/manual/handlabels_60.csv',
+    'archive/qualifier/data/manual/handlabels_60_template.csv',
 ]
 R_SOURCE = os.path.join(ROOT, 'R', '40_label_check.R')
 
@@ -30,7 +32,7 @@ def git(*args):
 
 class LabelCheckKeysNotPublic(unittest.TestCase):
     def test_none_of_the_keys_or_labels_is_tracked(self):
-        tracked = set(git('ls-files', '--', 'archive/label_check', 'data/label_check/holdout').stdout.split())
+        tracked = set(git('ls-files', '--', 'archive/label_check', *KEPT_LOCAL).stdout.split())
         self.assertEqual(sorted(tracked & set(KEPT_LOCAL)), [])
         self.assertEqual(sorted(t for t in tracked if t.startswith('archive/label_check/')), [])
         elsewhere = set(git('ls-files', '--', 'data/manual', 'data/label_check/eval/model_labels').stdout.split())
