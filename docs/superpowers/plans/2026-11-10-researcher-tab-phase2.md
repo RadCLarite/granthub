@@ -2,6 +2,8 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
+> **Status (2026-11-13): the foundation list was removed in PR 9 and is not built.** Task 3 (`data/manual/foundations.csv`, `R/15_build_foundations.R`, `tests/test_foundations.R`, `research_foundations.json`, the "Foundations" tab section, `foundationStale`, `buildFoundationIndex`, `searchFoundations`) does not exist in the tree. Every foundation line below is the original plan, kept as written. The ORCID lookup, the unusual-case flags and the feeds were built.
+
 **Goal:** Extend the "For researchers" tab with (1) an opt-in ORCID lookup that fills the search box from the researcher's own papers, (2) a foundation funding list searched with the same engine, (3) calendar and Atom feeds, and (4) per-card unusual-case flags with a "my project has..." checklist.
 
 **Architecture:** R builds the new data (`flags` and `post` on each `research.json` row, `research_foundations.json` from a hand-authored CSV). All logic stays pure JavaScript in `tool/research/research_core.js` (flag notes, ICS text, ORCID checks, OpenAlex URL and abstract rebuilding, foundation search) with tab wiring in `research_tab.js`. The only third-party request is one click-triggered `GET` to `api.openalex.org`; the ORCID iD is the only data sent. Feeds are static files from `app/build_feeds.py` plus a browser-built `.ics` of the visible results.
