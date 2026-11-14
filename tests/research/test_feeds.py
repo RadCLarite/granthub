@@ -13,10 +13,10 @@ ROWS = [
 ]
 
 
-def build(with_research=True, rows=None):
+def build(with_research=True, rows=None, data_as_of="2026-11-10"):
     tmp = tempfile.mkdtemp()
     payload = os.path.join(tmp, "payload.json")
-    json.dump({"data_as_of": "2026-11-10", "agencies": [], "rows": []}, open(payload, "w"))
+    json.dump({"data_as_of": data_as_of, "agencies": [], "rows": []}, open(payload, "w"))
     research = os.path.join(tmp, "research.json")
     json.dump({"as_of": "2026-11-10", "n": len(rows or ROWS), "rows": rows or ROWS}, open(research, "w"))
     out = os.path.join(tmp, "site")
@@ -54,6 +54,11 @@ class FeedsIndexStyle(unittest.TestCase):
 
     def test_feed_and_calendar_links_have_a_44px_tap_target(self):
         self.assertRegex(self.html, r"\.feeds a\s*\{[^}]*min-height:\s*44px")
+
+    def test_data_as_of_reads_as_a_plain_date_when_the_payload_has_a_timestamp(self):
+        html = read(os.path.join(build(data_as_of="2026-11-07T11:00:00-05:00"), "feeds", "index.html"))
+        self.assertIn("Data as of 2026-11-07.", html)
+        self.assertNotIn("T11:00:00", html)
 
     def test_page_loads_nothing_from_other_hosts(self):
         self.assertNotRegex(self.html, r"(src|href)=[\"']https?://")

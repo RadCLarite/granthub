@@ -154,6 +154,6 @@ open(os.path.join(out, "index.html"), "w", encoding="utf-8").write(
     '<meta name="robots" content="noindex, nofollow"><title>Grant feeds</title>'
     f'<style>{INDEX_CSS}</style><script>{INDEX_THEME_JS}</script></head><body><main>'
     '<p class="top"><a href="../">Back to the tool</a></p><h1>Grant feeds by agency</h1>'
-    f'<p>Data as of {x(asof)}. Top-10 open grants per agency. Add a link to a feed reader or calendar app.</p>'
+    f'<p>Data as of {x(asof[:10])}. Top-10 open grants per agency. Add a link to a feed reader or calendar app.</p>'
     f'<ul>{index_items(index, "", "grants")}</ul>{rsec}</main></body></html>')
 print(f"feeds: {len(index)} agencies in {out}")
