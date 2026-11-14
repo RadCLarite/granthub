@@ -309,6 +309,8 @@
     updateMeta('');
     u.out = el('div'); u.out.id = 'rt-results'; u.out.setAttribute('aria-live', 'polite');
     root.appendChild(u.out);
+    var fp = el('p', 'rt-feeds'), fa = el('a', null, 'Calendar and Atom feeds of open research opportunities, by NIH institute');
+    fa.href = 'feeds/'; fp.appendChild(fa); root.appendChild(fp);
     root.appendChild(el('p', 'rt-aid', 'Screening aid. Confirm every date and rule on Grants.gov before you act.'));
     render('Results appear here.');
   }
