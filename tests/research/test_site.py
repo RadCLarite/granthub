@@ -28,5 +28,28 @@ class SiteNoIndex(unittest.TestCase):
             self.assertRegex(head, r'<meta name="robots" content="noindex, nofollow">', p)
 
 
+class ResearcherTabLinksToFeeds(unittest.TestCase):
+    """The feeds exist only at matchmaker/feeds/, so the researcher tab must link to that index."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.out = tempfile.mkdtemp()
+        subprocess.run(["sh", os.path.join(REPO, "app", "build_pages.sh"), cls.out], check=True, capture_output=True)
+
+    def read(self, *p):
+        with open(os.path.join(self.out, *p), encoding="utf-8") as f:
+            return f.read()
+
+    def test_feeds_index_is_in_the_built_site(self):
+        self.assertTrue(os.path.isfile(os.path.join(self.out, "matchmaker", "feeds", "index.html")))
+
+    def test_tab_script_links_to_the_feeds_index_relative_to_matchmaker(self):
+        js = self.read("matchmaker", "research", "research_tab.js")
+        self.assertRegex(js, r"""\.href\s*=\s*['"]feeds/['"]""")
+
+    def test_stylesheet_styles_the_link(self):
+        self.assertIn("#v-research .rt-feeds", self.read("matchmaker", "research", "research.css"))
+
+
 if __name__ == "__main__":
     unittest.main()
