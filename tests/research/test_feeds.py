@@ -30,6 +30,36 @@ def read(path):
     return open(path, encoding="utf-8", newline="").read()
 
 
+class FeedsIndexStyle(unittest.TestCase):
+    """feeds/index.html matches the app: tokens, light and dark, phone width, 44 px link targets."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.html = read(os.path.join(build(), "feeds", "index.html"))
+
+    def test_page_declares_language_and_phone_viewport(self):
+        self.assertRegex(self.html, r"<html lang=\"en\">")
+        self.assertIn('<meta name="viewport" content="width=device-width,initial-scale=1">', self.html)
+
+    def test_colors_are_tokens_with_dark_mode_like_the_app(self):
+        self.assertIn("<style>", self.html)
+        self.assertIn("--accent:#1d5a4c", self.html)
+        self.assertIn("@media (prefers-color-scheme: dark)", self.html)
+        self.assertIn(':root:not([data-theme="light"])', self.html)
+        self.assertIn(':root[data-theme="dark"]', self.html)
+        self.assertRegex(self.html, r"body\s*\{[^}]*background:\s*var\(--paper\)")
+
+    def test_page_follows_the_theme_the_visitor_picked_in_the_app(self):
+        self.assertIn("ffm_theme_v1", self.html)
+
+    def test_feed_and_calendar_links_have_a_44px_tap_target(self):
+        self.assertRegex(self.html, r"\.feeds a\s*\{[^}]*min-height:\s*44px")
+
+    def test_page_loads_nothing_from_other_hosts(self):
+        self.assertNotRegex(self.html, r"(src|href)=[\"']https?://")
+        self.assertNotIn("@import", self.html)
+
+
 class ResearchFeeds(unittest.TestCase):
     def test_row_without_url_links_to_grants_gov_by_id(self):
         rows = [{"id": "360536", "num": "PAR-9", "title": "No stored url", "ic": "CA", "status": "posted", "close": "2026-12-01", "post": "2026-10-01"}]

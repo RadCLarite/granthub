@@ -114,14 +114,46 @@ if len(sys.argv) > 3:
         cal.append("END:VCALENDAR")
         open(os.path.join(rout, gid + ".ics"), "w", encoding="utf-8", newline="").write(CRLF.join(fold(l) for l in cal) + CRLF)
         rindex.append((gid, gname, len(grows), n))
-rli = "".join(f'<li>{x(nm)}: <a href="research/{x(i)}.atom">feed</a> ({k} opportunities), <a href="research/{x(i)}.ics">calendar</a> ({n} deadlines)</li>'
-              for i, nm, k, n in rindex)
-rsec = f'<h2>Researcher feeds</h2><p>Open federal research opportunities by NIH institute.</p><ul>{rli}</ul>' if rindex else ""
+INDEX_TOKENS_DARK = ("--paper:#111a1f;--surface-2:#18242a;--border:#2c3b42;--text-primary:#e8eeec;--text-secondary:#b7c2c0;"
+                     "--accent:#7cc4ad;--accent-soft:#1d3a33;color-scheme:dark")
+# Same tokens and dark-mode switches as tool/matchmaker.html, so the page matches the app. Nothing loads from another host.
+INDEX_CSS = (
+    ':root{--paper:#f6f7f5;--surface-2:#ffffff;--border:#d8ddd8;--text-primary:#16232e;--text-secondary:#46525c;'
+    '--accent:#1d5a4c;--accent-soft:#e2eee9;--radius:10px;color-scheme:light;'
+    '--font:"Public Sans","Helvetica Neue",Arial,sans-serif}'
+    '@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){' + INDEX_TOKENS_DARK + '}}'
+    ':root[data-theme="dark"]{' + INDEX_TOKENS_DARK + '}'
+    'body{margin:0;background:var(--paper);color:var(--text-primary);font:16px/1.5 var(--font)}'
+    'main{max-width:860px;margin:0 auto;padding:12px 16px 32px}'
+    'h1{font-size:1.5rem;line-height:1.25;margin:8px 0}'
+    'h2{font-size:1.2rem;margin:28px 0 4px}'
+    'p{color:var(--text-secondary);margin:6px 0 12px}'
+    'a{color:var(--accent);font-weight:600}'
+    'a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}'
+    '.top a{display:inline-flex;align-items:center;min-height:44px}'
+    'ul{list-style:none;margin:12px 0;padding:0;display:grid;gap:8px}'
+    'li{background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius);padding:8px 14px;overflow-wrap:anywhere}'
+    '.nm{display:block;font-weight:650}'
+    '.feeds{display:flex;flex-wrap:wrap;gap:0 20px}'
+    '.feeds a{display:inline-flex;align-items:center;min-height:44px}'
+)
+INDEX_THEME_JS = ('try{var t=localStorage.getItem("ffm_theme_v1");'
+                  'if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}')
 
-li = "".join(f'<li>{x(nm)}: <a href="{x(i)}.atom">feed</a> ({k} grants), <a href="{x(i)}.ics">calendar</a> ({n} deadlines)</li>'
-             for i, nm, k, n in index)
+
+def index_items(rows, prefix, noun):
+    return "".join(f'<li><span class="nm">{x(nm)}</span><span class="feeds">'
+                   f'<a href="{prefix}{x(i)}.atom">Feed ({k} {noun})</a><a href="{prefix}{x(i)}.ics">Calendar ({n} deadlines)</a></span></li>'
+                   for i, nm, k, n in rows)
+
+
+rsec = (f'<h2>Researcher feeds</h2><p>Open federal research opportunities by NIH institute.</p>'
+        f'<ul>{index_items(rindex, "research/", "opportunities")}</ul>') if rindex else ""
 open(os.path.join(out, "index.html"), "w", encoding="utf-8").write(
-    '<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex, nofollow">'
-    f'<title>Grant feeds</title><h1>Grant feeds by agency</h1><p>Data as of {x(asof)}. Top-10 open grants per agency. '
-    f'Add a link to a feed reader or calendar app. <a href="../">Back to the tool</a>.</p><ul>{li}</ul>{rsec}')
+    '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
+    '<meta name="robots" content="noindex, nofollow"><title>Grant feeds</title>'
+    f'<style>{INDEX_CSS}</style><script>{INDEX_THEME_JS}</script></head><body><main>'
+    '<p class="top"><a href="../">Back to the tool</a></p><h1>Grant feeds by agency</h1>'
+    f'<p>Data as of {x(asof)}. Top-10 open grants per agency. Add a link to a feed reader or calendar app.</p>'
+    f'<ul>{index_items(index, "", "grants")}</ul>{rsec}</main></body></html>')
 print(f"feeds: {len(index)} agencies in {out}")
