@@ -13,10 +13,10 @@ ROWS = [
 ]
 
 
-def build(with_research=True, rows=None, data_as_of="2026-11-10"):
+def build(with_research=True, rows=None, data_as_of="2026-11-10", agencies=None):
     tmp = tempfile.mkdtemp()
     payload = os.path.join(tmp, "payload.json")
-    json.dump({"data_as_of": data_as_of, "agencies": [], "rows": []}, open(payload, "w"))
+    json.dump({"data_as_of": data_as_of, "agencies": agencies or [], "rows": []}, open(payload, "w"))
     research = os.path.join(tmp, "research.json")
     json.dump({"as_of": "2026-11-10", "n": len(rows or ROWS), "rows": rows or ROWS}, open(research, "w"))
     out = os.path.join(tmp, "site")
@@ -59,6 +59,13 @@ class FeedsIndexStyle(unittest.TestCase):
         html = read(os.path.join(build(data_as_of="2026-11-07T11:00:00-05:00"), "feeds", "index.html"))
         self.assertIn("Data as of 2026-11-07.", html)
         self.assertNotIn("T11:00:00", html)
+
+    def test_agency_atom_subtitle_reads_as_a_plain_date_and_updated_keeps_the_timestamp(self):
+        out = build(data_as_of="2026-11-07T11:00:00-05:00", agencies=[{"agency_id": "dpi", "agency_name": "Public Schools"}])
+        feed = minidom.parse(os.path.join(out, "feeds", "dpi.atom")).documentElement
+        sub = feed.getElementsByTagName("subtitle")[0].firstChild.data
+        self.assertEqual(sub, "Data as of 2026-11-07. Screening aid; confirm on Grants.gov.")
+        self.assertEqual(feed.getElementsByTagName("updated")[0].firstChild.data, "2026-11-07T11:00:00-05:00")
 
     def test_page_loads_nothing_from_other_hosts(self):
         self.assertNotRegex(self.html, r"(src|href)=[\"']https?://")

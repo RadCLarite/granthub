@@ -54,7 +54,7 @@ for a in p["agencies"]:
     feed = ('<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom">'
             f'<title>{x(a["agency_name"])}: top open federal grants</title>'
             f'<id>tag:ffm,{x(aid)}</id><updated>{x(upd)}</updated><link href="{x(SITE)}"/>'
-            f'<subtitle>Data as of {x(asof)}. Screening aid; confirm on Grants.gov.</subtitle>' + "".join(ent) + "</feed>")
+            f'<subtitle>Data as of {x(asof[:10])}. Screening aid; confirm on Grants.gov.</subtitle>' + "".join(ent) + "</feed>")
     open(os.path.join(out, aid + ".atom"), "w", encoding="utf-8").write(feed)
 
     cal = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//FFM//EN", "CALSCALE:GREGORIAN",
